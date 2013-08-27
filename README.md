@@ -1,10 +1,6 @@
 # Our Boxen
 
-This is a template Boxen project designed for your organization to fork and
-modify appropriately.
-The Boxen rubygem and the Boxen puppet modules are only a framework for getting
-things done.
-This repository template is just a basic example of _how_ to do things with them.
+Welcome to daptiv osx setup, please pull this repo and follow the getting started instructions
 
 ## Getting Started
 
