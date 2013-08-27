@@ -1,7 +1,9 @@
-# Install fish
-include fish
+class projects::fish {
+    # Install fish
+    include fish
 
-# Install fish, and set it as default!!!
-class { 'fish':
-  chsh => true,
+    # Install fish, and set it as default!!!
+    class { 'fish':
+      chsh => true,
+    }
 }
