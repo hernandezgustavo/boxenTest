@@ -61,8 +61,20 @@ node default {
   # node versions
   include nodejs::v0_10
 
+  nodejs::global {
+    version => 'v0.10'
+  }
+
+  nodejs::module { 'grunt-cli':
+    node_version => 'v0.10'
+  }
+
   # default ruby versions
+
   include ruby::1_9_3
+  ruby::global {
+    version => '1.9.3'
+  }
 
   # common, useful packages
   package {
