@@ -61,7 +61,7 @@ node default {
   # node versions
   include nodejs::v0_10
 
-  nodejs::global {
+  class {'nodejs::global': {
     version => 'v0.10'
   }
 
@@ -72,7 +72,7 @@ node default {
   # default ruby versions
 
   include ruby::1_9_3
-  ruby::global {
+  class {'ruby::global':
     version => '1.9.3'
   }
 
