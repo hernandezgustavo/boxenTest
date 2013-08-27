@@ -1,4 +1,4 @@
-class projects::fish {
+class projects::fishShell {
     # Install fish
     include fish
 
