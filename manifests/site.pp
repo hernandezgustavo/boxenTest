@@ -96,4 +96,5 @@ node default {
   }
 
   include daptiv::dotFiles
+  include daptiv::git
 }
