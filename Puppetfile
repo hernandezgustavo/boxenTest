@@ -36,5 +36,6 @@ github "xquartz",    "1.1.0"
 
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
+github "phantomjs",  "2.0.2"
 github "osx",        "1.6.0"
 github "fish",       "1.0.0"

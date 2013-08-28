@@ -58,29 +58,6 @@ node default {
   include hub
   include nginx
 
-  # node versions
-  include nodejs::v0_10
-
-  class {'nodejs::global':
-    version => 'v0.10'
-  }
-
-  nodejs::module { 'grunt-cli':
-    node_version => 'v0.10'
-  }
-
-  # default ruby versions
-
-  include ruby::1_9_3
-  class {'ruby::global':
-    version => '1.9.3'
-  }
-
-  ruby::gem { "bundler for ${version}":
-    gem     => 'bundler',
-    ruby    => $version
-  }
-
   # common, useful packages
   package {
     [
@@ -97,4 +74,7 @@ node default {
 
   include daptiv::dotFiles
   include daptiv::git
+  include daptiv::phantomjs
+  include daptiv::nodejs
+  include daptiv::ruby
 }
