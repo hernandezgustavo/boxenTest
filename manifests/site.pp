@@ -76,6 +76,11 @@ node default {
     version => '1.9.3'
   }
 
+  ruby::gem { "bundler for ${version}":
+    gem     => 'bundler',
+    ruby    => $version
+  }
+
   # common, useful packages
   package {
     [
@@ -89,4 +94,6 @@ node default {
     ensure => link,
     target => $boxen::config::repodir
   }
+
+  include daptiv::dotFiles
 }
