@@ -1,7 +1,8 @@
 class people::park9140 {
   include daptiv::fishShell
 
-  include projects::spa
+  include projects::ppmspa
+  include projects::devdashboard
 
   $home = "/Users/${::boxen_user}"
   $dotfiles_dir = "${$boxen::config::repodir}/dotfiles"
