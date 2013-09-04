@@ -5,15 +5,13 @@ class people::park9140 {
   include projects::ppmspa
   include projects::devdashboard
 
-  $dotfiles_dir = "${$boxen::config::repodir}/dotfiles"
-
   file { [ "${home}/.config/", "${home}/.config/fish/" ]:
       ensure => "directory",
   }
 
   file { "${home}/.config/fish/personal.fish":
     ensure  => link,
-    target  => "puppet://people/park9140/personal.fish",
+    target  => "${$boxen::config::repodir}/modules/people/park9140/personal.fish",
     subscribe => File["${home}/.config/fish/"]
   }
 
