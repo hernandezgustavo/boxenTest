@@ -22,6 +22,6 @@ function processExport
     eval set -xg '$var' $value
 end
 
-for env in (bash -c "source ~/.bash_profile; ENV")
+for env in (bash -c "source ~/.bashrc; ENV")
     processExport $env
 end

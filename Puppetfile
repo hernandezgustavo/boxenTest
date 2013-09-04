@@ -40,3 +40,5 @@ github "phantomjs",  "2.0.2"
 github "osx",        "1.6.0"
 github "fish",       "1.0.0"
 github "mongodb",    "1.0.4"
+
+github "sublime_text_2", "1.1.2"
