@@ -1,6 +1,11 @@
 class people::johnemau {
   include daptiv::fishShell
-  include projects::spa
+  include daptiv::sublime
+  include daptiv::rdp
+
+  include projects::ppm
+  include projects::ppmspa
+  include projects::devdashboard
 
   $home = "/Users/${::boxen_user}"
   $dotfiles_dir = "${$boxen::config::repodir}/dotfiles"
