@@ -1,7 +1,10 @@
 class people::park9140 {
   include daptiv::fishShell
   include daptiv::sublime
+  include daptiv::rdp
   
+  include projects::ppm
+  include projects::chefclient
   include projects::ppmspa
   include projects::devdashboard
 
