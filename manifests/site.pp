@@ -2,6 +2,11 @@ require boxen::environment
 require homebrew
 require gcc
 
+File {
+  group => $boxen_group,
+  owner => $boxen_user
+}
+
 Exec {
   group       => $boxen_group,
   logoutput   => on_failure,
@@ -24,10 +29,6 @@ Exec {
   ]
 }
 
-File {
-  group => $boxen_group,
-  owner => $boxen_user
-}
 
 Package {
   provider => homebrew,
