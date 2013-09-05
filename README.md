@@ -4,18 +4,26 @@ Welcome to daptiv osx setup, please pull this repo and follow the getting starte
 
 ## Getting Started
 
+#### If you are using OSX Lion 10.7 THIS DOESNT WORK!!!
+
+#### Install Xcode
 1. Install Xcode from the Mac App Store.
 1. Open Xcode.
 1. Open the Preferences window (`Cmd-,`).
 1. Go to the Downloads tab.
 1. Install the Command Line Tools.
+
+#### Create system rsa key and add it to github
 1. run ssh-keygen at command line to generate your rsa key
 1. `cat ~/.ssh/idrsa.pub` and add this key to github
-1. Go to https://daptiv-boxen.herokuapp.com/ authenticate and run the given command
-1. Users that are domain bound will have a slight bump in the road here as you will need to chown the the `/opt/boxen` folder to your user and group in order to continue the installation
-To do this type `sudo chown -R [yourusername]:HQ\\Domain\ Users /opt/boxen`, after which re run the command given on the web site and you should be good. If you have an epiphany on how this could be resolved more smoothly fix it and update the readme.
-1. From this point on just run boxen to get updates or any changes to your personal profile.
 
+#### Add staff group to your user if and only if (aka your user group when you `ls -al` in your home directory is `HQ\Domain User`)
+1. very important step for domain bound users run this command to add yourself to the `staff` group
+    `sudo dseditgroup -o edit -a [your username] -t user staff`
+
+#### You are ready hit the button and follow instructions
+1. Go to https://daptiv-boxen.herokuapp.com/ authenticate and run the given command
+1. From this point on just run boxen to get updates or any changes to your personal profile.
 
 ## Configuration
 As of the first boxen run you will have a `~/src/our-boxen` repository already set up, however you will not have any included projects. You will at this point want to set up your personal boxen people file which will hold your personal setttings for what you wish to be installed on your box.  
