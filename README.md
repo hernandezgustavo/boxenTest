@@ -6,6 +6,10 @@ Welcome to daptiv osx setup, please pull this repo and follow the getting starte
 
 #### If you are using OSX Lion 10.7 THIS DOESNT WORK!!!
 
+#### Previously bootstrapped machines should uninstall mac ports
+
+http://guide.macports.org/#installing.macports.uninstalling
+
 #### Install Xcode
 1. Install Xcode from the Mac App Store.
 1. Open Xcode.
