@@ -85,6 +85,11 @@ node default {
     path => '/etc/profile', 
   }
 
+  file_line { 'localhost_daptiv_com': 
+    line => '127.0.0.1 localhost.daptiv.com', 
+    path => '/etc/hosts', 
+  }
+
   include daptiv::dotFiles
   include daptiv::git
   include daptiv::phantomjs
