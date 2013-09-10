@@ -1,4 +1,6 @@
-class people::park9140 {
+# Replace name of all the "default" with your github username
+# if you have a dash (-) in your username use an underscore (_) instead
+class people::default {
   
   #install windows remote desktop
   include daptiv::rdp

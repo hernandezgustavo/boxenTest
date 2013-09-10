@@ -44,3 +44,5 @@ github "vagrant",    "2.0.5"
 
 github "sublime_text_2", "1.1.2"
 github "virtualbox", "1.0.5"
+github "iterm2",    "1.0.3"
+github "chrome",    "1.1.1"
