@@ -1,7 +1,8 @@
-class people::park9140 {
+class people::aschmitt_daptiv {
   
   #install windows remote desktop
   include daptiv::rdp
+  include daptiv::sublime
 
   #add projects chefclient, ppm, ppmspa and dev dashboard
   include projects::ppm
@@ -24,16 +25,16 @@ class people::park9140 {
   $home = "/Users/${::boxen_user}"
   file { "${home}/.bash_profile":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/aschmitt-daptiv/.bash_profile"
+    target  => "${$boxen::config::repodir}/modules/people/files/aschmitt_daptiv/.bash_profile"
   }
 
   file { "${home}/.git-completion.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/aschmitt-daptiv/git-completion.sh"
+    target  => "${$boxen::config::repodir}/modules/people/files/aschmitt_daptiv/git-completion.sh"
   }
 
   file { "${home}/.git-prompt.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/aschmitt-daptiv/git-prompt.sh"
+    target  => "${$boxen::config::repodir}/modules/people/files/aschmitt_daptiv/git-prompt.sh"
   }
 }
