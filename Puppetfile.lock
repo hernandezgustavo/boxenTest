@@ -9,6 +9,11 @@ GITHUBTARBALL
     boxen (3.0.2)
 
 GITHUBTARBALL
+  remote: boxen/puppet-chrome
+  specs:
+    chrome (1.1.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-dnsmasq
   specs:
     dnsmasq (1.0.0)
@@ -37,6 +42,11 @@ GITHUBTARBALL
   remote: boxen/puppet-hub
   specs:
     hub (1.0.3)
+
+GITHUBTARBALL
+  remote: boxen/puppet-iterm2
+  specs:
+    iterm2 (1.0.3)
 
 GITHUBTARBALL
   remote: boxen/puppet-mongodb
@@ -116,6 +126,7 @@ GITHUBTARBALL
 DEPENDENCIES
   autoconf (= 1.0.0)
   boxen (= 3.0.2)
+  chrome (= 1.1.1)
   dnsmasq (= 1.0.0)
   fish (= 1.0.0)
   gcc (= 2.0.1)
@@ -123,6 +134,7 @@ DEPENDENCIES
   homebrew (= 1.4.1)
   hub (= 1.0.3)
   inifile (= 1.0.0)
+  iterm2 (= 1.0.3)
   mongodb (= 1.0.4)
   nginx (= 1.4.2)
   nodejs (= 3.2.9)
