@@ -19,7 +19,7 @@ http://guide.macports.org/#installing.macports.uninstalling
 
 #### Create system rsa key and add it to github
 1. run [ssh-keygen](https://help.github.com/articles/generating-ssh-keys) at command line to generate your rsa key
-1. `cat ~/.ssh/id_rsa.pub` and add this key to github
+1. `pbcopy < ~/.ssh/id_rsa.pub` and add this key to github
 
 #### Add staff group to your user if and only if (aka your user group when you `ls -al` in your home directory is `HQ\Domain User`)
 1. very important step for domain bound users run this command to add yourself to the `staff` group
