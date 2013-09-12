@@ -1,6 +1,13 @@
 class people::park9140 {
   include daptiv::fishShell
+  
   include daptiv::sublime
+
+  #used to share editing at floobits.com
+  sublime_text_2::package { 'Floobits':
+    source => 'Floobits/floobits-sublime'
+  }
+
   include daptiv::rdp
   include chrome
   include chrome::canary
@@ -28,7 +35,6 @@ class people::park9140 {
   git::config::global { 'user.name':
     value  => 'Jonathan Park'
   }
-
 
   $home = "/Users/${::boxen_user}"
   file { "${home}/.bash_profile":
