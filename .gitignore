@@ -3,7 +3,7 @@
 /.projects
 /.snapshot
 /.tmp
-/.idea/*
+/.idea
 /bin
 /config/local.rb
 /log
