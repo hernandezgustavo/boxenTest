@@ -40,7 +40,7 @@ github "phantomjs",  "2.0.2"
 github "osx",        "1.6.0"
 github "fish",       "1.0.0"
 github "mongodb",    "1.0.4"
-github "vagrant",    "2.0.5"
+github "vagrant",    "2.0.7"
 
 github "sublime_text_2", "1.1.2"
 github "sublime_text_3", "1.0.0", :repo => "jozefizso/puppet-sublime_text_3"
