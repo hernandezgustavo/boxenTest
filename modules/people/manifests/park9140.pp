@@ -12,13 +12,11 @@ class people::park9140 {
   include projects::ppmspa
   include projects::devdashboard
 
-  file { [ "${home}/.config/", "${home}/.config/fish/" ]:
-      ensure => "directory",
-  }
+  $home = "/Users/${::boxen_user}"
 
   file { "${home}/.config/fish/personal.fish":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/park9140/personal.fish",
+    target  => "${$boxen::config::repodir}/modules/people/files/park9140/personal.fish",
     subscribe => File["${home}/.config/fish/"]
   }
 
@@ -30,7 +28,6 @@ class people::park9140 {
   }
 
 
-  $home = "/Users/${::boxen_user}"
   file { "${home}/.bash_profile":
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/park9140/.bash_profile"

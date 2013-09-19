@@ -3,9 +3,7 @@ set -x LSCOLORS GxFxCxDxBxegedabagaced
 set -x PATH ~/bin $PATH
 
 . ~/.config/fish/prompt.fish
-if test -e ~/.comfig/fish/personal.fish
-    . ~/.comfig/fish/personal.fish
-end
+
 
 ## LOAD BASH ENVIRONMENT
 function processExport 
@@ -24,4 +22,8 @@ end
 
 for env in (bash -c "source ~/.bashrc; ENV")
     processExport $env
+end
+
+if [ ~/.config/fish/personal.fish ]
+    . ~/.config/fish/personal.fish
 end
