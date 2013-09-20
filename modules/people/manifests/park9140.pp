@@ -1,12 +1,13 @@
 class people::park9140 {
   include daptiv::fishShell
   include daptiv::sublime3
+
   include daptiv::rdp
   include chrome
   include chrome::canary
 
   include iterm2::dev
-  
+
   include projects::ppm
   include projects::chefclient
   include projects::ppmspa
@@ -26,7 +27,6 @@ class people::park9140 {
   git::config::global { 'user.name':
     value  => 'Jonathan Park'
   }
-
 
   file { "${home}/.bash_profile":
     ensure  => link,
@@ -57,7 +57,7 @@ class people::park9140 {
     ensure  => link,
     target  => "${home}/src/sublimeconfig/SublimeLinter.sublime-settings"
   }
-  
+
 #used to share editing at floobits.com
   sublime_text_3::package { 'Floobits':
     source => 'Floobits/floobits-sublime'
