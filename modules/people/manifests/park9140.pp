@@ -77,5 +77,21 @@ class people::park9140 {
   sublime_text_3::package { 'ts3':
     source => 'Railk/T3S'
   }
+  sublime_text_3::package { 'sublime-grunt':
+    source => 'tvooo/sublime-grunt'
+  }
+
+  #hosts update
+  file_line { 'ppm_hosts_ppmspa_remove':
+    line => '192.168.56.101 devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com localvm.daptiv.com',
+    path => '/etc/hosts',
+    ensure => 'absent',
+    subscribe => File_Line['ppm_hosts_ppmspa']
+  }
+  file_line { 'ppm_hosts_ppmspa_park9140':
+    line => '192.168.56.130 devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com localvm.daptiv.com',
+    path => '/etc/hosts',
+    subscribe => File_Line['ppm_hosts_ppmspa_remove']
+  }
 }
 
