@@ -22,4 +22,4 @@
 # ENV["BOXEN_GITHUB_ENTERPRISE_URL"] = 'https://github.yourdomain.com'
 
 # required for Github Enterprise (defaults to "https://github.com/%s")
-# ENV['BOXEN_REPO_URL_TEMPLATE'] = 'https://github.yourdomain.com/%s'
+ENV['BOXEN_REPO_URL_TEMPLATE'] = 'git@github.com:%s'

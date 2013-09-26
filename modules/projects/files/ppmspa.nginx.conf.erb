@@ -26,18 +26,10 @@ server {
     alias <%= scope.lookupvar "boxen::config::srcdir" %>/<%= @name %>/output/package/;
   }
 
-  location /_api/ {
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header Host $http_host;
-    proxy_redirect off;
-    rewrite /_api/(.*) /$1 break;
-    proxy_pass http://localvm.daptiv.com:9092;
-  }
-
   location / {
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header Host $http_host;
     proxy_redirect off;
-    proxy_pass http://localvm.daptiv.com:9091;
+    proxy_pass http://localvm.daptiv.com:80;
   }
 }

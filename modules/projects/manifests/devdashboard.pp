@@ -3,6 +3,6 @@ class projects::devdashboard {
   boxen::project { 'DevDashboard':
     mongodb       => true,
     nginx         => "${boxen::config::repodir}/modules/projects/files/devdashboard.nginx.conf.erb",
-    source        => 'daptiv/DevDashboard'
+    source        => 'git@github.com:daptiv/DevDashboard'
   }
 }
