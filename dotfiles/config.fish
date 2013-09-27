@@ -4,6 +4,7 @@ set -x PATH ~/bin $PATH
 
 . ~/.config/fish/prompt.fish
 
+ulimit -n 3000
 
 ## LOAD BASH ENVIRONMENT
 function processExport 
