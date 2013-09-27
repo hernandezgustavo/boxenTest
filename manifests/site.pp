@@ -86,9 +86,25 @@ node default {
     path => '/etc/profile', 
   }
 
+  file_line { 'increase_ulimit': 
+    line => 'ulimit -n 3000', 
+    path => '/etc/profile', 
+  }
+
   file_line { 'localhost_daptiv_com': 
     line => '127.0.0.1 localhost.daptiv.com', 
     path => '/etc/hosts', 
+  }
+
+  exec { 'killall Finder':
+    refreshonly => true
+  }
+  boxen::osx_defaults { 'show hidden files':
+    user   => $::boxen_user,
+    key    => 'AppleShowAllFiles',
+    domain => 'com.apple.Finder',
+    value  => true,
+    notify => Exec["killall Finder"]
   }
 
   include daptiv::dotFiles

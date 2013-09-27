@@ -58,6 +58,7 @@ class people::park9140 {
     target  => "${home}/src/sublimeconfig/SublimeLinter.sublime-settings"
   }
 
+
 #used to share editing at floobits.com
   sublime_text_3::package { 'Floobits':
     source => 'git@github.com:Floobits/floobits-sublime'
