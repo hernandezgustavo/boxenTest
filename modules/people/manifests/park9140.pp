@@ -75,7 +75,7 @@ class people::park9140 {
   sublime_text_3::package { 'emmet-sublime':
     source => 'git@github.com:sergeche/emmet-sublime'
   }
-  sublime_text_3::package { 'ts3':
+  sublime_text_3::package { 'T3S':
     source => 'git@github.com:Railk/T3S'
   }
   sublime_text_3::package { 'sublime-grunt':
