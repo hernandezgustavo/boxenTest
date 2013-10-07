@@ -44,7 +44,7 @@ class people::park9140 {
   }
   repository{
     'my sublime config':
-      source   => 'park9140/sublimeconfig', #short hand for github repos
+      source   => 'git@github.com:park9140/sublimeconfig', #short hand for github repos
       provider => 'git',
       path => "${home}/src/sublimeconfig",
       force => true
@@ -58,27 +58,28 @@ class people::park9140 {
     target  => "${home}/src/sublimeconfig/SublimeLinter.sublime-settings"
   }
 
+
 #used to share editing at floobits.com
   sublime_text_3::package { 'Floobits':
-    source => 'Floobits/floobits-sublime'
+    source => 'git@github.com:Floobits/floobits-sublime'
   }
   sublime_text_3::package { 'Wombat Theme':
-    source => 'sheerun/sublime-wombat-theme'
+    source => 'git@github.com:sheerun/sublime-wombat-theme'
   }
   sublime_text_3::package { 'BracketHighlighter':
-    source => 'facelessuser/BracketHighlighter'
+    source => 'git@github.com:facelessuser/BracketHighlighter'
   }
   sublime_text_3::package { 'sublime-jsdocs':
-    source => 'spadgos/sublime-jsdocs'
+    source => 'git@github.com:spadgos/sublime-jsdocs'
   }
   sublime_text_3::package { 'emmet-sublime':
-    source => 'sergeche/emmet-sublime'
+    source => 'git@github.com:sergeche/emmet-sublime'
   }
   sublime_text_3::package { 'ts3':
-    source => 'Railk/T3S'
+    source => 'git@github.com:Railk/T3S'
   }
   sublime_text_3::package { 'sublime-grunt':
-    source => 'tvooo/sublime-grunt'
+    source => 'git@github.com:tvooo/sublime-grunt'
   }
 
   #hosts update

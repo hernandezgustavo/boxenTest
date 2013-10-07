@@ -22,6 +22,6 @@ class projects::ppmspa {
 
   boxen::project { 'PpmSpa':
     nginx         => "${boxen::config::repodir}/modules/projects/files/ppmspa.nginx.conf.erb",
-    source        => 'daptiv/PpmSpa'
+    source        => 'git@github.com:daptiv/PpmSpa'
   }
 }

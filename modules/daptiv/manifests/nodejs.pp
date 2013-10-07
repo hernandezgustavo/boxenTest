@@ -7,6 +7,7 @@ class daptiv::nodejs {
   }
 
   nodejs::module { 'grunt-cli':
-    node_version => 'v0.10'
+    node_version => 'v0.10',
+    ensure => '0.1.9'
   }
 }

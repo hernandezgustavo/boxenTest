@@ -29,10 +29,20 @@ http://guide.macports.org/#installing.macports.uninstalling
 1. Go to https://daptiv-boxen.herokuapp.com/ authenticate and run the given command
 1. From this point on just run boxen to get updates or any changes to your personal profile.
 
-## Configuration
+## Configuration  (VERY IMPORTANT EVERYONE SHOULD DO THIS)
 As of the first boxen run you will have a `~/src/our-boxen` repository already set up, however you will not have any included projects. You will at this point want to set up your personal boxen people file which will hold your personal setttings for what you wish to be installed on your box.  
 
 The `modules/people/manifests` folder contains your personal manifest files which are automatically added based on your github username.  An example default.pp file exists with a sampling of common configurations that you will want to match.  The most important things here are to include any projects you are working on and personalize your bash profile.
+
+To get started run the following
+
+```
+ cd ~/src/our-boxen/modules/people
+ cp files/default files/$BOXEN_GITHUB_LOGIN
+ cp manifests/default.pp files/$BOXEN_GITHUB_LOGIN.pp
+ cat manifests/default.pp | sed 's|default|$BOXEN_GITHUB_LOGIN|g' > manifests/$BOXEN_GITHUB_LOGIN.pp
+```
+
 
 ###Optional Tools
 
