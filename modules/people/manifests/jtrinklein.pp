@@ -1,4 +1,4 @@
-class people::park9140 {
+class people::jtrinklein {
   include daptiv::fishShell
   include daptiv::sublime3
 

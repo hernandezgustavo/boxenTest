@@ -7,3 +7,9 @@ function fish_prompt
 	set_color normal
 	echo -n ' » '
 end
+
+alias gs='git status'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gc='git commit'
+
