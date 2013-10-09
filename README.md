@@ -37,9 +37,13 @@ The `modules/people/manifests` folder contains your personal manifest files whic
 To get started run the following
 
 ```
- cd ~/src/our-boxen/modules/people
+ cd ~/src/our-boxen
+ git checkout -b $BOXEN_GITHUB_LOGIN
+ cd modules/people
  cp -R files/default files/$BOXEN_GITHUB_LOGIN
  cat manifests/default.pp | sed 's|default|'$BOXEN_GITHUB_LOGIN'|g' > manifests/$BOXEN_GITHUB_LOGIN.pp
+ git commit -am '$BOXEN_GITHUB_LOGIN personal files'
+ git push origin $BOXEN_GITHUB_LOGIN
  boxen
  bash
 ```
@@ -50,6 +54,22 @@ To get started run the following
 `include daptiv::fishShell` will add a base fish shell configured with a common base setup refer to park9140 people config for options or talk to Jonathan Park for support
 
 `include daptiv::sublime` will install sublime text 2, sublime linter plugin, and configure subl command line alias to run sublime text from the command line.
+
+#### Remember: if you add or remove any optional tools from your people files, commit the changes!
+
+### Get your personal changes in master
+
+If you continue to run boxen without doing this you'll get a nice little error message that boxen is not in the master branch. Let's fix this! Follow these steps to get your changes into master:
+ 1. Commit any changes you have pending.
+ 2. Push any pending commits up to your branch.
+ 3. Open a pull request and get it pulled into master.
+ 4. Open a terminal window and run:
+
+```
+ cd ~/src/our-boxen
+ git checkout master
+ git pull
+```
 
 ### Dependencies
 
