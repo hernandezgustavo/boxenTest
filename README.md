@@ -38,9 +38,10 @@ To get started run the following
 
 ```
  cd ~/src/our-boxen/modules/people
- cp files/default files/$BOXEN_GITHUB_LOGIN
- cp manifests/default.pp files/$BOXEN_GITHUB_LOGIN.pp
- cat manifests/default.pp | sed 's|default|$BOXEN_GITHUB_LOGIN|g' > manifests/$BOXEN_GITHUB_LOGIN.pp
+ cp -R files/default files/$BOXEN_GITHUB_LOGIN
+ cat manifests/default.pp | sed 's|default|'$BOXEN_GITHUB_LOGIN'|g' > manifests/$BOXEN_GITHUB_LOGIN.pp
+ boxen
+ bash
 ```
 
 
