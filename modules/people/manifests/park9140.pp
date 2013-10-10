@@ -90,7 +90,7 @@ class people::park9140 {
     subscribe => File_Line['ppm_hosts_ppmspa']
   }
   file_line { 'ppm_hosts_ppmspa_park9140':
-    line => '192.168.56.130 devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com localvm.daptiv.com',
+    line => '192.168.57.130 devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com localvm.daptiv.com',
     path => '/etc/hosts',
     subscribe => File_Line['ppm_hosts_ppmspa_remove']
   }
