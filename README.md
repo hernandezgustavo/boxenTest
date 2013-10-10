@@ -42,6 +42,7 @@ To get started run the following
  cd modules/people
  cp -R files/default files/$BOXEN_GITHUB_LOGIN
  cat manifests/default.pp | sed 's|default|'$BOXEN_GITHUB_LOGIN'|g' > manifests/$BOXEN_GITHUB_LOGIN.pp
+ git add -A
  git commit -am '$BOXEN_GITHUB_LOGIN personal files'
  git push origin $BOXEN_GITHUB_LOGIN
  boxen
