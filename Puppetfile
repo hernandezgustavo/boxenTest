@@ -41,6 +41,7 @@ github "osx",        "1.6.0"
 github "fish",       "1.0.0"
 github "mongodb",    "1.0.4"
 github "vagrant",    "2.0.7"
+github "webstorm",   "1.1.2", :repo => "chrisbobo/puppet-webstorm"
 
 github "sublime_text_2", "1.1.2"
 github "sublime_text_3", "1.0.1", :repo => "jozefizso/puppet-sublime_text_3"
