@@ -128,6 +128,11 @@ GITHUBTARBALL
   specs:
     stdlib (4.1.0)
 
+GITHUBTARBALL
+  remote: chrisbobo/puppet-webstorm
+  specs:
+    webstorm_7 (#6599c6bac660241fc630b4adab6c99e7dcf42c2a)
+
 DEPENDENCIES
   autoconf (= 1.0.0)
   boxen (= 3.0.2)
@@ -154,5 +159,6 @@ DEPENDENCIES
   sudo (= 1.0.0)
   vagrant (= 2.0.7)
   virtualbox (= 1.0.5)
+  webstorm_7 (= #6599c6bac660241fc630b4adab6c99e7dcf42c2a)
   xquartz (= 1.1.0)
 
