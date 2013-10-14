@@ -13,6 +13,8 @@ class people::chrisbobo {
   include projects::ppmspa
   include projects::devdashboard
 
+  include webstorm_7
+
  $home = "/Users/${::boxen_user}"
 
   file { "${home}/.config/fish/personal.fish":
