@@ -13,9 +13,9 @@ class people::chrisbobo {
   include projects::ppmspa
   include projects::devdashboard
 
-  include webstorm_7
+  include webstorm
 
- $home = "/Users/${::boxen_user}"
+  $home = "/Users/${::boxen_user}"
 
   file { "${home}/.config/fish/personal.fish":
     ensure  => link,
