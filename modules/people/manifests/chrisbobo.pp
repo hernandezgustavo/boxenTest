@@ -23,6 +23,8 @@ class people::chrisbobo {
     subscribe => File["${home}/.config/fish/"]
   }
 
+  include daptiv::git::sharedAliases
+
   git::config::global { 'user.email':
     value  => 'chrisbobo@gmail.com'
   }
