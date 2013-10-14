@@ -94,5 +94,11 @@ class people::park9140 {
     path => '/etc/hosts',
     subscribe => File_Line['ppm_hosts_ppmspa_remove']
   }
+
+
+  nodejs::module { 'typescript-tools':
+    node_version => 'v0.10',
+    ensure => '0.2.2-1'
+  }
 }
 
