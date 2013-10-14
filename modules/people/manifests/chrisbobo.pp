@@ -13,13 +13,17 @@ class people::chrisbobo {
   include projects::ppmspa
   include projects::devdashboard
 
- $home = "/Users/${::boxen_user}"
+  include webstorm
+
+  $home = "/Users/${::boxen_user}"
 
   file { "${home}/.config/fish/personal.fish":
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/chrisbobo/personal.fish",
     subscribe => File["${home}/.config/fish/"]
   }
+
+  include daptiv::git::sharedAliases
 
   git::config::global { 'user.email':
     value  => 'chrisbobo@gmail.com'
