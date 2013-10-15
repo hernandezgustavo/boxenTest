@@ -66,7 +66,7 @@ class people::jacobboland {
   sublime_text_3::package { 'emmet-sublime':
     source => 'sergeche/emmet-sublime'
   }
-  sublime_text_3::package { 'ts3':
+  sublime_text_3::package { 'T3S':
     source => 'Railk/T3S'
   }
 }

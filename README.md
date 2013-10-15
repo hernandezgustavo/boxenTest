@@ -4,9 +4,9 @@ Welcome to daptiv osx setup, please pull this repo and follow the getting starte
 
 ## Getting Started
 
-#### If you are using OSX Lion 10.7 THIS DOESNT WORK!!!
+#### If you are using OSX Lion 10.7 THIS DOESN'T WORK!!!
 
-#### Previously bootstrapped machines should uninstall mac ports
+#### Previously bootstrapped machines should uninstall macports
 
 http://guide.macports.org/#installing.macports.uninstalling
 
@@ -30,17 +30,23 @@ http://guide.macports.org/#installing.macports.uninstalling
 1. From this point on just run boxen to get updates or any changes to your personal profile.
 
 ## Configuration  (VERY IMPORTANT EVERYONE SHOULD DO THIS)
-As of the first boxen run you will have a `~/src/our-boxen` repository already set up, however you will not have any included projects. You will at this point want to set up your personal boxen people file which will hold your personal setttings for what you wish to be installed on your box.  
+As of the first boxen run you will have a `~/src/our-boxen` repository already set up, however you will not have any included projects. You will at this point want to set up your personal boxen people file which will hold your personal settings for what you wish to be installed on your box.
 
-The `modules/people/manifests` folder contains your personal manifest files which are automatically added based on your github username.  An example default.pp file exists with a sampling of common configurations that you will want to match.  The most important things here are to include any projects you are working on and personalize your bash profile.
+The `modules/people/manifests` folder contains your personal manifest files which are automatically added based on your github username.  An example default.pp file exists with a sampling of common configurations that you will want to match.  The most important things here are to include any projects you are working on and personalize your bash_profile.
 
 To get started run the following
 
 ```
- cd ~/src/our-boxen/modules/people
- cp files/default files/$BOXEN_GITHUB_LOGIN
- cp manifests/default.pp files/$BOXEN_GITHUB_LOGIN.pp
- cat manifests/default.pp | sed 's|default|$BOXEN_GITHUB_LOGIN|g' > manifests/$BOXEN_GITHUB_LOGIN.pp
+ cd ~/src/our-boxen
+ git checkout -b $BOXEN_GITHUB_LOGIN
+ cd modules/people
+ cp -R files/default files/$BOXEN_GITHUB_LOGIN
+ cat manifests/default.pp | sed 's|default|'$BOXEN_GITHUB_LOGIN'|g' > manifests/$BOXEN_GITHUB_LOGIN.pp
+ git add -A
+ git commit -am '$BOXEN_GITHUB_LOGIN personal files'
+ git push origin $BOXEN_GITHUB_LOGIN
+ boxen
+ bash
 ```
 
 
@@ -49,6 +55,22 @@ To get started run the following
 `include daptiv::fishShell` will add a base fish shell configured with a common base setup refer to park9140 people config for options or talk to Jonathan Park for support
 
 `include daptiv::sublime` will install sublime text 2, sublime linter plugin, and configure subl command line alias to run sublime text from the command line.
+
+#### Remember: if you add or remove any optional tools from your people files, commit the changes!
+
+### Get your personal changes in master
+
+If you continue to run boxen without doing this you'll get a nice little error message that boxen is not in the master branch. Let's fix this! Follow these steps to get your changes into master:
+ 1. Commit any changes you have pending.
+ 2. Push any pending commits up to your branch.
+ 3. Open a pull request and get it pulled into master.
+ 4. Open a terminal window and run:
+
+```
+ cd ~/src/our-boxen
+ git checkout master
+ git pull
+```
 
 ### Dependencies
 

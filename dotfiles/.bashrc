@@ -5,3 +5,5 @@ if [ -h $bash_profile ]
     then
         source $bash_profile
 fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
