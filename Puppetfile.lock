@@ -124,6 +124,11 @@ GITHUBTARBALL
     xquartz (1.1.0)
 
 GITHUBTARBALL
+  remote: chrisbobo/puppet-googledrive
+  specs:
+    googledrive (1.0.0)
+
+GITHUBTARBALL
   remote: chrisbobo/puppet-webstorm
   specs:
     webstorm (1.1.2)
@@ -152,6 +157,7 @@ DEPENDENCIES
   fish (= 1.0.0)
   gcc (= 2.0.1)
   git (= 1.2.5)
+  googledrive (= 1.0.0)
   homebrew (= 1.4.1)
   hub (= 1.0.3)
   inifile (= 1.0.0)
