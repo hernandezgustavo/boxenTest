@@ -19,6 +19,11 @@ GITHUBTARBALL
     dnsmasq (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-dropbox
+  specs:
+    dropbox (1.1.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-fish
   specs:
     fish (1.0.0)
@@ -89,11 +94,6 @@ GITHUBTARBALL
     ruby (6.3.4)
 
 GITHUBTARBALL
-  remote: boxen/puppet-sublime_text_2
-  specs:
-    sublime_text_2 (1.1.2)
-
-GITHUBTARBALL
   remote: boxen/puppet-sudo
   specs:
     sudo (1.0.0)
@@ -138,6 +138,7 @@ DEPENDENCIES
   boxen (= 3.0.2)
   chrome (= 1.1.1)
   dnsmasq (= 1.0.0)
+  dropbox (= 1.1.1)
   fish (= 1.0.0)
   gcc (= 2.0.1)
   git (= 1.2.5)
@@ -150,12 +151,10 @@ DEPENDENCIES
   nodejs (= 3.2.10)
   openssl (= 1.0.0)
   osx (= 1.6.0)
-  osx (= 1.6.0)
   phantomjs (= 2.0.2)
   repository (= 2.2.0)
   ruby (= 6.3.4)
   stdlib (= 4.1.0)
-  sublime_text_2 (= 1.1.2)
   sublime_text_3 (= 1.0.1)
   sudo (= 1.0.0)
   vagrant (= 2.0.7)
