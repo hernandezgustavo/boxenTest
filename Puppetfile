@@ -43,7 +43,6 @@ github "mongodb",    "1.0.4"
 github "vagrant",    "2.0.7"
 github "osx",        "1.6.0"
 
-github "sublime_text_2", "1.1.2"
 github "sublime_text_3", "1.0.1", :repo => "jozefizso/puppet-sublime_text_3"
 github "virtualbox", "1.0.5"
 github "iterm2",    "1.0.3"
