@@ -96,11 +96,21 @@ node default {
     path => '/etc/hosts',
   }
 
+
+  #------------------------
+  # Global Installations & Configurations
+  #------------------------
+  include chrome
   include daptiv::dotFiles
   include daptiv::git
   include daptiv::nodejs
   include daptiv::phantomjs
+
+  # Remote Desktop into Windows Machines
   include daptiv::rdp
+
   include daptiv::ruby
+
+
 
 }

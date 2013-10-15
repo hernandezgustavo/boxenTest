@@ -1,7 +1,6 @@
 class people::aschmitt_daptiv {
-  
+
   #install windows remote desktop
-  include daptiv::rdp
   include daptiv::sublime
 
   #add projects chefclient, ppm, ppmspa and dev dashboard
@@ -9,7 +8,7 @@ class people::aschmitt_daptiv {
   include projects::chefclient
   include projects::ppmspa
   include projects::devdashboard
-  
+
   #add personal git configurations
   git::config::global { 'user.email':
     value  => 'aschmitt@daptiv.com'
@@ -18,8 +17,8 @@ class people::aschmitt_daptiv {
     value  => 'aschmitt-daptiv'
   }
 
-  #link in your personal dot files the provided files live in the people/files dir and 
-  #you should copy them to a folder matching your personal user if you intend to personalize them 
+  #link in your personal dot files the provided files live in the people/files dir and
+  #you should copy them to a folder matching your personal user if you intend to personalize them
   #if you do not copy these your dotfiles will change when this default profile is updated as they
   #are symlinked into your home directory.
   $home = "/Users/${::boxen_user}"

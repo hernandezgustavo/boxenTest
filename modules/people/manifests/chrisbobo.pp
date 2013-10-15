@@ -4,11 +4,9 @@ class people::chrisbobo {
   #------------------------
   $home = "/Users/${::boxen_user}"
 
-
   #------------------------
-  # Chrome Browsers
+  # Chrome Browser
   #------------------------
-  include chrome
   include chrome::canary
 
 

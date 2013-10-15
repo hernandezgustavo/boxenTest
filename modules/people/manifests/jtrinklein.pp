@@ -2,8 +2,6 @@ class people::jtrinklein {
   include daptiv::fishShell
   include daptiv::sublime
 
-  include daptiv::rdp
-
   include iterm2::dev
 
   include projects::ppm

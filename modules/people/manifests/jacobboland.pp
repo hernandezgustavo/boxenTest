@@ -4,13 +4,9 @@ class people::jacobboland {
   include daptiv::fishShell
   include daptiv::sublime
 
-  include chrome
   include chrome::canary
 
   include iterm2::dev
-
-  #install windows remote desktop
-  include daptiv::rdp
 
   #add projects chefclient, ppm, ppmspa and dev dashboard
   include projects::ppm

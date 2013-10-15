@@ -1,8 +1,6 @@
 class people::johnemau {
   include daptiv::fishShell
   include daptiv::sublime
-  include daptiv::rdp
-  include chrome
   include chrome::canary
   include iterm2::dev
   include projects::ppm
