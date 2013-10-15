@@ -36,7 +36,7 @@ class people::chrisbobo {
   include osx::global::natural_mouse_scrolling
 
   class { 'osx::dock::icon_size':
-    size => 57
+    size => 64
   }
 
   git::config::global { 'user.email':
