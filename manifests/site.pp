@@ -98,7 +98,9 @@ node default {
 
   include daptiv::dotFiles
   include daptiv::git
-  include daptiv::phantomjs
   include daptiv::nodejs
+  include daptiv::phantomjs
+  include daptiv::rdp
   include daptiv::ruby
+
 }
