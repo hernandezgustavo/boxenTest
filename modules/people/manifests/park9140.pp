@@ -1,6 +1,6 @@
 class people::park9140 {
   include daptiv::fishShell
-  include daptiv::sublime3
+  include daptiv::sublime
 
   include daptiv::rdp
   include chrome
@@ -75,7 +75,7 @@ class people::park9140 {
   sublime_text_3::package { 'emmet-sublime':
     source => 'git@github.com:sergeche/emmet-sublime'
   }
-  sublime_text_3::package { 'ts3':
+  sublime_text_3::package { 'T3S':
     source => 'git@github.com:Railk/T3S'
   }
   sublime_text_3::package { 'sublime-grunt':
@@ -93,6 +93,12 @@ class people::park9140 {
     line => '192.168.57.130 devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com localvm.daptiv.com',
     path => '/etc/hosts',
     subscribe => File_Line['ppm_hosts_ppmspa_remove']
+  }
+
+
+  nodejs::module { 'typescript-tools':
+    node_version => 'v0.10',
+    ensure => '0.2.2-1'
   }
 }
 
