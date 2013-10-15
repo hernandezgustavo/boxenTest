@@ -1,6 +1,6 @@
 class people::jtrinklein {
   include daptiv::fishShell
-  include daptiv::sublime3
+  include daptiv::sublime
 
   include daptiv::rdp
 
@@ -50,7 +50,7 @@ class people::jtrinklein {
     ensure  => link,
     target  => "${home}/src/dotfiles/.vimrc"
   }
-  
+
 #used to share editing at floobits.com
   sublime_text_3::package { 'Floobits':
     source => 'git@github.com:Floobits/floobits-sublime'

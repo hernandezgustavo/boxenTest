@@ -1,11 +1,11 @@
 class people::kblaha {
-  
+
   include daptiv::rdp
 
   include daptiv::fishShell
   include iterm2::dev
 
-  include daptiv::sublime3
+  include daptiv::sublime
 
   include chrome
 
@@ -14,7 +14,7 @@ class people::kblaha {
   include projects::chefclient
   include projects::ppmspa
   include projects::devdashboard
-  
+
   #add personal git configurations
   git::config::global { 'user.email':
     value  => 'kblaha@daptiv.com'

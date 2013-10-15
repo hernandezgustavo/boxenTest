@@ -1,6 +1,6 @@
 class people::park9140 {
   include daptiv::fishShell
-  include daptiv::sublime3
+  include daptiv::sublime
 
   include daptiv::rdp
   include chrome
