@@ -86,6 +86,12 @@ class people::chrisbobo {
 
 
   #------------------------
+  # Google Drive
+  #------------------------
+  include googledrive
+
+
+  #------------------------
   # Iterm2 (Better than Terminal)
   #------------------------
   include iterm2::dev
