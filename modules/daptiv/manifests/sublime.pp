@@ -16,4 +16,9 @@ class daptiv::sublime {
     source => 'git@github.com:sergeche/emmet-sublime'
   }
 
+  # Shell and live code execution within a sublime buffer
+  sublime_text_3::package { 'SublimeREPL':
+    source => 'git@github.com:wuub/SublimeREPL'
+  }
+
 }
