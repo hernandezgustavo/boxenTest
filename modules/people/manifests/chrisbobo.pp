@@ -122,6 +122,10 @@ class people::chrisbobo {
   include projects::ppmspa
   include projects::devdashboard
 
+  #------------------------
+  # VmWare
+  #------------------------
+  include vmware
 
   #------------------------
   # Webstorm
