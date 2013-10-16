@@ -129,6 +129,11 @@ GITHUBTARBALL
     googledrive (1.0.0)
 
 GITHUBTARBALL
+  remote: chrisbobo/puppet-vmware
+  specs:
+    vmware (1.0.0)
+
+GITHUBTARBALL
   remote: chrisbobo/puppet-webstorm
   specs:
     webstorm (1.1.2)
@@ -177,6 +182,7 @@ DEPENDENCIES
   vagrant (= 2.0.7)
   vim (= 1.0.5)
   virtualbox (= 1.0.5)
+  vmware (= 1.0.0)
   webstorm (= 1.1.2)
   xquartz (= 1.1.0)
 
