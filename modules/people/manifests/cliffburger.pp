@@ -1,6 +1,6 @@
 # Replace name of all the "cliffburger.pp" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
-class people::cliffburger.pp {
+class people::cliffburger {
 
   #add projects chefclient, ppm, ppmspa and dev dashboard
   include projects::ppm
