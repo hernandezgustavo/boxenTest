@@ -10,10 +10,10 @@ class people::brian_d {
 
   #add personal git configurations
   git::config::global { 'user.email':
-    value  => 'brian-d@daptiv.com'
+    value  => 'bdahld@daptiv.com'
   }
   git::config::global { 'user.name':
-    value  => 'Default Person'
+    value  => 'Brian Dahl'
   }
 
   #link in your personal dot files the provided files live in the people/files dir and
