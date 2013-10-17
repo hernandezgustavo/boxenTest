@@ -105,6 +105,7 @@ class people::chrisbobo {
     size => 64
   }
   include osx::finder::show_all_on_desktop
+  include osx::finder::show_hidden_files
   include osx::finder::unhide_library
   include osx::global::disable_remote_control_ir_receiver
   include osx::global::enable_keyboard_control_access
@@ -126,6 +127,7 @@ class people::chrisbobo {
   # VmWare
   #------------------------
   include vmware
+
 
   #------------------------
   # Webstorm
