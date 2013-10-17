@@ -112,6 +112,7 @@ class people::chrisbobo {
   include osx::global::expand_print_dialog
   include osx::global::expand_save_dialog
   include osx::global::natural_mouse_scrolling
+  include osx::global::use_F1_F2_etc_keys_as_standard_function_keys
   include osx::no_network_dsstores
 
 
