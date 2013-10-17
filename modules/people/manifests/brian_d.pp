@@ -1,6 +1,6 @@
 # Replace name of all the "brian-d" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
-class people::brian-d {
+class people::brian_d {
 
   #add projects chefclient, ppm, ppmspa and dev dashboard
   include projects::ppm
@@ -23,16 +23,16 @@ class people::brian-d {
   $home = "/Users/${::boxen_user}"
   file { "${home}/.bash_profile":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/brian-d/.bash_profile"
+    target  => "${$boxen::config::repodir}/modules/people/files/brian_d/.bash_profile"
   }
 
   file { "${home}/.git-completion.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/brian-d/git-completion.sh"
+    target  => "${$boxen::config::repodir}/modules/people/files/brian_d/git-completion.sh"
   }
 
   file { "${home}/.git-prompt.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/brian-d/git-prompt.sh"
+    target  => "${$boxen::config::repodir}/modules/people/files/brian_d/git-prompt.sh"
   }
 }
