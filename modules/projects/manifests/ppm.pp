@@ -9,6 +9,7 @@ class projects::ppm {
   boxen::project { 'daptiv_dev_ppm_workstation':
     source        => 'git@github.com:daptiv/daptiv_dev_ppm_workstation'
   }
+
   boxen::project { 'chef-repo':
     source        => 'git@github.com:daptiv/chef-repo'
   }
