@@ -10,7 +10,7 @@ class people::brian_d {
 
   #add personal git configurations
   git::config::global { 'user.email':
-    value  => 'bdahld@daptiv.com'
+    value  => 'bdahl@daptiv.com'
   }
   git::config::global { 'user.name':
     value  => 'brian-d'
