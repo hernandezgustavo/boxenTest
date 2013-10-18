@@ -1,13 +1,16 @@
 class people::chrisbobo {
-  #------------------------
-  # Home directory
-  #------------------------
   $home = "/Users/${::boxen_user}"
 
-  #------------------------
-  # Chrome Browser
-  #------------------------
+
   include chrome::canary
+  include daptiv::apps::webstorm
+  include iterm2::dev
+
+
+  file { "${home}/.bash_profile":
+    ensure  => link,
+    target  => "${$boxen::config::repodir}/modules/people/files/chrisbobo/.bash_profile"
+  }
 
 
   #------------------------
@@ -34,22 +37,8 @@ class people::chrisbobo {
 
 
   #------------------------
-  # Git Terminal Customizations
+  # Sublime Customizations
   #------------------------
-  file { "${home}/.git-completion.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/chrisbobo/git-completion.sh"
-  }
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/chrisbobo/git-prompt.sh"
-  }
-
-
-  #------------------------
-  # Sublime
-  #------------------------
-  include daptiv::sublime
   file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings":
     ensure  => link,
     target  => "${home}/src/sublimeconfig/Preferences.sublime-settings"
@@ -80,24 +69,6 @@ class people::chrisbobo {
 
 
   #------------------------
-  # Dropbox
-  #------------------------
-  include dropbox
-
-
-  #------------------------
-  # Google Drive
-  #------------------------
-  include googledrive
-
-
-  #------------------------
-  # Iterm2 (Better than Terminal)
-  #------------------------
-  include iterm2::dev
-
-
-  #------------------------
   # Osx Customizations
   #------------------------
   include osx::dock::autohide
@@ -116,32 +87,14 @@ class people::chrisbobo {
   include osx::no_network_dsstores
 
 
-  #------------------------
-  # Daptiv Project Configurations
-  #------------------------
-  include projects::chefclient
-  include projects::ppm
-  include projects::ppmspa
-  include projects::devdashboard
-
-  #------------------------
-  # VmWare
-  #------------------------
-  include vmware
-
-
-  #------------------------
-  # Webstorm
-  #------------------------
-  include webstorm
-
-
-  #------------------------
-  # Bash Profile
-  #------------------------
-  file { "${home}/.bash_profile":
+  file { "${home}/.git-completion.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/chrisbobo/.bash_profile"
+    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
+  }
+
+  file { "${home}/.git-prompt.sh":
+    ensure  => link,
+    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
   }
 
 }
