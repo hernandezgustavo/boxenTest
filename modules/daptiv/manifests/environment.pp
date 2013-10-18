@@ -7,10 +7,11 @@ class daptiv::environment {
   # Apps that everyone gets
   #--------------------------------
   include chrome
+  include dropbox
   include virtualbox
 
-  include daptiv::apps::dropbox
   include daptiv::apps::googledrive
+  include daptiv::apps::p4merge
   include daptiv::apps::sublime
   include daptiv::apps::vmware
 

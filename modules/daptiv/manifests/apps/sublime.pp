@@ -1,4 +1,4 @@
-class daptiv::sublime {
+class daptiv::apps::sublime {
   include sublime_text_3
 
   sublime_text_3::package { 'SublimeLinter':

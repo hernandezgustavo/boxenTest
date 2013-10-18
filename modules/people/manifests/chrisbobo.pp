@@ -1,7 +1,16 @@
 class people::chrisbobo {
   $home = "/Users/${::boxen_user}"
 
+
   include chrome::canary
+  include daptiv::apps::webstorm
+  include iterm2::dev
+
+
+  file { "${home}/.bash_profile":
+    ensure  => link,
+    target  => "${$boxen::config::repodir}/modules/people/files/chrisbobo/.bash_profile"
+  }
 
 
   #------------------------
@@ -28,7 +37,7 @@ class people::chrisbobo {
 
 
   #------------------------
-  # Sublime
+  # Sublime Customizations
   #------------------------
   file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings":
     ensure  => link,
@@ -60,12 +69,6 @@ class people::chrisbobo {
 
 
   #------------------------
-  # Iterm2 (Better than Terminal)
-  #------------------------
-  include iterm2::dev
-
-
-  #------------------------
   # Osx Customizations
   #------------------------
   include osx::dock::autohide
@@ -84,17 +87,14 @@ class people::chrisbobo {
   include osx::no_network_dsstores
 
 
-  #------------------------
-  # Daptiv Project Configurations
-  #------------------------
-
-
-  include webstorm
-
-
-  file { "${home}/.bash_profile":
+  file { "${home}/.git-completion.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/chrisbobo/.bash_profile"
+    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
+  }
+
+  file { "${home}/.git-prompt.sh":
+    ensure  => link,
+    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
   }
 
 }
