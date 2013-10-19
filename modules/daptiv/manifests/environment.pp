@@ -1,7 +1,8 @@
 class daptiv::environment {
   file { '/usr/local/bin':
     ensure => directory,
-    mode => 0644
+    mode => 0644,
+    recurse => true
   }
 
   include daptiv::environment::etc_profile
