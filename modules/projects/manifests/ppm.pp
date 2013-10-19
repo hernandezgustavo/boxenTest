@@ -1,9 +1,11 @@
 class projects::ppm {
   include daptiv::apps::vagrant
+  include daptiv::nodejs
+  include daptiv::phantomjs
 
   file_line { 'ppm_hosts':
     line => '192.168.56.101 devppm.daptiv.com devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com',
-    path => '/etc/hosts',
+    path => '/etc/hosts'
   }
 
   boxen::project { 'daptiv_dev_ppm_workstation':
