@@ -1,14 +1,11 @@
 class daptiv::environment {
-  file { '/usr/local/bin':
-    ensure => directory,
-    mode => 0644,
-    recurse => true
-  }
 
   include daptiv::environment::etc_profile
   include daptiv::environment::increase_ulimit
   include daptiv::environment::localhost_daptiv_com
 
+  # Hack here: adds /usr/local/bin for us early in the setup
+  include projects::chefclient
 
   #--------------------------------
   # Apps that everyone gets
@@ -17,14 +14,11 @@ class daptiv::environment {
   include daptiv::apps::p4merge
   include daptiv::apps::sublime
 
-  include virtualbox
-
   include daptiv::dotFiles
   include daptiv::git
   include daptiv::rdp
   include daptiv::ruby
 
-  include projects::chefclient
   include projects::devdashboard
   include projects::ppm
   include projects::ppmspa
