@@ -1,7 +1,7 @@
 class people::chrisbobo {
   $home = "/Users/${::boxen_user}"
 
-#  include dropbox
+  include dropbox
 #  include daptiv::apps::googledrive
 #  include daptiv::apps::vmware
 
@@ -84,16 +84,18 @@ class people::chrisbobo {
   #------------------------
   # Osx Customizations
   #------------------------
-#  include osx::dock::autohide
-#  include osx::finder::show_all_on_desktop
-#  include osx::finder::show_hidden_files
-#  include osx::finder::unhide_library
+  include osx::dock::autohide
+  class { 'osx::dock::icon_size':
+    size => 64
+  }
+  include osx::finder::show_all_on_desktop
+  include osx::finder::show_hidden_files
+  include osx::finder::unhide_library
 #  include osx::global::disable_remote_control_ir_receiver
 #  include osx::global::enable_keyboard_control_access
 #  include osx::global::expand_print_dialog
 #  include osx::global::expand_save_dialog
-#  include osx::global::natural_mouse_scrolling
-#  include osx::global::use_F1_F2_etc_keys_as_standard_function_keys
+  include osx::global::use_F1_F2_etc_keys_as_standard_function_keys
 #  include osx::no_network_dsstores
 
 }
