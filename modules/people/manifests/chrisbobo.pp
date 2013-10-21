@@ -95,7 +95,7 @@ class people::chrisbobo {
   include daptiv::osx::dialogs::expand_print_dialog
   include daptiv::osx::dialogs::expand_save_dialog
 
-  include daptiv::osx::disable_app_quarantine
+  include daptiv::osx::system::disable_app_quarantine
 
   include daptiv::osx::dock::autohide
   include daptiv::osx::dock::orientation
@@ -110,8 +110,8 @@ class people::chrisbobo {
   include daptiv::osx::keyboard::enable_keyboard_control_access
   include daptiv::osx::keyboard::use_standard_function_keys
 
-  include daptiv::osx::menu::date_format
-  include daptiv::osx::menu::show_battery_percentage
+  include daptiv::osx::system::menu::date_format
+  include daptiv::osx::system::menu::show_battery_percentage
 
   include daptiv::osx::mouse::enable_right_click
 

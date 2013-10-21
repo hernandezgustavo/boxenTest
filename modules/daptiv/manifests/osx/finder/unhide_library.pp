@@ -1,6 +1,6 @@
 # Public: Unhide ~/Library in Finder.
 class daptiv::osx::finder::unhide_library {
-  include daptiv::daptiv::osx::finder
+  include daptiv::osx::finder
   
   $home = "/Users/${::boxen_user}"
 
