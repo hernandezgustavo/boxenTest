@@ -29,12 +29,12 @@ class people::chrisbobo {
   #------------------------
   # Fish Shell
   #------------------------
-  include daptiv::fishShell
-  file { "${home}/.config/fish/personal.fish":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/chrisbobo/personal.fish",
-    subscribe => File["${home}/.config/fish/"]
-  }
+#  include daptiv::fishShell
+#  file { "${home}/.config/fish/personal.fish":
+#    ensure  => link,
+#    target  => "${$boxen::config::repodir}/modules/people/chrisbobo/personal.fish",
+#    subscribe => File["${home}/.config/fish/"]
+#  }
 
 
   #------------------------
