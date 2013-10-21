@@ -17,9 +17,9 @@ class daptiv::environment {
   include daptiv::rdp
   include daptiv::ruby
 
-  include projects::chefclient
-  include projects::devdashboard
-  include projects::ppm
-  include projects::ppmspa
+#  include projects::chefclient
+#  include projects::devdashboard
+#  include projects::ppm
+#  include projects::ppmspa
 
 }
