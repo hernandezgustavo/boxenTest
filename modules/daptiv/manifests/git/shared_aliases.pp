@@ -1,4 +1,4 @@
-class daptiv::git::sharedAliases {
+class daptiv::git::shared_aliases {
 
     git::config::global { 'alias.cam':
       value  => 'commit -a -m'

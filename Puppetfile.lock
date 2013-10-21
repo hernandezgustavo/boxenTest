@@ -114,11 +114,6 @@ GITHUBTARBALL
     xquartz (1.1.0)
 
 GITHUBTARBALL
-  remote: chrisbobo/puppet-osx
-  specs:
-    osx (1.6.2)
-
-GITHUBTARBALL
   remote: jozefizso/puppet-sublime_text_3
   specs:
     sublime_text_3 (1.0.1)
@@ -150,7 +145,6 @@ DEPENDENCIES
   nginx (= 1.4.2)
   nodejs (= 3.2.10)
   openssl (= 1.0.0)
-  osx (= 1.6.2)
   phantomjs (= 2.0.2)
   python (= 1.2.1)
   repository (= 2.2.0)

@@ -2,7 +2,7 @@ class daptiv::environment {
 
   include daptiv::environment::ensure_usr_local_bin_exists
   include daptiv::environment::etc_profile
-  include daptiv::environment::increase_ulimit
+  include daptiv::environment::set_ulimit_to_max
   include daptiv::environment::localhost_daptiv_com
 
   #--------------------------------
