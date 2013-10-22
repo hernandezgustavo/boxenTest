@@ -9,8 +9,7 @@ class daptiv::environment {
   # Apps that everyone gets
   #--------------------------------
   include chrome
-  include daptiv::apps::p4merge
-  include daptiv::apps::sublime
+  include apps::sublime
 
   include daptiv::dotFiles
   include daptiv::git
