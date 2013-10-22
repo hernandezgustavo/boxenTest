@@ -1,7 +1,6 @@
 class apps::vagrant {
-  include apps::virtualbox
+  include virtualbox
   include vagrant
-
 
   vagrant::plugin { 'vagrant-berkshelf':
   }

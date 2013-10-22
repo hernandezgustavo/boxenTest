@@ -1,6 +1,6 @@
 class apps::webstorm ($version = '7.0') {
   package { 'WebStorm':
-    provider => 'pkgdmg',
+    provider => 'appdmg',
     source   => "http://download.jetbrains.com/webstorm/WebStorm-${version}.dmg"
   }
 }
