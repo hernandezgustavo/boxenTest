@@ -1,5 +1,6 @@
 class projects::ppmspa {
   include boxen::config
+  include projects::ppm
   include daptiv::nodejs
   include daptiv::phantomjs
 
