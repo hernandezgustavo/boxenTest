@@ -1,6 +1,6 @@
 class people::park9140 {
-  include daptiv::fishShell
-  include daptiv::sublime
+  include apps::fishShell
+  include apps::sublime
 
   include chrome::canary
 
@@ -33,12 +33,12 @@ class people::park9140 {
 
   file { "${home}/.git-completion.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/park9140/git-completion.sh"
+    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
   }
 
   file { "${home}/.git-prompt.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/park9140/git-prompt.sh"
+    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
   }
   repository{
     'my sublime config':

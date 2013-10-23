@@ -1,9 +1,9 @@
 class people::kblaha {
 
-  include daptiv::fishShell
+  include apps::fishShell
   include iterm2::dev
 
-  include daptiv::sublime
+  include apps::sublime
 
   #add projects chefclient, ppm, ppmspa and dev dashboard
   include projects::ppm
@@ -28,11 +28,11 @@ class people::kblaha {
 
   file { "${home}/.git-completion.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/kblaha/git-completion.sh"
+    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
   }
 
   file { "${home}/.git-prompt.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/kblaha/git-prompt.sh"
+    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
   }
 }

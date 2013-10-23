@@ -1,7 +1,7 @@
 class projects::devdashboard {
   include boxen::config
-  include daptiv::nodejs
-  include daptiv::phantomjs
+  include apps::nodejs
+  include apps::phantomjs
 
   boxen::project { 'DevDashboard':
     mongodb       => true,

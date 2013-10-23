@@ -1,7 +1,8 @@
 class projects::ppmspa {
   include boxen::config
-  include daptiv::nodejs
-  include daptiv::phantomjs
+  include projects::ppm
+  include apps::nodejs
+  include apps::phantomjs
 
   file_line { 'ppm_hosts_remove':
     line => '192.168.56.101 devppm.daptiv.com devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com',

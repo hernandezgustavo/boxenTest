@@ -9,17 +9,16 @@ class daptiv::environment {
   # Apps that everyone gets
   #--------------------------------
   include chrome
-  include daptiv::apps::p4merge
-  include daptiv::apps::sublime
+  include apps::sublime
 
   include daptiv::dotFiles
-  include daptiv::git
-  include daptiv::rdp
-  include daptiv::ruby
+  include apps::git
+  include apps::rdp
+  include apps::ruby
 
-#  include projects::chefclient
-#  include projects::devdashboard
-#  include projects::ppm
-#  include projects::ppmspa
+  include projects::chefclient
+  include projects::devdashboard
+  include projects::ppm
+  include projects::ppmspa
 
 }
