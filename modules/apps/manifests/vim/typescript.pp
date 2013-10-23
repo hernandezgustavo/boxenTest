@@ -1,11 +1,11 @@
 class apps::vim::typescript {
-  require daptiv::apps::vim
+  require apps::vim
   require nodejs::v0_10
 
   $node_version = 'v0.10'
 
   file_line { 'source_typescript_vimrc':
-    line => ":so ${$boxen::config::repodir}/modules/apps/vim/.tsvimrc",
+    line => ":so ${$boxen::config::repodir}/modules/apps/files/vim/.tsvimrc",
     path => "${::vim::vimrc}"
   }
 
