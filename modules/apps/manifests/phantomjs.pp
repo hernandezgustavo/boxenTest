@@ -1,4 +1,4 @@
-class daptiv::phantomjs {
+class apps::phantomjs {
     # Installs Phantomenv for PhantomJS version management
     include phantomjs
 

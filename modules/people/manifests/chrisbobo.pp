@@ -30,12 +30,12 @@ class people::chrisbobo {
   #------------------------
   # Fish Shell
   #------------------------
- # include daptiv::fishShell
- # file { "${home}/.config/fish/personal.fish":
- #   ensure  => link,
- #   target  => "${$boxen::config::repodir}/modules/people/chrisbobo/personal.fish",
- #   subscribe => File["${home}/.config/fish/"]
- # }
+  include apps::fishShell
+  file { "${home}/.config/fish/personal.fish":
+    ensure  => link,
+    target  => "${$boxen::config::repodir}/modules/people/chrisbobo/personal.fish",
+    subscribe => File["${home}/.config/fish/"]
+  }
 
 
   #------------------------
@@ -96,7 +96,7 @@ class people::chrisbobo {
  include osx::dialogs::expand_print_dialog
  include osx::dialogs::expand_save_dialog
 
- include osx::system::disable_app_quarantine
+ include osx::disable_app_quarantine
 
  include osx::dock::autohide
  include osx::dock::clear_dock
@@ -112,8 +112,8 @@ class people::chrisbobo {
  include osx::keyboard::enable_keyboard_control_access
  include osx::keyboard::use_standard_function_keys
 
- include osx::system::menu::date_format
- include osx::system::menu::show_battery_percentage
+ include osx::menubar::date_format
+ include osx::menubar::show_battery_percentage
 
  include osx::mouse::enable_right_click
 

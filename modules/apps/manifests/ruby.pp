@@ -1,4 +1,4 @@
-class daptiv::ruby {
+class apps::ruby {
   # default ruby versions
 
   include ruby::1_9_3
@@ -10,7 +10,7 @@ class daptiv::ruby {
     gem     => 'bundler',
     ruby    => $version
   }
-  
+
   ruby::gem { "berkshelf for ${version}":
     gem     => 'berkshelf',
     ruby    => $version

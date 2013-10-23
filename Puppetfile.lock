@@ -109,9 +109,19 @@ GITHUBTARBALL
     vim (1.0.5)
 
 GITHUBTARBALL
+  remote: boxen/puppet-virtualbox
+  specs:
+    virtualbox (1.0.7)
+
+GITHUBTARBALL
   remote: boxen/puppet-xquartz
   specs:
     xquartz (1.1.0)
+
+GITHUBTARBALL
+  remote: chrisbobo/puppet-osx
+  specs:
+    osx (1.6.4)
 
 GITHUBTARBALL
   remote: jozefizso/puppet-sublime_text_3
@@ -145,6 +155,7 @@ DEPENDENCIES
   nginx (= 1.4.2)
   nodejs (= 3.2.10)
   openssl (= 1.0.0)
+  osx (= 1.6.4)
   phantomjs (= 2.0.2)
   python (= 1.2.1)
   repository (= 2.2.0)
@@ -154,5 +165,6 @@ DEPENDENCIES
   sudo (= 1.0.0)
   vagrant (= 2.0.7)
   vim (= 1.0.5)
+  virtualbox (= 1.0.7)
   xquartz (= 1.1.0)
 

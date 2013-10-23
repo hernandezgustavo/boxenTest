@@ -1,4 +1,4 @@
-class daptiv::git {
+class apps::git {
   git::config::global { 'color.ui':
     value  => 'true'
   }

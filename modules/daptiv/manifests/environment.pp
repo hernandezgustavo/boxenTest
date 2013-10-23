@@ -12,9 +12,9 @@ class daptiv::environment {
   include apps::sublime
 
   include daptiv::dotFiles
-  include daptiv::git
-  include daptiv::rdp
-  include daptiv::ruby
+  include apps::git
+  include apps::rdp
+  include apps::ruby
 
   include projects::chefclient
   include projects::devdashboard
