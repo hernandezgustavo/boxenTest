@@ -1,6 +1,6 @@
 class people::jtrinklein {
-  include daptiv::fishShell
-  include daptiv::sublime
+  include apps::fishShell
+  include apps::sublime
 
   include iterm2::dev
 
@@ -61,12 +61,6 @@ class people::jtrinklein {
   }
   sublime_text_3::package { 'sublime-jsdocs':
     source => 'git@github.com:spadgos/sublime-jsdocs'
-  }
-  sublime_text_3::package { 'emmet-sublime':
-    source => 'git@github.com:sergeche/emmet-sublime'
-  }
-  sublime_text_3::package { 'ts3':
-    source => 'git@github.com:Railk/T3S'
   }
   sublime_text_3::package { 'sublime-grunt':
     source => 'git@github.com:tvooo/sublime-grunt'

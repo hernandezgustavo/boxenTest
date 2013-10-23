@@ -1,9 +1,9 @@
 class people::kblaha {
 
-  include daptiv::fishShell
+  include apps::fishShell
   include iterm2::dev
 
-  include daptiv::sublime
+  include apps::sublime
 
   #add projects chefclient, ppm, ppmspa and dev dashboard
   include projects::ppm
