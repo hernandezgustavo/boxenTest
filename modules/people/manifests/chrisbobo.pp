@@ -32,7 +32,7 @@ class people::chrisbobo {
   include apps::fishShell
   file { "${home}/.config/fish/personal.fish":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/chrisbobo/personal.fish",
+    target  => "${$boxen::config::repodir}/modules/people/files/chrisbobo/personal.fish",
     subscribe => File["${home}/.config/fish/"]
   }
 
