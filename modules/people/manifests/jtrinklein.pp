@@ -1,8 +1,6 @@
 class people::jtrinklein {
-  include daptiv::fishShell
-  include daptiv::sublime3
-
-  include daptiv::rdp
+  include apps::fishShell
+  include apps::sublime
 
   include iterm2::dev
 
@@ -32,12 +30,12 @@ class people::jtrinklein {
 
   file { "${home}/.git-completion.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/jtrinklein/git-completion.sh"
+    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
   }
 
   file { "${home}/.git-prompt.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/jtrinklein/git-prompt.sh"
+    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
   }
   repository{
     'my dotfiles':
@@ -50,7 +48,7 @@ class people::jtrinklein {
     ensure  => link,
     target  => "${home}/src/dotfiles/.vimrc"
   }
-  
+
 #used to share editing at floobits.com
   sublime_text_3::package { 'Floobits':
     source => 'git@github.com:Floobits/floobits-sublime'
@@ -63,12 +61,6 @@ class people::jtrinklein {
   }
   sublime_text_3::package { 'sublime-jsdocs':
     source => 'git@github.com:spadgos/sublime-jsdocs'
-  }
-  sublime_text_3::package { 'emmet-sublime':
-    source => 'git@github.com:sergeche/emmet-sublime'
-  }
-  sublime_text_3::package { 'ts3':
-    source => 'git@github.com:Railk/T3S'
   }
   sublime_text_3::package { 'sublime-grunt':
     source => 'git@github.com:tvooo/sublime-grunt'

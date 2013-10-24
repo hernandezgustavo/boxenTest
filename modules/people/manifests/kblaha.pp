@@ -1,20 +1,16 @@
 class people::kblaha {
-  
-  include daptiv::rdp
 
-  include daptiv::fishShell
+  include apps::fishShell
   include iterm2::dev
 
-  include daptiv::sublime3
-
-  include chrome
+  include apps::sublime
 
   #add projects chefclient, ppm, ppmspa and dev dashboard
   include projects::ppm
   include projects::chefclient
   include projects::ppmspa
   include projects::devdashboard
-  
+
   #add personal git configurations
   git::config::global { 'user.email':
     value  => 'kblaha@daptiv.com'
@@ -32,11 +28,11 @@ class people::kblaha {
 
   file { "${home}/.git-completion.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/kblaha/git-completion.sh"
+    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
   }
 
   file { "${home}/.git-prompt.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/kblaha/git-prompt.sh"
+    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
   }
 }

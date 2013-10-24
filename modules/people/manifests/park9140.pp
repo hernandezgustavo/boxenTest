@@ -1,9 +1,7 @@
 class people::park9140 {
-  include daptiv::fishShell
-  include daptiv::sublime3
+  include apps::fishShell
+  include apps::sublime
 
-  include daptiv::rdp
-  include chrome
   include chrome::canary
 
   include iterm2::dev
@@ -35,12 +33,12 @@ class people::park9140 {
 
   file { "${home}/.git-completion.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/park9140/git-completion.sh"
+    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
   }
 
   file { "${home}/.git-prompt.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/park9140/git-prompt.sh"
+    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
   }
   repository{
     'my sublime config':
@@ -71,12 +69,6 @@ class people::park9140 {
   }
   sublime_text_3::package { 'sublime-jsdocs':
     source => 'git@github.com:spadgos/sublime-jsdocs'
-  }
-  sublime_text_3::package { 'emmet-sublime':
-    source => 'git@github.com:sergeche/emmet-sublime'
-  }
-  sublime_text_3::package { 'T3S':
-    source => 'git@github.com:Railk/T3S'
   }
   sublime_text_3::package { 'sublime-grunt':
     source => 'git@github.com:tvooo/sublime-grunt'

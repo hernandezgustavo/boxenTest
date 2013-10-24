@@ -29,7 +29,6 @@ Exec {
   ]
 }
 
-
 Package {
   provider => homebrew,
   require  => Class['homebrew']
@@ -74,42 +73,8 @@ node default {
     target => $boxen::config::repodir
   }
 
-  #ensure that boxen environment is set up upon shell start
-  #/etc/profile is loaded by all login shell starts
-  file { 
-    '/etc/profile': 
-    ensure => present 
-  }
-
-  file_line { 'source_boxen': 
-    line => 'source /opt/boxen/env.sh', 
-    path => '/etc/profile', 
-  }
-
-  file_line { 'increase_ulimit': 
-    line => 'ulimit -n 3000', 
-    path => '/etc/profile', 
-  }
-
-  file_line { 'localhost_daptiv_com': 
-    line => '127.0.0.1 localhost.daptiv.com', 
-    path => '/etc/hosts', 
-  }
-
-  exec { 'killall Finder':
-    refreshonly => true
-  }
-  boxen::osx_defaults { 'show hidden files':
-    user   => $::boxen_user,
-    key    => 'AppleShowAllFiles',
-    domain => 'com.apple.Finder',
-    value  => true,
-    notify => Exec["killall Finder"]
-  }
-
-  include daptiv::dotFiles
-  include daptiv::git
-  include daptiv::phantomjs
-  include daptiv::nodejs
-  include daptiv::ruby
+  #----------------------------------
+  # Daptiv Additions Below
+  #----------------------------------
+  include daptiv::environment
 }

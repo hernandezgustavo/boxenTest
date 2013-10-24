@@ -1,6 +1,4 @@
 # Which ones are correct?
-source /usr/local/bin/git-completion.sh
-source /usr/local/bin/git-prompt.sh
 source ~/.git-completion.sh
 source ~/.git-prompt.sh
 
@@ -23,7 +21,7 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 export PATH=~/bin:$PATH
-export EDITOR='subl -w'
+export EDITOR='subl3 -w'
 
 #live write history
 export PROMPT_COMMAND="history -a;"
