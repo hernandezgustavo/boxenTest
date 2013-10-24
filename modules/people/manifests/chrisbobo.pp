@@ -118,7 +118,7 @@ class people::chrisbobo {
 
   include osx::no_network_dsstores
 
-  include osx::terminal::profile
+  include osx::terminal::default_profile
 
 }
 
