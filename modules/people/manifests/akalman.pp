@@ -1,4 +1,4 @@
-class people::park9140 {
+class people::akalman {
   $home = "/Users/${::boxen_user}"
 
 
@@ -22,7 +22,7 @@ class people::park9140 {
 
   #git config
   include apps::git::aliases
-  
+
   git::config::global { 'user.email':
     value  => 'akalman@daptiv.com'
   }
