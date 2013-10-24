@@ -1,8 +1,8 @@
 # Replace name of all the "default" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::jacobboland {
-  include daptiv::fishShell
-  include daptiv::sublime
+  include apps::fishShell
+  include apps::sublime
 
   include chrome::canary
 
@@ -41,12 +41,12 @@ class people::jacobboland {
 
   file { "${home}/.git-completion.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/jacobboland/git-completion.sh"
+    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
   }
 
   file { "${home}/.git-prompt.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/jacobboland/git-prompt.sh"
+    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
   }
 
 #used to share editing at floobits.com
@@ -58,11 +58,5 @@ class people::jacobboland {
   }
   sublime_text_3::package { 'sublime-jsdocs':
     source => 'spadgos/sublime-jsdocs'
-  }
-  sublime_text_3::package { 'emmet-sublime':
-    source => 'sergeche/emmet-sublime'
-  }
-  sublime_text_3::package { 'T3S':
-    source => 'Railk/T3S'
   }
 }
