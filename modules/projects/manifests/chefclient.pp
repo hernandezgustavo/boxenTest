@@ -10,6 +10,6 @@ class projects::chefclient {
   }
 
   boxen::project { 'OS-X-Workstation':
-    source        => 'git@github.com:daptiv/OS-X-Workstation'
+    source => 'git@github.com:daptiv/OS-X-Workstation'
   }
 }

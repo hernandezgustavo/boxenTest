@@ -1,5 +1,8 @@
 class projects::ppmspa {
   include boxen::config
+  include projects::ppm
+  include apps::nodejs
+  include apps::phantomjs
 
   file_line { 'ppm_hosts_remove':
     line => '192.168.56.101 devppm.daptiv.com devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com',
@@ -21,7 +24,7 @@ class projects::ppmspa {
   }
 
   boxen::project { 'PpmSpa':
-    nginx         => "${boxen::config::repodir}/modules/projects/files/ppmspa.nginx.conf.erb",
+    nginx         => "${boxen::config::repodir}/modules/projects/templates/ppmspa.nginx.conf.erb",
     source        => 'git@github.com:daptiv/PpmSpa'
   }
 

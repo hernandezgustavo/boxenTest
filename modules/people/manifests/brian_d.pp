@@ -10,7 +10,7 @@ class people::brian_d {
 
   #add personal git configurations
   git::config::global { 'user.email':
-    value  => 'bdahld@daptiv.com'
+    value  => 'bdahl@daptiv.com'
   }
   git::config::global { 'user.name':
     value  => 'brian-d'
@@ -28,11 +28,11 @@ class people::brian_d {
 
   file { "${home}/.git-completion.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/brian_d/git-completion.sh"
+    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
   }
 
   file { "${home}/.git-prompt.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/brian_d/git-prompt.sh"
+    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
   }
 }

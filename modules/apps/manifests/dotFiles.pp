@@ -1,4 +1,4 @@
-class daptiv::dotFiles {
+class apps::dotFiles {
   $home = "/Users/${::boxen_user}"
   $dotfiles_dir = "${$boxen::config::repodir}/dotfiles"
 
