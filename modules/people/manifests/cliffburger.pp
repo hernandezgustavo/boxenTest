@@ -35,4 +35,9 @@ class people::cliffburger {
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/cliffburger/git-prompt.sh"
   }
+
+  #
+  package { 'wget':
+    ensure => present
+  }
 }
