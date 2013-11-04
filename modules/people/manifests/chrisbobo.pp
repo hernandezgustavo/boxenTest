@@ -1,12 +1,12 @@
 class people::chrisbobo {
   $home = "/Users/${::boxen_user}"
 
-  include dropbox
-  include apps::googledrive
+#  include dropbox
+#  include apps::googledrive
   include apps::vmware
 
   include chrome::canary
-  include apps::webstorm
+#  include apps::webstorm
   include iterm2::dev
   include apps::git::difftools::p4merge
 
@@ -32,7 +32,7 @@ class people::chrisbobo {
   include apps::fishShell
   file { "${home}/.config/fish/personal.fish":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/chrisbobo/personal.fish",
+    target  => "${$boxen::config::repodir}/modules/people/files/chrisbobo/personal.fish",
     subscribe => File["${home}/.config/fish/"]
   }
 
@@ -72,13 +72,13 @@ class people::chrisbobo {
     source => 'git@github.com:facelessuser/BracketHighlighter'
   }
 
-  sublime_text_3::package { 'sublime-jsdocs':
-    source => 'git@github.com:spadgos/sublime-jsdocs'
-  }
+#  sublime_text_3::package { 'sublime-jsdocs':
+#    source => 'git@github.com:spadgos/sublime-jsdocs'
+#  }
 
-  sublime_text_3::package { 'sublime-grunt':
-    source => 'git@github.com:tvooo/sublime-grunt'
-  }
+#  sublime_text_3::package { 'sublime-grunt':
+#    source => 'git@github.com:tvooo/sublime-grunt'
+#  }
 
   repository{
     'my sublime config':
@@ -97,28 +97,28 @@ class people::chrisbobo {
 
   include osx::disable_app_quarantine
 
-  include osx::dock::autohide
+#  include osx::dock::autohide
   include osx::dock::clear_dock
-  include osx::dock::orientation
-  class { 'osx::dock::icon_size':
-    size => 64
-  }
+#  include osx::dock::orientation
+#  class { 'osx::dock::icon_size':
+#    size => 64
+#  }
 
-  include osx::finder::show_all_on_desktop
+#  include osx::finder::show_all_on_desktop
   include osx::finder::show_hidden_files
   include osx::finder::unhide_library
 
   include osx::keyboard::enable_keyboard_control_access
   include osx::keyboard::use_standard_function_keys
 
-  include osx::menubar::date_format
-  include osx::menubar::show_battery_percentage
+#  include osx::menubar::date_format
+#  include osx::menubar::show_battery_percentage
 
   include osx::mouse::enable_right_click
 
   include osx::no_network_dsstores
 
-  include osx::terminal::profile
+  include osx::terminal::default_profile
 
 }
 

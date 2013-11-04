@@ -35,4 +35,17 @@ class people::jreynolds_daptiv {
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
   }
+
+  #hosts update
+  file_line { 'ppm_hosts_ppmspa_remove':
+    line => '192.168.56.101 devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com localvm.daptiv.com',
+    path => '/etc/hosts',
+    ensure => 'absent',
+    subscribe => File_Line['ppm_hosts_ppmspa']
+  }
+  file_line { 'ppm_hosts_ppmspa_jreynolds_daptiv':
+    line => '192.168.132.130 devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com localvm.daptiv.com',
+    path => '/etc/hosts',
+    subscribe => File_Line['ppm_hosts_ppmspa_remove']
+  }
 }
