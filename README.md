@@ -250,6 +250,33 @@ you will need to set the "BOXEN_GITHUB_ENTERPRISE_URL" and
 "BOXEN_REPO_URL_TEMPLATE" variables in your
 [Boxen config](config/boxen.rb).
 
+## Upgrading to Mavericks
+
+After upgrading to OS X Mavericks, run:
+
+```
+bundle install
+```
+
+In order to use vagrant:
+
+```
+brew install wget
+```
+
+Then, install nokogiri:
+```
+brew install libxml2 libxslt
+brew link libxml2 libxslt --force
+wget http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.13.1.tar.gz
+tar xvfz libiconv-1.13.1.tar.gz
+cd libiconv-1.13.1
+./configure --prefix=/usr/local/Cellar/libiconv/1.13.1
+make
+sudo make install
+gem install nokogiri -- --with-xml2-include=/usr/local/Cellar/libxml2/2.7.8/include/libxml2 --with-xml2-lib=/usr/local/Cellar/libxml2/2.7.8/lib --with-xslt-dir=/usr/local/Cellar/libxslt/1.1.26 --with-iconv-include=/usr/local/Cellar/libiconv/1.13.1/include --with-iconv-lib=/usr/local/Cellar/libiconv/1.13.1/lib
+```
+
 ## Halp!
 
 See [FAQ](https://github.com/boxen/our-boxen/blob/master/docs/faq.md).
