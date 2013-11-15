@@ -8,6 +8,7 @@ class people::blackavar {
   include projects::ppmspa
   include projects::devdashboard
   include lastpass
+  include flowdock
 
   #add personal git configurations
   git::config::global { 'user.email':
