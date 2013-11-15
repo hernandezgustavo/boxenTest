@@ -1,6 +1,6 @@
 # Replace name of all the "Blackavar" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
-class people::Blackavar {
+class people::blackavar {
 
   #add projects chefclient, ppm, ppmspa and dev dashboard
   include projects::ppm
@@ -10,10 +10,10 @@ class people::Blackavar {
 
   #add personal git configurations
   git::config::global { 'user.email':
-    value  => 'Blackavar@daptiv.com'
+    value  => 'blackavr@gmail.com'
   }
   git::config::global { 'user.name':
-    value  => 'Default Person'
+    value  => 'Michael Myers'
   }
 
   #link in your personal dot files the provided files live in the people/files dir and
