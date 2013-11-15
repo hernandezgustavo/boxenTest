@@ -9,6 +9,7 @@ class people::blackavar {
   include projects::devdashboard
   include lastpass
   include flowdock
+  include evernote
 
   #add personal git configurations
   git::config::global { 'user.email':

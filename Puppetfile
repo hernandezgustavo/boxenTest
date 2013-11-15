@@ -52,4 +52,5 @@ github "virtualbox",        "1.0.6"
 github "rubymine",          "1.0.2"
 github "lastpass",          "1.1.0", :repo => "dieterdemeyer/puppet-lastpass"
 github "flowdock",          "1.0.0", :repo => "geetarista/puppet-flowdock"
+github "evernote",          "2.0.4"
 
