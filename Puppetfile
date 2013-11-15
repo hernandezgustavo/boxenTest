@@ -46,6 +46,8 @@ github "osx",               "1.6.5", :repo => "chrisbobo/puppet-osx"
 github "phantomjs",         "2.0.2"
 github "python",            "1.2.1"
 github "sublime_text_3",    "1.0.1", :repo => "jozefizso/puppet-sublime_text_3"
-github "vagrant",           "3.0.0"
+mod "vagrant",
+  :git => "git://github.com/lazzurs/puppet-vagrant.git",
+  :ref => '24e583530bb7b70e48f75ad156d55f6befde83bc'
 github "vim",               "1.0.5"
 github "virtualbox",        "1.0.6"
