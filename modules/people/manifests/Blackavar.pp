@@ -13,6 +13,7 @@ class people::blackavar {
   include redis
   include cord
   include sourcetree
+  include htop
 
   #add personal git configurations
   git::config::global { 'user.email':

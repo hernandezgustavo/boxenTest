@@ -159,6 +159,11 @@ GITHUBTARBALL
     flowdock (1.0.0)
 
 GITHUBTARBALL
+  remote: jdar/puppet-htop
+  specs:
+    htop (1.0.1)
+
+GITHUBTARBALL
   remote: jozefizso/puppet-sublime_text_3
   specs:
     sublime_text_3 (1.0.1)
@@ -186,6 +191,7 @@ DEPENDENCIES
   gcc (= 2.0.1)
   git (= 1.2.5)
   homebrew (= 1.4.1)
+  htop (= 1.0.1)
   hub (= 1.0.3)
   inifile (= 1.0.0)
   iterm2 (= 1.0.3)
