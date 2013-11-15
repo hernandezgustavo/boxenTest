@@ -7,6 +7,7 @@ class people::blackavar {
   include projects::chefclient
   include projects::ppmspa
   include projects::devdashboard
+  include lastpass
 
   #add personal git configurations
   git::config::global { 'user.email':
