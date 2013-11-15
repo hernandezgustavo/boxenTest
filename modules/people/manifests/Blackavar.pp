@@ -11,6 +11,7 @@ class people::blackavar {
   include flowdock
   include evernote
   include redis
+  include cord
 
   #add personal git configurations
   git::config::global { 'user.email':
