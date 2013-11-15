@@ -12,6 +12,7 @@ class people::blackavar {
   include evernote
   include redis
   include cord
+  include sourcetree
 
   #add personal git configurations
   git::config::global { 'user.email':
