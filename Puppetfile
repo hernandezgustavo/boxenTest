@@ -51,7 +51,7 @@ mod "vagrant",
   :ref => '24e583530bb7b70e48f75ad156d55f6befde83bc'
 github "vim",               "1.0.5"
 github "virtualbox",        "1.0.6"
-github "rubymine",          "1.0.2"
+github "rubymine",          "1.0.3"
 github "lastpass",          "1.1.0", :repo => "dieterdemeyer/puppet-lastpass"
 github "flowdock",          "1.0.0", :repo => "geetarista/puppet-flowdock"
 github "evernote",          "2.0.4"

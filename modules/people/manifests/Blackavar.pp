@@ -18,6 +18,7 @@ class people::blackavar {
   include menumeters
   include transmission
   include dropbox
+  include rubymine
 
   #add personal git configurations
   git::config::global { 'user.email':
