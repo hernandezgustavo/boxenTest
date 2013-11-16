@@ -14,6 +14,7 @@ class people::blackavar {
   include cord
   include sourcetree
   include htop
+  include flux
 
   #add personal git configurations
   git::config::global { 'user.email':

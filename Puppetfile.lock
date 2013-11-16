@@ -46,6 +46,11 @@ GITHUBTARBALL
     fish (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-flux
+  specs:
+    flux (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-gcc
   specs:
     gcc (2.0.1)
@@ -190,6 +195,7 @@ DEPENDENCIES
   evernote (= 2.0.4)
   fish (= 1.0.0)
   flowdock (= 1.0.0)
+  flux (= 1.0.0)
   gcc (= 2.0.1)
   git (= 1.2.5)
   homebrew (= 1.4.1)
