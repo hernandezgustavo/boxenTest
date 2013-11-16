@@ -61,4 +61,4 @@ github "sourcetree",        "1.0.0"
 github "htop",              "1.0.1", :repo => "jdar/puppet-htop"
 github "flux",              "1.0.0"
 github "menumeters",        "1.0.1", :repo => "vodeclic/puppet-menumeters"
-
+github "transmission",      "1.0.0"
