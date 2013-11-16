@@ -15,6 +15,7 @@ class people::blackavar {
   include sourcetree
   include htop
   include flux
+  include menumeters
 
   #add personal git configurations
   git::config::global { 'user.email':
