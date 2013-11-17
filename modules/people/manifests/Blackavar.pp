@@ -19,6 +19,7 @@ class people::blackavar {
   include transmission
   include dropbox
   include rubymine
+  include cyberduck
 
   #add personal git configurations
   git::config::global { 'user.email':
