@@ -31,6 +31,7 @@ class people::blackavar {
   include google_notifier
   include imagemagick
   include mumble
+  include induction
 
   #add personal git configurations
   git::config::global { 'user.email':
