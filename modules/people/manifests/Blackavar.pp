@@ -24,6 +24,10 @@ class people::blackavar {
   include mplayerx
   include daisy_disk
   include adium
+  include pkgconfig
+  include swig
+  include pcre
+  include graphviz
 
   #add personal git configurations
   git::config::global { 'user.email':

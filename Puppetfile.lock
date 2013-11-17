@@ -76,6 +76,11 @@ GITHUBTARBALL
     git (1.2.5)
 
 GITHUBTARBALL
+  remote: boxen/puppet-graphviz
+  specs:
+    graphviz (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-homebrew
   specs:
     homebrew (1.4.1)
@@ -116,9 +121,19 @@ GITHUBTARBALL
     openssl (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-pcre
+  specs:
+    pcre (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-phantomjs
   specs:
     phantomjs (2.0.2)
+
+GITHUBTARBALL
+  remote: boxen/puppet-pkgconfig
+  specs:
+    pkgconfig (1.0.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-python
@@ -154,6 +169,11 @@ GITHUBTARBALL
   remote: boxen/puppet-sudo
   specs:
     sudo (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-swig
+  specs:
+    swig (1.0.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-tmux
@@ -236,6 +256,7 @@ DEPENDENCIES
   flux (= 1.0.0)
   gcc (= 2.0.1)
   git (= 1.2.5)
+  graphviz (= 1.0.0)
   homebrew (= 1.4.1)
   htop (= 1.0.1)
   hub (= 1.0.3)
@@ -249,7 +270,9 @@ DEPENDENCIES
   nodejs (= 3.4.1)
   openssl (= 1.0.0)
   osx (= 1.6.5)
+  pcre (= 1.0.0)
   phantomjs (= 2.0.2)
+  pkgconfig (= 1.0.0)
   python (= 1.2.1)
   redis (= 0.3.0)
   repository (= 2.2.0)
@@ -259,6 +282,7 @@ DEPENDENCIES
   stdlib (= 4.1.0)
   sublime_text_3 (= 1.0.1)
   sudo (= 1.0.0)
+  swig (= 1.0.0)
   tmux (= 1.0.2)
   transmission (= 1.0.0)
   vagrant (>= 0)

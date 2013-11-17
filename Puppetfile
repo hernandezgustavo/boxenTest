@@ -67,4 +67,8 @@ github "tmux",              "1.0.2"
 github "mplayerx",          "1.0.1"
 github "daisy_disk",        "1.0.1"
 github "adium",             "1.2.0"
+github "swig",              "1.0.0"
+github "pkgconfig",         "1.0.0"
+github "pcre",              "1.0.0"
+github "graphviz",          "1.0.0"
 
