@@ -64,3 +64,5 @@ github "menumeters",        "1.0.1", :repo => "vodeclic/puppet-menumeters"
 github "transmission",      "1.0.0"
 github "cyberduck",         "1.0.1"
 github "tmux",              "1.0.2"
+github "mplayerx",          "1.0.1"
+

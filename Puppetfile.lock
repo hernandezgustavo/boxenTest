@@ -86,6 +86,11 @@ GITHUBTARBALL
     mongodb (1.0.4)
 
 GITHUBTARBALL
+  remote: boxen/puppet-mplayerx
+  specs:
+    mplayerx (1.0.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-nginx
   specs:
     nginx (1.4.2)
@@ -227,6 +232,7 @@ DEPENDENCIES
   lastpass (= 1.1.0)
   menumeters (= 1.0.1)
   mongodb (= 1.0.4)
+  mplayerx (= 1.0.1)
   nginx (= 1.4.2)
   nodejs (= 3.4.1)
   openssl (= 1.0.0)

@@ -21,6 +21,7 @@ class people::blackavar {
   include rubymine
   include cyberduck
   include tmux
+  include mplayerx
 
   #add personal git configurations
   git::config::global { 'user.email':
