@@ -31,6 +31,11 @@ GITHUBTARBALL
     cyberduck (1.0.1)
 
 GITHUBTARBALL
+  remote: boxen/puppet-daisy_disk
+  specs:
+    daisy_disk (1.0.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-dnsmasq
   specs:
     dnsmasq (1.0.0)
@@ -216,6 +221,7 @@ DEPENDENCIES
   chrome (= 1.1.1)
   cord (= 1.0.0)
   cyberduck (= 1.0.1)
+  daisy_disk (= 1.0.1)
   dnsmasq (= 1.0.0)
   dropbox (= 1.1.1)
   evernote (= 2.0.4)

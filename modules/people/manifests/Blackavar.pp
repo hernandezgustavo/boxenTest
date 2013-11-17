@@ -22,6 +22,7 @@ class people::blackavar {
   include cyberduck
   include tmux
   include mplayerx
+  include daisy_disk
 
   #add personal git configurations
   git::config::global { 'user.email':
