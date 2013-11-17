@@ -76,4 +76,5 @@ github "imagemagick",       "1.2.1"
 github "mumble",            "1.0.5"
 github "induction",         "1.0.0"
 github "protobuf",          "1.0.0"
+github "postgresapp",       "1.0.0"
 

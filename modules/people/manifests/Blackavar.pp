@@ -33,6 +33,7 @@ class people::blackavar {
   include mumble
   include induction
   include protobuf
+  include postgresapp
 
   #add personal git configurations
   git::config::global { 'user.email':
