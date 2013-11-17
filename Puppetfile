@@ -75,4 +75,5 @@ github "google_notifier",   "1.0.1"
 github "imagemagick",       "1.2.1"
 github "mumble",            "1.0.5"
 github "induction",         "1.0.0"
+github "protobuf",          "1.0.0"
 

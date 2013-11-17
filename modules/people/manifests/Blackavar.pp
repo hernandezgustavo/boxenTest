@@ -32,6 +32,7 @@ class people::blackavar {
   include imagemagick
   include mumble
   include induction
+  include protobuf
 
   #add personal git configurations
   git::config::global { 'user.email':
