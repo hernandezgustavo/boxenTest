@@ -29,6 +29,7 @@ class people::blackavar {
   include pcre
   include graphviz
   include google_notifier
+  include imagemagick
 
   #add personal git configurations
   git::config::global { 'user.email':
