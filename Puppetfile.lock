@@ -6,6 +6,11 @@ GIT
     vagrant (0.0.1)
 
 GITHUBTARBALL
+  remote: boxen/puppet-adium
+  specs:
+    adium (1.2.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-autoconf
   specs:
     autoconf (1.0.0)
@@ -216,6 +221,7 @@ GITHUBTARBALL
     menumeters (1.0.1)
 
 DEPENDENCIES
+  adium (= 1.2.0)
   autoconf (= 1.0.0)
   boxen (= 3.0.2)
   chrome (= 1.1.1)

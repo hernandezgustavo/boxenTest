@@ -66,4 +66,5 @@ github "cyberduck",         "1.0.1"
 github "tmux",              "1.0.2"
 github "mplayerx",          "1.0.1"
 github "daisy_disk",        "1.0.1"
+github "adium",             "1.2.0"
 
