@@ -76,6 +76,11 @@ GITHUBTARBALL
     git (1.2.5)
 
 GITHUBTARBALL
+  remote: boxen/puppet-google_notifier
+  specs:
+    google_notifier (1.0.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-graphviz
   specs:
     graphviz (1.0.0)
@@ -256,6 +261,7 @@ DEPENDENCIES
   flux (= 1.0.0)
   gcc (= 2.0.1)
   git (= 1.2.5)
+  google_notifier (= 1.0.1)
   graphviz (= 1.0.0)
   homebrew (= 1.4.1)
   htop (= 1.0.1)

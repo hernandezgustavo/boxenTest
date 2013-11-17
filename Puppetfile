@@ -71,4 +71,5 @@ github "swig",              "1.0.0"
 github "pkgconfig",         "1.0.0"
 github "pcre",              "1.0.0"
 github "graphviz",          "1.0.0"
+github "google_notifier",   "1.0.1"
 
