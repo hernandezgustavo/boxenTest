@@ -141,6 +141,11 @@ GITHUBTARBALL
     sudo (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-tmux
+  specs:
+    tmux (1.0.2)
+
+GITHUBTARBALL
   remote: boxen/puppet-transmission
   specs:
     transmission (1.0.0)
@@ -236,6 +241,7 @@ DEPENDENCIES
   stdlib (= 4.1.0)
   sublime_text_3 (= 1.0.1)
   sudo (= 1.0.0)
+  tmux (= 1.0.2)
   transmission (= 1.0.0)
   vagrant (>= 0)
   vim (= 1.0.5)

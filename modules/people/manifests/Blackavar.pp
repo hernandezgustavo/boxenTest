@@ -20,6 +20,7 @@ class people::blackavar {
   include dropbox
   include rubymine
   include cyberduck
+  include tmux
 
   #add personal git configurations
   git::config::global { 'user.email':
