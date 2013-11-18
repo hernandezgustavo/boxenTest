@@ -86,6 +86,11 @@ GITHUBTARBALL
     graphviz (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-heroku
+  specs:
+    heroku (2.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-homebrew
   specs:
     homebrew (1.4.1)
@@ -288,6 +293,7 @@ DEPENDENCIES
   git (= 1.2.5)
   google_notifier (= 1.0.1)
   graphviz (= 1.0.0)
+  heroku (= 2.0.0)
   homebrew (= 1.4.1)
   htop (= 1.0.1)
   hub (= 1.0.3)

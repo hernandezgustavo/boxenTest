@@ -34,6 +34,7 @@ class people::blackavar {
   include induction
   include protobuf
   include postgresapp
+  include heroku
 
   #add personal git configurations
   git::config::global { 'user.email':

@@ -77,4 +77,5 @@ github "mumble",            "1.0.5"
 github "induction",         "1.0.0"
 github "protobuf",          "1.0.0"
 github "postgresapp",       "1.0.0"
+github "heroku",            "2.0.0"
 
