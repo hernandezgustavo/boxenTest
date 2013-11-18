@@ -26,7 +26,7 @@ github "homebrew",   "1.4.1"
 github "hub",        "1.0.3"
 github "inifile",    "1.0.0", :repo => "puppetlabs/puppetlabs-inifile"
 github "nginx",      "1.4.2"
-github "nodejs",     "3.2.10"
+github "nodejs",     "3.4.1"
 github "openssl",    "1.0.0"
 github "repository", "2.2.0"
 github "ruby",       "6.3.4"
@@ -46,6 +46,8 @@ github "osx",               "1.6.5", :repo => "chrisbobo/puppet-osx"
 github "phantomjs",         "2.0.2"
 github "python",            "1.2.1"
 github "sublime_text_3",    "1.0.1", :repo => "jozefizso/puppet-sublime_text_3"
-github "vagrant",           "2.0.7"
+mod "vagrant",
+  :git => "git://github.com/lazzurs/puppet-vagrant.git",
+  :ref => '24e583530bb7b70e48f75ad156d55f6befde83bc'
 github "vim",               "1.0.5"
 github "virtualbox",        "1.0.6"

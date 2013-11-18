@@ -5,5 +5,6 @@ class apps::sublime {
   include apps::sublime::linter
   include apps::sublime::repl
   include apps::sublime::typescript
+  include apps::sublime::less
 
 }

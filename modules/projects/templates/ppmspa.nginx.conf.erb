@@ -11,6 +11,11 @@ server {
     root html;
   }
 
+  location /_api/ {
+    proxy_pass http://unix:/tmp/ppmspamock.sock;
+    rewrite /_api/(.*) /$1 break;
+  }
+
   try_files $uri/index.html $uri @<%= @server_name %>;
 }
 

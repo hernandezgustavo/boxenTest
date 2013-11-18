@@ -1,33 +1,22 @@
 # Our Boxen
 
-Welcome to daptiv osx setup, please pull this repo and follow the getting started instructions
+Welcome to Daptiv OS X setup, please pull this repo and follow the getting started instructions
 
 ## Getting Started
 
-#### If you are using OSX Lion 10.7 THIS DOESN'T WORK!!!
+### Required Steps
 
-#### Previously bootstrapped machines should uninstall macports
+1. Nuke your box. Reinstall OS X Mountain Lion 10.8 or Mavericks 10.9 (Lion 10.7 does not work).
+2. Install Xcode Command Line Tools for your version of OS X, [Mountain Lion](http://vmit07.hq.daptiv.com/vagrant/command_line_tools_os_x_mountain_lion_for_xcode__october_2013.dmg) or [Mavericks](http://vmit07.hq.daptiv.com/vagrant/command_line_tools_os_x_mavericks_for_xcode__late_october_2013.dmg).
+3. [Generate a SSH key and add it to GitHub](https://help.github.com/articles/generating-ssh-keys).
 
-http://guide.macports.org/#installing.macports.uninstalling
+### Optional Steps
+If your Mac has been added to the Windows AD domain then follow this step (if you're not sure, then skip this). Run this command to add yourself to the `staff` group:
+`sudo dseditgroup -o edit -a [your username] -t user staff`
 
-#### Install Xcode
-1. Install Xcode from the Mac App Store.
-1. Open Xcode.
-1. Open the Preferences window (`Cmd-,`).
-1. Go to the Downloads tab.
-1. Install the Command Line Tools.
-
-#### Create system rsa key and add it to github
-1. run [ssh-keygen](https://help.github.com/articles/generating-ssh-keys) at command line to generate your rsa key
-1. `pbcopy < ~/.ssh/id_rsa.pub` and add this key to github
-
-#### Add staff group to your user if and only if (aka your user group when you `ls -al` in your home directory is `HQ\Domain User`)
-1. very important step for domain bound users run this command to add yourself to the `staff` group
-    `sudo dseditgroup -o edit -a [your username] -t user staff`
-
-#### You are ready hit the button and follow instructions
+## Run Boxen!
 1. Go to https://daptiv-boxen.herokuapp.com/ authenticate and run the given command
-1. From this point on just run boxen to get updates or any changes to your personal profile.
+2. From this point on just run boxen to get updates or any changes to your personal profile.
 
 ## Configuration  (VERY IMPORTANT EVERYONE SHOULD DO THIS)
 As of the first boxen run you will have a `~/src/our-boxen` repository already set up, however you will not have any included projects. You will at this point want to set up your personal boxen people file which will hold your personal settings for what you wish to be installed on your box.
@@ -49,13 +38,6 @@ To get started run the following
  bash
 ```
 
-
-###Optional Tools
-
-`include daptiv::fishShell` will add a base fish shell configured with a common base setup refer to park9140 people config for options or talk to Jonathan Park for support
-
-`include daptiv::sublime` will install sublime text 2, sublime linter plugin, and configure subl command line alias to run sublime text from the command line.
-
 #### Remember: if you add or remove any optional tools from your people files, commit the changes!
 
 ### Get your personal changes in master
@@ -71,44 +53,6 @@ If you continue to run boxen without doing this you'll get a nice little error m
  git checkout master
  git pull
 ```
-
-### Dependencies
-
-**Install the Xcode Command Lines Tools and/or full Xcode.**
-This will grant you the most predictable behavior in building apps like
-MacVim.
-
-How do you do it?
-
-1. Install Xcode from the Mac App Store.
-1. Open Xcode.
-1. Open the Preferences window (`Cmd-,`).
-1. Go to the Downloads tab.
-1. Install the Command Line Tools.
-
-Once your shell is ready, open a new tab/window in your Terminal
-and you should be able to successfully run `boxen --env`.
-If that runs cleanly, you're in good shape.
-
-## What You Get
-
-This template project provides the following by default:
-
-* Homebrew
-* Git
-* Hub
-* dnsmasq w/ .dev resolver for localhost
-* rbenv
-* Full Disk Encryption requirement
-* Node.js 0.4
-* Node.js 0.6
-* Node.js 0.8
-* Ruby 1.8.7
-* Ruby 1.9.2
-* Ruby 1.9.3
-* ack
-* Findutils
-* GNU tar
 
 ## Customizing
 
@@ -255,3 +199,7 @@ you will need to set the "BOXEN_GITHUB_ENTERPRISE_URL" and
 See [FAQ](https://github.com/boxen/our-boxen/blob/master/docs/faq.md).
 
 Use Issues or #boxen on irc.freenode.net.
+
+## Vagrant Setup
+
+See Wiki: https://sites.google.com/a/daptiv.com/portal/Daptiv-Engineering-Wiki/dev-machine-setup/new-vagrant-windows-dev-box
