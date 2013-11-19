@@ -35,6 +35,8 @@ class people::blackavar {
   include protobuf
   include postgresapp
   include heroku
+  include java
+  include clojure
 
   #add personal git configurations
   git::config::global { 'user.email':

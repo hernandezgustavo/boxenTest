@@ -78,4 +78,6 @@ github "induction",         "1.0.0"
 github "protobuf",          "1.0.0"
 github "postgresapp",       "1.0.0"
 github "heroku",            "2.0.0"
+github "java",              "1.1.0"
+github "clojure",           "1.2.0"
 
