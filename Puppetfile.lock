@@ -6,6 +6,11 @@ GIT
     vagrant (0.0.1)
 
 GITHUBTARBALL
+  remote: bluesalt/puppet-mercurial
+  specs:
+    mercurial (0.0.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-adium
   specs:
     adium (1.2.0)
@@ -315,6 +320,7 @@ DEPENDENCIES
   java (= 1.1.0)
   lastpass (= 1.1.0)
   menumeters (= 1.0.1)
+  mercurial (= 0.0.1)
   mongodb (= 1.0.4)
   mplayerx (= 1.0.1)
   mumble (= 1.0.5)

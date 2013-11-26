@@ -37,6 +37,7 @@ class people::blackavar {
   include heroku
   include java
   include clojure
+  include mercurial
 
   #add personal git configurations
   git::config::global { 'user.email':
