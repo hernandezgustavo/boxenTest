@@ -81,4 +81,5 @@ github "heroku",            "2.0.0"
 github "java",              "1.1.0"
 github "clojure",           "1.2.0"
 github "mercurial",         "0.0.1", :repo => "bluesalt/puppet-mercurial"
+github "colloquy",          "1.0.0"
 
