@@ -74,17 +74,10 @@ class people::park9140 {
     source => 'git@github.com:tvooo/sublime-grunt'
   }
 
-  #hosts update
-  file_line { 'ppm_hosts_ppmspa_remove':
-    line => '192.168.56.101 devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com localvm.daptiv.com',
-    path => '/etc/hosts',
-    ensure => 'absent',
-    subscribe => File_Line['ppm_hosts_ppmspa']
-  }
-  file_line { 'ppm_hosts_ppmspa_park9140':
-    line => '192.168.57.130 devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com localvm.daptiv.com',
-    path => '/etc/hosts',
-    subscribe => File_Line['ppm_hosts_ppmspa_remove']
+  include sublime_text_3::package_control
+
+  sublime_text_3::package { 'OmniSharpSublimePlugin':
+    source => 'git@github.com:PaulCampbell/OmniSharpSublimePlugin.git'
   }
 
 
