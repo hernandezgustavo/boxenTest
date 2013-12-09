@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/lazzurs/puppet-vagrant.git
+  ref: 24e583530bb7b70e48f75ad156d55f6befde83bc
+  sha: 24e583530bb7b70e48f75ad156d55f6befde83bc
+  specs:
+    vagrant (0.0.1)
+
 GITHUBTARBALL
   remote: boxen/puppet-autoconf
   specs:
@@ -99,11 +106,6 @@ GITHUBTARBALL
     sudo (1.0.0)
 
 GITHUBTARBALL
-  remote: boxen/puppet-vagrant
-  specs:
-    vagrant (2.0.7)
-
-GITHUBTARBALL
   remote: boxen/puppet-vim
   specs:
     vim (1.0.5)
@@ -163,7 +165,7 @@ DEPENDENCIES
   stdlib (= 4.1.0)
   sublime_text_3 (= 1.0.1)
   sudo (= 1.0.0)
-  vagrant (= 2.0.7)
+  vagrant (>= 0)
   vim (= 1.0.5)
   virtualbox (= 1.0.6)
   xquartz (= 1.1.0)

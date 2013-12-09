@@ -29,6 +29,6 @@ class apps::vim::typescript {
 
   nodejs::module { 'typescript':
     node_version => "${node_version}",
-    ensure => '0.9.1.-1'
+    ensure => '0.9.5'
   }
 }
