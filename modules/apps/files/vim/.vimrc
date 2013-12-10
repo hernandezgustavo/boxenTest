@@ -3,7 +3,6 @@ execute pathogen#infect()
 
 " enable syntax highlighting based on filetype
 syntax on
-filetype plugin indent on
 
 " show line numbers
 set number
