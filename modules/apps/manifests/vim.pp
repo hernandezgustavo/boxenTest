@@ -8,11 +8,17 @@ class apps::vim {
   include ::vim
 
   # managing .vimrc
-  file { "${::vim::vimrc}": ensure => exists }
+  file { "${::vim::vimrc}":
+    ensure => present
+  }
 
-  file_line { 'set_line_numbers_in_vim':
-    line => 'set number',
-    path => "${::vim::vimrc}"
+  # source defaults set in apps/files/vim/.vimrc
+  file_line { 'source_apps_vimrc':
+    line => ":so ${$boxen::config::repodir}/modules/apps/files/vim/.vimrc",
+    path => "${::vim::vimrc}",
+    require => [
+      File["${::vim::vimrc}"]
+    ]
   }
 
   vim::bundle { [

@@ -1,18 +1,31 @@
 class people::johnemau {
+
+  include iterm2::dev
+  include macvim
+  include sublime_text_3::package_control
   include apps::vim::typescript
   include apps::fishShell
-  include iterm2::dev
+
   include projects::devdashboard
+  include projects::chefclient
   include projects::ppm
   include projects::ppmspa
 
-  # vim has a dependency on python, https://github.com/boxen/puppet-vim/issues/16
-  include python
-  include vim
+  $home = "/Users/${::boxen_user}"
+
+  file { "${home}/.bash_profile":
+    ensure  => "${$boxen::config::repodir}/modules/people/files/johnemau/.bash_profile"
+  }
 
   # fixes warning if using vim syntastic plugin with fish shell
   file_line { 'set_vim_shell_to_bash':
     line => 'set shell=/bin/bash',
+    path => "${vim::vimrc}"
+  }
+
+  # run pathogen
+  file_line { 'load_vim_plugins_via_pathogen':
+    line => 'execute pathogen#infect()',
     path => "${vim::vimrc}"
   }
 
