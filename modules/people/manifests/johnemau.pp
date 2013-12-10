@@ -13,6 +13,9 @@ class people::johnemau {
   include projects::ppm
   include projects::ppmspa
 
+  include osx::mouse::enable_right_click
+  include osx::finder::show_hidden_files
+
   $home = "/Users/${::boxen_user}"
   $files = "${$boxen::config::repodir}/modules/people/files/johnemau"
 
