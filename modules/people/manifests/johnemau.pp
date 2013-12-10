@@ -23,6 +23,12 @@ class people::johnemau {
     path => "${vim::vimrc}"
   }
 
+  # run pathogen
+  file_line { 'load_vim_plugins_via_pathogen':
+    line => 'execute pathogen#infect()',
+    path => "${vim::vimrc}"
+  }
+
   git::config::global { 'user.email':
     value  => 'jemau@daptiv.com'
   }
