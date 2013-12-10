@@ -1,3 +1,2 @@
 " support typescript filetype
-filetype plugin on
 au BufRead,BufNewFile *.ts setlocal filetype=typescript

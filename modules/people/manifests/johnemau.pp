@@ -10,6 +10,12 @@ class people::johnemau {
   include projects::ppm
   include projects::ppmspa
 
+  $home = "/Users/${::boxen_user}"
+
+  file { "${home}/.bash_profile":
+    ensure  => "${$boxen::config::repodir}/modules/people/files/johnemau/.bash_profile"
+  }
+
   # fixes warning if using vim syntastic plugin with fish shell
   file_line { 'set_vim_shell_to_bash':
     line => 'set shell=/bin/bash',
