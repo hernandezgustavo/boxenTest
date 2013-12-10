@@ -1,6 +1,7 @@
 class people::johnemau {
 
   include iterm2::dev
+  include macvim
   include sublime_text_3::package_control
   include apps::vim::typescript
   include apps::fishShell
