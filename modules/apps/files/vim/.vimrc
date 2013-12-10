@@ -1,7 +1,7 @@
 " start pathogen, installing vim plugins
 execute pathogen#infect()
 
-" enable syntax highlighitng based on filetype
+" enable syntax highlighting based on filetype
 syntax on
 filetype plugin indent on
 
