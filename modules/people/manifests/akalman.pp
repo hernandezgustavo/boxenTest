@@ -1,34 +1,46 @@
-class people::park9140 {
+class people::akalman {
+  $home = "/Users/${::boxen_user}"
+
+
   include apps::fishShell
   include apps::sublime
 
   include chrome::canary
-
-  include iterm2::dev
 
   include projects::ppm
   include projects::chefclient
   include projects::ppmspa
   include projects::devdashboard
 
-  $home = "/Users/${::boxen_user}"
+  include dropbox
+  include apps::googledrive
+  include apps::vmware
 
-  file { "${home}/.config/fish/personal.fish":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/park9140/personal.fish",
-    subscribe => File["${home}/.config/fish/"]
-  }
+  include apps::webstorm
+  include apps::git::difftools::p4merge
+
+
+  #git config
+  include apps::git::aliases
 
   git::config::global { 'user.email':
-    value  => 'jpark@daptiv.com'
+    value  => 'akalman@daptiv.com'
   }
   git::config::global { 'user.name':
-    value  => 'Jonathan Park'
+    value  => 'Adam Kalman'
+  }
+
+
+  #files setup
+  file { "${home}/.config/fish/personal.fish":
+    ensure  => link,
+    target  => "${$boxen::config::repodir}/modules/people/files/akalman/personal.fish",
+    subscribe => File["${home}/.config/fish/"]
   }
 
   file { "${home}/.bash_profile":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/park9140/.bash_profile"
+    target  => "${$boxen::config::repodir}/modules/people/files/akalman/.bash_profile"
   }
 
   file { "${home}/.git-completion.sh":
@@ -40,27 +52,18 @@ class people::park9140 {
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
   }
-  repository{
-    'my sublime config':
-      source   => 'git@github.com:park9140/sublimeconfig', #short hand for github repos
-      provider => 'git',
-      path => "${home}/src/sublimeconfig",
-      force => true
-  }
+
   file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings":
     ensure  => link,
     target  => "${home}/src/sublimeconfig/Preferences.sublime-settings"
   }
+
   file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings":
     ensure  => link,
     target  => "${home}/src/sublimeconfig/SublimeLinter.sublime-settings"
   }
 
-
-#used to share editing at floobits.com
-  sublime_text_3::package { 'Floobits':
-    source => 'git@github.com:Floobits/floobits-sublime'
-  }
+  #sublime config
   sublime_text_3::package { 'Wombat Theme':
     source => 'git@github.com:sheerun/sublime-wombat-theme'
   }
@@ -74,13 +77,14 @@ class people::park9140 {
     source => 'git@github.com:tvooo/sublime-grunt'
   }
 
-  include sublime_text_3::package_control
-
-  sublime_text_3::package { 'OmniSharpSublimePlugin':
-    source => 'git@github.com:PaulCampbell/OmniSharpSublimePlugin.git'
+  #hosts update
+  file_line { 'ppm_hosts_ppmspa_remove':
+    line => '192.168.56.101 devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com localvm.daptiv.com',
+    path => '/etc/hosts',
+    subscribe => File_Line['ppm_hosts_ppmspa']
   }
 
-
+  #nodejs
   nodejs::module { 'typescript-tools':
     node_version => 'v0.10',
     ensure => '0.2.2-1'

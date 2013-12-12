@@ -38,13 +38,6 @@ To get started run the following
  bash
 ```
 
-
-### Optional Tools
-
-`include daptiv::fishShell` will add a base fish shell configured with a common base setup refer to park9140 people config for options or talk to Jonathan Park for support
-
-`include daptiv::sublime` will install sublime text 2, sublime linter plugin, and configure subl command line alias to run sublime text from the command line.
-
 #### Remember: if you add or remove any optional tools from your people files, commit the changes!
 
 ### Get your personal changes in master
@@ -60,26 +53,6 @@ If you continue to run boxen without doing this you'll get a nice little error m
  git checkout master
  git pull
 ```
-
-## What You Get
-
-This template project provides the following by default:
-
-* Homebrew
-* Git
-* Hub
-* dnsmasq w/ .dev resolver for localhost
-* rbenv
-* Full Disk Encryption requirement
-* Node.js 0.4
-* Node.js 0.6
-* Node.js 0.8
-* Ruby 1.8.7
-* Ruby 1.9.2
-* Ruby 1.9.3
-* ack
-* Findutils
-* GNU tar
 
 ## Customizing
 
@@ -220,6 +193,33 @@ If you're using a Github Enterprise instance rather than github.com,
 you will need to set the "BOXEN_GITHUB_ENTERPRISE_URL" and
 "BOXEN_REPO_URL_TEMPLATE" variables in your
 [Boxen config](config/boxen.rb).
+
+## Upgrading to Mavericks
+
+After upgrading to OS X Mavericks, run:
+
+```
+bundle install
+```
+
+In order to use vagrant:
+
+```
+brew install wget
+```
+
+Then, install nokogiri:
+```
+brew install libxml2 libxslt
+brew link libxml2 libxslt --force
+wget http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.13.1.tar.gz
+tar xvfz libiconv-1.13.1.tar.gz
+cd libiconv-1.13.1
+./configure --prefix=/usr/local/Cellar/libiconv/1.13.1
+make
+sudo make install
+gem install nokogiri -- --with-xml2-include=/usr/local/Cellar/libxml2/2.7.8/include/libxml2 --with-xml2-lib=/usr/local/Cellar/libxml2/2.7.8/lib --with-xslt-dir=/usr/local/Cellar/libxslt/1.1.26 --with-iconv-include=/usr/local/Cellar/libiconv/1.13.1/include --with-iconv-lib=/usr/local/Cellar/libiconv/1.13.1/lib
+```
 
 ## Halp!
 
