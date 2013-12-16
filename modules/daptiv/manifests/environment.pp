@@ -9,6 +9,7 @@ class daptiv::environment {
   # Apps that everyone gets
   #--------------------------------
   include chrome
+
   include apps::sublime
 
   include daptiv::dotFiles
