@@ -1,6 +1,8 @@
 # Our Boxen
 
-Welcome to Daptiv OS X setup, please follow the getting started instructions below
+Welcome to Daptiv OS X setup, please follow the getting started instructions below.
+
+NOTE - Do not pull this repo before running Boxen!
 
 ## Getting Started
 
