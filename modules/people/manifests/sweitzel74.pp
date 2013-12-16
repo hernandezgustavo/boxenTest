@@ -8,12 +8,24 @@ class people::sweitzel74 {
   include projects::ppmspa
   include projects::devdashboard
 
+  #add apps
+  include java
+  include sourcetree
+  include graphviz
+
+  include iterm2::dev
+  include apps::git::difftools::p4merge
+
+  #OSX Config
+  include osx::finder::show_hidden_files
+  include osx::mouse::enable_right_click
+
   #add personal git configurations
   git::config::global { 'user.email':
-    value  => 'sweitzel74@daptiv.com'
+    value  => 'sweitzel@daptiv.com'
   }
   git::config::global { 'user.name':
-    value  => 'Default Person'
+    value  => 'Shawn Weitzel'
   }
 
   #link in your personal dot files the provided files live in the people/files dir and
@@ -28,11 +40,11 @@ class people::sweitzel74 {
 
   file { "${home}/.git-completion.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/sweitzel74/git-completion.sh"
+    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
   }
 
   file { "${home}/.git-prompt.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/sweitzel74/git-prompt.sh"
+    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
   }
 }
