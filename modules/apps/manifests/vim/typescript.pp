@@ -3,18 +3,26 @@ class apps::vim::typescript {
   require nodejs::v0_10
 
   $node_version = 'v0.10'
+  $tsvimrc = "${$boxen::config::repodir}/modules/apps/files/vim/.tsvimrc"
 
-  file_line { 'source_typescript_vimrc':
-    line => ":so ${$boxen::config::repodir}/modules/apps/files/vim/.tsvimrc",
-    path => "${::vim::vimrc}"
+  file { "${tsvimrc}":
+    ensure => present
   }
 
   file_line { 'add_typescript_tools_plugin_to_vim_run_time_path':
     line => "set rtp+=${::nodejs::params::nodenv_root}/versions/${node_version}/lib/node_modules/typescript-tools/",
     path => "${::vim::vimrc}",
     require => [
-      Nodejs::Module['typescript-tools'],
-      File_line['source_typescript_vimrc']
+      File["${::vim::vimrc}"],
+      Nodejs::Module['typescript-tools']
+    ]
+  }
+
+  file_line { 'source_typescript_vimrc':
+    line => ":so ${tsvimrc}",
+    path => "${::vim::vimrc}",
+    require => [
+      File["${tsvimrc}"]
     ]
   }
 
@@ -29,6 +37,6 @@ class apps::vim::typescript {
 
   nodejs::module { 'typescript':
     node_version => "${node_version}",
-    ensure => '0.9.1.-1'
+    ensure => '0.9.1-1'
   }
 }
