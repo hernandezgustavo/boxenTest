@@ -4,6 +4,8 @@ class people::park9140 {
 
   include chrome::canary
 
+  include firefox
+
   include iterm2::dev
 
   include projects::ppm
