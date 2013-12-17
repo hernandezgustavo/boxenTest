@@ -37,6 +37,7 @@ function fish_prompt --description 'Write out the prompt'
   echo -n ' » '
 end
 
+alias tree='ls -R | grep ":\$" | sed -e "s/:\$//" -e "s/[^-][^\/]*\//--/g" -e "s/^/ /" -e "s/-/|/"'
 alias gs='git status'
 alias gd='git diff'
 alias gdc='git diff --cached'

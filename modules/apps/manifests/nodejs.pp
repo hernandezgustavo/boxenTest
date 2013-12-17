@@ -5,6 +5,8 @@ class apps::nodejs {
   #some tools expect node to be in a particular directory on mac, symlink this instead
   file { '/usr/local/bin/node':
     ensure  => link,
+    group => 'wheel',
+    owner => 'root',
     target  => '/opt/boxen/nodenv/shims/node'
   }
 

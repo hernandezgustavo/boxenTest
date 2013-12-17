@@ -1,21 +1,26 @@
 class people::jtrinklein {
-  include apps::fishShell
-  include apps::sublime
+  $usefish = false
+  $home = "/Users/${::boxen_user}"
 
+  include apps::sublime
   include iterm2::dev
 
   include projects::ppm
   include projects::chefclient
   include projects::devdashboard
 
-  $home = "/Users/${::boxen_user}"
-
-  file { "${home}/.config/fish/personal.fish":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/jtrinklein/personal.fish",
-    subscribe => File["${home}/.config/fish/"]
+  if $usefish {
+    include apps::fishShell
+    file { "${home}/.config/fish/personal.fish":
+      ensure  => link,
+      target  => "${$boxen::config::repodir}/modules/people/files/jtrinklein/personal.fish",
+      subscribe => File["${home}/.config/fish/"]
+    }
   }
-
+  else {
+    include zsh
+  }
+  
   git::config::global { 'user.email':
     value  => 'jtrinklein@daptiv.com'
   }
@@ -44,6 +49,20 @@ class people::jtrinklein {
       path => "${home}/src/dotfiles",
       force => true
   }
+
+  repository{
+    'oh my zsh':
+      source   => 'git@github.com:robbyrussell/oh-my-zsh', #short hand for github repos
+      provider => 'git',
+      path => "${home}/.oh-my-zsh",
+      force => true
+  }
+
+  file { "${home}/.zshrc":
+    ensure  => link,
+    target  => "${home}/src/dotfiles/.zshrc"
+  }
+
   file { "${home}/.vimrc":
     ensure  => link,
     target  => "${home}/src/dotfiles/.vimrc"
