@@ -1,5 +1,6 @@
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
+export EDITOR='subl -w'
 tabname () { printf "\e]1;$1\a"; }
 export PATH=~/bin:$PATH
 
