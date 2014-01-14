@@ -63,7 +63,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-dropbox
   specs:
-    dropbox (1.1.1)
+    dropbox (1.2.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-evernote
@@ -176,6 +176,11 @@ GITHUBTARBALL
     openssl (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-osx
+  specs:
+    osx (2.2.2)
+
+GITHUBTARBALL
   remote: boxen/puppet-pcre
   specs:
     pcre (1.0.0)
@@ -266,11 +271,6 @@ GITHUBTARBALL
     xquartz (1.1.0)
 
 GITHUBTARBALL
-  remote: chrisbobo/puppet-osx
-  specs:
-    osx (1.6.5)
-
-GITHUBTARBALL
   remote: dieterdemeyer/puppet-lastpass
   specs:
     lastpass (1.1.0)
@@ -316,7 +316,7 @@ DEPENDENCIES
   cyberduck (= 1.0.1)
   daisy_disk (= 1.0.1)
   dnsmasq (= 1.0.0)
-  dropbox (= 1.1.1)
+  dropbox (= 1.2.0)
   evernote (= 2.0.4)
   firefox (= 1.1.5)
   fish (= 1.0.0)
@@ -345,7 +345,7 @@ DEPENDENCIES
   nginx (= 1.4.2)
   nodejs (= 3.4.1)
   openssl (= 1.0.0)
-  osx (= 1.6.5)
+  osx (= 2.2.2)
   pcre (= 1.0.0)
   phantomjs (= 2.0.2)
   pkgconfig (= 1.0.0)
