@@ -6,9 +6,9 @@ class people::chrisbobo {
   include apps::vmware
 
   include chrome::canary
-  include apps::webstorm
-  include iterm2::dev
-  include apps::git::difftools::p4merge
+#  include apps::webstorm
+#  include iterm2::dev
+#  include apps::git::difftools::p4merge
 
   file { "${home}/.bash_profile":
     ensure  => link,
@@ -29,12 +29,12 @@ class people::chrisbobo {
   #------------------------
   # Fish Shell
   #------------------------
-  include apps::fishShell
-  file { "${home}/.config/fish/personal.fish":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/chrisbobo/personal.fish",
-    subscribe => File["${home}/.config/fish/"]
-  }
+#  include apps::fishShell
+#  file { "${home}/.config/fish/personal.fish":
+#    ensure  => link,
+#    target  => "${$boxen::config::repodir}/modules/people/files/chrisbobo/personal.fish",
+#    subscribe => File["${home}/.config/fish/"]
+#  }
 
 
   #------------------------
