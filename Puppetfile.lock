@@ -71,6 +71,11 @@ GITHUBTARBALL
     evernote (2.0.4)
 
 GITHUBTARBALL
+  remote: boxen/puppet-firefox
+  specs:
+    firefox (1.1.5)
+
+GITHUBTARBALL
   remote: boxen/puppet-fish
   specs:
     fish (1.0.0)
@@ -313,6 +318,7 @@ DEPENDENCIES
   dnsmasq (= 1.0.0)
   dropbox (= 1.1.1)
   evernote (= 2.0.4)
+  firefox (= 1.1.5)
   fish (= 1.0.0)
   flowdock (= 1.0.0)
   flux (= 1.0.0)
