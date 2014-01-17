@@ -1,29 +1,21 @@
 class people::chrisbobo {
   $home = "/Users/${::boxen_user}"
 
+
   include dropbox
   include apps::googledrive
   include apps::vmware
-
   include chrome::canary
   include apps::webstorm
-  include iterm2::dev
+
+
 #  include apps::git::difftools::p4merge
-
-  file { "${home}/.bash_profile":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/chrisbobo/.bash_profile"
-  }
-
-
   include apps::git::aliases
   include apps::git::completion
   include apps::git::prompt
-
   git::config::global { 'user.email':
     value  => 'chrisbobo@gmail.com'
   }
-
   git::config::global { 'user.name':
     value  => 'Chris Bobo'
   }
@@ -39,6 +31,12 @@ class people::chrisbobo {
   include apps::sublime::ensure_settings_links_exist
   include apps::sublime::bracket_highlighter
   include apps::sublime::wombat_theme
+
+
+  file { "${home}/.bash_profile":
+    ensure  => link,
+    target  => "${$boxen::config::repodir}/modules/people/files/chrisbobo/.bash_profile"
+  }
 
 
   #------------------------
