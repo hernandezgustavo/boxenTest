@@ -21,10 +21,13 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 export PATH=~/bin:$PATH
-export EDITOR='subl3 -w'
+alias subl='subl3'
+export EDITOR='subl -w'
 
 #live write history
 export PROMPT_COMMAND="history -a;"
 
 # PpmEndpointTests Configuration
 export DB_SERVER_NAME=vagrant-2008R2
+
+export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
