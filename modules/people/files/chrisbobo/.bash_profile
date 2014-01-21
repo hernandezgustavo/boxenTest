@@ -29,5 +29,3 @@ export PROMPT_COMMAND="history -a;"
 
 # PpmEndpointTests Configuration
 export DB_SERVER_NAME=vagrant-2008R2
-
-export VAGRANT_DEFAULT_PROVIDER=vmware_fusion

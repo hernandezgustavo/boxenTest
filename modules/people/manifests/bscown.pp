@@ -8,12 +8,14 @@ class people::bscown {
   include projects::ppmspa
   include projects::devdashboard
 
+  include  virtualbox
+
   #add personal git configurations
   git::config::global { 'user.email':
     value  => 'bscown@daptiv.com'
   }
   git::config::global { 'user.name':
-    value  => 'Default Person'
+    value  => 'Bryan Scown'
   }
 
   #link in your personal dot files the provided files live in the people/files dir and

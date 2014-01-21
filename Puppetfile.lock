@@ -1,10 +1,3 @@
-GIT
-  remote: git://github.com/lazzurs/puppet-vagrant.git
-  ref: 24e583530bb7b70e48f75ad156d55f6befde83bc
-  sha: 24e583530bb7b70e48f75ad156d55f6befde83bc
-  specs:
-    vagrant (0.0.1)
-
 GITHUBTARBALL
   remote: bluesalt/puppet-mercurial
   specs:
@@ -256,6 +249,11 @@ GITHUBTARBALL
     transmission (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-vagrant
+  specs:
+    vagrant (3.0.3)
+
+GITHUBTARBALL
   remote: boxen/puppet-vim
   specs:
     vim (1.0.5)
@@ -264,6 +262,11 @@ GITHUBTARBALL
   remote: boxen/puppet-virtualbox
   specs:
     virtualbox (1.0.6)
+
+GITHUBTARBALL
+  remote: boxen/puppet-vmware_fusion
+  specs:
+    vmware_fusion (1.1.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-xquartz
@@ -363,8 +366,9 @@ DEPENDENCIES
   swig (= 1.0.0)
   tmux (= 1.0.2)
   transmission (= 1.0.0)
-  vagrant (>= 0)
+  vagrant (= 3.0.3)
   vim (= 1.0.5)
   virtualbox (= 1.0.6)
+  vmware_fusion (= 1.1.0)
   xquartz (= 1.1.0)
 

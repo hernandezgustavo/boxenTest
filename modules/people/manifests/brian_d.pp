@@ -8,6 +8,8 @@ class people::brian_d {
   include projects::ppmspa
   include projects::devdashboard
 
+  include virtualbox
+
   #add personal git configurations
   git::config::global { 'user.email':
     value  => 'bdahl@daptiv.com'

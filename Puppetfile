@@ -79,8 +79,7 @@ github "sublime_text_3",    "1.0.1", :repo => "jozefizso/puppet-sublime_text_3"
 github "swig",              "1.0.0"
 github "tmux",              "1.0.2"
 github "transmission",      "1.0.0"
-mod "vagrant",
-  :git => "git://github.com/lazzurs/puppet-vagrant.git",
-  :ref => '24e583530bb7b70e48f75ad156d55f6befde83bc'
+github "vagrant",           "3.0.3"
 github "vim",               "1.0.5"
 github "virtualbox",        "1.0.6"
+github "vmware_fusion",     "1.1.0"

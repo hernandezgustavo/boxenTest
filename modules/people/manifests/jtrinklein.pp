@@ -8,6 +8,8 @@ class people::jtrinklein {
   include projects::chefclient
   include projects::devdashboard
 
+  include virtualbox
+
   $home = "/Users/${::boxen_user}"
 
   file { "${home}/.config/fish/personal.fish":
