@@ -14,7 +14,6 @@ class people::akalman {
 
   include dropbox
   include apps::googledrive
-  include apps::vmware
 
   include apps::webstorm
   include apps::git::difftools::p4merge

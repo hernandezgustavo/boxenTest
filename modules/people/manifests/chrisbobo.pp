@@ -1,13 +1,14 @@
 class people::chrisbobo {
   $home = "/Users/${::boxen_user}"
 
-
   include dropbox
   include apps::googledrive
-  include apps::vmware
   include chrome::canary
   include apps::webstorm
 
+  vagrant::plugin { 'vmware-fusion':
+    license => "${$boxen::config::repodir}/modules/people/files/chrisbobo/VagrantVMWareFusionLicense_cbobo_mdevine.lic"
+  }
 
 #  include apps::git::difftools::p4merge
   include apps::git::aliases
