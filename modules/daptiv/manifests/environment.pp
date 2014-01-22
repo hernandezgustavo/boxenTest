@@ -14,6 +14,8 @@ class daptiv::environment {
 
   include daptiv::dotFiles
   include apps::git
+  include apps::git::completion
+
   include apps::rdp
   include apps::ruby
 

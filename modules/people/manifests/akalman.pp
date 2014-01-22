@@ -42,11 +42,6 @@ class people::akalman {
     target  => "${$boxen::config::repodir}/modules/people/files/akalman/.bash_profile"
   }
 
-  file { "${home}/.git-completion.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
-  }
-
   file { "${home}/.git-prompt.sh":
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
