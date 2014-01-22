@@ -5,11 +5,6 @@ class people::kblaha {
 
   include apps::sublime
 
-  #add projects chefclient, ppm, ppmspa and dev dashboard
-  include projects::ppm
-  include projects::chefclient
-  include projects::ppmspa
-  include projects::devdashboard
 
   #add personal git configurations
   git::config::global { 'user.email':

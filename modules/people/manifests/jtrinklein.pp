@@ -4,10 +4,6 @@ class people::jtrinklein {
 
   include iterm2::dev
 
-  include projects::ppm
-  include projects::chefclient
-  include projects::devdashboard
-
   include virtualbox
 
   $home = "/Users/${::boxen_user}"

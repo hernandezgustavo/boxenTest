@@ -1,13 +1,6 @@
 # Replace name of all the "bscown" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::bscown {
-
-  #add projects chefclient, ppm, ppmspa and dev dashboard
-  include projects::ppm
-  include projects::chefclient
-  include projects::ppmspa
-  include projects::devdashboard
-
   include  virtualbox
 
   #add personal git configurations

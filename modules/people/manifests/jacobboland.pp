@@ -8,11 +8,6 @@ class people::jacobboland {
 
   include iterm2::dev
 
-  #add projects chefclient, ppm, ppmspa and dev dashboard
-  include projects::ppm
-  include projects::chefclient
-  include projects::ppmspa
-  include projects::devdashboard
 
   #add personal git configurations
   git::config::global { 'user.email':

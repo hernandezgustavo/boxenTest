@@ -1,13 +1,6 @@
 # Replace name of all the "iluzions77" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::iluzions77 {
-
-  #add projects chefclient, ppm, ppmspa and dev dashboard
-  include projects::ppm
-  include projects::chefclient
-  include projects::ppmspa
-  include projects::devdashboard
-
   #add personal git configurations
   git::config::global { 'user.email':
     value  => 'jschnur@daptiv.com'

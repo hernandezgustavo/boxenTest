@@ -8,11 +8,6 @@ class people::park9140 {
 
   include iterm2::dev
 
-  include projects::ppm
-  include projects::chefclient
-  include projects::ppmspa
-  include projects::devdashboard
-
   $home = "/Users/${::boxen_user}"
 
   file { "${home}/.config/fish/personal.fish":

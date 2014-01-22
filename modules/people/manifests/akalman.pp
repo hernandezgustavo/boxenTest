@@ -1,16 +1,10 @@
 class people::akalman {
   $home = "/Users/${::boxen_user}"
 
-
   include apps::fishShell
   include apps::sublime
 
   include chrome::canary
-
-  include projects::ppm
-  include projects::chefclient
-  include projects::ppmspa
-  include projects::devdashboard
 
   include dropbox
   include apps::googledrive

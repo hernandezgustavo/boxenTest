@@ -2,11 +2,6 @@
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::jreynolds_daptiv {
   include iterm2::dev
-  include projects::ppm
-  include projects::chefclient
-  include projects::ppm
-  include projects::ppmspa
-  include projects::devdashboard
 
   #add personal git configurations
   git::config::global { 'user.email':
