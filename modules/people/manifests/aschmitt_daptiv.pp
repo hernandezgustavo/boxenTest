@@ -5,9 +5,6 @@ class people::aschmitt_daptiv {
   #------------------------
   # Git
   #------------------------
-  include apps::git::aliases
-
-  #add personal git configurations
   git::config::global { 'user.email':
     value  => 'aschmitt@daptiv.com'
   }

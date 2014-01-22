@@ -13,8 +13,6 @@ class people::akalman {
 
 
   #git config
-  include apps::git::aliases
-
   git::config::global { 'user.email':
     value  => 'akalman@daptiv.com'
   }

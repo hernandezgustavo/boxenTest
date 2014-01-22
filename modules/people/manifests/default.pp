@@ -7,9 +7,6 @@ class people::default {
     license => '${$boxen::config::repodir}/modules/people/files/default/LICENSE_FILENAME.lic'
   }
 
-  include apps::git::aliases
-  include apps::git::completion
-  include apps::git::prompt
   git::config::global { 'user.email':
     value  => 'GITHUB_EMAIL'
   }

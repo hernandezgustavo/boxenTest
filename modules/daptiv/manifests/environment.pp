@@ -13,6 +13,7 @@ class daptiv::environment {
   include daptiv::dotFiles
 
   include apps::git
+  include apps::git::aliases
   include apps::git::completion
   include apps::git::prompt
 
