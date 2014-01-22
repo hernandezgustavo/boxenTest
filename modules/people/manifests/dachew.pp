@@ -26,8 +26,4 @@ class people::dachew {
     target  => "${$boxen::config::repodir}/modules/people/files/dachew/.bash_profile"
   }
 
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/dachew/git-prompt.sh"
-  }
 }

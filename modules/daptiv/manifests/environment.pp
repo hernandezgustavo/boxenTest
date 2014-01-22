@@ -10,14 +10,15 @@ class daptiv::environment {
   #--------------------------------
   include chrome
 
-  include apps::sublime
-
   include daptiv::dotFiles
+
   include apps::git
   include apps::git::completion
+  include apps::git::prompt
 
   include apps::rdp
   include apps::ruby
+  include apps::sublime
 
   include projects::chefclient
   include projects::devdashboard

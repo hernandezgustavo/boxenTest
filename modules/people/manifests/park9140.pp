@@ -33,10 +33,7 @@ class people::park9140 {
     target  => "${$boxen::config::repodir}/modules/people/files/park9140/.bash_profile"
   }
 
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
-  }
+
   repository{
     'my sublime config':
       source   => 'git@github.com:park9140/sublimeconfig', #short hand for github repos

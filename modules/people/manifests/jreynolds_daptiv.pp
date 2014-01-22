@@ -26,10 +26,7 @@ class people::jreynolds_daptiv {
     target  => "${$boxen::config::repodir}/modules/people/files/jreynolds_daptiv/.bash_profile"
   }
 
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
-  }
+
 
   #hosts update
   file_line { 'ppm_hosts_ppmspa_remove':

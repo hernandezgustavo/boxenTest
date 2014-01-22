@@ -39,10 +39,7 @@ class people::jacobboland {
     target  => "${$boxen::config::repodir}/modules/people/files/jacobboland/.bash_profile"
   }
 
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
-  }
+
 
 #used to share editing at floobits.com
   sublime_text_3::package { 'Floobits':

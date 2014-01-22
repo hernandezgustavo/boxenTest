@@ -42,10 +42,7 @@ class people::akalman {
     target  => "${$boxen::config::repodir}/modules/people/files/akalman/.bash_profile"
   }
 
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
-  }
+
 
   file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings":
     ensure  => link,
