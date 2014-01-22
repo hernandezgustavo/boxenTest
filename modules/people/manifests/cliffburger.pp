@@ -36,6 +36,10 @@ class people::cliffburger {
     target  => "${$boxen::config::repodir}/modules/people/files/cliffburger/git-prompt.sh"
   }
 
+  file { "${home}/.vimrc":
+    ensure  => link,
+    target  => "${$boxen::config::repodir}/modules/people/files/cliffburger/.vimrc"
+  }
   #
   package { 'wget':
     ensure => present
