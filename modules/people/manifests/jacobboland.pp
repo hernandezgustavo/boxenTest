@@ -2,7 +2,6 @@
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::jacobboland {
   include apps::fishShell
-  include apps::sublime
 
   include chrome::canary
 

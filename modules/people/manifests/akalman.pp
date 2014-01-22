@@ -2,7 +2,6 @@ class people::akalman {
   $home = "/Users/${::boxen_user}"
 
   include apps::fishShell
-  include apps::sublime
 
   include chrome::canary
 

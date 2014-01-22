@@ -3,9 +3,6 @@ class people::kblaha {
   include apps::fishShell
   include iterm2::dev
 
-  include apps::sublime
-
-
   #add personal git configurations
   git::config::global { 'user.email':
     value  => 'kblaha@daptiv.com'

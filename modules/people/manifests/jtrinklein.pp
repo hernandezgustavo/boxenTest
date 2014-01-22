@@ -1,6 +1,5 @@
 class people::jtrinklein {
   include apps::fishShell
-  include apps::sublime
 
   include iterm2::dev
 
