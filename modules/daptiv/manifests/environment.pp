@@ -1,5 +1,7 @@
 class daptiv::environment {
 
+  include osx::recovery_message { 'If this Mac is found, please call 206-239-7424' }
+
   include daptiv::environment::ensure_usr_local_bin_exists
   include daptiv::environment::etc_profile
   include daptiv::environment::set_ulimit_to_max
