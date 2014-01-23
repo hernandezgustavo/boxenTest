@@ -34,17 +34,13 @@ class people::akalman {
   }
 
 
-
-  include apps::sublime::ensure_settings_links_exist
-
   #sublime config
+  include apps::sublime::ensure_settings_links_exist
   include apps::sublime::wombat_theme
-
   include apps::sublime::bracket_highlighter
 
-  sublime_text_3::package { 'sublime-jsdocs':
-    source => 'git@github.com:spadgos/sublime-jsdocs'
-  }
+  include apps::sublime::jsdocs
+
   sublime_text_3::package { 'sublime-grunt':
     source => 'git@github.com:tvooo/sublime-grunt'
   }

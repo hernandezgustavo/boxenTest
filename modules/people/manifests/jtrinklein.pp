@@ -46,9 +46,8 @@ class people::jtrinklein {
 
   include apps::sublime::bracket_highlighter
 
-  sublime_text_3::package { 'sublime-jsdocs':
-    source => 'git@github.com:spadgos/sublime-jsdocs'
-  }
+  include apps::sublime::jsdocs
+
   sublime_text_3::package { 'sublime-grunt':
     source => 'git@github.com:tvooo/sublime-grunt'
   }
