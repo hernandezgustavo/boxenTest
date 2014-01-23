@@ -41,9 +41,7 @@ class people::akalman {
 
   include apps::sublime::jsdocs
 
-  sublime_text_3::package { 'sublime-grunt':
-    source => 'git@github.com:tvooo/sublime-grunt'
-  }
+  include apps::sublime::grunt
 
   #hosts update
   file_line { 'ppm_hosts_ppmspa_remove':

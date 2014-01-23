@@ -49,9 +49,7 @@ class people::park9140 {
 
   include apps::sublime::jsdocs
 
-  sublime_text_3::package { 'sublime-grunt':
-    source => 'git@github.com:tvooo/sublime-grunt'
-  }
+  include apps::sublime::grunt
 
   include sublime_text_3::package_control
 
