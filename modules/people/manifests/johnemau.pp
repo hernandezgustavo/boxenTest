@@ -7,7 +7,6 @@ class people::johnemau {
   include apps::vim::typescript
   include apps::fishShell
 
-  include osx::mouse::enable_right_click
   include osx::finder::show_hidden_files
 
   $home = "/Users/${::boxen_user}"

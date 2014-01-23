@@ -15,22 +15,17 @@ class people::aschmitt_daptiv {
   #------------------------
   # Osx Customizations
   #------------------------
-  include osx::dialogs::expand_print_dialog
-  include osx::dialogs::expand_save_dialog
-
+  include osx::dock::clear_dock
   include osx::disable_app_quarantine
-
-  include osx::finder::show_hidden_files
-  include osx::finder::unhide_library
-
-  include osx::keyboard::enable_keyboard_control_access
-  include osx::keyboard::use_standard_function_keys
-
-  include osx::mouse::enable_right_click
-
   include osx::no_network_dsstores
 
-  include osx::terminal::default_profile
+  include osx::global::enable_keyboard_control_access
+  include osx::global::expand_print_dialog
+  include osx::global::expand_save_dialog
+
+  include osx::finder::show_all_on_desktop
+  include osx::finder::show_hidden_files
+  include osx::finder::unhide_library
 
   #------------------------
   # Sublime Customizations
