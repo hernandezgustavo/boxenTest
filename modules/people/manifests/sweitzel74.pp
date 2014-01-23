@@ -11,7 +11,6 @@ class people::sweitzel74 {
 
   #OSX Config
   include osx::finder::show_hidden_files
-  include osx::mouse::enable_right_click
 
   #add personal git configurations
   git::config::global { 'user.email':

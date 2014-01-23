@@ -34,30 +34,12 @@ class people::akalman {
   }
 
 
-
-  file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings":
-    ensure  => link,
-    target  => "${home}/src/sublimeconfig/Preferences.sublime-settings"
-  }
-
-  file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings":
-    ensure  => link,
-    target  => "${home}/src/sublimeconfig/SublimeLinter.sublime-settings"
-  }
-
   #sublime config
-  sublime_text_3::package { 'Wombat Theme':
-    source => 'git@github.com:sheerun/sublime-wombat-theme'
-  }
-  sublime_text_3::package { 'BracketHighlighter':
-    source => 'git@github.com:facelessuser/BracketHighlighter'
-  }
-  sublime_text_3::package { 'sublime-jsdocs':
-    source => 'git@github.com:spadgos/sublime-jsdocs'
-  }
-  sublime_text_3::package { 'sublime-grunt':
-    source => 'git@github.com:tvooo/sublime-grunt'
-  }
+  include apps::sublime::ensure_settings_links_exist
+  include apps::sublime::wombat_theme
+  include apps::sublime::bracket_highlighter
+  include apps::sublime::jsdocs
+  include apps::sublime::grunt
 
   #hosts update
   file_line { 'ppm_hosts_ppmspa_remove':

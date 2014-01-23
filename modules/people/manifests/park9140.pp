@@ -35,33 +35,16 @@ class people::park9140 {
       path => "${home}/src/sublimeconfig",
       force => true
   }
-  file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings":
-    ensure  => link,
-    target  => "${home}/src/sublimeconfig/Preferences.sublime-settings"
-  }
-  file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings":
-    ensure  => link,
-    target  => "${home}/src/sublimeconfig/SublimeLinter.sublime-settings"
-  }
+  include apps::sublime::ensure_settings_links_exist
 
 
-#used to share editing at floobits.com
-  sublime_text_3::package { 'Floobits':
-    source => 'git@github.com:Floobits/floobits-sublime'
-  }
-  sublime_text_3::package { 'Wombat Theme':
-    source => 'git@github.com:sheerun/sublime-wombat-theme'
-  }
-  sublime_text_3::package { 'BracketHighlighter':
-    source => 'git@github.com:facelessuser/BracketHighlighter'
-  }
-  sublime_text_3::package { 'sublime-jsdocs':
-    source => 'git@github.com:spadgos/sublime-jsdocs'
-  }
-  sublime_text_3::package { 'sublime-grunt':
-    source => 'git@github.com:tvooo/sublime-grunt'
-  }
 
+  #used to share editing at floobits.com
+  include apps::sublime::floobits
+  include apps::sublime::wombat_theme
+  include apps::sublime::bracket_highlighter
+  include apps::sublime::jsdocs
+  include apps::sublime::grunt
   include sublime_text_3::package_control
 
   sublime_text_3::package { 'OmniSharpSublimePlugin':

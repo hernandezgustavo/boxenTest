@@ -34,15 +34,8 @@ class people::jacobboland {
   }
 
 
+  include apps:sublime::bracket_highlighter
+  include apps:sublime::jsdocs
+  include apps:sublime::floobits
 
-#used to share editing at floobits.com
-  sublime_text_3::package { 'Floobits':
-    source => 'Floobits/floobits-sublime'
-  }
-  sublime_text_3::package { 'BracketHighlighter':
-    source => 'facelessuser/BracketHighlighter'
-  }
-  sublime_text_3::package { 'sublime-jsdocs':
-    source => 'spadgos/sublime-jsdocs'
-  }
 }

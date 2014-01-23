@@ -7,7 +7,6 @@ class people::johnemau {
   include apps::vim::typescript
   include apps::fishShell
 
-  include osx::mouse::enable_right_click
   include osx::finder::show_hidden_files
 
   $home = "/Users/${::boxen_user}"
@@ -38,15 +37,10 @@ class people::johnemau {
     ensure  => "${files}/Preferences.sublime-settings"
   }
 
-  sublime_text_3::package { 'Floobits':
-    source => 'git@github.com:Floobits/floobits-sublime'
-  }
-  sublime_text_3::package { 'Wombat Theme':
-    source => 'git@github.com:sheerun/sublime-wombat-theme'
-  }
-  sublime_text_3::package { 'BracketHighlighter':
-    source => 'git@github.com:facelessuser/BracketHighlighter'
-  }
+  include apps::sublime::floobits
+  include apps::sublime::wombat_theme
+  include apps::sublime::bracket_highlighter
+
 
   git::config::global { 'user.email':
     value  => 'jemau@daptiv.com'
