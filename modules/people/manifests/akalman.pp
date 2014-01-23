@@ -49,9 +49,8 @@ class people::akalman {
   sublime_text_3::package { 'Wombat Theme':
     source => 'git@github.com:sheerun/sublime-wombat-theme'
   }
-  sublime_text_3::package { 'BracketHighlighter':
-    source => 'git@github.com:facelessuser/BracketHighlighter'
-  }
+  include apps::sublime::bracket_highlighter
+
   sublime_text_3::package { 'sublime-jsdocs':
     source => 'git@github.com:spadgos/sublime-jsdocs'
   }

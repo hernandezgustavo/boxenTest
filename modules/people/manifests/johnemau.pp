@@ -43,9 +43,8 @@ class people::johnemau {
   sublime_text_3::package { 'Wombat Theme':
     source => 'git@github.com:sheerun/sublime-wombat-theme'
   }
-  sublime_text_3::package { 'BracketHighlighter':
-    source => 'git@github.com:facelessuser/BracketHighlighter'
-  }
+  include apps::sublime::bracket_highlighter
+
 
   git::config::global { 'user.email':
     value  => 'jemau@daptiv.com'

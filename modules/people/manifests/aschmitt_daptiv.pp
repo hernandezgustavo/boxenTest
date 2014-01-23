@@ -44,9 +44,8 @@ class people::aschmitt_daptiv {
     source => 'git@github.com:sheerun/sublime-wombat-theme'
   }
 
-  sublime_text_3::package { 'BracketHighlighter':
-    source => 'git@github.com:facelessuser/BracketHighlighter'
-  }
+  include apps::sublime::bracket_highlighter
+
 
 
   #link in your personal dot files the provided files live in the people/files dir and
