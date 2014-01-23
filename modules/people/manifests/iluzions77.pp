@@ -19,5 +19,4 @@ class people::iluzions77 {
     target  => "${$boxen::config::repodir}/modules/people/files/iluzions77/.bash_profile"
   }
 
-
 }

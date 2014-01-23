@@ -38,29 +38,12 @@ class people::jtrinklein {
     target  => "${home}/src/dotfiles/.vimrc"
   }
 
-#used to share editing at floobits.com
-  sublime_text_3::package { 'Floobits':
-    source => 'git@github.com:Floobits/floobits-sublime'
-  }
+  #used to share editing at floobits.com
+  include apps::sublime::floobits
   include apps::sublime::wombat_theme
-
   include apps::sublime::bracket_highlighter
-
   include apps::sublime::jsdocs
-
   include apps::sublime::grunt
 
-  #hosts update
-  #file_line { 'ppm_hosts_ppmspa_remove':
-  #  line => '192.168.56.101 devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com localvm.daptiv.com',
-  #  path => '/etc/hosts',
-  #  ensure => 'absent',
-  #  subscribe => File_Line['ppm_hosts_ppmspa']
-  #}
-  #file_line { 'ppm_hosts_ppmspa_park9140':
-  #  line => '192.168.56.130 devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com localvm.daptiv.com',
-  #  path => '/etc/hosts',
-  #  subscribe => File_Line['ppm_hosts_ppmspa_remove']
-  #}
 }
 

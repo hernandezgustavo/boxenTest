@@ -39,18 +39,12 @@ class people::park9140 {
 
 
 
-#used to share editing at floobits.com
-  sublime_text_3::package { 'Floobits':
-    source => 'git@github.com:Floobits/floobits-sublime'
-  }
+  #used to share editing at floobits.com
+  include apps::sublime::floobits
   include apps::sublime::wombat_theme
-
   include apps::sublime::bracket_highlighter
-
   include apps::sublime::jsdocs
-
   include apps::sublime::grunt
-
   include sublime_text_3::package_control
 
   sublime_text_3::package { 'OmniSharpSublimePlugin':

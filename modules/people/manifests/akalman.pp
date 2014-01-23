@@ -38,9 +38,7 @@ class people::akalman {
   include apps::sublime::ensure_settings_links_exist
   include apps::sublime::wombat_theme
   include apps::sublime::bracket_highlighter
-
   include apps::sublime::jsdocs
-
   include apps::sublime::grunt
 
   #hosts update

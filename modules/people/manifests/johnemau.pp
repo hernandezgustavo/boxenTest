@@ -37,11 +37,8 @@ class people::johnemau {
     ensure  => "${files}/Preferences.sublime-settings"
   }
 
-  sublime_text_3::package { 'Floobits':
-    source => 'git@github.com:Floobits/floobits-sublime'
-  }
+  include apps::sublime::floobits
   include apps::sublime::wombat_theme
-
   include apps::sublime::bracket_highlighter
 
 
