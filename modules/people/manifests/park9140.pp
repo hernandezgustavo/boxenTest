@@ -35,14 +35,8 @@ class people::park9140 {
       path => "${home}/src/sublimeconfig",
       force => true
   }
-  file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings":
-    ensure  => link,
-    target  => "${home}/src/sublimeconfig/Preferences.sublime-settings"
-  }
-  file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings":
-    ensure  => link,
-    target  => "${home}/src/sublimeconfig/SublimeLinter.sublime-settings"
-  }
+  include apps::sublime::ensure_settings_links_exist
+
 
 
 #used to share editing at floobits.com

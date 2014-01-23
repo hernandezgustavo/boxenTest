@@ -35,15 +35,7 @@ class people::akalman {
 
 
 
-  file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings":
-    ensure  => link,
-    target  => "${home}/src/sublimeconfig/Preferences.sublime-settings"
-  }
-
-  file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings":
-    ensure  => link,
-    target  => "${home}/src/sublimeconfig/SublimeLinter.sublime-settings"
-  }
+  include apps::sublime::ensure_settings_links_exist
 
   #sublime config
   include apps::sublime::wombat_theme
