@@ -40,9 +40,8 @@ class people::johnemau {
   sublime_text_3::package { 'Floobits':
     source => 'git@github.com:Floobits/floobits-sublime'
   }
-  sublime_text_3::package { 'Wombat Theme':
-    source => 'git@github.com:sheerun/sublime-wombat-theme'
-  }
+  include apps::sublime::wombat_theme
+
   include apps::sublime::bracket_highlighter
 
 

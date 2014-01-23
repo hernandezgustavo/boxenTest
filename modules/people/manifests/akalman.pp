@@ -46,9 +46,8 @@ class people::akalman {
   }
 
   #sublime config
-  sublime_text_3::package { 'Wombat Theme':
-    source => 'git@github.com:sheerun/sublime-wombat-theme'
-  }
+  include apps::sublime::wombat_theme
+
   include apps::sublime::bracket_highlighter
 
   sublime_text_3::package { 'sublime-jsdocs':

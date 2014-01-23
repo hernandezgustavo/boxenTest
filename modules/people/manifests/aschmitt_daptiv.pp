@@ -40,9 +40,8 @@ class people::aschmitt_daptiv {
     target  => "${home}/src/sublimeconfig/SublimeLinter.sublime-settings"
   }
 
-  sublime_text_3::package { 'Wombat Theme':
-    source => 'git@github.com:sheerun/sublime-wombat-theme'
-  }
+  include apps::sublime::wombat_theme
+
 
   include apps::sublime::bracket_highlighter
 
