@@ -1,17 +1,11 @@
 class people::park9140 {
   include apps::fishShell
-  include apps::sublime
 
   include chrome::canary
 
   include firefox
 
   include iterm2::dev
-
-  include projects::ppm
-  include projects::chefclient
-  include projects::ppmspa
-  include projects::devdashboard
 
   $home = "/Users/${::boxen_user}"
 
@@ -33,15 +27,7 @@ class people::park9140 {
     target  => "${$boxen::config::repodir}/modules/people/files/park9140/.bash_profile"
   }
 
-  file { "${home}/.git-completion.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
-  }
 
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
-  }
   repository{
     'my sublime config':
       source   => 'git@github.com:park9140/sublimeconfig', #short hand for github repos

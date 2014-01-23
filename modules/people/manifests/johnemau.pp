@@ -6,12 +6,6 @@ class people::johnemau {
 
   include apps::vim::typescript
   include apps::fishShell
-  include apps::git::aliases
-
-  include projects::devdashboard
-  include projects::chefclient
-  include projects::ppm
-  include projects::ppmspa
 
   include osx::mouse::enable_right_click
   include osx::finder::show_hidden_files

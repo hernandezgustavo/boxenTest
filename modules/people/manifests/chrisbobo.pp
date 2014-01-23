@@ -11,9 +11,6 @@ class people::chrisbobo {
   }
 
 #  include apps::git::difftools::p4merge
-  include apps::git::aliases
-  include apps::git::completion
-  include apps::git::prompt
   git::config::global { 'user.email':
     value  => 'chrisbobo@gmail.com'
   }

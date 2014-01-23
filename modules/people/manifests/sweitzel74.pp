@@ -1,13 +1,6 @@
 # Replace name of all the "sweitzel74" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::sweitzel74 {
-
-  #add projects chefclient, ppm, ppmspa and dev dashboard
-  include projects::ppm
-  include projects::chefclient
-  include projects::ppmspa
-  include projects::devdashboard
-
   #add apps
   include java
   include sourcetree
@@ -38,13 +31,5 @@ class people::sweitzel74 {
     target  => "${$boxen::config::repodir}/modules/people/files/sweitzel74/.bash_profile"
   }
 
-  file { "${home}/.git-completion.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
-  }
 
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
-  }
 }

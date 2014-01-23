@@ -1,12 +1,7 @@
 class people::jtrinklein {
   include apps::fishShell
-  include apps::sublime
 
   include iterm2::dev
-
-  include projects::ppm
-  include projects::chefclient
-  include projects::devdashboard
 
   include virtualbox
 
@@ -30,15 +25,7 @@ class people::jtrinklein {
     target  => "${$boxen::config::repodir}/modules/people/files/jtrinklein/.bash_profile"
   }
 
-  file { "${home}/.git-completion.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
-  }
 
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
-  }
   repository{
     'my dotfiles':
       source   => 'git@github.com:jtrinklein/dotfiles', #short hand for github repos

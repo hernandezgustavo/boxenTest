@@ -1,16 +1,9 @@
 class people::akalman {
   $home = "/Users/${::boxen_user}"
 
-
   include apps::fishShell
-  include apps::sublime
 
   include chrome::canary
-
-  include projects::ppm
-  include projects::chefclient
-  include projects::ppmspa
-  include projects::devdashboard
 
   include dropbox
   include apps::googledrive
@@ -20,8 +13,6 @@ class people::akalman {
 
 
   #git config
-  include apps::git::aliases
-
   git::config::global { 'user.email':
     value  => 'akalman@daptiv.com'
   }
@@ -42,15 +33,7 @@ class people::akalman {
     target  => "${$boxen::config::repodir}/modules/people/files/akalman/.bash_profile"
   }
 
-  file { "${home}/.git-completion.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
-  }
 
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
-  }
 
   file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings":
     ensure  => link,

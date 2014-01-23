@@ -1,13 +1,6 @@
 # Replace name of all the "bscown" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::bscown {
-
-  #add projects chefclient, ppm, ppmspa and dev dashboard
-  include projects::ppm
-  include projects::chefclient
-  include projects::ppmspa
-  include projects::devdashboard
-
   include  virtualbox
 
   #add personal git configurations
@@ -28,13 +21,5 @@ class people::bscown {
     target  => "${$boxen::config::repodir}/modules/people/files/bscown/.bash_profile"
   }
 
-  file { "${home}/.git-completion.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
-  }
 
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
-  }
 }

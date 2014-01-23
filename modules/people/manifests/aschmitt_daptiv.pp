@@ -5,9 +5,6 @@ class people::aschmitt_daptiv {
   #------------------------
   # Git
   #------------------------
-  include apps::git::aliases
-
-  #add personal git configurations
   git::config::global { 'user.email':
     value  => 'aschmitt@daptiv.com'
   }
@@ -67,13 +64,5 @@ class people::aschmitt_daptiv {
     target  => "${$boxen::config::repodir}/modules/people/files/aschmitt_daptiv/.bash_profile"
   }
 
-  file { "${home}/.git-completion.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
-  }
 
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
-  }
 }

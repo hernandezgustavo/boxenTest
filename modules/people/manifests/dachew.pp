@@ -1,13 +1,6 @@
 # Replace name of all the "dachew" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::dachew {
-
-  #add projects chefclient, ppm, ppmspa and dev dashboard
-  include projects::ppm
-  include projects::chefclient
-  include projects::ppmspa
-  include projects::devdashboard
-
   #add personal git configurations
   git::config::global { 'user.email':
     value  => 'dachew@daptiv.com'
@@ -26,13 +19,4 @@ class people::dachew {
     target  => "${$boxen::config::repodir}/modules/people/files/dachew/.bash_profile"
   }
 
-  file { "${home}/.git-completion.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/dachew/git-completion.sh"
-  }
-
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/dachew/git-prompt.sh"
-  }
 }
