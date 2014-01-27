@@ -8,7 +8,7 @@ class people::brian_d {
     value  => 'bdahl@daptiv.com'
   }
   git::config::global { 'user.name':
-    value  => 'brian-d'
+    value  => 'brian_d'
   }
 
   #link in your personal dot files the provided files live in the people/files dir and
