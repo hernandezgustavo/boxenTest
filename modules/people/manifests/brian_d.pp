@@ -1,7 +1,11 @@
 # Replace name of all the "brian-d" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::brian_d {
-  include virtualbox
+
+  vagrant::plugin { 'vmware-fusion':
+    license => "${$boxen::config::repodir}/modules/people/files/brian_d/VagrantVMWareFusionLicense_jelgee_bdahl.lic"
+  }
+
 
   #add personal git configurations
   git::config::global { 'user.email':
