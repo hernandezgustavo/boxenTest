@@ -24,6 +24,8 @@ export PATH=~/bin:$PATH
 alias subl='subl3'
 export EDITOR='subl3 -w'
 
+alias ls='ls -al'
+
 #live write history
 export PROMPT_COMMAND="history -a;"
 
