@@ -1,4 +1,3 @@
-# Which ones are correct?
 source ~/.git-completion.sh
 source ~/.git-prompt.sh
 
