@@ -4,8 +4,8 @@ class daptiv::environment::etc_profile {
   file { '/etc/profile':
     ensure => present
   } ->
-  file_line { 'source_boxen':
-    line => 'source /opt/boxen/env.sh',
+  file_line { 'source_bashrc':
+    line => 'source ~/.bashrc',
     path => '/etc/profile',
   }
 }

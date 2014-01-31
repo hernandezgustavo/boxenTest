@@ -2,11 +2,6 @@
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::blackavar {
 
-  #add projects chefclient, ppm, ppmspa and dev dashboard
-  include projects::ppm
-  include projects::chefclient
-  include projects::ppmspa
-  include projects::devdashboard
   include lastpass
   include flowdock
   include evernote
@@ -58,13 +53,4 @@ class people::blackavar {
     target  => "${$boxen::config::repodir}/modules/people/files/Blackavar/.bash_profile"
   }
 
-  file { "${home}/.git-completion.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/Blackavar/git-completion.sh"
-  }
-
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/Blackavar/git-prompt.sh"
-  }
 }
