@@ -5,6 +5,15 @@ class people::chrisbobo {
   include apps::googledrive
   include chrome::canary
   include apps::webstorm
+  include iterm2::dev
+
+  include apps::fishShell
+  file { "${home}/.config/fish/personal.fish":
+    ensure  => link,
+    target  => "${$boxen::config::repodir}/modules/people/files/chrisbobo/personal.fish",
+    subscribe => File["${home}/.config/fish/"]
+  }
+
 
   vagrant::plugin { 'vmware-fusion':
     license => "${$boxen::config::repodir}/modules/people/files/chrisbobo/VagrantVMWareFusionLicense_cbobo_mdevine.lic"
