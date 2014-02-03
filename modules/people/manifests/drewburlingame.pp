@@ -14,7 +14,8 @@ class people::drewburlingame {
   }
 
   include dropbox
-  include skype
+  #include skype
+  #include btt  #BetterTouchTool
   include apps::googledrive
   include apps::fishShell
 
@@ -24,13 +25,10 @@ class people::drewburlingame {
 
   #trial
   #---------------------------------------------------
-  include textual
+  #include textual
   #---------------------------------------------------
 
-  class { 'intellij':
-  edition => 'ultimate',
-    version => '13.0.1'
-  }
+  #class { 'intellij': edition => 'ultimate', version => '13.0.1' }
 
   nodejs::module { 'typescript-tools':
     node_version => 'v0.10',
@@ -72,7 +70,7 @@ class people::drewburlingame {
   include osx::global::expand_print_dialog
   include osx::global::expand_save_dialog
 
-  include osx::keyboard::use_standard_function_keys
+  #include osx::keyboard::use_standard_function_keys
 
   include osx::finder::show_all_on_desktop
   include osx::finder::show_hidden_files
