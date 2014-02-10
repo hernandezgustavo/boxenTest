@@ -289,6 +289,11 @@ GITHUBTARBALL
     flowdock (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-zsh
+  specs:
+    zsh (1.0.0)
+
+GITHUBTARBALL
   remote: jdar/puppet-htop
   specs:
     htop (1.0.1)
@@ -377,4 +382,5 @@ DEPENDENCIES
   virtualbox (= 1.0.6)
   vmware_fusion (= 1.1.0)
   xquartz (= 1.1.0)
+  zsh (= 1.0.0)
 
