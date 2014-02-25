@@ -44,6 +44,9 @@ class people::park9140 {
   include apps::sublime::bracket_highlighter
   include apps::sublime::jsdocs
   include apps::sublime::grunt
+  include apps::sublime::git
+  include apps::sublime::history
+  include apps::sublime::markdown
   include sublime_text_3::package_control
 
   sublime_text_3::package { 'OmniSharpSublimePlugin':
