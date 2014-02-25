@@ -4,6 +4,7 @@ tabname () { printf "\e]1;$1\a"; }
 export PATH=~/bin:/opt/local/bin:$PATH
 export EDITOR='subl3 -w'
 export DB_SERVER_NAME='vagrant-2008R2'
+export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 
 source ~/.git-completion.sh
 source ~/.git-prompt.sh

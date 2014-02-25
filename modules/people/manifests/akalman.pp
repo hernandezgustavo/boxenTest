@@ -1,6 +1,8 @@
 class people::akalman {
   $home = "/Users/${::boxen_user}"
 
+  include vmware_fusion
+
   include apps::fishShell
 
   include chrome::canary
@@ -20,6 +22,10 @@ class people::akalman {
     value  => 'Adam Kalman'
   }
 
+  #vagrant plugin
+  vagrant::plugin { 'vagrant-vmware-fusion':
+    license => "${$boxen::config::repodir}/modules/people/files/akalman/VagrantVMWareFusionLicense_dvanbuskirk_akalman.lic"
+  }
 
   #files setup
   file { "${home}/.config/fish/personal.fish":
