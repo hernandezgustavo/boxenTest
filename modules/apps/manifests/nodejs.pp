@@ -16,6 +16,6 @@ class apps::nodejs {
 
   nodejs::module { 'grunt-cli':
     node_version => 'v0.10.26',
-    ensure => '0.1.9'
+    ensure => '0.1.13'
   }
 }

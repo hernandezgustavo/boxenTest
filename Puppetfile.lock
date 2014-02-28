@@ -164,11 +164,6 @@ GITHUBTARBALL
     nginx (1.4.2)
 
 GITHUBTARBALL
-  remote: boxen/puppet-nodejs
-  specs:
-    nodejs (3.6.0)
-
-GITHUBTARBALL
   remote: boxen/puppet-openssl
   specs:
     openssl (1.0.0)
@@ -284,6 +279,11 @@ GITHUBTARBALL
     zsh (1.0.0)
 
 GITHUBTARBALL
+  remote: daptiv/puppet-nodejs
+  specs:
+    nodejs (3.6.10)
+
+GITHUBTARBALL
   remote: dieterdemeyer/puppet-lastpass
   specs:
     lastpass (1.1.0)
@@ -357,7 +357,7 @@ DEPENDENCIES
   mplayerx (= 1.0.1)
   mumble (= 1.0.5)
   nginx (= 1.4.2)
-  nodejs (= 3.6.0)
+  nodejs (= 3.6.10)
   openssl (= 1.0.0)
   osx (= 2.2.2)
   pcre (= 1.0.0)
