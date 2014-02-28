@@ -11,11 +11,11 @@ class apps::nodejs {
   }
 
   class { 'nodejs::global':
-    version => 'v0.10.21'
+    version => 'v0.10.26'
   }
 
   nodejs::module { 'grunt-cli':
-    node_version => 'v0.10.21',
+    node_version => 'v0.10.26',
     ensure => '0.1.9'
   }
 }

@@ -166,7 +166,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-nodejs
   specs:
-    nodejs (3.3.0)
+    nodejs (3.6.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-openssl
@@ -279,6 +279,11 @@ GITHUBTARBALL
     xquartz (1.1.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-zsh
+  specs:
+    zsh (1.0.0)
+
+GITHUBTARBALL
   remote: dieterdemeyer/puppet-lastpass
   specs:
     lastpass (1.1.0)
@@ -287,11 +292,6 @@ GITHUBTARBALL
   remote: geetarista/puppet-flowdock
   specs:
     flowdock (1.0.0)
-
-GITHUBTARBALL
-  remote: boxen/puppet-zsh
-  specs:
-    zsh (1.0.0)
 
 GITHUBTARBALL
   remote: jdar/puppet-htop
@@ -357,7 +357,7 @@ DEPENDENCIES
   mplayerx (= 1.0.1)
   mumble (= 1.0.5)
   nginx (= 1.4.2)
-  nodejs (= 3.3.0)
+  nodejs (= 3.6.0)
   openssl (= 1.0.0)
   osx (= 2.2.2)
   pcre (= 1.0.0)
