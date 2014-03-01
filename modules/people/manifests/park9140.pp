@@ -47,6 +47,8 @@ class people::park9140 {
   include apps::sublime::git
   include apps::sublime::history
   include apps::sublime::markdown
+  include apps::sublime::fileautocomplete
+  include apps::sublime::sidebar
   include sublime_text_3::package_control
 
   sublime_text_3::package { 'OmniSharpSublimePlugin':
