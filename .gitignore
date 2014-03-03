@@ -4,6 +4,7 @@
 /.projects
 /.snapshot
 /.tmp
+/.idea
 /bin
 /config/local.rb
 /log

@@ -1,21 +1,12 @@
 class people::jtrinklein {
-  include apps::fishShell
-  include apps::sublime
-
-  include iterm2::dev
-
-  include projects::ppm
-  include projects::chefclient
-  include projects::devdashboard
-
   $home = "/Users/${::boxen_user}"
 
-  file { "${home}/.config/fish/personal.fish":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/jtrinklein/personal.fish",
-    subscribe => File["${home}/.config/fish/"]
-  }
+  include iterm2::dev
+  include virtualbox
+  include chrome::canary
+  include zsh
 
+  
   git::config::global { 'user.email':
     value  => 'jtrinklein@daptiv.com'
   }
@@ -28,15 +19,7 @@ class people::jtrinklein {
     target  => "${$boxen::config::repodir}/modules/people/files/jtrinklein/.bash_profile"
   }
 
-  file { "${home}/.git-completion.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
-  }
 
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
-  }
   repository{
     'my dotfiles':
       source   => 'git@github.com:jtrinklein/dotfiles', #short hand for github repos
@@ -44,39 +27,35 @@ class people::jtrinklein {
       path => "${home}/src/dotfiles",
       force => true
   }
+
+  repository{
+    'oh my zsh':
+      source   => 'git@github.com:robbyrussell/oh-my-zsh', #short hand for github repos
+      provider => 'git',
+      path => "${home}/.oh-my-zsh",
+      force => true
+  }
+
+  file { "${home}/.zshrc":
+    ensure  => link,
+    target  => "${home}/src/dotfiles/.zshrc"
+  }
+
   file { "${home}/.vimrc":
     ensure  => link,
     target  => "${home}/src/dotfiles/.vimrc"
   }
 
-#used to share editing at floobits.com
-  sublime_text_3::package { 'Floobits':
-    source => 'git@github.com:Floobits/floobits-sublime'
-  }
-  sublime_text_3::package { 'Wombat Theme':
-    source => 'git@github.com:sheerun/sublime-wombat-theme'
-  }
-  sublime_text_3::package { 'BracketHighlighter':
-    source => 'git@github.com:facelessuser/BracketHighlighter'
-  }
-  sublime_text_3::package { 'sublime-jsdocs':
-    source => 'git@github.com:spadgos/sublime-jsdocs'
-  }
-  sublime_text_3::package { 'sublime-grunt':
-    source => 'git@github.com:tvooo/sublime-grunt'
-  }
+  #used to share editing at floobits.com
+  include apps::sublime::wombat_theme
+  include apps::sublime::bracket_highlighter
+  include apps::sublime::jsdocs
+  include apps::sublime::grunt
+  include sublime_text_3::package_control
 
-  #hosts update
-  #file_line { 'ppm_hosts_ppmspa_remove':
-  #  line => '192.168.56.101 devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com localvm.daptiv.com',
-  #  path => '/etc/hosts',
-  #  ensure => 'absent',
-  #  subscribe => File_Line['ppm_hosts_ppmspa']
-  #}
-  #file_line { 'ppm_hosts_ppmspa_park9140':
-  #  line => '192.168.56.130 devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com localvm.daptiv.com',
-  #  path => '/etc/hosts',
-  #  subscribe => File_Line['ppm_hosts_ppmspa_remove']
-  #}
+  nodejs::module { 'typescript-tools':
+    node_version => 'v0.10',
+    ensure => '0.2.2-1'
+  }
 }
 

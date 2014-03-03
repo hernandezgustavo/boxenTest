@@ -2,11 +2,6 @@
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::jreynolds_daptiv {
   include iterm2::dev
-  include projects::ppm
-  include projects::chefclient
-  include projects::ppm
-  include projects::ppmspa
-  include projects::devdashboard
 
   #add personal git configurations
   git::config::global { 'user.email':
@@ -26,15 +21,7 @@ class people::jreynolds_daptiv {
     target  => "${$boxen::config::repodir}/modules/people/files/jreynolds_daptiv/.bash_profile"
   }
 
-  file { "${home}/.git-completion.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
-  }
 
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
-  }
 
   #hosts update
   file_line { 'ppm_hosts_ppmspa_remove':

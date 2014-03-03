@@ -1,5 +1,7 @@
 class daptiv::environment {
 
+  osx::recovery_message { 'If this Mac is found, please call 206-239-7424': }
+
   include daptiv::environment::ensure_usr_local_bin_exists
   include daptiv::environment::etc_profile
   include daptiv::environment::set_ulimit_to_max
@@ -9,12 +11,17 @@ class daptiv::environment {
   # Apps that everyone gets
   #--------------------------------
   include chrome
-  include apps::sublime
 
   include daptiv::dotFiles
+
   include apps::git
+  include apps::git::aliases
+  include apps::git::completion
+  include apps::git::prompt
+
   include apps::rdp
   include apps::ruby
+  include apps::sublime
 
   include projects::chefclient
   include projects::devdashboard
