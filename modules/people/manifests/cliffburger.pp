@@ -1,13 +1,6 @@
 # Replace name of all the "cliffburger.pp" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::cliffburger {
-
-  #add projects chefclient, ppm, ppmspa and dev dashboard
-  include projects::ppm
-  include projects::chefclient
-  include projects::ppmspa
-  include projects::devdashboard
-
   #add personal git configurations
   git::config::global { 'user.email':
     value  => 'cliffburger@daptiv.com'
@@ -24,16 +17,6 @@ class people::cliffburger {
   file { "${home}/.bash_profile":
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/cliffburger/.bash_profile"
-  }
-
-  file { "${home}/.git-completion.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/cliffburger/git-completion.sh"
-  }
-
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/cliffburger/git-prompt.sh"
   }
 
   file { "${home}/.vimrc":

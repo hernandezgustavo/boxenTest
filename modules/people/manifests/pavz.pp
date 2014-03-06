@@ -1,11 +1,6 @@
 # Replace name of all the "pavz" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::pavz {
-
-  #add projects chefclient, ppm, ppmspa and dev dashboard
-  include projects::ppm
-  include projects::chefclient
-
   #add personal git configurations
   git::config::global { 'user.email':
     value  => 'pvanzwalenburg@daptiv.com'
@@ -24,13 +19,5 @@ class people::pavz {
     target  => "${$boxen::config::repodir}/modules/people/files/pavz/.bash_profile"
   }
 
-  file { "${home}/.git-completion.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
-  }
 
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
-  }
 }

@@ -1,5 +1,5 @@
 class apps::vagrant {
-  include virtualbox
+  include vmware_fusion
   include vagrant
 
   vagrant::plugin { 'vagrant-berkshelf':
