@@ -19,6 +19,11 @@ class people::cliffburger {
     target  => "${$boxen::config::repodir}/modules/people/files/cliffburger/.bash_profile"
   }
 
+  file { "${home}/.vimrc":
+    ensure  => link,
+    target  => "${$boxen::config::repodir}/modules/people/files/cliffburger/.vimrc"
+  }
+  #
   package { 'wget':
     ensure => present
   }
