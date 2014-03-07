@@ -9,6 +9,11 @@ GITHUBTARBALL
     adium (1.2.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-adobe_reader
+  specs:
+    adobe_reader (1.2.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
     boxen (3.3.8)
@@ -229,6 +234,11 @@ GITHUBTARBALL
     sourcetree (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-spectacle
+  specs:
+    spectacle (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-sudo
   specs:
     sudo (1.0.0)
@@ -320,6 +330,7 @@ GITHUBTARBALL
 
 DEPENDENCIES
   adium (= 1.2.0)
+  adobe_reader (= 1.2.0)
   boxen (= 3.3.8)
   chrome (= 1.1.1)
   clojure (= 1.2.0)
@@ -371,6 +382,7 @@ DEPENDENCIES
   ruby (= 6.7.2)
   rubymine (= 1.0.3)
   sourcetree (= 1.0.0)
+  spectacle (= 1.0.0)
   stdlib (= 4.1.0)
   sublime_text_3 (= 1.0.1)
   sudo (= 1.0.0)
