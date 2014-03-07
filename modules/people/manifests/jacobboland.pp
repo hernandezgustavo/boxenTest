@@ -4,6 +4,7 @@ class people::jacobboland {
   include apps::fishShell
 
   include chrome::canary
+  include firefox
 
   include iterm2::dev
 
@@ -33,9 +34,14 @@ class people::jacobboland {
     target  => "${$boxen::config::repodir}/modules/people/files/jacobboland/.bash_profile"
   }
 
-
-  include apps:sublime::bracket_highlighter
-  include apps:sublime::jsdocs
-  include apps:sublime::floobits
-
+  include apps::sublime::ensure_settings_links_exist
+  include apps::sublime::bracket_highlighter
+  include apps::sublime::jsdocs
+  include apps::sublime::grunt
+  include apps::sublime::git
+  include apps::sublime::history
+  include apps::sublime::markdown
+  include apps::sublime::fileautocomplete
+  include apps::sublime::sidebar
+  include sublime_text_3::package_control
 }
