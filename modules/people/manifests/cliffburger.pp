@@ -3,11 +3,13 @@
 class people::cliffburger {
   
   include java
+
   include evernote
   include dropbox
   include apps::googledrive
   include chrome::canary
   include apps::webstorm
+  include rubymine
   include iterm2::dev
 
   #add personal git configurations
