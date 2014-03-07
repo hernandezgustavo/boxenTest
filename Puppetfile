@@ -41,6 +41,7 @@ github "xquartz",    "1.1.0"
 # https://github.com/boxen.
 
 github "adium",             "1.2.0"
+github "adobe_reader",      "1.2.0"
 github "chrome",            "1.1.1"
 github "clojure",           "1.2.0"
 github "colloquy",          "1.0.0"

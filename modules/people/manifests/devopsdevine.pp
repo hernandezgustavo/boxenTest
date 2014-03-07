@@ -10,6 +10,8 @@ class people::devopsdevine {
   #  license => '${$boxen::config::repodir}/modules/people/files/devopsdevine/LICENSE_FILENAME.lic'
   #}
 
+  include adobe-reader
+
   git::config::global { 'user.email':
     value  => 'GITHUB_EMAIL'
   }
