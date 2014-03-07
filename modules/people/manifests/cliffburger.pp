@@ -1,6 +1,15 @@
 # Replace name of all the "cliffburger.pp" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::cliffburger {
+  
+  include java
+  include evernote
+  include dropbox
+  include apps::googledrive
+  include chrome::canary
+  include apps::webstorm
+  include iterm2::dev
+
   #add personal git configurations
   git::config::global { 'user.email':
     value  => 'cliffburger@daptiv.com'
