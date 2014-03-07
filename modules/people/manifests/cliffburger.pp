@@ -9,8 +9,10 @@ class people::cliffburger {
   include apps::googledrive
   include chrome::canary
   include apps::webstorm
+  include spectacle
   include rubymine
   include iterm2::dev
+  include adobe_reader
 
   #add personal git configurations
   git::config::global { 'user.email':
