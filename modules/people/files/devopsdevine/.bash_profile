@@ -1,14 +1,15 @@
+source ~/git-completion.sh
+source ~/git-prompt.sh
 
 export PATH=/Applications/SenchaSDKTools-2.0.0-beta3:$PATH
 export SENCHA_SDK_TOOLS_2_0_0_BETA3="/Applications/SenchaSDKTools-2.0.0-beta3"
 export SOURCEDIR=~/src
-export PRIVATESOURCEDIR=~/DevOpsDevinesrc
+export PRIVATESOURCEDIR=~/psrc
 export OPSCODE_USER=mdevine-daptiv
 export gh_email=DevOpsDevine@gmail.com
 export gh_password=i7F2OCrPcFOc
-
-source /usr/local/bin/git-completion.sh
-source /usr/local/bin/git-prompt.sh
+export VAGRANT_EXE_PATH=/usr/bin/
+export DB_SERVER_NAME=WIN-NI110EA88R0
 
 #PS1='\e[0;32m\w\e[m\e[0;33m$(__git_ps1 " (%s)")\e[0;32m\n\$\e[m '
 export CLICOLOR=1
@@ -51,18 +52,21 @@ alias gprune="git fetch -p"
 
 alias vinf="VAGRANT_LOG=INFO"
 alias vdbg="VAGRANT_LOG=DEBUG"
-alias vstat="vagrant status"
-alias vup="vagrant up"
-alias vpro="vagrant provision"
-alias vdown="vagrant halt"
-alias vhalt="vagrant halt"
-alias vsusp="vagrant suspend"
-alias vrel="vagrant reload"
-alias vlist="vagrant box list"
-alias exterminate="vagrant destroy -f"
+alias vstat="${VAGRANT_EXE_PATH}vagrant status"
+alias vup="${VAGRANT_EXE_PATH}vagrant up"
+alias vdup="vdbg ${VAGRANT_EXE_PATH}vagrant up"
+alias vpro="${VAGRANT_EXE_PATH}vagrant provision"
+alias vdpro="vdbg ${VAGRANT_EXE_PATH}vagrant provision"
+alias vdown="${VAGRANT_EXE_PATH}vagrant halt"
+alias vhalt=vdown
+alias vsusp="${VAGRANT_EXE_PATH}vagrant suspend"
+alias vrel="${VAGRANT_EXE_PATH}vagrant reload"
+alias vdrel="vdbg ${VAGRANT_EXE_PATH}vagrant reload"
+alias vlist="${VAGRANT_EXE_PATH}vagrant box list"
+alias exterminate="${VAGRANT_EXE_PATH}vagrant destroy -f"
 
 #change to source directory, clone a repo, then get oouuuut
-clone() { src&&git clone git@github.com:daptiv/"$@".git&&cd -; }
+gclone() { src&&git clone git@github.com:daptiv/"$@".git&&cd -; }
 pclone() { psrc&&git clone git@github.com:DevOpsDevine/"$@".git&&cd -; }
 gtag() { git tag -a "$1" -m "version $1" $2; }
 
@@ -70,7 +74,7 @@ gtag() { git tag -a "$1" -m "version $1" $2; }
 vremove() { vagrant box remove "$@" virtualbox; }
 
 #make these shell functions available to child processes, like in an xargs call
-export -f clone
+export -f gclone
 export -f pclone
 export -f vremove
 export -f gtag
