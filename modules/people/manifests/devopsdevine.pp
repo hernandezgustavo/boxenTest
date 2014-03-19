@@ -11,7 +11,7 @@ class people::devopsdevine {
   #}
 
   git::config::global { 'user.email':
-    value  => 'GITHUB_EMAIL'
+    value  => 'devopsdevine@gmail.com'
   }
   git::config::global { 'user.name':
     value  => 'devopsdevine'
