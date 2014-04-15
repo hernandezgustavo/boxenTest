@@ -11,4 +11,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 source /opt/boxen/env.sh
 
-export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
+# allow override of default provider to virtualbox in .bash_profile
+if [ -z "$VAGRANT_DEFAULT_PROVIDER" ]
+  then export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
+fi
