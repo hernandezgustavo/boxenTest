@@ -13,5 +13,5 @@ source /opt/boxen/env.sh
 
 # allow override of default provider to virtualbox in .bash_profile
 if [ -z "$VAGRANT_DEFAULT_PROVIDER" ]
-  export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
+  then export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 fi
