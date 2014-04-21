@@ -8,13 +8,18 @@ NOTE - Do not pull this repo before running Boxen!
 
 ### Required Steps
 
-1. Nuke your box. Reinstall OS X Mountain Lion 10.8 or Mavericks 10.9 (Lion 10.7 does not work).
+1. Nuke your box. Reinstall OS X Mavericks 10.9.
 2. Install Xcode Command Line Tools for your version of OS X, [Mountain Lion](http://vmit07.hq.daptiv.com/vagrant/command_line_tools_os_x_mountain_lion_for_xcode__october_2013.dmg) or [Mavericks](http://vmit07.hq.daptiv.com/vagrant/command_line_tools_os_x_mavericks_for_xcode__late_october_2013.dmg).
 3. [Generate a SSH key and add it to GitHub](https://help.github.com/articles/generating-ssh-keys).
+4. Manually enable full disk encryption, the setting can be found here: System Preferences > Security & Privacy > FileVault
 
 ### Optional Steps
-If your Mac has been added to the Windows AD domain then follow this step (if you're not sure, then skip this). Run this command to add yourself to the `staff` group:
+- If your Mac has been added to the Windows AD domain then follow this step (if you're not sure, then skip this). Run this command to add yourself to the `staff` group:
 `sudo dseditgroup -o edit -a [your username] -t user staff`
+
+- To Speedup Rebuilds
+ - Set all of your System Preferences
+ - Make a Time Machine backup
 
 ## Run Boxen!
 1. Go to https://daptiv-boxen.herokuapp.com/ authenticate and run the given command
@@ -42,27 +47,10 @@ To get started run the following
 
 #### Remember: if you add or remove any optional tools from your people files, commit the changes!
 
-### Get your personal changes in master
-
-If you continue to run boxen without doing this you'll get a nice little error message that boxen is not in the master branch. Let's fix this! Follow these steps to get your changes into master:
- 1. Commit any changes you have pending.
- 2. Push any pending commits up to your branch.
- 3. Open a pull request and get it pulled into master.
- 4. Open a terminal window and run:
-
-```
- cd ~/src/our-boxen
- git checkout master
- git pull
-```
 
 ## Customizing
 
-You can always check out the number of existing modules we already
-provide as optional installs under the
-[boxen organization](https://github.com/boxen). These modules are all
-tested to be compatible with Boxen. Use the `Puppetfile` to pull them
-in dependencies automatically whenever `boxen` is run.
+You can always check out the number of existing modules we already provide as optional installs under the [boxen organization](https://github.com/boxen). These modules are all tested to be compatible with Boxen. Use the `Puppetfile` to pull them in dependencies automatically whenever `boxen` is run.
 
 ### Including boxen modules from github (boxen/puppet-<name>)
 
@@ -189,45 +177,15 @@ fork.
 You'll still be the maintainer, you'll still own the issues and PRs.
 It'll just be listed under the boxen org so folks can find it more easily.
 
-## Integrating with Github Enterprise
-
-If you're using a Github Enterprise instance rather than github.com,
-you will need to set the "BOXEN_GITHUB_ENTERPRISE_URL" and
-"BOXEN_REPO_URL_TEMPLATE" variables in your
-[Boxen config](config/boxen.rb).
-
-## Upgrading to Mavericks
-
-After upgrading to OS X Mavericks, run:
-
-```
-bundle install
-```
-
-In order to use vagrant:
-
-```
-brew install wget
-```
-
-Then, install nokogiri:
-```
-brew install libxml2 libxslt
-brew link libxml2 libxslt --force
-wget http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.13.1.tar.gz
-tar xvfz libiconv-1.13.1.tar.gz
-cd libiconv-1.13.1
-./configure --prefix=/usr/local/Cellar/libiconv/1.13.1
-make
-sudo make install
-gem install nokogiri -- --with-xml2-include=/usr/local/Cellar/libxml2/2.7.8/include/libxml2 --with-xml2-lib=/usr/local/Cellar/libxml2/2.7.8/lib --with-xslt-dir=/usr/local/Cellar/libxslt/1.1.26 --with-iconv-include=/usr/local/Cellar/libiconv/1.13.1/include --with-iconv-lib=/usr/local/Cellar/libiconv/1.13.1/lib
-```
 
 ## Halp!
 
 See [FAQ](https://github.com/boxen/our-boxen/blob/master/docs/faq.md).
 
 Use Issues or #boxen on irc.freenode.net.
+
++## OMG JSON Gem won't install!!!
+ +See this site for more information: https://langui.sh/2014/03/10/wunused-command-line-argument-hard-error-in-future-is-a-harsh-mistress/
 
 ## Vagrant Setup
 

@@ -9,6 +9,7 @@ class people::dachew {
   include projects::chefclient
   include projects::ppmspa
   include projects::devdashboard
+  include projects::devscripts
 
   vagrant::plugin { 'vmware-fusion':
     license => "${boxen::config::repodir}/modules/people/files/dachew/VagrantVMWareFusionLicense-mpotter.lic"
@@ -16,7 +17,7 @@ class people::dachew {
 
   #add personal git configurations
   git::config::global { 'user.email':
-    value  => 'dachew@daptiv.com'
+    value  => 'matthew@synapseware.com'
   }
   git::config::global { 'user.name':
     value  => 'Matthew Potter'

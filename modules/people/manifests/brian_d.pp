@@ -2,18 +2,17 @@
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::brian_d {
 
-  #add projects chefclient, ppm, ppmspa and dev dashboard
-  include projects::ppm
-  include projects::chefclient
-  include projects::ppmspa
-  include projects::devdashboard
+  vagrant::plugin { 'vmware-fusion':
+    license => "${$boxen::config::repodir}/modules/people/files/brian_d/VagrantVMWareFusionLicense_jelgee_bdahl.lic"
+  }
+
 
   #add personal git configurations
   git::config::global { 'user.email':
     value  => 'bdahl@daptiv.com'
   }
   git::config::global { 'user.name':
-    value  => 'brian-d'
+    value  => 'brian_d'
   }
 
   #link in your personal dot files the provided files live in the people/files dir and
@@ -26,13 +25,5 @@ class people::brian_d {
     target  => "${$boxen::config::repodir}/modules/people/files/brian_d/.bash_profile"
   }
 
-  file { "${home}/.git-completion.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
-  }
 
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
-  }
 }

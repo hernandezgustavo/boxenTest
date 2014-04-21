@@ -1,24 +1,25 @@
 # Replace name of all the "sweitzel74" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::sweitzel74 {
-
-  #add projects chefclient, ppm, ppmspa and dev dashboard
-  include projects::ppm
-  include projects::chefclient
-  include projects::ppmspa
-  include projects::devdashboard
-
+  
   #add apps
-  include java
-  include sourcetree
-  include graphviz
-
-  include iterm2::dev
   include apps::git::difftools::p4merge
+  include graphviz
+  include iterm2::dev
+  include java
+  include mercurial
+  include sourcetree
+  include virtualbox
+  include vmware_fusion
 
   #OSX Config
   include osx::finder::show_hidden_files
-  include osx::mouse::enable_right_click
+
+  $home = "/Users/${::boxen_user}"
+
+  vagrant::plugin { 'vagrant-vmware-fusion':
+    license => "${$boxen::config::repodir}/modules/people/files/sweitzel74/VagrantVMWareFusionLicense_sweitzel_jpark.lic"
+  }
 
   #add personal git configurations
   git::config::global { 'user.email':
@@ -28,23 +29,16 @@ class people::sweitzel74 {
     value  => 'Shawn Weitzel'
   }
 
-  #link in your personal dot files the provided files live in the people/files dir and
-  #you should copy them to a folder matching your personal user if you intend to personalize them
-  #if you do not copy these your dotfiles will change when this sweitzel74 profile is updated as they
-  #are symlinked into your home directory.
-  $home = "/Users/${::boxen_user}"
+  #Creates a symlink to your personal dot file in the people/files dir
   file { "${home}/.bash_profile":
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/sweitzel74/.bash_profile"
   }
 
-  file { "${home}/.git-completion.sh":
+  #Create a symlink for starting Sublime Text from the terminal
+  file { '/usr/local/bin/subl':
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
+    target  => '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'
   }
 
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
-  }
 }

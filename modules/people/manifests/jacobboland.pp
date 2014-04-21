@@ -2,17 +2,12 @@
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::jacobboland {
   include apps::fishShell
-  include apps::sublime
 
   include chrome::canary
+  include firefox
 
   include iterm2::dev
 
-  #add projects chefclient, ppm, ppmspa and dev dashboard
-  include projects::ppm
-  include projects::chefclient
-  include projects::ppmspa
-  include projects::devdashboard
 
   #add personal git configurations
   git::config::global { 'user.email':
@@ -39,24 +34,14 @@ class people::jacobboland {
     target  => "${$boxen::config::repodir}/modules/people/files/jacobboland/.bash_profile"
   }
 
-  file { "${home}/.git-completion.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
-  }
-
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
-  }
-
-#used to share editing at floobits.com
-  sublime_text_3::package { 'Floobits':
-    source => 'Floobits/floobits-sublime'
-  }
-  sublime_text_3::package { 'BracketHighlighter':
-    source => 'facelessuser/BracketHighlighter'
-  }
-  sublime_text_3::package { 'sublime-jsdocs':
-    source => 'spadgos/sublime-jsdocs'
-  }
+  include apps::sublime::ensure_settings_links_exist
+  include apps::sublime::bracket_highlighter
+  include apps::sublime::jsdocs
+  include apps::sublime::grunt
+  include apps::sublime::git
+  include apps::sublime::history
+  include apps::sublime::markdown
+  include apps::sublime::fileautocomplete
+  include apps::sublime::sidebar
+  include sublime_text_3::package_control
 }
