@@ -1,18 +1,12 @@
 class people::jtrinklein {
-  include apps::fishShell
-
-  include iterm2::dev
-
-  include virtualbox
-
   $home = "/Users/${::boxen_user}"
 
-  file { "${home}/.config/fish/personal.fish":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/jtrinklein/personal.fish",
-    subscribe => File["${home}/.config/fish/"]
-  }
+  include iterm2::dev
+  include virtualbox
+  include chrome::canary
+  include zsh
 
+  
   git::config::global { 'user.email':
     value  => 'jtrinklein@daptiv.com'
   }
@@ -33,17 +27,35 @@ class people::jtrinklein {
       path => "${home}/src/dotfiles",
       force => true
   }
+
+  repository{
+    'oh my zsh':
+      source   => 'git@github.com:robbyrussell/oh-my-zsh', #short hand for github repos
+      provider => 'git',
+      path => "${home}/.oh-my-zsh",
+      force => true
+  }
+
+  file { "${home}/.zshrc":
+    ensure  => link,
+    target  => "${home}/src/dotfiles/.zshrc"
+  }
+
   file { "${home}/.vimrc":
     ensure  => link,
     target  => "${home}/src/dotfiles/.vimrc"
   }
 
   #used to share editing at floobits.com
-  include apps::sublime::floobits
   include apps::sublime::wombat_theme
   include apps::sublime::bracket_highlighter
   include apps::sublime::jsdocs
   include apps::sublime::grunt
+  include sublime_text_3::package_control
 
+  nodejs::module { 'typescript-tools':
+    node_version => 'v0.10',
+    ensure => '0.2.2-1'
+  }
 }
 

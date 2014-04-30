@@ -32,7 +32,7 @@ class people::park9140 {
     'my sublime config':
       source   => 'git@github.com:park9140/sublimeconfig', #short hand for github repos
       provider => 'git',
-      path => "${home}/src/sublimeconfig",
+      path => "${home}/sublimeconfig",
       force => true
   }
   include apps::sublime::ensure_settings_links_exist
@@ -40,11 +40,15 @@ class people::park9140 {
 
 
   #used to share editing at floobits.com
-  include apps::sublime::floobits
   include apps::sublime::wombat_theme
   include apps::sublime::bracket_highlighter
   include apps::sublime::jsdocs
   include apps::sublime::grunt
+  include apps::sublime::git
+  include apps::sublime::history
+  include apps::sublime::markdown
+  include apps::sublime::fileautocomplete
+  include apps::sublime::sidebar
   include sublime_text_3::package_control
 
   sublime_text_3::package { 'OmniSharpSublimePlugin':

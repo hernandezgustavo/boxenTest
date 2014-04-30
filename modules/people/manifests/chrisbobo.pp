@@ -32,7 +32,7 @@ class people::chrisbobo {
     'my sublime config':
       source   => 'git@github.com:chrisbobo/sublimeconfig', #short hand for github repos
       provider => 'git',
-      path => "${home}/src/sublimeconfig",
+      path => "${home}/sublimeconfig",
       force => true
   }
   include apps::sublime::ensure_settings_links_exist
