@@ -4,7 +4,6 @@ class people::ebonphoenix {
   #add apps
   include java
   
-  include gitx::dev
   include iterm2::dev
   
   include apps::webstorm
