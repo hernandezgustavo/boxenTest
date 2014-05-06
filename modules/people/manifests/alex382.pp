@@ -1,6 +1,10 @@
 # Replace name of all the "alex382" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::alex382 {
+
+  include firefox 
+  include iterm2::dev
+
   $home = "/Users/${::boxen_user}"
 
   # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
@@ -25,4 +29,16 @@ class people::alex382 {
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/alex382/.bash_profile"
   }
+
+  #used to share editing at floobits.com
+  include apps::sublime::wombat_theme
+  include apps::sublime::bracket_highlighter
+  include apps::sublime::jsdocs
+  include apps::sublime::grunt
+  include apps::sublime::git
+  include apps::sublime::history
+  include apps::sublime::markdown
+  include apps::sublime::fileautocomplete
+  include apps::sublime::sidebar
+  include sublime_text_3::package_control
 }
