@@ -3,7 +3,7 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 tabname () { printf "\e]1;$1\a"; }
 export PATH=~/bin:/opt/local/bin:$PATH
 export EDITOR='subl3 -w'
-export DB_SERVER_NAME='vagrant-2008R2'
+export DB_SERVER_NAME='WIN-NI110EA88RO'
 export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 
 source ~/.git-completion.sh
