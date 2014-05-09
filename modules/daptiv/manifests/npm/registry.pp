@@ -4,7 +4,6 @@ class daptiv::npm::registry {
   file { "npmrc":
     path => "${home}/.npmrc",
     ensure => file,
-    replace => false,
     mode => "0644",
     source  => "${$boxen::config::repodir}/modules/daptiv/files/npm/.npmrc"
   }
