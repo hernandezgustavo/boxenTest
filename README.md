@@ -23,6 +23,7 @@ NOTE - Do not pull this repo before running Boxen!
 
 ## Run Boxen!
 1. Go to https://daptiv-boxen.herokuapp.com/ authenticate and run the given command
+ - Failing this use https://github.com/boxen/our-boxen#bootstrapping to bootstrap your machine   
 2. From this point on just run boxen to get updates or any changes to your personal profile.
 
 ## Configuration  (VERY IMPORTANT EVERYONE SHOULD DO THIS)
