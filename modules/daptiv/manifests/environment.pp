@@ -13,6 +13,7 @@ class daptiv::environment {
   include chrome
 
   include daptiv::dotFiles
+  include daptiv::npm::registry
 
   include apps::git
   include apps::git::aliases
@@ -27,5 +28,4 @@ class daptiv::environment {
   include projects::devdashboard
   include projects::ppm
   include projects::ppmspa
-
 }
