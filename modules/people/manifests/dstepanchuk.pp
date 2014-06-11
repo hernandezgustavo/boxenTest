@@ -11,7 +11,7 @@ class people::dstepanchuk {
   #}
 
   git::config::global { 'user.email':
-    value  => 'GITHUB_EMAIL'
+    value  => 'dstepanchuk@daptiv.com'
   }
   git::config::global { 'user.name':
     value  => 'dstepanchuk'
