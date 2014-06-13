@@ -3,6 +3,9 @@
 class people::dstepanchuk {
   $home = "/Users/${::boxen_user}"
 
+  # My apps
+  include iterm2
+
   # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
   # Upload your vagrant vmware plugin license to /modules/people/files/<your github username>
   # Update the path below to point to that file and uncomment this section.
