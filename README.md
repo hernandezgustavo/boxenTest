@@ -9,9 +9,8 @@ NOTE - Do not pull this repo before running Boxen!
 ### Required Steps
 
 1. Nuke your box. Reinstall OS X Mavericks 10.9.
-2. Install [Xcode Command Line Tools](https://developer.apple.com/downloads/index.action) for your version of OS X.
-3. [Generate a SSH key and add it to GitHub](https://help.github.com/articles/generating-ssh-keys).
-4. Manually enable full disk encryption, the setting can be found here: System Preferences > Security & Privacy > FileVault
+2. [Generate a SSH key and add it to GitHub](https://help.github.com/articles/generating-ssh-keys).
+3. Manually enable full disk encryption, the setting can be found here: System Preferences > Security & Privacy > FileVault
 
 ### Optional Steps
 - If your Mac has been added to the Windows AD domain then follow this step (if you're not sure, then skip this). Run this command to add yourself to the `staff` group:
