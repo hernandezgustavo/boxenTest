@@ -12,9 +12,17 @@ class daptiv::environment::setup_chef_keys{
     ensure => directory
   }
 
+  exec { "password_request":
+    command => "osascript -e 'tell app \"System Events\" to display dialog \"Next you will be asked to enter the passphrase for:\n
+    encrypted_data_bag_secret\n
+You can find this in the Password Manager."'",
+    onlyif => "test -d ~/etc/chef/encrypted_data_bag_secret",
+  }
+
   # Pull down encrypted_data_bag_secret from network url
   exec { "curl -o ${install_path}/encrypted_data_bag_secret.gpg ${installs_url}/Chef/encrypted_data_bag_secret.gpg.txt": 
-    subscribe => File["${install_path}"]
+    #subscribe => File["${install_path}"]
+    subscribe => Exec["password_request"]
   }
 
   # Decrypt encrypted_data_bag_secret.gpg (uses popup window requiring input to continue)
