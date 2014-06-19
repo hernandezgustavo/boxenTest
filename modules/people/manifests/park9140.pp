@@ -7,6 +7,11 @@ class people::park9140 {
 
   include iterm2::dev
 
+  include gitflow
+  include flowdock
+  include homebrewcask
+  include bettertouchtool
+  include heroku
 
   $home = "/Users/${::boxen_user}"
 
