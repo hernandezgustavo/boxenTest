@@ -12,17 +12,19 @@ class daptiv::environment::setup_chef_keys{
     ensure => directory
   }
 
-  exec { "password_request":
+  exec { "data_bag_password_request":
     command => "osascript -e 'tell app \"System Events\" to display dialog \"Next you will be asked to enter the passphrase for:\n
     encrypted_data_bag_secret\n
-You can find this in the Password Manager."'",
-    onlyif => "test -d ~/etc/chef/encrypted_data_bag_secret",
+You can find this in the Password Manager.(https://vmit01.hq.daptiv.com:7272)\"'",
+    onlyif => "test ! ~/etc/chef/encrypted_data_bag_secret",
+    notify => Notify['~/etc/chef/encrypted_data_bag_secret already exists. . .'],
   }
+
+  notify { '~/etc/chef/encrypted_data_bag_secret already exists. . .': }
 
   # Pull down encrypted_data_bag_secret from network url
   exec { "curl -o ${install_path}/encrypted_data_bag_secret.gpg ${installs_url}/Chef/encrypted_data_bag_secret.gpg.txt": 
-    #subscribe => File["${install_path}"]
-    subscribe => Exec["password_request"]
+    subscribe => Exec["data_bag_password_request"]
   }
 
   # Decrypt encrypted_data_bag_secret.gpg (uses popup window requiring input to continue)
@@ -30,9 +32,19 @@ You can find this in the Password Manager."'",
     subscribe => Exec["curl -o ${install_path}/encrypted_data_bag_secret.gpg ${installs_url}/Chef/encrypted_data_bag_secret.gpg.txt"]
   }
 
+  exec { "validator_password_request":
+    command => "osascript -e 'tell app \"System Events\" to display dialog \"Next you will be asked to enter the passphrase for:\n
+    daptiv-validator.pem\n
+You can find this in the Password Manager.(https://vmit01.hq.daptiv.com:7272)\"'",
+    onlyif => "test ! ~/etc/chef/daptiv-validator.pem",
+    notify => Notify['~/etc/chef/daptiv-validator.pem already exists. . .'],
+  }
+
+  notify { '~/etc/chef/daptiv-validator.pem already exists. . .': }
+
   # Pull down daptiv-validator.pem.gpg from network url
   exec { "curl -o ${install_path}/daptiv-validator.pem.gpg ${installs_url}/Chef/daptiv-validator.pem.gpg.txt":
-    subscribe => File["${install_path}"]
+    subscribe => Exec["validator_password_request"]
   }
 
   # Decrypt daptiv-validator.pem.gpg (uses popup window requiring input to continue)
