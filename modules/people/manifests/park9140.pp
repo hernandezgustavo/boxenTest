@@ -10,10 +10,9 @@ class people::park9140 {
 
   $home = "/Users/${::boxen_user}"
 
-  exec { "./Applications/VMware\\ Fusion.app/Contents/Library/vmware-licenseTool enter N528L-0H30J-08362-038KP-A95KN '' '' '6.0' 'VMware Fusion for Mac OS' ''":
-    refreshonly => true,
-    user => root,
-    subscribe => Class['vmware_fusion'],
+  exec {  "set_vmware_fusion_key_park9140":
+    command=> "'/Applications/VMware Fusion.app/Contents/Library/vmware-licenseTool' enter N528L-0H30J-08362-038KP-A95KN '' '' '6.0' 'VMware Fusion for Mac OS' ''",
+    user => root
   }
 
   vagrant::plugin { 'vagrant-vmware-fusion':

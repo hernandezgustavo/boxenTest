@@ -22,12 +22,14 @@ class daptiv::environment::setup_chef_keys{
   notify { '~/etc/chef/encrypted_data_bag_secret already exists. . .': }
 
   # Pull down encrypted_data_bag_secret from network url
-  exec { "curl -o ${install_path}/encrypted_data_bag_secret.gpg ${installs_url}/Chef/encrypted_data_bag_secret.gpg.txt": 
+  exec { "curl -o ${install_path}/encrypted_data_bag_secret.gpg ${installs_url}/Chef/encrypted_data_bag_secret.gpg.txt":
+    refreshonly => true,
     subscribe => Exec["data_bag_password_request"]
   }
 
   # Decrypt encrypted_data_bag_secret.gpg (uses popup window requiring input to continue)
   exec { "/usr/local/bin/gpg --no-tty --yes --always-trust ${install_path}/encrypted_data_bag_secret.gpg":
+    refreshonly => true,
     subscribe => Exec["curl -o ${install_path}/encrypted_data_bag_secret.gpg ${installs_url}/Chef/encrypted_data_bag_secret.gpg.txt"]
   }
 
@@ -42,11 +44,13 @@ class daptiv::environment::setup_chef_keys{
 
   # Pull down daptiv-validator.pem.gpg from network url
   exec { "curl -o ${install_path}/daptiv-validator.pem.gpg ${installs_url}/Chef/daptiv-validator.pem.gpg.txt":
+    refreshonly => true,
     subscribe => Exec["validator_password_request"]
   }
 
   # Decrypt daptiv-validator.pem.gpg (uses popup window requiring input to continue)
   exec { "/usr/local/bin/gpg --no-tty --yes --always-trust ${install_path}/daptiv-validator.pem.gpg":
+    refreshonly => true,
     subscribe => Exec["curl -o ${install_path}/daptiv-validator.pem.gpg ${installs_url}/Chef/daptiv-validator.pem.gpg.txt"]
   }
 
