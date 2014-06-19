@@ -7,7 +7,17 @@ class people::park9140 {
 
   include iterm2::dev
 
+
   $home = "/Users/${::boxen_user}"
+
+  exec {  "set_vmware_fusion_key_park9140":
+    command=> "'/Applications/VMware Fusion.app/Contents/Library/vmware-licenseTool' enter N528L-0H30J-08362-038KP-A95KN '' '' '6.0' 'VMware Fusion for Mac OS' ''",
+    user => root
+  }
+
+  vagrant::plugin { 'vagrant-vmware-fusion':
+    license => "${$boxen::config::repodir}/modules/people/files/park9140/VagrantVMWareFusionLicense_sweitzel_jpark.lic"
+  }
 
   file { "${home}/.config/fish/personal.fish":
     ensure  => link,
@@ -27,16 +37,27 @@ class people::park9140 {
     target  => "${$boxen::config::repodir}/modules/people/files/park9140/.bash_profile"
   }
 
+  include atom
+
+  repository{
+    'my atom config':
+    source   => 'git@github.com:park9140/atom-config', #short hand for github repos
+    provider => 'git',
+    path => "${home}/.atom",
+    force => true
+  }
+
 
   repository{
     'my sublime config':
-      source   => 'git@github.com:park9140/sublimeconfig', #short hand for github repos
-      provider => 'git',
-      path => "${home}/sublimeconfig",
-      force => true
+    source   => 'git@github.com:park9140/sublimeconfig', #short hand for github repos
+    provider => 'git',
+    path => "${home}/sublimeconfig",
+    force => true
   }
-  include apps::sublime::ensure_settings_links_exist
 
+
+  include apps::sublime::ensure_settings_links_exist
 
 
   #used to share editing at floobits.com
@@ -61,4 +82,3 @@ class people::park9140 {
     ensure => '0.2.2-1'
   }
 }
-
