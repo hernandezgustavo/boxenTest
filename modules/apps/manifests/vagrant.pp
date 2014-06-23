@@ -7,4 +7,7 @@ class apps::vagrant {
 
   vagrant::plugin { 'vagrant-windows':
   }
+
+  vagrant::plugin { 'vagrant-vmware-fusion':
+  }
 }
