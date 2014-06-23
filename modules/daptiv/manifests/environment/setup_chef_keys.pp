@@ -14,7 +14,7 @@ class daptiv::environment::setup_chef_keys{
 
   exec { "data_bag_password_request":
     command => "osascript -e 'tell app \"System Events\" to display dialog \"Next you will be asked to enter the passphrase for:\n
-    encrypted_data_bag_secret\n\nYou can find this in the Password Manager.(https://vmit01.hq.daptiv.com:7272)\"'",
+    encrypted_data_bag_secret\n\nYou can find this in the Password Manager:\nhttps://vmit01.hq.daptiv.com:7272\"'",
     onlyif => "test ! -f /etc/chef/encrypted_data_bag_secret",
     #creates => "~/etc/chef/encrypted_data_bag_secret",
     notify => Notify['/etc/chef/encrypted_data_bag_secret already exists. . .'],
@@ -36,7 +36,7 @@ class daptiv::environment::setup_chef_keys{
 
   exec { "validator_password_request":
     command => "osascript -e 'tell app \"System Events\" to display dialog \"Next you will be asked to enter the passphrase for:\n
-    daptiv-validator.pem\n\nYou can find this in the Password Manager.(https://vmit01.hq.daptiv.com:7272)\"'",
+    daptiv-validator.pem\n\nYou can find this in the Password Manager\nhttps://vmit01.hq.daptiv.com:7272\"'",
     onlyif => "test ! -f /etc/chef/daptiv-validator.pem",
     #creates => "~/etc/chef/daptiv-validator.pem",
     notify => Notify['/etc/chef/daptiv-validator.pem already exists. . .'],
