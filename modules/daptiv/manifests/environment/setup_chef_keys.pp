@@ -17,10 +17,10 @@ class daptiv::environment::setup_chef_keys{
     encrypted_data_bag_secret\nYou can find this in the Password Manager.(https://vmit01.hq.daptiv.com:7272)\"'",
     onlyif => "test -f /etc/chef/encrypted_data_bag_secret",
     #creates => "~/etc/chef/encrypted_data_bag_secret",
-    notify => Notify['~/etc/chef/encrypted_data_bag_secret already exists. . .'],
+    notify => Notify['/etc/chef/encrypted_data_bag_secret already exists. . .'],
   }
 
-  notify { '~/etc/chef/encrypted_data_bag_secret already exists. . .': }
+  notify { '/etc/chef/encrypted_data_bag_secret already exists. . .': }
 
   # Pull down encrypted_data_bag_secret from network url
   exec { "curl -o ${install_path}/encrypted_data_bag_secret.gpg ${installs_url}/Chef/encrypted_data_bag_secret.gpg.txt":
@@ -39,10 +39,10 @@ class daptiv::environment::setup_chef_keys{
     daptiv-validator.pem\nYou can find this in the Password Manager.(https://vmit01.hq.daptiv.com:7272)\"'",
     onlyif => "test -f /etc/chef/daptiv-validator.pem",
     #creates => "~/etc/chef/daptiv-validator.pem",
-    notify => Notify['~/etc/chef/daptiv-validator.pem already exists. . .'],
+    notify => Notify['/etc/chef/daptiv-validator.pem already exists. . .'],
   }
 
-  notify { '~/etc/chef/daptiv-validator.pem already exists. . .': }
+  notify { '/etc/chef/daptiv-validator.pem already exists. . .': }
 
   # Pull down daptiv-validator.pem.gpg from network url
   exec { "curl -o ${install_path}/daptiv-validator.pem.gpg ${installs_url}/Chef/daptiv-validator.pem.gpg.txt":
