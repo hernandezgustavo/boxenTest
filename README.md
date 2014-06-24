@@ -9,9 +9,8 @@ NOTE - Do not pull this repo before running Boxen!
 ### Required Steps
 
 1. Nuke your box. Reinstall OS X Mavericks 10.9.
-2. Install Xcode Command Line Tools for your version of OS X, [Mountain Lion](http://vmit07.hq.daptiv.com/vagrant/command_line_tools_os_x_mountain_lion_for_xcode__october_2013.dmg) or [Mavericks](http://vmit07.hq.daptiv.com/vagrant/command_line_tools_os_x_mavericks_for_xcode__late_october_2013.dmg).
-3. [Generate a SSH key and add it to GitHub](https://help.github.com/articles/generating-ssh-keys).
-4. Manually enable full disk encryption, the setting can be found here: System Preferences > Security & Privacy > FileVault
+2. [Generate a SSH key and add it to GitHub](https://help.github.com/articles/generating-ssh-keys).
+3. Manually enable full disk encryption, the setting can be found here: System Preferences > Security & Privacy > FileVault
 
 ### Optional Steps
 - If your Mac has been added to the Windows AD domain then follow this step (if you're not sure, then skip this). Run this command to add yourself to the `staff` group:
@@ -23,6 +22,7 @@ NOTE - Do not pull this repo before running Boxen!
 
 ## Run Boxen!
 1. Go to https://daptiv-boxen.herokuapp.com/ authenticate and run the given command
+ - Failing this use https://github.com/boxen/our-boxen#bootstrapping to bootstrap your machine   
 2. From this point on just run boxen to get updates or any changes to your personal profile.
 
 ## Configuration  (VERY IMPORTANT EVERYONE SHOULD DO THIS)
@@ -183,6 +183,9 @@ It'll just be listed under the boxen org so folks can find it more easily.
 See [FAQ](https://github.com/boxen/our-boxen/blob/master/docs/faq.md).
 
 Use Issues or #boxen on irc.freenode.net.
+
++## OMG JSON Gem won't install!!!
+ +See this site for more information: https://langui.sh/2014/03/10/wunused-command-line-argument-hard-error-in-future-is-a-harsh-mistress/
 
 ## Vagrant Setup
 

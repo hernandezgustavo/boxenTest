@@ -6,6 +6,7 @@ class daptiv::environment {
   include daptiv::environment::etc_profile
   include daptiv::environment::set_ulimit_to_max
   include daptiv::environment::localhost_daptiv_com
+  include daptiv::environment::setup_chef_keys
 
   #--------------------------------
   # Apps that everyone gets
@@ -13,6 +14,7 @@ class daptiv::environment {
   include chrome
 
   include daptiv::dotFiles
+  include daptiv::npm::registry
 
   include apps::git
   include apps::git::aliases
@@ -27,5 +29,4 @@ class daptiv::environment {
   include projects::devdashboard
   include projects::ppm
   include projects::ppmspa
-
 }
