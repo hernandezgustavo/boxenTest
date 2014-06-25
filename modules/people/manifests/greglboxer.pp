@@ -22,7 +22,15 @@ class people::greglboxer {
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/greglboxer/.bash_profile"
   }
-
+  
+  repository{
+    'oh my zsh':
+      source   => 'git@github.com:robbyrussell/oh-my-zsh', #short hand for github repos
+      provider => 'git',
+      path => "${home}/.oh-my-zsh",
+      force => true
+  }
+  
   include apps::googledrive
 
   include apps::sublime
