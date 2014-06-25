@@ -190,3 +190,22 @@ Use Issues or #boxen on irc.freenode.net.
 ## Vagrant Setup
 
 See Wiki: https://sites.google.com/a/daptiv.com/portal/Daptiv-Engineering-Wiki/dev-machine-setup/new-vagrant-windows-dev-box
+
+## Upgrading Boxen when you have vagrant 1.4.2
+
+Run boxen, this will upgrade all the things including vagrant to vagrant 1.6.2 assuming you are on the master branch (If you are on your personal branch you will need to merge master changes).    
+
+Vagrant will land in a slightly broken state.  In order to fix this run 
+```bash
+   vagrant plugin list
+```
+This will tell you to run a command that will uninstall all your plugins. Do this now.
+
+Ensure your personal profile has your vagrant-vmware-fusion plugin configured with your key like the default personal manifest shows.
+   https://github.com/daptiv/our-boxen/blob/master/modules/people/manifests/default.pp#L6-L11
+
+Run `boxen` again, this will install your vagrant-vmware-fusion plugin.
+
+After you have completed upgrading your boxen, Ensure that you have created a pull request for your personal manifest changes, and get it pulled into master our-boxen. This will ensure that when you rebuild your machine you can get your same settings when you initially boxen.
+
+
