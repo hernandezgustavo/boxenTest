@@ -9,9 +9,8 @@ NOTE - Do not pull this repo before running Boxen!
 ### Required Steps
 
 1. Nuke your box. Reinstall OS X Mavericks 10.9.
-2. Install [Xcode Command Line Tools](https://developer.apple.com/downloads/index.action) for your version of OS X.
-3. [Generate a SSH key and add it to GitHub](https://help.github.com/articles/generating-ssh-keys).
-4. Manually enable full disk encryption, the setting can be found here: System Preferences > Security & Privacy > FileVault
+2. [Generate a SSH key and add it to GitHub](https://help.github.com/articles/generating-ssh-keys).
+3. Manually enable full disk encryption, the setting can be found here: System Preferences > Security & Privacy > FileVault
 
 ### Optional Steps
 - If your Mac has been added to the Windows AD domain then follow this step (if you're not sure, then skip this). Run this command to add yourself to the `staff` group:
@@ -23,6 +22,7 @@ NOTE - Do not pull this repo before running Boxen!
 
 ## Run Boxen!
 1. Go to https://daptiv-boxen.herokuapp.com/ authenticate and run the given command
+ - Failing this use https://github.com/boxen/our-boxen#bootstrapping to bootstrap your machine   
 2. From this point on just run boxen to get updates or any changes to your personal profile.
 
 ## Configuration  (VERY IMPORTANT EVERYONE SHOULD DO THIS)
@@ -190,3 +190,22 @@ Use Issues or #boxen on irc.freenode.net.
 ## Vagrant Setup
 
 See Wiki: https://sites.google.com/a/daptiv.com/portal/Daptiv-Engineering-Wiki/dev-machine-setup/new-vagrant-windows-dev-box
+
+## Upgrading Boxen when you have vagrant 1.4.2
+
+Run boxen, this will upgrade all the things including vagrant to vagrant 1.6.2 assuming you are on the master branch (If you are on your personal branch you will need to merge master changes).    
+
+Vagrant will land in a slightly broken state.  In order to fix this run 
+```bash
+   vagrant plugin list
+```
+This will tell you to run a command that will uninstall all your plugins. Do this now.
+
+Ensure your personal profile has your vagrant-vmware-fusion plugin configured with your key like the default personal manifest shows.
+   https://github.com/daptiv/our-boxen/blob/master/modules/people/manifests/default.pp#L6-L11
+
+Run `boxen` again, this will install your vagrant-vmware-fusion plugin.
+
+After you have completed upgrading your boxen, Ensure that you have created a pull request for your personal manifest changes, and get it pulled into master our-boxen. This will ensure that when you rebuild your machine you can get your same settings when you initially boxen.
+
+
