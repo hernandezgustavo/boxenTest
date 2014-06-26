@@ -6,9 +6,9 @@ class people::pbalsley {
   # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
   # Upload your vagrant vmware plugin license to /modules/people/files/<your github username>
   # Update the path below to point to that file and uncomment this section.
-  #vagrant::plugin { 'vagrant-vmware-fusion':
-  #  license => '${$boxen::config::repodir}/modules/people/files/pbalsley/VagrantVMWareFusionLicense_gboxer_pbalsley.lic'
-  #}
+  vagrant::plugin { 'vagrant-vmware-fusion':
+    license => '${$boxen::config::repodir}/modules/people/files/pbalsley/VagrantVMWareFusionLicense_gboxer_pbalsley.lic'
+  }
 
   git::config::global { 'user.email':
     value  => 'pbalsley@daptiv.com'
