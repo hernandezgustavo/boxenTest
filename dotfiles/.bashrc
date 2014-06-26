@@ -11,15 +11,15 @@ PATH=$PATH:$HOME/.rvm/bin:$HOME/src/scripts # Add RVM to PATH for scripting
 
 source /opt/boxen/env.sh
 
-<<<<<<< HEAD
-export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
-alias spaprod='grunt build-ci --production $@'
 
-=======
+
+
+
+
 # allow override of default provider to virtualbox in .bash_profile
 if [ -z "$VAGRANT_DEFAULT_PROVIDER" ]
   then export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 fi
 
 export VAGRANT_SERVER_URL=http://vagrantboxes.hq.daptiv.com
->>>>>>> master
+
