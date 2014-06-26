@@ -6,7 +6,7 @@ class people::jtrinklein {
   include chrome::canary
   include zsh
 
-  
+
   git::config::global { 'user.email':
     value  => 'jtrinklein@daptiv.com'
   }
@@ -25,6 +25,14 @@ class people::jtrinklein {
       source   => 'git@github.com:jtrinklein/dotfiles', #short hand for github repos
       provider => 'git',
       path => "${home}/src/dotfiles",
+      force => true
+  }
+
+  repository{
+    'my dotfiles':
+      source   => 'git@github.com:olivierverdier/zsh-git-prompt', #better zsh git prompt
+      provider => 'git',
+      path => "${home}/.zsh/git-prompt",
       force => true
   }
 
@@ -58,4 +66,3 @@ class people::jtrinklein {
     ensure => '0.2.2-1'
   }
 }
-
