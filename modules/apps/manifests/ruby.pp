@@ -1,7 +1,8 @@
 class apps::ruby {
   # default ruby versions
 
-  include ruby::1_9_3
+  ruby::version { '1.9.3-p194': }
+  
   class {'ruby::global':
     version => '1.9.3'
   }
