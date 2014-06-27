@@ -31,6 +31,14 @@ class people::greglboxer {
       force => true
   }
   
+  repository{
+    'my dotfiles':
+      source   => 'git@github.com:olivierverdier/zsh-git-prompt', #better zsh git prompt
+      provider => 'git',
+      path => "${home}/.zsh/git-prompt",
+      force => true
+  }
+  
   include apps::googledrive
 
   include apps::sublime
