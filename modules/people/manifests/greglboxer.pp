@@ -65,9 +65,7 @@ class people::greglboxer {
 
   #daptiv
   #---------------------------------------------------
-  include projects::ppm
   include projects::chefclient
-  include projects::ppmspa
   include projects::devdashboard
   #---------------------------------------------------
 
