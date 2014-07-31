@@ -146,7 +146,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-iterm2
   specs:
-    iterm2 (1.0.3)
+    iterm2 (1.1.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-java
@@ -276,7 +276,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-vagrant
   specs:
-    vagrant (3.0.3)
+    vagrant (3.1.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-vim
@@ -399,7 +399,7 @@ DEPENDENCIES
   imagemagick (= 1.2.1)
   induction (= 1.0.0)
   inifile (= 1.0.3)
-  iterm2 (= 1.0.3)
+  iterm2 (= 1.1.1)
   java (= 1.1.0)
   lastpass (= 1.1.0)
   macvim (= 1.0.0)
@@ -431,7 +431,7 @@ DEPENDENCIES
   swig (= 1.0.0)
   tmux (= 1.0.2)
   transmission (= 1.0.0)
-  vagrant (= 3.0.3)
+  vagrant (= 3.1.1)
   vim (= 1.0.5)
   virtualbox (= 1.0.6)
   vmware_fusion (= 1.1.0)
