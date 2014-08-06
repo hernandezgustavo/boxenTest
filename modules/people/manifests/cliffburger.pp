@@ -4,16 +4,19 @@ class people::cliffburger {
   
   include java
 
-  include evernote
-  include dropbox
-  include apps::googledrive
-  include chrome::canary
-  include apps::webstorm
-  include spectacle
-  include rubymine
-  include iterm2::dev
   include adobe_reader
 
+  include apps::googledrive
+  include apps::webstorm
+
+  include chrome::canary
+  include dropbox
+  include evernote
+  include iterm2::dev
+
+  include gitflow
+  include rubymine
+ 
   #add personal git configurations
   git::config::global { 'user.email':
     value  => 'cliffburger@daptiv.com'
@@ -22,6 +25,13 @@ class people::cliffburger {
     value  => 'Cliff Burger'
   }
 
+  $vmware_license = "${$boxen::config::repodir}/modules/people/files/${$::github_login}/VagrantVMWareFusionLicense.lic"
+
+  #if you have a license file in your user dir install vmware-fusion vagrant plugin
+  vagrant::plugin { 'vagrant-vmware-fusion':
+    license => $vmware_license
+  }
+ 
   #link in your personal dot files the provided files live in the people/files dir and
   #you should copy them to a folder matching your personal user if you intend to personalize them
   #if you do not copy these your dotfiles will change when this cliffburger profile is updated as they
@@ -35,6 +45,13 @@ class people::cliffburger {
   file { "${home}/.vimrc":
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/cliffburger/.vimrc"
+  }
+  
+  include apps::fishShell
+  file { "${home}/.config/fish/personal.fish":
+    ensure  => link,
+    target  => "${$boxen::config::repodir}/modules/people/files/cliffburger/personal.fish",
+    subscribe => File["${home}/.config/fish/"]
   }
   #
   package { 'wget':
