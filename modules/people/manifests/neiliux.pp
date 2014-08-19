@@ -6,9 +6,9 @@ class people::neiliux {
   # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
   # Upload your vagrant vmware plugin license to /modules/people/files/<your github username>
   # Update the path below to point to that file and uncomment this section.
-  #vagrant::plugin { 'vagrant-vmware-fusion':
-  #  license => '${$boxen::config::repodir}/modules/people/files/neiliux/LICENSE_FILENAME.lic'
-  #}
+  vagrant::plugin { 'vagrant-vmware-fusion':
+    license => "${$boxen::config::repodir}/modules/people/files/neiliux/VagrantVMWareFusionLicense_pliewsrisuk_nbreeden.lic"
+  }
 
   git::config::global { 'user.email':
     value  => 'nbreeden@daptiv.com'
@@ -25,4 +25,15 @@ class people::neiliux {
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/neiliux/.bash_profile"
   }
+
+  #include java
+  include firefox
+  include iterm2::stable
+  include iterm2::colors::solarized_light
+  include iterm2::colors::solarized_dark
+  include chrome::canary
+  include apps::webstorm
+  include atom
+  # TODO: Need to figure out how to download from sourceforge or find a direct link to download package.
+  #include apps::filezilla
 }

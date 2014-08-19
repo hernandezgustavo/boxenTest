@@ -1,6 +1,7 @@
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 tabname () { printf "\e]1;$1\a"; }
+
 export PATH=~/bin:$PATH
 
 source ~/.git-completion.sh
