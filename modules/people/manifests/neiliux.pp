@@ -42,6 +42,12 @@ class people::neiliux {
    subscribe => File["${home}/.config/fish/"]
   }
 
+  file { "${home}/Library/Preferences/com.googlecode.iterm2.plist":
+   ensure => link,
+   target => "${boxen::config::repodir}/modules/people/files/neiliux/com.googlecode.iterm2.plist",
+   #subscribe => File["${home}/Library/Preferences/"]
+  }
+
   #include java
   include firefox
   include iterm2::stable
