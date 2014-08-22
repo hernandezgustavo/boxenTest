@@ -12,7 +12,7 @@ class people::greglboxer {
   include zsh
 
   git::config::global { 'user.email':
-    value  => 'gboxer@daptiv.com'
+    value  => 'greg.boxer@changepoint.com'
   }
   git::config::global { 'user.name':
     value  => 'greglboxer'
