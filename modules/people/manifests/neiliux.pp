@@ -25,6 +25,28 @@ class people::neiliux {
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/neiliux/.bash_profile"
   }
+  
+  file { "${home}/bin/e":
+    ensure => link,
+    target => "${$boxen::config::repodir}/modules/people/files/neiliux/bin/e"
+  }
+  
+  file { "${home}/bin/np":
+   ensure => link,
+   target => "${boxen::config::repodir}/modules/people/files/neiliux/bin/np"
+  }
+  
+  file { "${home}/.config/fish/personal.fish":
+   ensure => link,
+   target => "${boxen::config::repodir}/modules/people/files/neiliux/personal.fish",
+   subscribe => File["${home}/.config/fish/"]
+  }
+
+  file { "${home}/Library/Preferences/com.googlecode.iterm2.plist":
+   ensure => link,
+   target => "${boxen::config::repodir}/modules/people/files/neiliux/com.googlecode.iterm2.plist",
+   #subscribe => File["${home}/Library/Preferences/"]
+  }
 
   #include java
   include firefox
@@ -36,4 +58,5 @@ class people::neiliux {
   include atom
   # TODO: Need to figure out how to download from sourceforge or find a direct link to download package.
   #include apps::filezilla
+  include apps::fishShell
 }
