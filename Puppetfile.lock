@@ -329,6 +329,11 @@ GITHUBTARBALL
     homebrewcask (1.0.1)
 
 GITHUBTARBALL
+  remote: heathsnow/puppet-royaltsx
+  specs:
+    royaltsx (1.0.1)
+
+GITHUBTARBALL
   remote: jdar/puppet-htop
   specs:
     htop (1.0.1)
