@@ -36,7 +36,7 @@ class people::drewburlingame {
   }
 
   vagrant::plugin { 'vagrant-vmware-fusion':
-    license => '${$boxen::config::repodir}/modules/people/files/drewburlingame/VagrantVMWareFusionLicense_dburlingame_aschmitt.lic'
+    license => "${$boxen::config::repodir}/modules/people/files/drewburlingame/VagrantVMWareFusionLicense_dburlingame_aschmitt.lic"
   }
 
   #git

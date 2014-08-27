@@ -7,7 +7,7 @@ class people::default {
   # Upload your vagrant vmware plugin license to /modules/people/files/<your github username>
   # Update the path below to point to that file and uncomment this section.
   #vagrant::plugin { 'vagrant-vmware-fusion':
-  #  license => '${$boxen::config::repodir}/modules/people/files/default/LICENSE_FILENAME.lic'
+  #  license => "${$boxen::config::repodir}/modules/people/files/default/LICENSE_FILENAME.lic"
   #}
 
   git::config::global { 'user.email':
