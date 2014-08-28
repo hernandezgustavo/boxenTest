@@ -28,7 +28,6 @@ class people::drewburlingame {
   include lastpass
   include royaltsx
   include tmux
-  include tmuxinator
   include zsh
 
   include apps::googledrive
