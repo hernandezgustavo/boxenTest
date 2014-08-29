@@ -7,7 +7,7 @@ class people::park9140 {
 
   include firefox
 
-  include iterm2::stable
+  include iterm2::dev
 
   include gitflow
   include flowdock

@@ -6,7 +6,7 @@ class people::jacobboland {
   include chrome::canary
   include firefox
 
-  include iterm2::stable
+  include iterm2::dev
 
 
   #add personal git configurations

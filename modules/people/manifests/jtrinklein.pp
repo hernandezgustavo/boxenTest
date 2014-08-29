@@ -1,7 +1,7 @@
 class people::jtrinklein {
   $home = "/Users/${::boxen_user}"
 
-  include iterm2::stable
+  include iterm2::dev
   include virtualbox
   include chrome::canary
   include zsh

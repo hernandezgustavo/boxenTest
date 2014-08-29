@@ -50,7 +50,7 @@ class people::neiliux {
 
   #include java
   include firefox
-  include iterm2::stable
+  include iterm2::dev
   include iterm2::colors::solarized_light
   include iterm2::colors::solarized_dark
   include chrome::canary

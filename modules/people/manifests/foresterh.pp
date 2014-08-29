@@ -1,6 +1,6 @@
 class people::foresterh {
   include apps::fishShell
-  include iterm2::stable
+  include iterm2::dev
 
   $home = "/Users/${::boxen_user}"
 

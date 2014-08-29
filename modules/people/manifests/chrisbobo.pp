@@ -5,7 +5,7 @@ class people::chrisbobo {
   include apps::googledrive
   include chrome::canary
   include apps::webstorm
-  include iterm2::stable
+  include iterm2::dev
 
   include apps::fishShell
   file { "${home}/.config/fish/personal.fish":
