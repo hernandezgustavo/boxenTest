@@ -38,7 +38,7 @@ class people::dachew {
 
   #add personal git configurations
   git::config::global { 'user.email':
-    value  => 'matthew@synapseware.com'
+    value  => 'matthew.potter@changepoint.com'
   }
   git::config::global { 'user.name':
     value  => 'Matthew Potter'
