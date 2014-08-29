@@ -1,7 +1,7 @@
 # Replace name of all the "default" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::jreynolds_daptiv {
-  include iterm2::dev
+  include iterm2::stable
 
   #add personal git configurations
   git::config::global { 'user.email':

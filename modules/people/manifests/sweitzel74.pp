@@ -5,7 +5,7 @@ class people::sweitzel74 {
   #add apps
   include apps::git::difftools::p4merge
   include graphviz
-  include iterm2::dev
+  include iterm2::stable
   include java
   include mercurial
   include sourcetree

@@ -5,7 +5,7 @@ class people::stevehayes {
 
   include firefox
 
-  include iterm2::dev
+  include iterm2::stable
 
   $home = "/Users/${::boxen_user}"
 

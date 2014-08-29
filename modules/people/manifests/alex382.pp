@@ -2,8 +2,8 @@
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::alex382 {
 
-  include firefox 
-  include iterm2::dev
+  include firefox
+  include iterm2::stable
 
   $home = "/Users/${::boxen_user}"
 

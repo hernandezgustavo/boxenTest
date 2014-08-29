@@ -12,7 +12,7 @@ class people::cliffburger {
   include chrome::canary
   include dropbox
   include evernote
-  include iterm2::dev
+  include iterm2::stable
 
   include gitflow
   include rubymine

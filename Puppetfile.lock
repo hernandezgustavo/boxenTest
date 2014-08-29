@@ -146,7 +146,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-iterm2
   specs:
-    iterm2 (1.1.1)
+    iterm2 (1.2.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-java
@@ -404,7 +404,7 @@ DEPENDENCIES
   imagemagick (= 1.2.1)
   induction (= 1.0.0)
   inifile (= 1.0.3)
-  iterm2 (= 1.1.1)
+  iterm2 (= 1.2.0)
   java (= 1.1.0)
   lastpass (= 1.1.0)
   macvim (= 1.0.0)
@@ -426,6 +426,7 @@ DEPENDENCIES
   python (= 1.2.1)
   redis (= 0.3.0)
   repository (= 2.3.0)
+  royaltsx (= 1.0.1)
   ruby (= 7.3.0)
   rubymine (= 1.1.0)
   sourcetree (= 1.0.0)

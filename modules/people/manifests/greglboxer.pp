@@ -7,7 +7,7 @@ class people::greglboxer {
     license => "${$boxen::config::repodir}/modules/people/files/greglboxer/VagrantVMWareFusionLicense_gboxer.lic"
   }
 
-  include iterm2::dev
+  include iterm2::stable
   include chrome::canary
   include zsh
 
