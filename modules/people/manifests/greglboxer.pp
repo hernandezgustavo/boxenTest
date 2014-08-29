@@ -10,9 +10,9 @@ class people::greglboxer {
   include iterm2::dev
   include chrome::canary
   include zsh
-  
+
   git::config::global { 'user.email':
-    value  => 'gboxer@daptiv.com'
+    value  => 'greg.boxer@changepoint.com'
   }
   git::config::global { 'user.name':
     value  => 'greglboxer'
@@ -22,7 +22,12 @@ class people::greglboxer {
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/greglboxer/.bash_profile"
   }
-  
+
+  file { "${home}/.zshrc":
+    ensure  => link,
+    target  => "${$boxen::config::repodir}/modules/people/files/greglboxer/.zshrc"
+  }
+
   repository{
     'oh my zsh':
       source   => 'git@github.com:robbyrussell/oh-my-zsh', #short hand for github repos
@@ -30,7 +35,15 @@ class people::greglboxer {
       path => "${home}/.oh-my-zsh",
       force => true
   }
-  
+
+  repository{
+    'my dotfiles':
+      source   => 'git@github.com:olivierverdier/zsh-git-prompt', #better zsh git prompt
+      provider => 'git',
+      path => "${home}/.zsh/git-prompt",
+      force => true
+  }
+
   include apps::googledrive
 
   include apps::sublime
@@ -49,12 +62,10 @@ class people::greglboxer {
     node_version => 'v0.10',
     ensure => '0.2.2-1'
   }
-  
+
   #daptiv
   #---------------------------------------------------
-  include projects::ppm
   include projects::chefclient
-  include projects::ppmspa
   include projects::devdashboard
   #---------------------------------------------------
 

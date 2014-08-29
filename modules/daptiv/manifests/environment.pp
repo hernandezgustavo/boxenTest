@@ -6,7 +6,6 @@ class daptiv::environment {
   include daptiv::environment::etc_profile
   include daptiv::environment::set_ulimit_to_max
   include daptiv::environment::localhost_daptiv_com
-  include daptiv::environment::setup_chef_keys
 
   #--------------------------------
   # Apps that everyone gets

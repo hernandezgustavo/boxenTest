@@ -36,7 +36,7 @@ class people::park9140 {
   }
 
   git::config::global { 'user.email':
-    value  => 'jpark@daptiv.com'
+    value  => 'jonathan.park@changepoint.com'
   }
   git::config::global { 'user.name':
     value  => 'Jonathan Park'
