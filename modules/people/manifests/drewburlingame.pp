@@ -13,20 +13,24 @@ class people::drewburlingame {
     target  => "${$boxen::config::repodir}/modules/people/files/drewburlingame/.bash_profile"
   }
 
-  include dropbox
-  #include skype
-  #include btt  #BetterTouchTool
-  include apps::googledrive
-  include apps::fishShell
-
-  include apps::sublime
-  include apps::sublime::bracket_highlighter
-  include apps::sublime::wombat_theme
+  vagrant::plugin { 'vagrant-vmware-fusion':
+    license => "${$boxen::config::repodir}/modules/people/files/drewburlingame/VagrantVMWareFusionLicense_dburlingame_aschmitt.lic"
+  }
 
   #trial
   #---------------------------------------------------
   #include textual
   #---------------------------------------------------
+
+  include chrome::canary
+  include dropbox
+  include iterm2::dev
+  include lastpass
+  include royaltsx
+  include tmux
+  include zsh
+
+  include apps::googledrive
 
   #class { 'intellij': edition => 'ultimate', version => '13.0.1' }
 
@@ -35,9 +39,51 @@ class people::drewburlingame {
     ensure => '0.2.2-1'
   }
 
-  vagrant::plugin { 'vagrant-vmware-fusion':
-    license => '${$boxen::config::repodir}/modules/people/files/drewburlingame/VagrantVMWareFusionLicense_dburlingame_aschmitt.lic'
+  # install tree (awesome terminal tree command for viewing folder structure
+  exec { "brew install tree":
   }
+
+  #atom
+  #---------------------------------------------------
+  include atom
+
+  #thanks for nothing park
+  #repository{
+  #  'my atom config':
+  #  source   => 'git@github.com:park9140/atom-config', #short hand for github repos
+  #  provider => 'git',
+  #  path => "${home}/.atom",
+  #  force => true
+  #}
+  #---------------------------------------------------
+
+  #sublime
+  #---------------------------------------------------
+  include apps::sublime::ensure_settings_links_exist
+  include apps::sublime::wombat_theme
+  include apps::sublime::bracket_highlighter
+  include apps::sublime::jsdocs
+  include apps::sublime::grunt
+  include apps::sublime::git
+  include apps::sublime::history
+  include apps::sublime::markdown
+  include apps::sublime::fileautocomplete
+  include apps::sublime::sidebar
+  include sublime_text_3::package_control
+
+  sublime_text_3::package { 'OmniSharpSublimePlugin':
+    source => 'git@github.com:PaulCampbell/OmniSharpSublimePlugin.git'
+  }
+
+  #thanks park
+  repository{
+    'my sublime config':
+    source   => 'git@github.com:park9140/sublimeconfig', #short hand for github repos
+    provider => 'git',
+    path => "${home}/sublimeconfig",
+    force => true
+  }
+  #---------------------------------------------------
 
   #git
   #---------------------------------------------------
