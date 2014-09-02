@@ -4,31 +4,87 @@ class people::drewburlingame {
 
   $home = "/Users/${::boxen_user}"
 
-  # link in your personal dot files the provided files live in the people/files dir and
-  # you should copy them to a folder matching your personal user if you intend to personalize them
-  # if you do not copy these your dotfiles will change when this drewburlingame profile is updated as they
-  # are symlinked into your home directory.
-  file { "${home}/.bash_profile":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/drewburlingame/.bash_profile"
-  }
-
   vagrant::plugin { 'vagrant-vmware-fusion':
     license => "${$boxen::config::repodir}/modules/people/files/drewburlingame/VagrantVMWareFusionLicense_dburlingame_aschmitt.lic"
+  }
+
+  repository{
+    'my dotfiles':
+      source   => 'git@github.com:dburlingame/dotfiles', #short hand for github repos
+      provider => 'git',
+      path => "${home}/src/dotfiles",
+      force => true
+  }
+
+  file { "${home}/.bash_profile":
+    ensure  => link,
+    target  => "${home}/src/dotfiles/mac/.bash_profile"
+  }
+
+  file { "${home}/.gitconfig":
+    ensure  => link,
+    target  => "${home}/src/dotfiles/mac/.gitconfig"
+  }
+
+  file { "${home}/.zshrc":
+    ensure  => link,
+    target  => "${home}/src/dotfiles/mac/.zshrc"
+  }
+
+  file { "${home}/.vimrc":
+    ensure  => link,
+    target  => "${home}/src/dotfiles/mac/.vimrc"
+  }
+
+  repository{
+    'olivierverdier dotfiles':
+      source   => 'git@github.com:olivierverdier/zsh-git-prompt', #better zsh git prompt
+      provider => 'git',
+      path => "${home}/.zsh/git-prompt",
+      force => true
+  }
+
+  repository{
+    'oh my zsh':
+      source   => 'git@github.com:robbyrussell/oh-my-zsh', #short hand for github repos
+      provider => 'git',
+      path => "${home}/.oh-my-zsh",
+      force => true
   }
 
   #trial
   #---------------------------------------------------
   #include textual
+
+  #https://github.com/gregp-puppet/puppet-disk_inventory_x
+  #include ::disk_inventory_x
   #---------------------------------------------------
 
+  include ccleaner
   include chrome::canary
+  include clipmenu
+  include copy
+  include crashplan
+  #include disk_inventory_x
   include dropbox
+  include flowdock
+  include gitx
+  include hub
+  include irssi
   include iterm2::dev
+  include kindle
   include lastpass
   include royaltsx
+  include shiftit
+  include shortcat
+  include skitch
+  include skype
+  include spotify
   include tmux
+  include totalfinder
+  include webstorm
   include zsh
+  include zshgitprompt
 
   include apps::googledrive
 
