@@ -11,7 +11,7 @@ class people::neiliux {
   }
 
   git::config::global { 'user.email':
-    value  => 'nbreeden@daptiv.com'
+    value  => 'neil.breeden@changepoint.com'
   }
   git::config::global { 'user.name':
     value  => 'Neil Breeden III'
