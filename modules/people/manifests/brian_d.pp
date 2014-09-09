@@ -3,7 +3,7 @@
 class people::brian_d {
 
   vagrant::plugin { 'vmware-fusion':
-    license => "${$boxen::config::repodir}/modules/people/files/brian_d/VagrantVMWareFusionLicense_jelgee_bdahl.lic"
+    license => "${$boxen::config::repodir}/modules/people/files/brian_d/VagrantVMWareFusionLicense_danderson_bdahl.lic"
   }
 
 
