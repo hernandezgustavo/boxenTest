@@ -2,9 +2,9 @@
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::dizard2001 {
   $home = "/Users/${::boxen_user}"
-  
+
   vagrant::plugin { 'vmware-fusion':
-    license => "${$boxen::config::repodir}/modules/people/files/dizard2001/VagrantVMWareFusionLicense_danderson_bdahl.lic"
+    license => "${$boxen::config::repodir}/modules/people/files/dizard2001/VagrantVMWareFusionLicense_danderson.lic"
   }
 
   git::config::global { 'user.email':
