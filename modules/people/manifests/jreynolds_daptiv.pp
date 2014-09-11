@@ -1,6 +1,10 @@
 # Replace name of all the "default" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::jreynolds_daptiv {
+
+  include firefox
+  include flowdock
+  include homebrewcask
   include iterm2::dev
 
   #add personal git configurations
