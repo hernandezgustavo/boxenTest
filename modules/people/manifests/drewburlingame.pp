@@ -26,14 +26,14 @@ class people::drewburlingame {
     target  => "${home}/src/dotfiles/mac/.gitconfig"
   }
 
-  file { "${home}/.zshrc":
-    ensure  => link,
-    target  => "${home}/src/dotfiles/mac/.zshrc"
-  }
-
   file { "${home}/.vimrc":
     ensure  => link,
     target  => "${home}/src/dotfiles/mac/.vimrc"
+  }
+
+  file { "${home}/.zshrc":
+    ensure  => link,
+    target  => "${home}/src/dotfiles/mac/.zshrc"
   }
 
   repository{
@@ -67,6 +67,7 @@ class people::drewburlingame {
   include crashplan
   #include disk_inventory_x
   include dropbox
+  include firefox
   include flowdock
   include gitx
   include hub
