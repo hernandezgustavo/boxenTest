@@ -6,14 +6,16 @@ class apps::ruby {
   class {'ruby::global':
     version => '1.9.3'
   }
+
   $version = '1.9.3'
-  ruby::gem { "bundler for ${version}":
-    gem     => 'bundler',
-    ruby    => $version
+  
+  ruby_gem { "bundler for ${version}":
+    gem          => 'bundler',
+    ruby_version => $version
   }
 
-  ruby::gem { "berkshelf for ${version}":
-    gem     => 'berkshelf',
-    ruby    => $version
+  ruby_gem { "berkshelf for ${version}":
+    gem          => 'berkshelf',
+    ruby_version => $version
   }
 }
