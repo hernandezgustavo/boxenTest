@@ -41,4 +41,7 @@ class people::sweitzel74 {
     target  => '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'
   }
 
+  #Install and use newer Ruby
+  ruby::version { '2.1.2': }
+  
 }
