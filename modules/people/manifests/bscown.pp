@@ -5,7 +5,7 @@ class people::bscown {
 
   #add personal git configurations
   git::config::global { 'user.email':
-    value  => 'bscown@daptiv.com'
+    value  => 'bryan.scown@changepoint.com'
   }
   git::config::global { 'user.name':
     value  => 'Bryan Scown'

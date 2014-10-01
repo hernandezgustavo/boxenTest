@@ -4,29 +4,90 @@ class people::drewburlingame {
 
   $home = "/Users/${::boxen_user}"
 
-  # link in your personal dot files the provided files live in the people/files dir and
-  # you should copy them to a folder matching your personal user if you intend to personalize them
-  # if you do not copy these your dotfiles will change when this drewburlingame profile is updated as they
-  # are symlinked into your home directory.
-  file { "${home}/.bash_profile":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/drewburlingame/.bash_profile"
+  vagrant::plugin { 'vagrant-vmware-fusion':
+    license => "${$boxen::config::repodir}/modules/people/files/drewburlingame/VagrantVMWareFusionLicense_dburlingame_aschmitt.lic"
   }
 
-  include dropbox
-  #include skype
-  #include btt  #BetterTouchTool
-  include apps::googledrive
-  include apps::fishShell
+  repository{
+    'my dotfiles':
+      source   => 'git@github.com:dburlingame/dotfiles', #short hand for github repos
+      provider => 'git',
+      path => "${home}/src/dotfiles",
+      force => true
+  }
 
-  include apps::sublime
-  include apps::sublime::bracket_highlighter
-  include apps::sublime::wombat_theme
+  file { "${home}/.bash_profile":
+    ensure  => link,
+    target  => "${home}/src/dotfiles/mac/.bash_profile"
+  }
+
+  file { "${home}/.gitconfig":
+    ensure  => link,
+    target  => "${home}/src/dotfiles/mac/.gitconfig"
+  }
+
+  file { "${home}/.vimrc":
+    ensure  => link,
+    target  => "${home}/src/dotfiles/mac/.vimrc"
+  }
+
+  file { "${home}/.zshrc":
+    ensure  => link,
+    target  => "${home}/src/dotfiles/mac/.zshrc"
+  }
+
+  repository{
+    'olivierverdier dotfiles':
+      source   => 'git@github.com:olivierverdier/zsh-git-prompt', #better zsh git prompt
+      provider => 'git',
+      path => "${home}/.zsh/git-prompt",
+      force => true
+  }
+
+  repository{
+    'oh my zsh':
+      source   => 'git@github.com:robbyrussell/oh-my-zsh', #short hand for github repos
+      provider => 'git',
+      path => "${home}/.oh-my-zsh",
+      force => true
+  }
 
   #trial
   #---------------------------------------------------
   #include textual
+
+  #https://github.com/gregp-puppet/puppet-disk_inventory_x
+  #include ::disk_inventory_x
   #---------------------------------------------------
+
+  include ccleaner
+  include chrome::canary
+  include clipmenu
+  include copy
+  include crashplan
+  #include disk_inventory_x
+  include dropbox
+  include firefox
+  include flowdock
+  include gitx
+  include hub
+  include irssi
+  include iterm2::dev
+  include kindle
+  include lastpass
+  include royaltsx
+  include shiftit
+  include shortcat
+  include skitch
+  include skype
+  include spotify
+  include tmux
+  include totalfinder
+  include webstorm
+  include zsh
+  include zshgitprompt
+
+  include apps::googledrive
 
   #class { 'intellij': edition => 'ultimate', version => '13.0.1' }
 
@@ -35,9 +96,51 @@ class people::drewburlingame {
     ensure => '0.2.2-1'
   }
 
-  vagrant::plugin { 'vagrant-vmware-fusion':
-    license => '${$boxen::config::repodir}/modules/people/files/drewburlingame/VagrantVMWareFusionLicense_dburlingame_aschmitt.lic'
+  # install tree (awesome terminal tree command for viewing folder structure
+  exec { "brew install tree":
   }
+
+  #atom
+  #---------------------------------------------------
+  include atom
+
+  #thanks for nothing park
+  #repository{
+  #  'my atom config':
+  #  source   => 'git@github.com:park9140/atom-config', #short hand for github repos
+  #  provider => 'git',
+  #  path => "${home}/.atom",
+  #  force => true
+  #}
+  #---------------------------------------------------
+
+  #sublime
+  #---------------------------------------------------
+  include apps::sublime::ensure_settings_links_exist
+  include apps::sublime::wombat_theme
+  include apps::sublime::bracket_highlighter
+  include apps::sublime::jsdocs
+  include apps::sublime::grunt
+  include apps::sublime::git
+  include apps::sublime::history
+  include apps::sublime::markdown
+  include apps::sublime::fileautocomplete
+  include apps::sublime::sidebar
+  include sublime_text_3::package_control
+
+  sublime_text_3::package { 'OmniSharpSublimePlugin':
+    source => 'git@github.com:PaulCampbell/OmniSharpSublimePlugin.git'
+  }
+
+  #thanks park
+  repository{
+    'my sublime config':
+    source   => 'git@github.com:park9140/sublimeconfig', #short hand for github repos
+    provider => 'git',
+    path => "${home}/sublimeconfig",
+    force => true
+  }
+  #---------------------------------------------------
 
   #git
   #---------------------------------------------------

@@ -1,8 +1,7 @@
 class projects::chefclient {
   package { 'GPGTools':
-    ensure   => installed,
-    source   => 'https://github.com/downloads/GPGTools/GPGTools/GPGTools-20120318.dmg',
-    provider => 'pkgdmg'
+    source   => "https://github.com/downloads/GPGTools/GPGTools/GPGTools-20120318.dmg",
+    provider => 'appdmg'
   }
 
   file { [ "${home}/.chef/"]:
