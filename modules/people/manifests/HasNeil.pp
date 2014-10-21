@@ -1,6 +1,6 @@
 # Replace name of all the "HasNeil" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
-class people::HasNeil {
+class people::hasneil {
   $home = "/Users/${::boxen_user}"
 
   # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
@@ -11,10 +11,10 @@ class people::HasNeil {
   #}
 
   git::config::global { 'user.email':
-    value  => 'GITHUB_EMAIL'
+    value  => 'neil.stelzer@changepoint.com'
   }
   git::config::global { 'user.name':
-    value  => 'HasNeil'
+    value  => 'Neil Stelzer'
   }
 
   # link in your personal dot files the provided files live in the people/files dir and
