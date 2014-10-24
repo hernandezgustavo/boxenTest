@@ -25,4 +25,10 @@ class people::gmoskovicz {
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/gmoskovicz/.bash_profile"
   }
+  
+  include apps::sublime
+  include apps::sublime::bracket_highlighter
+  include apps::sublime::wombat_theme
+  include sublime_text_3::package_control
+  include vagrant
 }
