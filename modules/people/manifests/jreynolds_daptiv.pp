@@ -9,7 +9,7 @@ class people::jreynolds_daptiv {
 
   #add personal git configurations
   git::config::global { 'user.email':
-    value  => 'jreynolds@daptiv.com'
+    value  => 'jreynolds@changepoint.com'
   }
   git::config::global { 'user.name':
     value  => 'Jared Reynolds'
