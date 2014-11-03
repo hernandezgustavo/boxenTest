@@ -6,10 +6,13 @@ class people::cliffburger {
 
   include adobe_reader
 
+  include apps::fishShell
   include apps::googledrive
   include apps::webstorm
+  include apps::git::difftools::p4merge
 
   include chrome::canary
+  
   include dropbox
   include evernote
   include iterm2::dev
@@ -17,6 +20,7 @@ class people::cliffburger {
   include gitflow
   include rubymine
  
+   include vmware_fusion
   #add personal git configurations
   git::config::global { 'user.email':
     value  => 'cliffburger@daptiv.com'
@@ -47,7 +51,6 @@ class people::cliffburger {
     target  => "${$boxen::config::repodir}/modules/people/files/cliffburger/.vimrc"
   }
   
-  include apps::fishShell
   file { "${home}/.config/fish/personal.fish":
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/cliffburger/personal.fish",
