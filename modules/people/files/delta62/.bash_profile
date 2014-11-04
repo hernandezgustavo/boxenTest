@@ -2,9 +2,7 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 tabname () { printf "\e]1;$1\a"; }
 export PATH=~/bin:$PATH
-
-source ~/.git-completion.sh
-source ~/.git-prompt.sh
+export D62_VIM_ENV=Changepoint
 
 # General aliases
 alias l="ls"
@@ -25,7 +23,10 @@ delta62_git_alias() {
     fi
 }
 
-delta62_git_alias "git status"   gs  
+source ~/.git-completion.sh
+source ~/.git-prompt.sh
+
+delta62_git_alias "git status"   gs
 delta62_git_alias "git branch"   gb   _git_branch
 delta62_git_alias "git diff"     gd   _git_diff
 delta62_git_alias "git commit"   gc   _git_commit
