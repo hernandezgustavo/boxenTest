@@ -6,15 +6,16 @@ class people::dachew {
   #you should copy them to a folder matching your personal user if you intend to personalize them
   #if you do not copy these your dotfiles will change when this dachew profile is updated as they
   #are symlinked into your home directory.
+
   file { "${home}/.bash_profile":
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/dachew/.bash_profile"
   }
 
-  file { "${home}/.git-completion.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/dachew/git-completion.sh"
-  }
+#  file { "${home}/.git-completion.sh":
+#    ensure  => link,
+#    target  => "${$boxen::config::repodir}/modules/people/files/dachew/git-completion.sh"
+#  }
 
   file { "${home}/.git-prompt.sh":
     ensure  => link,
@@ -24,7 +25,6 @@ class people::dachew {
 
   #add projects chefclient, ppm, ppmspa and dev dashboard
   include apps::googledrive
-  include apps::copy
   include apps::sublime
   include apps::sublime::bracket_highlighter
   include projects::ppm
