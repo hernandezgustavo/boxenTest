@@ -3,10 +3,7 @@
 class people::bscown {
   include gitflow
   include flowdock
-  include homebrewcask
-  include bettertouchtool
-  include heroku
-
+  
   $vmware_license = "${$boxen::config::repodir}/modules/people/files/${$::github_login}/VagrantVMWareFusionLicense.lic"
 
   #if you have a license file in your user dir install vmware-fusion vagrant plugin
