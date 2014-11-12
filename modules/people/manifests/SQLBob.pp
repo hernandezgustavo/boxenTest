@@ -39,10 +39,10 @@ class people::sqlbob {
   include apps::git::completion
   include apps::git::prompt
   git::config::global { 'user.email':
-    value  => 'sqlbob@gmail.com'
+    value  => 'robert.glass@changepoint.com'
   }
   git::config::global { 'user.name':
-    value  => 'sqlbob'
+    value  => 'Bob Glass'
   }
   #---------------------------------------------------
 

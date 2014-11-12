@@ -4,7 +4,7 @@ class people::greglboxer {
   $home = "/Users/${::boxen_user}"
 
   vagrant::plugin { 'vagrant-vmware-fusion':
-    license => "${$boxen::config::repodir}/modules/people/files/greglboxer/VagrantVMWareFusionLicense_gboxer.lic"
+    license => "${$boxen::config::repodir}/modules/people/files/greglboxer/VagrantVMWareFusionLicense_gboxer_bdahl.lic"
   }
 
   include iterm2::dev
@@ -12,7 +12,7 @@ class people::greglboxer {
   include zsh
 
   git::config::global { 'user.email':
-    value  => 'gboxer@daptiv.com'
+    value  => 'greg.boxer@changepoint.com'
   }
   git::config::global { 'user.name':
     value  => 'greglboxer'
