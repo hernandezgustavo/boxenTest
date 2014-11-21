@@ -21,7 +21,6 @@ class people::iluzions77 {
   include apps::fishShell
   include zsh
   include evernote
-  
   # include spotify
   # include caffeine
   # include skitch
@@ -38,7 +37,7 @@ class people::iluzions77 {
     value  => 'Jonathan Schnur'
   }
 
-#-------------End-Git-Setup---------------------------------
+#-------------End-Git-Setup------------------------------
 
   
   #--------------sublime------------------------------
