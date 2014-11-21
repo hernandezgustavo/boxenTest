@@ -5,7 +5,7 @@ class people::iluzions77 {
 #Dont forget to copy license key into my people file directory first--
   vagrant::plugin { 'vagrant-vmware-fusion':
     license => "${$boxen::config::repodir}/modules/people/files/iluzions77/VagrantVMWareFusionLicense_snoedel_jschnur.lic"
-
+}
 #-------------End VmWare License------------------------
 
   include chrome::canary
