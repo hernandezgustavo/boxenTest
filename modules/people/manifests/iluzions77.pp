@@ -9,26 +9,21 @@ class people::iluzions77 {
 #-------------End VmWare License------------------------
 
   include chrome::canary
+  include dropbox
+  include gitflow
+  include flowdock
   include firefox
-  # include dropbox
-  # include apps::googledrive
-  # include gitflow
-  # include flowdock
-
-  # include homebrewcask
+  include homebrewcask
   include iterm2::dev
-  include apps::fishShell
-  # include zsh
-
-  # include spotify
+  include spotify
   include evernote
   include caffeine
   include skitch
-
-  # include webstorm
-
+  include webstorm
+  include zsh
   include kindle
-  
+  include apps::googledrive
+  include apps::fishShell
   include lync
   include gcc
 
@@ -64,7 +59,8 @@ class people::iluzions77 {
 
 
   #--------------OSX-Settings------------------------------
-  #--------------end-OSX-Settings------------------------
+
+    #--------------end-OSX-Settings------------------------
 
   #link in your personal dot files the provided files live in the people/files dir and
   #you should copy them to a folder matching your personal user if you intend to personalize them
@@ -75,4 +71,5 @@ class people::iluzions77 {
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/iluzions77/.bash_profile"
   }
+
 }
