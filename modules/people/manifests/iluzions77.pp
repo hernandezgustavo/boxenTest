@@ -8,24 +8,28 @@ class people::iluzions77 {
 }
 #-------------End VmWare License------------------------
 
+  include gcc
   include chrome::canary
   include dropbox
   include gitflow
   include flowdock
   include firefox
+  include dropbox
+  include apps::googledrive
+  include gitflow
+  include flowdock
+  include homebrew
   include homebrewcask
   include iterm2::dev
-  include spotify
-  include evernote
-  include caffeine
-  include skitch
-  include webstorm
-  include zsh
-  include kindle
-  include apps::googledrive
   include apps::fishShell
-  include lync
-  include gcc
+  include zsh
+  include evernote
+  # include spotify
+  # include caffeine
+  # include skitch
+  # include webstorm
+  # include kindle
+  # include lync
 
 #-------------Git Setup---------------------------------
 
@@ -36,7 +40,7 @@ class people::iluzions77 {
     value  => 'Jonathan Schnur'
   }
 
-#-------------End-Git-Setup---------------------------------
+#-------------End-Git-Setup------------------------------
 
   
   #--------------sublime------------------------------
