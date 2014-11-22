@@ -7,8 +7,7 @@ class people::akalman {
 
   include chrome::canary
 
-  include dropbox
-  include apps::googledrive
+  include spectacle
 
   include apps::webstorm
   include apps::git::difftools::p4merge
