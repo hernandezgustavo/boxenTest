@@ -10,6 +10,9 @@ class people::iluzions77 {
 
   include gcc
   include chrome::canary
+  include dropbox
+  include gitflow
+  include flowdock
   include firefox
   include dropbox
   include apps::googledrive
@@ -60,7 +63,8 @@ class people::iluzions77 {
 
 
   #--------------OSX-Settings------------------------------
-  #--------------end-OSX-Settings------------------------
+
+    #--------------end-OSX-Settings------------------------
 
   #link in your personal dot files the provided files live in the people/files dir and
   #you should copy them to a folder matching your personal user if you intend to personalize them
@@ -71,4 +75,5 @@ class people::iluzions77 {
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/iluzions77/.bash_profile"
   }
+
 }
