@@ -9,9 +9,21 @@ class people::EEE3 {
   #vagrant::plugin { 'vagrant-vmware-fusion':
   #  license => "${$boxen::config::repodir}/modules/people/files/EEE3/LICENSE_FILENAME.lic"
   #}
+  
+    $vmware_license = "${$boxen::config::repodir}/modules/people/files/${$::github_login}/VagrantVMWareFusionLicense.lic"
+
+  #if you have a license file in your user dir install vmware-fusion vagrant plugin
+  vagrant::plugin { 'vagrant-vmware-fusion':
+    license => $vmware_license
+  }
+ 
+  exec {  "set_vmware_fusion_key_bscown":
+    command=> "'/Applications/VMware Fusion.app/Contents/Library/vmware-licenseTool' enter 40286-6H3D0-48R6C-08CRH-25MHJ '' '' '6.0' 'VMware Fusion for Mac OS' ''",
+    user => root
+  }
 
   git::config::global { 'user.email':
-    value  => 'GITHUB_EMAIL'
+    value  => 'evan.enquist@changepoint.com'
   }
   git::config::global { 'user.name':
     value  => 'EEE3'
