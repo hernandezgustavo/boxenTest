@@ -11,9 +11,9 @@ class people::akaylyn {
   #}
 
   git::config::global { 'user.email':
-    value  => 'GITHUB_EMAIL'
+    value  => 'andrea.pollitt@changepoint.com'
   }
-  git::config::global { 'user.name':
+  git::config::global { 'Andrea Pollitt':
     value  => 'akaylyn'
   }
 
