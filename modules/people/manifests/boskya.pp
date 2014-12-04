@@ -1,6 +1,11 @@
 # Replace name of all the "boskya" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::boskya {
+
+  include apps::fishShell
+  include chrome::canary
+  include firefox
+
   $home = "/Users/${::boxen_user}"
 
   # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
@@ -21,6 +26,12 @@ class people::boskya {
   # you should copy them to a folder matching your personal user if you intend to personalize them
   # if you do not copy these your dotfiles will change when this boskya profile is updated as they
   # are symlinked into your home directory.
+  file { "${home}/.config/fish/personal.fish":
+    ensure  => link,
+    target  => "${$boxen::config::repodir}/modules/people/files/boskya/personal.fish",
+    subscribe => File["${home}/.config/fish/"]
+  }
+
   file { "${home}/.bash_profile":
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/boskya/.bash_profile"
