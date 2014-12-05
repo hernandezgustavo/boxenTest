@@ -11,7 +11,7 @@ class people::feliara8 {
   #}
 
   git::config::global { 'user.email':
-    value  => 'GITHUB_EMAIL'
+    value  => 'felipe.araujo@changepoint.com'
   }
   git::config::global { 'user.name':
     value  => 'feliara8'
@@ -25,4 +25,9 @@ class people::feliara8 {
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/feliara8/.bash_profile"
   }
+
+  include apps::sublime
+  include apps::sublime::bracket_highlighter
+  include apps::sublime::wombat_theme
+  include sublime_text_3::package_control
 }
