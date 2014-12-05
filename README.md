@@ -30,7 +30,8 @@ As of the first boxen run you will have a `~/src/our-boxen` repository already s
 
 The `modules/people/manifests` folder contains your personal manifest files which are automatically added based on your github username.  An example default.pp file exists with a sampling of common configurations that you will want to match.  The most important things here are to include any projects you are working on and personalize your bash_profile.
 
-To get started run the following
+To get started first set the enviroment variable: export BOXEN_GITHUB_LOGIN=replacewithyourgithubloginusername
+and then run the following
 
 ```
  cd ~/src/our-boxen
