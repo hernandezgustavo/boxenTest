@@ -11,7 +11,7 @@ class people::srobaudo {
   #}
 
   git::config::global { 'user.email':
-    value  => 'GITHUB_EMAIL'
+    value  => 'sergio.robaudo@changepoint.com'
   }
   git::config::global { 'user.name':
     value  => 'srobaudo'
@@ -25,4 +25,10 @@ class people::srobaudo {
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/srobaudo/.bash_profile"
   }
+  
+  include apps::sublime
+  include apps::sublime::bracket_highlighter
+  include apps::sublime::wombat_theme
+  include sublime_text_3::package_control
+  include vagrant
 }
