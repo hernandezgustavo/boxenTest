@@ -6,7 +6,8 @@ class people::boskya {
   include iterm2::dev
   include apps::fishShell
   include chrome::canary
-  include firefox
+  include firefox 
+  include atom
 
   $home = "/Users/${::boxen_user}"
 
