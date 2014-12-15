@@ -62,7 +62,7 @@ github "xquartz",    "1.2.1"
 
 github "adium",             "1.2.0"
 github "adobe_reader",      "1.2.0"
-github "atom",              "1.0.0"
+github "atom",              "1.1.0"
 github "bettertouchtool",   "1.0.0", :repo => "lucadegasperi/puppet-bettertouchtool"
 github "chefdk",            "1.0.3", :repo => "heathsnow/puppet-chefdk"
 github "chrome",            "1.1.1"

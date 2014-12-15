@@ -39,4 +39,11 @@ class people::boskya {
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/boskya/.bash_profile"
   }
+
+  # atom
+  atom::package {'language-typescript' : }
+  atom::package { 'linter-tslint' : }
+  atom::package { 'linter' : }
+  atom::package { 'autocomplete-plus-async': }
+  atom::package { 'atom-typescript-tools' : } 
 }
