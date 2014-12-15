@@ -2,9 +2,12 @@
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::boskya {
 
+  include apps::webstorm
+  include iterm2::dev
   include apps::fishShell
   include chrome::canary
-  include firefox
+  include firefox 
+  include atom
 
   $home = "/Users/${::boxen_user}"
 
