@@ -29,5 +29,4 @@ class people::fgalagorri {
    include apps::sublime::bracket_highlighter
    include apps::sublime::wombat_theme
    include sublime_text_3::package_control
-   include vagrant
 }
