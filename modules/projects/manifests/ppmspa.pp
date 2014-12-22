@@ -31,4 +31,8 @@ class projects::ppmspa {
   boxen::project { 'DefinitelyTyped':
     source        => 'git@github.com:daptiv/DefinitelyTyped.git'
   }
+
+  boxen::project { 'daptiv-mock-api':
+    source        => 'git@github.com:daptiv/daptiv-mock-api'
+  }
 }

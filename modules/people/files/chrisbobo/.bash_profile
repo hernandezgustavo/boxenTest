@@ -29,4 +29,4 @@ alias ls='ls -al'
 export PROMPT_COMMAND="history -a;"
 
 # PpmEndpointTests Configuration
-export DB_SERVER_NAME=vagrant-2008R2
+export DB_SERVER_NAME=WIN-2008R2SP1

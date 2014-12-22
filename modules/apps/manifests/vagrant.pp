@@ -1,10 +1,7 @@
 class apps::vagrant {
   include vmware_fusion
-  include vagrant
 
-  vagrant::plugin { 'vagrant-berkshelf':
-  }
+  class { '::vagrant':
+  version => '1.6.5' }
 
-  vagrant::plugin { 'vagrant-windows':
-  }
 }

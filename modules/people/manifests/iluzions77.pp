@@ -1,13 +1,70 @@
-# Replace name of all the "iluzions77" with your github username
-# if you have a dash (-) in your username use an underscore (_) instead
 class people::iluzions77 {
-  #add personal git configurations
+
+#-------------VmWare License------------------------
+
+#Dont forget to copy license key into my people file directory first--
+  vagrant::plugin { 'vagrant-vmware-fusion':
+    license => "${$boxen::config::repodir}/modules/people/files/iluzions77/VagrantVMWareFusionLicense_snoedel_jschnur.lic"
+}
+#-------------End VmWare License------------------------
+
+  include gcc
+  include chrome::canary
+  include dropbox
+  include gitflow
+  include flowdock
+  include firefox
+  include dropbox
+  include apps::googledrive
+  include gitflow
+  include flowdock
+  include homebrew
+  include homebrewcask
+  include iterm2::dev
+  include apps::fishShell
+  include zsh
+  include evernote
+  # include spotify
+  # include caffeine
+  # include skitch
+  # include webstorm
+  # include kindle
+  # include lync
+
+#-------------Git Setup---------------------------------
+
   git::config::global { 'user.email':
-    value  => 'jschnur@daptiv.com'
+    value  => 'jonathan.schnur@changepoint.com'
   }
   git::config::global { 'user.name':
     value  => 'Jonathan Schnur'
   }
+
+#-------------End-Git-Setup------------------------------
+
+  
+  #--------------sublime------------------------------
+  include apps::sublime::ensure_settings_links_exist
+  include apps::sublime::wombat_theme
+  include apps::sublime::bracket_highlighter
+  include apps::sublime::jsdocs
+  include apps::sublime::grunt
+  include apps::sublime::git
+  include apps::sublime::history
+  include apps::sublime::markdown
+  include apps::sublime::fileautocomplete
+  include apps::sublime::sidebar
+  include sublime_text_3::package_control
+
+  sublime_text_3::package { 'OmniSharpSublimePlugin':
+    source => 'git@github.com:PaulCampbell/OmniSharpSublimePlugin.git'
+  }
+  #--------------end-sublime------------------------------
+
+
+  #--------------OSX-Settings------------------------------
+
+    #--------------end-OSX-Settings------------------------
 
   #link in your personal dot files the provided files live in the people/files dir and
   #you should copy them to a folder matching your personal user if you intend to personalize them

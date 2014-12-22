@@ -23,7 +23,7 @@ class people::sweitzel74 {
 
   #add personal git configurations
   git::config::global { 'user.email':
-    value  => 'sweitzel@daptiv.com'
+    value  => 'shawn.weitzel@changepoint.com'
   }
   git::config::global { 'user.name':
     value  => 'Shawn Weitzel'
@@ -41,4 +41,7 @@ class people::sweitzel74 {
     target  => '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'
   }
 
+  #Install and use newer Ruby
+  ruby::version { '2.1.2': }
+  
 }
