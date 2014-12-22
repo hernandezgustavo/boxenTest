@@ -1,7 +1,7 @@
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 tabname () { printf "\e]1;$1\a"; }
-export PATH=~/bin:~/.cabal/bin:$PATH
+export PATH=~/bin:~/.cabal/bin:~/.chefdk/gem/ruby/2.1.0/bin:$PATH
 export EDITOR='subl -w'
 
 source ~/.git-completion.sh
