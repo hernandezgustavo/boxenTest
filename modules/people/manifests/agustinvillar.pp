@@ -11,7 +11,7 @@ class people::agustinvillar {
   #}
 
   git::config::global { 'user.email':
-    value  => 'GITHUB_EMAIL'
+    value  => 'agustin.villar@changepoint.com'
   }
   git::config::global { 'user.name':
     value  => 'agustinvillar'
@@ -25,4 +25,10 @@ class people::agustinvillar {
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/agustinvillar/.bash_profile"
   }
+
+
+  include apps::sublime
+  include apps::sublime::bracket_highlighter
+  include apps::sublime::wombat_theme
+  include sublime_text_3::package_control
 }
