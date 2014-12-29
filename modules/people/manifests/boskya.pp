@@ -6,7 +6,7 @@ class people::boskya {
   include iterm2::dev
   include apps::fishShell
   include chrome::canary
-  include firefox 
+  include firefox
   include atom
 
   $home = "/Users/${::boxen_user}"
@@ -18,7 +18,10 @@ class people::boskya {
     license => "${$boxen::config::repodir}/modules/people/files/boskya/vagrant_vmware_license.lic"
   }
 
-  git::config::global { 'user.email':
+  # git
+  include apps::git::difftools::p4merge
+
+    git::config::global { 'user.email':
     value  => 'bosky.atlani@changepoint.com'
   }
   git::config::global { 'user.name':
@@ -45,5 +48,5 @@ class people::boskya {
   atom::package { 'linter-tslint' : }
   atom::package { 'linter' : }
   atom::package { 'autocomplete-plus-async': }
-  atom::package { 'atom-typescript-tools' : } 
+  atom::package { 'atom-typescript-tools' : }
 }
