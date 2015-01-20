@@ -7,10 +7,6 @@ class projects::ppm {
     path => '/etc/hosts'
   }
 
-  boxen::project { 'daptiv_dev_ppm_role':
-    source        => 'git@github.com:daptiv/daptiv_dev_ppm_role'
-  }
-
   boxen::project { 'chef-repo':
     source        => 'git@github.com:daptiv/chef-repo'
   }
