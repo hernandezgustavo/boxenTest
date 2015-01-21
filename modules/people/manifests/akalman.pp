@@ -15,10 +15,13 @@ class people::akalman {
 
   #git config
   git::config::global { 'user.email':
-    value  => 'akalman@daptiv.com'
+    value => 'akalman@daptiv.com'
   }
   git::config::global { 'user.name':
-    value  => 'Adam Kalman'
+    value => 'Adam Kalman'
+  }
+  git::config::global { 'push.default':
+    value => 'current'
   }
 
   #vagrant plugin

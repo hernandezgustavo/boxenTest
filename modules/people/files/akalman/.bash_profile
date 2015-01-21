@@ -2,7 +2,6 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 tabname () { printf "\e]1;$1\a"; }
 export PATH=~/bin:/opt/local/bin:$PATH
-export EDITOR='subl3 -w'
 export DB_SERVER_NAME='WIN-2008R2SP1'
 export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 export HOMEBREW_GITHUB_API_TOKEN=fd2b363bb059998dc8b66700f75b09219ea2e5dc
