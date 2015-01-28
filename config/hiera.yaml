@@ -1,0 +1,7 @@
+---
+:backends:
+  - json
+:json:
+  :datadir: "%{::boxen_repodir}/modules/people/files"
+:hierarchy:
+  - "%{::boxen_user}/hiera"
