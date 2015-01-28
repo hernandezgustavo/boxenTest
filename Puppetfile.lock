@@ -244,6 +244,11 @@ GITHUBTARBALL
     rubymine (1.1.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-screen
+  specs:
+    screen (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-sourcetree
   specs:
     sourcetree (1.0.0)
@@ -429,6 +434,7 @@ DEPENDENCIES
   royaltsx (= 1.0.1)
   ruby (= 8.1.4)
   rubymine (= 1.1.0)
+  screen (= 1.0.0)
   sourcetree (= 1.0.0)
   spectacle (= 1.0.0)
   stdlib (= 4.2.1)
