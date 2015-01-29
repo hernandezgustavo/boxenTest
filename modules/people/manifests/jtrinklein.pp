@@ -2,13 +2,15 @@ class people::jtrinklein {
   $home = "/Users/${::boxen_user}"
 
   include iterm2::dev
-  include virtualbox
+  #include virtualbox
+  include homebrewcask
   include chrome::canary
   include zsh
 
-  
+  $vmware_license = "${$boxen::config::repodir}/modules/people/files/${$::github_login}/VagrantVMWareFusionLicense.lic"
+
   git::config::global { 'user.email':
-    value  => 'jtrinklein@daptiv.com'
+    value  => 'james.trinklein@changepoint.com'
   }
   git::config::global { 'user.name':
     value  => 'James Trinklein'
@@ -25,6 +27,14 @@ class people::jtrinklein {
       source   => 'git@github.com:jtrinklein/dotfiles', #short hand for github repos
       provider => 'git',
       path => "${home}/src/dotfiles",
+      force => true
+  }
+
+  repository{
+    'my git prompt':
+      source   => 'git@github.com:olivierverdier/zsh-git-prompt', #better zsh git prompt
+      provider => 'git',
+      path => "${home}/.zsh/git-prompt",
       force => true
   }
 
@@ -47,15 +57,9 @@ class people::jtrinklein {
   }
 
   #used to share editing at floobits.com
-  include apps::sublime::wombat_theme
-  include apps::sublime::bracket_highlighter
-  include apps::sublime::jsdocs
-  include apps::sublime::grunt
-  include sublime_text_3::package_control
 
   nodejs::module { 'typescript-tools':
     node_version => 'v0.10',
     ensure => '0.2.2-1'
   }
 }
-
