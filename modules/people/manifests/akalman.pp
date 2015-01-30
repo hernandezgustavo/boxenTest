@@ -57,20 +57,12 @@ class people::akalman {
     subscribe => File_Line['ppm_hosts_ppmspa']
   }
 
-  #npmrc update
-  file_line { 'npm_publish_settings':
-    path => "${home}/.npmrc",
-    line =>
-'
-_auth = YWthbG1hbjp7REVTZWRlfWVUN2ZKWExqbzVpaCtNc0Nqd2NWdUE9PQ==
-always-auth = true
-email = akalman@daptiv.com
-'
-  }
-
   #nodejs
   nodejs::module { 'typescript-tools':
     node_version => 'v0.10',
     ensure => '0.2.2-1'
+  }
+  nodejs::module { 'pullquester':
+    node_version => 'v0.10'
   }
 }
