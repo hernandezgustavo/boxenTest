@@ -23,10 +23,7 @@ class people::sqlbob {
 
   #class { 'intellij': edition => 'ultimate', version => '13.0.1' }
 
-  nodejs::module { 'typescript-tools':
-    node_version => 'v0.10',
-    ensure => '0.2.2-1'
-  }
+  include apps::nodejs::typescript_tools
 
   vagrant::plugin { 'vagrant-vmware-fusion':
     license => "${$boxen::config::repodir}/modules/people/files/sqlbob/VagrantVMWareFusionLicense_rglass_gmann.lic"
