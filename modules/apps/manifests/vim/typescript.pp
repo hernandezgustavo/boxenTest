@@ -30,10 +30,7 @@ class apps::vim::typescript {
     'leafgarland/typescript-vim'
   ]: }
 
-  nodejs::module { 'typescript-tools':
-     node_version => "${node_version}",
-     ensure => '0.2.2-1'
-  }
+  include apps::nodejs::typescript_tools
 
   nodejs::module { 'typescript':
     node_version => "${node_version}",

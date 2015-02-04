@@ -58,11 +58,6 @@ class people::akalman {
   }
 
   #nodejs
-  nodejs::module { 'typescript-tools':
-    node_version => 'v0.10',
-    ensure => '0.2.2-1'
-  }
-  nodejs::module { 'pullquester':
-    node_version => 'v0.10'
-  }
+  include apps::nodejs::typescript_tools
+  include apps::nodejs::pullquester
 }
