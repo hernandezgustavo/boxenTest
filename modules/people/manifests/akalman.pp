@@ -34,7 +34,7 @@ class people::akalman {
   #vmware
   include vmware_fusion
   vagrant::plugin { 'vagrant-vmware-fusion':
-    license => "${$boxen::config::repodir}/modules/people/files/akalman/VagrantVMWareFusionLicense_dvanbuskirk_akalman.lic"
+    license => "${boxen::config::repodir}/modules/people/files/akalman/VagrantVMWareFusionLicense_dvanbuskirk_akalman.lic"
   }
 
   #terminal
@@ -42,12 +42,12 @@ class people::akalman {
   include apps::fishShell
   file { "${home}/.config/fish/personal.fish":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/akalman/personal.fish",
+    target  => "${boxen::config::repodir}/modules/people/files/akalman/personal.fish",
     subscribe => File["${home}/.config/fish/"]
   }
   file { "${home}/.bash_profile":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/akalman/.bash_profile"
+    target  => "${boxen::config::repodir}/modules/people/files/akalman/.bash_profile"
   }
 
   #hosts update
