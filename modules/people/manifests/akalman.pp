@@ -52,7 +52,7 @@ class people::akalman {
 
   #hosts update
   file_line { 'ppm_hosts_ppmspa_remove':
-    line => '192.168.56.101 devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com localvm.daptiv.com',
+    line => '192.168.56.101 devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com dev.daptiv.com localvm.daptiv.com',
     path => '/etc/hosts',
     subscribe => File_Line['ppm_hosts_ppmspa']
   }
