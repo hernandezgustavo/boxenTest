@@ -7,6 +7,22 @@ class people::dachew {
   #if you do not copy these your dotfiles will change when this dachew profile is updated as they
   #are symlinked into your home directory.
 
+  repository{
+    'windows-setup':
+      source   => 'git@github.com:dachew/windows-setup', #short hand for github repos
+      provider => 'git',
+      path => "${home}/src/windows-setup",
+      force => true
+  }
+
+  repository{
+    'my dotfiles':
+      source   => 'git@github.com:dachew/dotfiles', #short hand for github repos
+      provider => 'git',
+      path => "${home}/src/dotfiles",
+      force => true
+  }
+
   file { "${home}/.bash_profile":
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/dachew/.bash_profile"
