@@ -1,6 +1,8 @@
 class people::foresterh {
   include apps::fishShell
   include iterm2::dev
+  include zsh
+  include firefox
 
   $home = "/Users/${::boxen_user}"
 
@@ -21,18 +23,30 @@ class people::foresterh {
     value  => 'Jamie Houston'
   }
 
-  # link in your personal dot files the provided files live in the people/files dir and
-  # you should copy them to a folder matching your personal user if you intend to personalize them
-  # if you do not copy these your dotfiles will change when this foresterh profile is updated as they
-  # are symlinked into your home directory.
   file { "${home}/.bash_profile":
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/foresterh/.bash_profile"
   }
 
-  include apps::sublime
-  include apps::sublime::bracket_highlighter
-  include apps::sublime::wombat_theme
-  include sublime_text_3::package_control
+  repository{
+    'my git prompt':
+      source   => 'git@github.com:olivierverdier/zsh-git-prompt', #better zsh git prompt
+      provider => 'git',
+      path => "${home}/.zsh/git-prompt",
+      force => true
+  }
+
+  repository{
+    'oh my zsh':
+      source   => 'git@github.com:robbyrussell/oh-my-zsh', #short hand for github repos
+      provider => 'git',
+      path => "${home}/.oh-my-zsh",
+      force => true
+  }
+
+  file { "${home}/.zshrc":
+    ensure  => link,
+    target  => "${$boxen::config::repodir}/modules/people/files/foresterh/zshrc"
+  }
 
 }
