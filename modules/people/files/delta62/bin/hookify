@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+# Install git hook scripts into a local repository
+#
+# Run this script in the root of a git repository. It won't work if you run it from
+# somewhere under the repo root.
+#
+
+# Fail hard on error
+set -e
+
+if [[ ! -d '.git' ]]; then
+    &>2 echo 'This is not the root of a git repository. Cannot install git hook scripts.'
+    &>2 echo 'Run this script in the same folder that .git resides in.'
+    exit 1
+fi
+
+GIT_HOOKS="$BOXEN_USER_FILES/.git/hooks/*"
+
+for HOOK in $GIT_HOOKS; do
+    HOOK_FILE=".git/hooks/$(basename $HOOK)"
+    if [[ -e $HOOK_FILE ]] || [[ -L $HOOK_FILE ]]; then
+        rm $HOOK_FILE
+    fi
+    ln -s $HOOK .git/hooks
+done
+
+echo "Installed git hooks."

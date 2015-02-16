@@ -1,6 +1,7 @@
 class apps::vagrant {
   include vmware_fusion
 
-  include vagrant
+  class { '::vagrant':
+  version => '1.6.5' }
 
 }
