@@ -3,10 +3,27 @@
 # Change this to your username.
 GITHUB_USERNAME="delta62"
 
+# Colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-# I still really need to change this...
-PS1='$(printf "%$((`tput cols`-1))s\r")$(stat -f "\e[1;32m%Sp \e[0;33m%Su:%Sg\e[0;39m" .)$(__git_ps1 " \e[0;94m%s\e[0;37m")\n\w: '
+man() {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+        man "$@"
+}
+
+# PS1 prompt
+BLUE='\033[0;94m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+NO_COLOR='\033[0;37m'
+PS1="${YELLOW}\w${NO_COLOR}$(__git_ps1 " ${BLUE}%s${NO_COLOR}")\n${GREEN}\W${NO_COLOR} ${YELLOW}#${NO_COLOR} "
 
 # General aliases
 alias l="ls"
