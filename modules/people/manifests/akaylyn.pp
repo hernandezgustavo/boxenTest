@@ -13,8 +13,8 @@ class people::akaylyn {
   git::config::global { 'user.email':
     value  => 'andrea.pollitt@changepoint.com'
   }
-  git::config::global { 'Andrea Pollitt':
-    value  => 'akaylyn'
+  git::config::global { 'user.name':
+    value  => 'Andrea Pollitt'
   }
 
   # link in your personal dot files the provided files live in the people/files dir and
@@ -24,5 +24,15 @@ class people::akaylyn {
   file { "${home}/.bash_profile":
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/akaylyn/.bash_profile"
+  }
+
+  boxen::osx_defaults { 'no delay for password dialog on screensaver':
+    subscribe => Boxen::Osx_defaults["short delay for password dialog on screensaver"],
+    ensure => present,
+    domain => 'com.apple.screensaver',
+    key    => 'askForPasswordDelay',
+    value  => 0,
+    type   => 'float',
+    user   => $::boxen_user
   }
 }
