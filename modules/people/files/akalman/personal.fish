@@ -1,6 +1,6 @@
-set -x EDITOR 'subl3 -w'
+set -x EDITOR 'vim'
 
 alias ls="ls -al"
-alias "git branch clean"="git branch -D (git branch | trim)"
+alias "gitbranchclean"="git branch -D (git branch | trim)"
 
 function trim; sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'; end

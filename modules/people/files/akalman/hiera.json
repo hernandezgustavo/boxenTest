@@ -1,3 +1,4 @@
 {
-  "apps::git::default_push_strategy": "current"
+  "apps::git::default_push_strategy": "current",
+  "daptiv::npm::registry::source": "%{boxen::config::repodir}/modules/people/files/akalman/.npmrc"
 }

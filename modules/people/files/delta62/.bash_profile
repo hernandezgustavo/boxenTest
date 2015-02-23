@@ -3,43 +3,44 @@
 # Change this to your username.
 GITHUB_USERNAME="delta62"
 
+# Colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-# tabname () { printf "\e]1;$1\a"; }
-export PATH=~/bin:$PATH
+man() {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+        man "$@"
+}
+
+# PS1 prompt
+BLUE='\033[0;94m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+NO_COLOR='\033[0;37m'
+PS1="${YELLOW}\w${NO_COLOR}$(__git_ps1 " ${BLUE}%s${NO_COLOR}")\n${GREEN}\W${NO_COLOR} ${YELLOW}#${NO_COLOR} "
 
 # General aliases
 alias l="ls"
-alias ls="ls -lA"
+alias ls="ls -lAh"
 alias grep="grep -i --colour"
 
 export DB_SERVER_NAME="WIN-2008R2SP1"
 
-# Use this to get at scripts & stuff from this repo
+# Add custom scripts from boxen to $PATH
 export BOXEN_USER_FILES="$BOXEN_HOME/repo/modules/people/files/$GITHUB_USERNAME"
-
-# Add custom scripts to $PATH
 export PATH="$PATH:$BOXEN_USER_FILES/bin"
-
-# I still really need to change this...
-PS1='$(printf "%$((`tput cols`-1))s\r")$(stat -f "\e[1;32m%Sp \e[0;33m%Su:%Sg\e[0;39m" .)$(__git_ps1 " \e[0;94m%s\e[0;37m")\n\w: '
-
-# VMWare headless mode
-VMWARE_CMD="vmrun -T fusion start"
-VMWARE_BASE="$HOME/src/dev_ppm/.vagrant/machines/default/vmware_fusion"
-VMWARE_GUID="f0e640c2-a217-4b63-a5f1-244d3ca08d4d"
-VMWARE_IMAGE="packer-vmware-vmx-1411665448.vmx"
-alias startvm="$VMWARE_CMD $VMWARE_BASE/$VMWARE_GUID/$VMWARE_IMAGE nogui"
 
 
 # Git bindings
-
 delta62_git_alias() {
     alias $2="$1"
-    if [ "$3" ]
-    then
-        __git_complete $2 $3
-    fi
+    [[ $3 ]] && __git_complete $2 $3
 }
 
 # These need to be copied from git's installation directory.

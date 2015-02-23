@@ -34,7 +34,7 @@ class people::akalman {
   #vmware
   include vmware_fusion
   vagrant::plugin { 'vagrant-vmware-fusion':
-    license => "${$boxen::config::repodir}/modules/people/files/akalman/VagrantVMWareFusionLicense_dvanbuskirk_akalman.lic"
+    license => "${boxen::config::repodir}/modules/people/files/akalman/VagrantVMWareFusionLicense_dvanbuskirk_akalman.lic"
   }
 
   #terminal
@@ -42,35 +42,22 @@ class people::akalman {
   include apps::fishShell
   file { "${home}/.config/fish/personal.fish":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/akalman/personal.fish",
+    target  => "${boxen::config::repodir}/modules/people/files/akalman/personal.fish",
     subscribe => File["${home}/.config/fish/"]
   }
   file { "${home}/.bash_profile":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/akalman/.bash_profile"
+    target  => "${boxen::config::repodir}/modules/people/files/akalman/.bash_profile"
   }
 
   #hosts update
   file_line { 'ppm_hosts_ppmspa_remove':
-    line => '192.168.56.101 devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com localvm.daptiv.com',
+    line => '192.168.56.101 devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com dev.daptiv.com localvm.daptiv.com',
     path => '/etc/hosts',
     subscribe => File_Line['ppm_hosts_ppmspa']
   }
 
-  #npmrc update
-  file_line { 'npm_publish_settings':
-    path => "${home}/.npmrc",
-    line =>
-'
-_auth = YWthbG1hbjp7REVTZWRlfWVUN2ZKWExqbzVpaCtNc0Nqd2NWdUE9PQ==
-always-auth = true
-email = akalman@daptiv.com
-'
-  }
-
   #nodejs
-  nodejs::module { 'typescript-tools':
-    node_version => 'v0.10',
-    ensure => '0.2.2-1'
-  }
+  include apps::nodejs::typescript_tools
+  include apps::nodejs::pullquester
 }
