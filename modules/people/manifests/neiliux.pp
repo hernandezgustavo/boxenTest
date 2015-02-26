@@ -56,7 +56,5 @@ class people::neiliux {
   include chrome::canary
   include apps::webstorm
   include atom
-  # TODO: Need to figure out how to download from sourceforge or find a direct link to download package.
-  #include apps::filezilla
   include apps::fishShell
 }
