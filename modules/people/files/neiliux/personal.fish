@@ -1,5 +1,7 @@
 alias p=pico
 alias "gitbranchclean"="git branch -D (git branch | trim)"
+alias hdo="egrep -irn --color 'describe.only' ."
+alias hasDescribeOnly=hdo
 
 function g
     git $argv
