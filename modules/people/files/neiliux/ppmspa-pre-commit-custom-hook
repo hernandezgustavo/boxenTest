@@ -1,0 +1,11 @@
+#!/bin/sh
+echo "Checking for describe.only() calls..."
+egrep -irn --color "describe.only" "$(pwd)/src"
+if [ "$?" -eq "1" ]
+then
+    echo "nothing found, success..."
+    exit 0
+fi
+
+echo "Found describe.only() calls!"
+exit 1
