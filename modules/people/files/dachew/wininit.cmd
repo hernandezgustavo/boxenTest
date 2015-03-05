@@ -8,4 +8,4 @@ SET PATH=%PATH%;%chocolatey_bin_root%;C:\ProgramData\chocolatey\bin;
 
 cinst boxstarter
 
-powershell -ExecutionPolicy unrestricted -File "C:\hosthome\src\windows-setup\changepoint\setup.ps1"
+powershell -ExecutionPolicy unrestricted -File "C:\hosthome\src\configuration\changepoint\setup.ps1"
