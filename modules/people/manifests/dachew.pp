@@ -9,9 +9,9 @@ class people::dachew {
 
   repository{
     'windows-setup':
-      source   => 'git@github.com:dachew/windows-setup', #short hand for github repos
+      source   => 'git@github.com:dachew/configuration', #short hand for github repos
       provider => 'git',
-      path => "${home}/src/windows-setup",
+      path => "${home}/src/configuration",
       force => true
   }
 
@@ -57,7 +57,7 @@ class people::dachew {
     value  => 'matthew.potter@changepoint.com'
   }
   git::config::global { 'user.name':
-    value  => 'Matthew Potter'
+    value  => 'Matthew McCallum'
   }
 
   #------------------------
