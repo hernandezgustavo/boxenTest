@@ -50,7 +50,6 @@ class people::dachew {
   #------------------------
   # Osx Customizations
   #------------------------
-  include osx::dock::clear_dock
   include osx::disable_app_quarantine
   include osx::no_network_dsstores
 
