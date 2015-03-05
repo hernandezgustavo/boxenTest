@@ -24,8 +24,8 @@ class people::dachew {
   }
 
   file { "${home}/.bash_profile":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/dachew/.bash_profile"
+    ensure => link,
+    target => "${home}/src/dotfiles/changepoint/.bash_profile"
   }
 
 #  file { "${home}/.git-completion.sh":
