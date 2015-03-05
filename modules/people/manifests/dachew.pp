@@ -15,27 +15,14 @@ class people::dachew {
       force => true
   }
 
-  repository{
-    'my dotfiles':
-      source   => 'git@github.com:dachew/dotfiles', #short hand for github repos
-      provider => 'git',
-      path => "${home}/src/dotfiles",
-      force => true
-  }
-
   file { "${home}/.bash_profile":
     ensure => link,
-    target => "${home}/src/dotfiles/changepoint/.bash_profile"
+    target => "${home}/src/configuration/changepoint/macos/.bash_profile"
   }
-
-#  file { "${home}/.git-completion.sh":
-#    ensure  => link,
-#    target  => "${$boxen::config::repodir}/modules/people/files/dachew/git-completion.sh"
-#  }
 
   file { "${home}/.git-prompt.sh":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/dachew/git-prompt.sh"
+    target  => "${home}/src/configuration/changepoint/macos/git-prompt.sh"
   }
 
 
