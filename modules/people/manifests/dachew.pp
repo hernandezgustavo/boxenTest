@@ -20,11 +20,15 @@ class people::dachew {
     target => "${home}/src/configuration/changepoint/macos/.bash_profile"
   }
 
-  file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${home}/src/configuration/changepoint/macos/git-prompt.sh"
+  file { "${home}/.git-completion.sh":
+    ensure => link,
+    target => "${home}/src/configuration/changepoint/macos/git-completion.sh"
   }
 
+  file { "${home}/.git-prompt.sh":
+    ensure => link,
+    target => "${home}/src/configuration/changepoint/macos/git-prompt.sh"
+  }
 
   #add projects chefclient, ppm, ppmspa and dev dashboard
   include apps::googledrive
