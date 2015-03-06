@@ -2,9 +2,6 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 tabname () { printf "\e]1;$1\a"; }
 export PATH=~/bin:$PATH
-export DB_SERVER_NAME='WIN-2008R2SP1'
-# search for vmware vmx file for dev_ppm box and store path
-export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 
 source ~/.git-completion.sh
 source ~/.git-prompt.sh
