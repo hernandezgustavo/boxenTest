@@ -1,0 +1,15 @@
+{
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/Dayle Rees Color Schemes/sublime/contrast/freshcut-contrast.tmTheme",
+	"font_face": "Courier New",
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"theme": "Soda Dark.sublime-theme",
+	"tab_size": 4,
+	"use_tab_stops": true,
+	"word_wrap": false
+}
