@@ -7,22 +7,22 @@ class people::dachew {
   #if you do not copy these your dotfiles will change when this dachew profile is updated as they
   #are symlinked into your home directory.
 
-  #repository{
-  #  'configuration':
-  #    source   => 'git@github.com:dachew/configuration', #short hand for github repos
-  #    provider => 'git',
-  #    path => "${home}/src/configuration",
-  #    force => true
-  #}
+  repository{
+    'configuration':
+      source   => 'git@github.com:dachew/configuration', #short hand for github repos
+      provider => 'git',
+      path => "${home}/src/configuration",
+      force => true
+  }
 
   file { "${home}/.bash_profile":
     ensure => link,
-    target => "${home}/src/our-boxen/modules/people/files/dachew/.bash_profile"
+    target => "${home}/src/configuration/changepoint/macos/.bash_profile"
   }
 
   file { "${home}/.git-completion.sh":
     ensure => link,
-    target => "${home}/src/our-boxen/modules/people/files/dachew/git-completion.sh"
+    target => "${home}/src/configuration/changepoint/macos/git-completion.sh"
   }
 
   file { "${home}/.git-prompt.sh":
