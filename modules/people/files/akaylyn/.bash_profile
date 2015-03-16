@@ -1,7 +1,5 @@
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-export EDITOR='subl -w'
-export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 tabname () { printf "\e]1;$1\a"; }
 export PATH=~/bin:$PATH
 
