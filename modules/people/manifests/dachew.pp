@@ -8,44 +8,35 @@ class people::dachew {
   #are symlinked into your home directory.
 
   repository{
-    'windows-setup':
+    'configuration':
       source   => 'git@github.com:dachew/configuration', #short hand for github repos
       provider => 'git',
       path => "${home}/src/configuration",
       force => true
   }
 
-  repository{
-    'my dotfiles':
-      source   => 'git@github.com:dachew/dotfiles', #short hand for github repos
-      provider => 'git',
-      path => "${home}/src/dotfiles",
-      force => true
-  }
-
   file { "${home}/.bash_profile":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/dachew/.bash_profile"
+    ensure => link,
+    target => "${home}/src/configuration/changepoint/macos/.bash_profile"
   }
 
-#  file { "${home}/.git-completion.sh":
-#    ensure  => link,
-#    target  => "${$boxen::config::repodir}/modules/people/files/dachew/git-completion.sh"
-#  }
+  file { "${home}/.git-completion.sh":
+    ensure => link,
+    target => "${home}/src/configuration/changepoint/macos/git-completion.sh"
+  }
 
   file { "${home}/.git-prompt.sh":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/dachew/git-prompt.sh"
+    ensure => link,
+    target => "${home}/src/configuration/changepoint/macos/git-prompt.sh"
   }
-
 
   #add projects chefclient, ppm, ppmspa and dev dashboard
   include apps::googledrive
   include apps::sublime
   include apps::sublime::bracket_highlighter
+  include apps::flowdock
   include projects::ppm
   include projects::chefclient
-  include projects::ppmspa
   include projects::devdashboard
 
   vagrant::plugin { 'vmware-fusion':
@@ -63,7 +54,6 @@ class people::dachew {
   #------------------------
   # Osx Customizations
   #------------------------
-  include osx::dock::clear_dock
   include osx::disable_app_quarantine
   include osx::no_network_dsstores
 
