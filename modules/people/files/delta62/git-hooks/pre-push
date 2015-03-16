@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# Never push things to master
+#
+
+BRANCH_MASTER="master"
+BRANCH_CURRENT=$(git rev-parse --abbrev-ref HEAD)
+
+if [[ $BRANCH_CURRENT = "$BRANCH_MASTER" ]]; then
+    echo "Currently on master; refusing to push."
+    exit 1
+fi
