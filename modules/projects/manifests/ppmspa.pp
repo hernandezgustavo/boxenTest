@@ -1,26 +1,20 @@
-class projects::ppmspa {
+class projects::ppmspa ($vm_ip_address = '192.168.56.101') {
   include boxen::config
   include projects::ppm
   include apps::nodejs
   include apps::phantomjs
 
-  file_line { 'ppm_hosts_remove':
-    line => '192.168.56.101 devppm.daptiv.com devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com',
-    ensure => absent,
-    path => '/etc/hosts',
-    subscribe => File_Line['ppm_hosts']
+  host { 'ppm_hosts':
+    name         => 'localvm.daptiv.com',
+    comment      => 'vm host entries for ppm vm created by boxen',
+    host_aliases => ['devsso.daptiv.com', 'devapi.daptiv.com', 'devadminapi.daptiv.com', 'dev.daptiv.com'],
+    ip           => $vm_ip_address
   }
 
-  file_line { 'ppm_hosts_ppmspa':
-    line => '192.168.56.101 devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com localvm.daptiv.com',
-    path => '/etc/hosts',
-    subscribe => File_Line['ppm_hosts_remove']
-  }
-
-  file_line { 'ppm_spa_hosts':
-    line => '127.0.0.1 devppm.daptiv.com',
-    path => '/etc/hosts',
-    subscribe => File_Line['ppm_hosts_remove']
+  host { 'ppm_local_rewrite':
+    name         => 'devppm.daptiv.com',
+    comment      => 'allows devppm.daptiv.com/spa/ to route to ppmspa.dev served content',
+    ip           => '127.0.0.1'
   }
 
   boxen::project { 'PpmSpa':

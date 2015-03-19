@@ -18,12 +18,18 @@ man() {
         man "$@"
 }
 
+# These need to be copied from git's installation directory.
+# I symlinked mine to boxen/../people/files/shared/
+# They need to be listed *before* the $PS1 definition.
+source ~/.git-completion.sh
+source ~/.git-prompt.sh
+
 # PS1 prompt
-BLUE='\033[0;94m'
-GREEN='\033[0;32m'
-YELLOW='\033[0;33m'
-NO_COLOR='\033[0;37m'
-PS1="${YELLOW}\w${NO_COLOR}$(__git_ps1 " ${BLUE}%s${NO_COLOR}")\n${GREEN}\W${NO_COLOR} ${YELLOW}#${NO_COLOR} "
+BLUE='\[\033[0;94m\]'
+GREEN='\[\033[0;32m\]'
+YELLOW='\[\033[0;33m\]'
+NO_COLOR='\[\033[0;37m\]'
+PS1="${YELLOW}\w${NO_COLOR}${BLUE}\$(__git_ps1)${NO_COLOR}\n${GREEN}\W${NO_COLOR} ${YELLOW}#${NO_COLOR} "
 
 # General aliases
 alias l="ls"
@@ -42,11 +48,6 @@ delta62_git_alias() {
     alias $2="$1"
     [[ $3 ]] && __git_complete $2 $3
 }
-
-# These need to be copied from git's installation directory.
-# I symlinked mine to boxen/../people/files/shared/
-source ~/.git-completion.sh
-source ~/.git-prompt.sh
 
 delta62_git_alias "git status"   gs
 delta62_git_alias "git branch"   gb   _git_branch

@@ -50,13 +50,6 @@ class people::akalman {
     target  => "${boxen::config::repodir}/modules/people/files/akalman/.bash_profile"
   }
 
-  #hosts update
-  file_line { 'ppm_hosts_ppmspa_remove':
-    line => '192.168.56.101 devsso.daptiv.com devapi.daptiv.com devadminapi.daptiv.com devsso.daptiv.com dev.daptiv.com localvm.daptiv.com',
-    path => '/etc/hosts',
-    subscribe => File_Line['ppm_hosts_ppmspa']
-  }
-
   #nodejs
   include apps::nodejs::typescript_tools
   include apps::nodejs::pullquester
