@@ -1,28 +1,61 @@
-# Replace name of all the "sneal" with your github username
-# if you have a dash (-) in your username use an underscore (_) instead
 class people::sneal {
   $home = "/Users/${::boxen_user}"
 
-  # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
-  # Upload your vagrant vmware plugin license to /modules/people/files/<your github username>
-  # Update the path below to point to that file and uncomment this section.
-  #vagrant::plugin { 'vagrant-vmware-fusion':
-  #  license => "${$boxen::config::repodir}/modules/people/files/sneal/LICENSE_FILENAME.lic"
-  #}
+  include apps::git::difftools::p4merge
+  include chrome::canary
+  include firefox
+  include virtualbox
+  include vmware_fusion
+  include lastpass
+  include kindle
+  include flowdock
 
-  git::config::global { 'user.email':
-    value  => 'GITHUB_EMAIL'
-  }
-  git::config::global { 'user.name':
-    value  => 'sneal'
+  # License VMWare Fusion
+  exec {  "set_vmware_fusion_key_sneal":
+    command=> "'/Applications/VMware Fusion.app/Contents/Library/vmware-licenseTool' enter 05233-0H2E6-M8A6C-0J0UK-C1UQJ '' '' '6.0' 'VMware Fusion for Mac OS' ''",
+    user => root
   }
 
-  # link in your personal dot files the provided files live in the people/files dir and
-  # you should copy them to a folder matching your personal user if you intend to personalize them
-  # if you do not copy these your dotfiles will change when this sneal profile is updated as they
-  # are symlinked into your home directory.
+  # Install Vagrant plugins required for DevOps/Chef development
+  vagrant::plugin { 'vagrant-vmware-fusion':
+    license => "${$boxen::config::repodir}/modules/people/files/sneal/vagrant_vmware_license.lic"
+  }
+  vagrant::plugin { 'vagrant-chefconfig': }
+  vagrant::plugin { 'vagrant-berkshelf': }
+
+  # Git config
+  git::config::global { 'user.email': value  => 'sneal@sneal.net' }
+  git::config::global { 'user.name': value  => 'Shawn Neal' }
+  git::config::global { 'diff.tool': value  => 'p4merge' }
+
+  # Link to custom bash profile
   file { "${home}/.bash_profile":
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/sneal/.bash_profile"
   }
+
+  # Link to custom knife config
+  file { "${home}/.chef":
+    ensure  => directory
+  }
+  file { "${home}/.chef/knife.rb":
+    ensure  => link,
+    target  => "${$boxen::config::repodir}/modules/people/files/sneal/knife.rb"
+  }
+
+  # Create a symlink for starting Sublime Text from the terminal
+  file { '/usr/local/bin/subl':
+    ensure  => link,
+    target  => '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'
+  }
+
+  # OS X customizations
+  include osx::dock::clear_dock
+  include osx::disable_app_quarantine
+  include osx::no_network_dsstores
+  include osx::finder::show_hidden_files
+  include osx::finder::unhide_library
+
+  # Install a modern Ruby
+  ruby::version { '2.2.1': }
 }

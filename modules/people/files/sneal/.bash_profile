@@ -2,6 +2,8 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 tabname () { printf "\e]1;$1\a"; }
 export PATH=~/bin:$PATH
+export EDITOR='subl -w'
+export DB_SERVER_NAME=WIN-2008R2SP1
 
 source ~/.git-completion.sh
 source ~/.git-prompt.sh
