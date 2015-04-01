@@ -2,12 +2,14 @@ class people::sneal {
   $home = "/Users/${::boxen_user}"
 
   include apps::git::difftools::p4merge
+  include apps::git::aliases
+  include apps::git::completion
+  include apps::git::prompt
   include chrome::canary
   include firefox
   include virtualbox
   include vmware_fusion
   include lastpass
-  include kindle
   include flowdock
 
   # License VMWare Fusion
@@ -26,7 +28,6 @@ class people::sneal {
   # Git config
   git::config::global { 'user.email': value  => 'sneal@sneal.net' }
   git::config::global { 'user.name': value  => 'Shawn Neal' }
-  git::config::global { 'diff.tool': value  => 'p4merge' }
 
   # Link to custom bash profile
   file { "${home}/.bash_profile":
@@ -57,5 +58,5 @@ class people::sneal {
   include osx::finder::unhide_library
 
   # Install a modern Ruby
-  ruby::version { '2.2.1': }
+  ruby::version { '2.1.2': }
 }
