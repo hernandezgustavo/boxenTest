@@ -4,7 +4,7 @@ class people::sneal {
 
   include projects::chefdk
 
-  include apps::git::difftools::p4merge
+  include apps::git::difftools::diffmerge
   include apps::git::aliases
   include apps::git::completion
   include apps::git::prompt
