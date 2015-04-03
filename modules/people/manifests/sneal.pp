@@ -1,4 +1,5 @@
 class people::sneal {
+  $vmware_key = "05233-0H2E6-M8A6C-0J0UK-C1UQJ"  
   $home = "/Users/${::boxen_user}"
 
   include apps::git::difftools::p4merge
@@ -12,10 +13,13 @@ class people::sneal {
   include lastpass
   include flowdock
 
-  # License VMWare Fusion
-  exec {  "set_vmware_fusion_key_sneal":
-    command=> "'/Applications/VMware Fusion.app/Contents/Library/vmware-licenseTool' enter 05233-0H2E6-M8A6C-0J0UK-C1UQJ '' '' '6.0' 'VMware Fusion for Mac OS' ''",
-    user => root
+  # License VMWare Fusion  
+  exec { "license_vmware_fusion":
+    command=> "vmware-licenseTool enter ${vmware_key} '' '' '6.0' 'VMware Fusion for Mac OS' ''",
+    path => '/Applications/VMware Fusion.app/Contents/Library',
+    user => root,
+    refreshonly => true,
+    subscribe => Package['VMware Fusion']
   }
 
   # Install Vagrant plugins required for DevOps/Chef development
