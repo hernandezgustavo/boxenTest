@@ -30,13 +30,12 @@ class people::dachew {
     target => "${home}/src/configuration/changepoint/macos/git-prompt.sh"
   }
 
-  #add projects chefclient, ppm, ppmspa and dev dashboard
+  #add projects ppm, ppmspa and dev dashboard
   include apps::googledrive
   include apps::sublime
   include apps::sublime::bracket_highlighter
   include apps::flowdock
   include projects::ppm
-  include projects::chefclient
   include projects::devdashboard
 
   vagrant::plugin { 'vmware-fusion':
