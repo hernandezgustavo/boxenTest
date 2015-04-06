@@ -1,5 +1,6 @@
 {
   "apps::git::default_push_strategy": "current",
   "vmware_fusion::url_base": "http://vagrantboxes.hq.daptiv.com/installs/VMWare%20Fusion/Fusion6",
-  "vmware_fusion::version": "6.0.5-2209127"
+  "vmware_fusion::version": "6.0.5-2209127",
+  "osx::dock::hot_corners::bottom_left": "Start Screen Saver"
 }
