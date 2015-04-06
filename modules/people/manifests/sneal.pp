@@ -48,7 +48,9 @@ class people::sneal {
   }
 
   # OS X customizations
+  include osx::dock::hot_corners
   include osx::dock::clear_dock
+  include osx::dock::autohide
   include osx::disable_app_quarantine
   include osx::no_network_dsstores
   include osx::finder::show_hidden_files
