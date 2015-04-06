@@ -46,7 +46,6 @@ class people::sqlbob {
   #daptiv
   #---------------------------------------------------
   include projects::ppm
-  include projects::chefclient
   include projects::ppmspa
   include projects::devdashboard
   #---------------------------------------------------

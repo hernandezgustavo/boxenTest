@@ -2,6 +2,8 @@ class people::sneal {
   $vmware_key = "05233-0H2E6-M8A6C-0J0UK-C1UQJ"  
   $home = "/Users/${::boxen_user}"
 
+  include projects::chefdk
+
   include apps::git::difftools::p4merge
   include apps::git::aliases
   include apps::git::completion
@@ -37,15 +39,6 @@ class people::sneal {
   file { "${home}/.bash_profile":
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/sneal/.bash_profile"
-  }
-
-  # Link to custom knife config
-  file { "${home}/.chef":
-    ensure  => directory
-  }
-  file { "${home}/.chef/knife.rb":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/sneal/knife.rb"
   }
 
   # Create a symlink for starting Sublime Text from the terminal
