@@ -1,38 +1,21 @@
 class people::dachew {
 
   $home = "/Users/${::boxen_user}"
+  $cfg = "${home}/src/configuration/changepoint"
   $vmare_key = "M069M-6HL82-M8L63-0898H-803KN"
 
-  repository{
-    'configuration':
-      source   => 'git@github.com:dachew/configuration', #short hand for github repos
-      provider => 'git',
-      path => "${home}/src/configuration",
-      force => true
-  }
-
-  file { "${home}/.bash_profile":
-    ensure => link,
-    target => "${home}/src/configuration/changepoint/macos/.bash_profile"
-  }
-
-  file { "${home}/.git-completion.sh":
-    ensure => link,
-    target => "${home}/src/configuration/changepoint/macos/git-completion.sh"
-  }
-
-  file { "${home}/.git-prompt.sh":
-    ensure => link,
-    target => "${home}/src/configuration/changepoint/macos/git-prompt.sh"
-  }
-
-  #add projects ppm, ppmspa and dev dashboard
   include apps::googledrive
   include apps::sublime
   include apps::sublime::bracket_highlighter
   include apps::flowdock
   include projects::ppm
   include projects::devdashboard
+  include apps::git::aliases
+  include apps::git::completion
+  include chrome
+  include firefox
+  include vmware_fusion
+  include flowdock
 
   # License VMWare Fusion  
   exec { "license_vmware_fusion":
@@ -50,12 +33,44 @@ class people::dachew {
   vagrant::plugin { 'vagrant-chefconfig': }
   vagrant::plugin { 'vagrant-berkshelf': }
 
+  repository { 'configuration':
+      source   => 'git@github.com:dachew/configuration', #short hand for github repos
+      provider => 'git',
+      path     => "{cfg}",
+      force    => true
+  }
+
+  file { "${home}/.bash_profile":
+    ensure => link,
+    target => "${cfg}/macos/.bash_profile"
+  }
+
+  file { "${home}/.git-completion.sh":
+    ensure => link,
+    target => "${cfg}/macos/git-completion.sh"
+  }
+
+  file { "${home}/.git-prompt.sh":
+    ensure => link,
+    target => "${cfg}/macos/git-prompt.sh"
+  }
+
+  file { "${cfg}/sublime-text/Package Control.sublime-settings":
+    ensure => file,
+    target => "${home}/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings"
+  }
+
+  file { "${cfg}/sublime-text/Preferences.sublime-settings":
+    ensure => file,
+    target => "${home}/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+  }
+
   #add personal git configurations
   git::config::global { 'user.email':
     value  => 'matthew.potter@changepoint.com'
   }
   git::config::global { 'user.name':
-    value  => 'Matthew McCallum'
+    value  => 'Ramun McCallum'
   }
   git::config::global { 'core.editor':
     value  => 'vim'
