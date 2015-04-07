@@ -1,11 +1,7 @@
 class people::dachew {
 
   $home = "/Users/${::boxen_user}"
-
-  #link in your personal dot files the provided files live in the people/files dir and
-  #you should copy them to a folder matching your personal user if you intend to personalize them
-  #if you do not copy these your dotfiles will change when this dachew profile is updated as they
-  #are symlinked into your home directory.
+  $vmare_key = "M069M-6HL82-M8L63-0898H-803KN"
 
   repository{
     'configuration':
@@ -39,9 +35,21 @@ class people::dachew {
   include projects::chefclient
   include projects::devdashboard
 
+  # License VMWare Fusion  
+  exec { "license_vmware_fusion":
+    command=> "vmware-licenseTool enter ${vmware_key} '' '' '6.0' 'VMware Fusion for Mac OS' ''",
+    path => '/Applications/VMware Fusion.app/Contents/Library',
+    user => root,
+    refreshonly => true,
+    subscribe => Package['VMware Fusion']
+  }
+
   vagrant::plugin { 'vmware-fusion':
     license => "${boxen::config::repodir}/modules/people/files/dachew/VagrantVMWareFusionLicense-mpotter.lic"
   }
+
+  vagrant::plugin { 'vagrant-chefconfig': }
+  vagrant::plugin { 'vagrant-berkshelf': }
 
   #add personal git configurations
   git::config::global { 'user.email':
@@ -50,6 +58,16 @@ class people::dachew {
   git::config::global { 'user.name':
     value  => 'Matthew McCallum'
   }
+  git::config::global { 'core.editor':
+    value  => 'vim'
+  }
+
+  # Create a symlink for starting Sublime Text from the terminal
+  file { '/usr/local/bin/subl':
+    ensure  => link,
+    target  => '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'
+  }
+
 
   #------------------------
   # Osx Customizations
