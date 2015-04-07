@@ -24,7 +24,6 @@ class daptiv::environment {
   include apps::ruby
   include apps::sublime
 
-  include projects::chefclient
   include projects::devdashboard
   include projects::ppm
   include projects::ppmspa

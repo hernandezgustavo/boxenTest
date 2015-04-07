@@ -62,7 +62,6 @@ class people::greglboxer {
 
   #daptiv
   #---------------------------------------------------
-  include projects::chefclient
   include projects::devdashboard
   #---------------------------------------------------
 
