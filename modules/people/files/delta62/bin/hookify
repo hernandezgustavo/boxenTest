@@ -15,7 +15,7 @@ if [[ ! -d '.git' ]]; then
     exit 1
 fi
 
-GIT_HOOKS="$BOXEN_USER_FILES/.git/hooks/*"
+GIT_HOOKS="$BOXEN_USER_FILES/git-hooks/*"
 
 for HOOK in $GIT_HOOKS; do
     HOOK_FILE=".git/hooks/$(basename $HOOK)"
