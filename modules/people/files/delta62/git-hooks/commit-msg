@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+# Prepend the story ID and description (as parsed from the current branch name)
+# to the commit message.
+#
+
+MESSAGE_FILE="$1"
+BRANCH_CURRENT="$(git rev-parse --abbrev-ref HEAD)"
+BRANCH_REGEX='^([0-9]+)(.*)$'
+
+if [[ $BRANCH_CURRENT =~ $BRANCH_REGEX ]]; then
+    STORY_ID="${BASH_REMATCH[1]}"
+    STORY_DESCRIPTION="${BASH_REMATCH[2]}"
+
+    # Prepend the story ID to the message file. OSX ships with a crazy (old)
+    # version of sed, so newline characters must be converted rather than
+    # interpolated.
+    sed -i '' '1i\'$'\n'"$STORY_ID " $MESSAGE_FILE
+else
+    # Couldn't figure out what story this is. Warn the user, but continue
+    >&2 echo "Warning: unable to determine story number from branch name"
+fi

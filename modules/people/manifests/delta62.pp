@@ -33,4 +33,7 @@ class people::delta62 {
     ensure => link,
     target => "${boxen::config::repodir}/modules/people/files/delta62/.screenrc"
   }
+
+  include osx::no_network_dsstores
+  include osx::finder::unhide_library
 }
