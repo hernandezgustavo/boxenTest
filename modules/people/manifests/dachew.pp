@@ -7,7 +7,6 @@ class people::dachew {
   include apps::googledrive
   include apps::sublime
   include apps::sublime::bracket_highlighter
-  include apps::flowdock
   include projects::ppm
   include projects::devdashboard
   include apps::git::aliases
@@ -36,7 +35,7 @@ class people::dachew {
   repository { 'configuration':
       source   => 'git@github.com:dachew/configuration', #short hand for github repos
       provider => 'git',
-      path     => "{cfg}",
+      path     => '/Users/mpotter/src/configuration/',
       force    => true
   }
 
@@ -44,25 +43,19 @@ class people::dachew {
     ensure => link,
     target => "${cfg}/macos/.bash_profile"
   }
-
-  file { "${home}/.git-completion.sh":
+  file { "${home}/.vimrc":
     ensure => link,
-    target => "${cfg}/macos/git-completion.sh"
+    target => "${cfg}/macos/.vimrc"
   }
 
-  file { "${home}/.git-prompt.sh":
-    ensure => link,
-    target => "${cfg}/macos/git-prompt.sh"
-  }
-
-  file { "${cfg}/sublime-text/Package Control.sublime-settings":
+  file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings":
     ensure => file,
-    target => "${home}/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings"
+    target => "${cfg}/sublime-text/Package Control.sublime-settings"
   }
 
-  file { "${cfg}/sublime-text/Preferences.sublime-settings":
+  file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings":
     ensure => file,
-    target => "${home}/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+    target => "${cfg}/sublime-text/Preferences.sublime-settings"
   }
 
   #add personal git configurations
