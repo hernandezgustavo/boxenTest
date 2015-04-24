@@ -49,13 +49,18 @@ class people::dachew {
   }
 
   file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings":
-    ensure => file,
+    ensure => link,
     target => "${cfg}/sublime-text/Package Control.sublime-settings"
   }
 
   file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings":
-    ensure => file,
+    ensure => link,
     target => "${cfg}/sublime-text/Preferences.sublime-settings"
+  }
+
+  file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/Markdown.sublime-settings":
+    ensure => link,
+	target => "${cfg}/sublime-text/Markdown.sublime-settings"
   }
 
   #add personal git configurations
