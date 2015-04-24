@@ -1,28 +1,58 @@
 #!/bin/bash
 #
-# Install git hook scripts into a local repository
+# Install git hook scripts into a local repository. Any existing hooks will be
+# overwritten if they conflict with hookify.
 #
-# Run this script in the root of a git repository. It won't work if you run it from
-# somewhere under the repo root.
+# You can include custom per-repo files to be linked into the .git/hooks directory
+# by including a repo name as an argument. If provided, all files in a folder with
+# the same name as the branch will be linked. Repository-specific files will
+# overwrite the default hookify hook files in the event of a conflict.
+#
+# For example, running "hookify spa" would install the git hooks, and if a directory
+# named "spa" exists in the git-hooks folder, all files in that directory will be
+# linked into the hookified repository.
 #
 
-# Fail hard on error
+# Halt on error
 set -e
 
-if [[ ! -d '.git' ]]; then
-    &>2 echo 'This is not the root of a git repository. Cannot install git hook scripts.'
-    &>2 echo 'Run this script in the same folder that .git resides in.'
-    exit 1
-fi
+# The repo-specific hooks are the only argument.
+HOOK_PARAM=$1
+GIT_HOOKS="$BOXEN_USER_FILES/git-hooks"
+DEST_HOOK_DIR="$(git rev-parse --show-toplevel)/.git/hooks"
 
-GIT_HOOKS="$BOXEN_USER_FILES/git-hooks/*"
+function __d62_hook_dir() {
+    SOURCE_DIR="$1/*"
+    DEST_DIR=$2
 
-for HOOK in $GIT_HOOKS; do
-    HOOK_FILE=".git/hooks/$(basename $HOOK)"
-    if [[ -e $HOOK_FILE ]] || [[ -L $HOOK_FILE ]]; then
-        rm $HOOK_FILE
+    echo "=> hooking $DEST_DIR to $SOURCE_DIR"
+
+    for HOOK in $SOURCE_DIR; do
+        # Don't try to hook things that aren't regular files
+        if [[ ! -f $HOOK ]]; then
+            continue
+        fi
+
+        # Remove any existing hooks first.
+        DEST_FILE="$DEST_HOOK_DIR/$(basename $HOOK)"
+        if [[ -e $DEST_FILE ]] || [[ -L $DEST_FILE ]]; then
+            rm $DEST_FILE
+        fi
+
+        echo -ne '\t'
+        ln -sv "$HOOK" "$DEST_HOOK_DIR"
+    done
+}
+
+__d62_hook_dir "$GIT_HOOKS" "$DEST_HOOK_DIR"
+
+if [[ $HOOK_PARAM ]]; then
+    REPO_HOOKS="$GIT_HOOKS/$HOOK_PARAM"
+    if [[ ! -d $REPO_HOOKS ]]; then
+        echo "Warning: repository hooks for \"$HOOK_PARAM\" could not be found!" >&2
+    else
+        __d62_hook_dir "$REPO_HOOKS" "$DEST_HOOK_DIR"
     fi
-    ln -s $HOOK .git/hooks
-done
+fi
 
 echo "Installed git hooks."
