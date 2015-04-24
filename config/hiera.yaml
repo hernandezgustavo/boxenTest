@@ -4,4 +4,4 @@
 :json:
   :datadir: "%{::boxen_repodir}/modules/people/files"
 :hierarchy:
-  - "%{::boxen_user}/hiera"
+  - "%{::github_login}/hiera"
