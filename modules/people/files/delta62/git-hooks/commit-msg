@@ -41,6 +41,21 @@ function __d62_prepend_story_id() {
     fi
 }
 
+# Ensure that all lines of a file are less than a certain length
+#
+function __d62_ensure_line_length() {
+    LINE_LENGTH=$1
+    MESSAGE_FILE=$2
+
+    grep ".\{$LINE_LENGTH,\}" $MESSAGE_FILE | while read -r LINE; do
+        echo "Error: Line was longer than $LINE_LENGTH characters:" >&2
+        echo "-> $LINE" >&2
+        LINE_TOO_LONG=1
+    done
+
+    [[ $LINE_TOO_LONG ]] && exit 1
+}
+
 STORY_ID=$(__d62_parse_story_number)
 if [[ -z $STORY_ID ]]; then
     # Couldn't figure out what story this is. Warn the user, but continue
@@ -48,3 +63,7 @@ if [[ -z $STORY_ID ]]; then
 else
     __d62_prepend_story_id "$STORY_ID" "$MESSAGE_FILE"
 fi
+
+# Validation of commit message line lengths happens *after* the story ID has been prepended.
+# Buckle up for safety, you see.
+__d62_ensure_line_length 70 "$MESSAGE_FILE"
