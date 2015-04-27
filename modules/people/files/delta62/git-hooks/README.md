@@ -7,6 +7,7 @@ Make Git do sensible things!
 - Never allow commits to master
 - Never allow pushes to master
 - Automagically Prepend the story ID to commit messages
+- Never allow commit messages longer than 70 characters (including the story #)
 
 #### For SPA
 
