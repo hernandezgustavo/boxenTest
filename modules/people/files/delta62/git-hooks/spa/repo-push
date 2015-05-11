@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# Custom pre-push commands for PPM SPA
+#
+# ensure that grunt runs to completion before anything is actually pushed.
+#
+
+grunt

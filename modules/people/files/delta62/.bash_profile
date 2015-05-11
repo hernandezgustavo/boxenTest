@@ -43,6 +43,10 @@ export BOXEN_USER_FILES="$BOXEN_HOME/repo/modules/people/files/$GITHUB_USERNAME"
 export PATH="$PATH:$BOXEN_USER_FILES/bin"
 
 
+# Make VIM ex commands aliases to their shell counterparts
+alias :fin="find"
+alias :q="exit"
+
 # Git bindings
 delta62_git_alias() {
     alias $2="$1"
