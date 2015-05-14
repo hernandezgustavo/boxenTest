@@ -3,6 +3,7 @@ server {
   listen 80;
   root <%= scope.lookupvar "boxen::config::srcdir" %>/<%= @name %>/output/package;
   server_name <%= @server_name %> *.<%= @server_name %>;
+  ignore_invalid_headers off;
 
   client_max_body_size 50M;
   error_page 500 502 503 504 /50x.html;
