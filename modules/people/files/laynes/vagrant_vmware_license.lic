@@ -1,0 +1,12 @@
+# VMware software license
+StartFields = "Cpt, ProductID, LicenseVersion, LicenseType, LicenseEdition, Option, Epoch"
+Cpt = "COPYRIGHT (c) VMware, Inc. 1999-2014"
+ProductID = "VMware Fusion for Mac OS"
+LicenseVersion = "7.0"
+LicenseType = "Site"
+Epoch = "2014-04-01"
+LicenseEdition = "fusion.flex"
+Option = "3"
+Data = "MaxVcpusPerVm=8;mdate=2014-02-21"
+DataHash = "5eafc29c-4ae06826-4d18ff44-08f57a18-d2637b9a"
+Hash = "a02faef7-3143b9f8-fa60583c-2ce9da51-ded7a117"
