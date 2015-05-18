@@ -2,11 +2,27 @@
 #
 # Never push things to master
 #
+# You can also run a per-repository script by placing a file named "repo-push"
+# in the git hooks directory. If the custom hook exists, it will be executed.
+# The push will only happen if the exit code is 0.
+#
+
+# Always quit as soon as an error occurs. This will automagically prevent the
+# push from happening if the repo-push script fails
+set -e
 
 BRANCH_MASTER="master"
 BRANCH_CURRENT=$(git rev-parse --abbrev-ref HEAD)
+REPO_HOOK="$(git rev-parse --show-toplevel)/.git/hooks/repo-push"
 
 if [[ $BRANCH_CURRENT = "$BRANCH_MASTER" ]]; then
-    echo "Currently on master; refusing to push."
+    echo "Currently on master; refusing to push." >&2
     exit 1
+fi
+
+if [[ -f $REPO_HOOK ]]; then
+    echo "Executing pre-push script"
+    echo
+    . $REPO_HOOK
+    echo
 fi
