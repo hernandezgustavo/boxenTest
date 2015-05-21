@@ -21,7 +21,7 @@ class people::sweitzel74 {
     # License VMWare Fusion  
   exec { "license_vmware_fusion":
     command => "vmware-licenseTool enter ${vmware_key} '' '' '7.0' 'VMware Fusion for Mac OS' ''",
-    path => '/Applications/VMware Fusion.app/Contents/Library',
+    path => '/Applications/VMware Fusion.app/Contents/Library/licenses',
     user => root,
     refreshonly => true,
     subscribe => Package['VMware Fusion']
