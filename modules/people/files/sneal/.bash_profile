@@ -5,6 +5,16 @@ export PATH=~/bin:$PATH
 export EDITOR='subl -w'
 export DB_SERVER_NAME=WIN-2008R2SP1
 
+code () {
+    if [[ $# = 0 ]]
+    then
+        open -a "Visual Studio Code"
+    else
+        [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
+        open -a "Visual Studio Code" --args "$F"
+    fi
+}
+
 source ~/.git-completion.sh
 source ~/.git-prompt.sh
 
