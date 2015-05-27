@@ -14,6 +14,7 @@ class people::sneal {
   include vmware_fusion
   include lastpass
   include flowdock
+  include ruby
 
   # License VMWare Fusion  
   exec { "license_vmware_fusion":
@@ -55,7 +56,4 @@ class people::sneal {
   include osx::no_network_dsstores
   include osx::finder::show_hidden_files
   include osx::finder::unhide_library
-
-  # Install a modern Ruby
-  ruby::version { '2.1.2': }
 }
