@@ -1,5 +1,5 @@
-class people::sneal {
-  $vmware_key = "05233-0H2E6-M8A6C-0J0UK-C1UQJ"  
+class people::laynes {
+  $vmware_key = "EJ695-2QH8J-H8K7C-0Z1R0-88LJ4"  
   $home = "/Users/${::boxen_user}"
 
   include projects::chefdk
@@ -14,12 +14,11 @@ class people::sneal {
   include vmware_fusion
   include lastpass
   include flowdock
-  include ruby
 
   # License VMWare Fusion  
   exec { "license_vmware_fusion":
-    command=> "vmware-licenseTool enter ${vmware_key} '' '' '6.0' 'VMware Fusion for Mac OS' ''",
-    path => '/Applications/VMware Fusion.app/Contents/Library',
+    command=> "vmware-licenseTool enter ${vmware_key} '' '' '7.1' 'VMware Fusion for Mac OS' ''",
+    path => '/Applications/VMware Fusion.app/Contents/Library/licenses',
     user => root,
     refreshonly => true,
     subscribe => Package['VMware Fusion']
@@ -27,26 +26,26 @@ class people::sneal {
 
   # Install Vagrant plugins required for DevOps/Chef development
   vagrant::plugin { 'vagrant-vmware-fusion':
-    license => "${$boxen::config::repodir}/modules/people/files/sneal/vagrant_vmware_license.lic"
+    license => "${$boxen::config::repodir}/modules/people/files/laynes/vagrant_vmware_license.lic"
   }
   vagrant::plugin { 'vagrant-chefconfig': }
   vagrant::plugin { 'vagrant-berkshelf': }
 
   # Git config
-  git::config::global { 'user.email': value  => 'sneal@sneal.net' }
-  git::config::global { 'user.name': value  => 'Shawn Neal' }
+  git::config::global { 'user.email': value  => 'jlaynes@icloud.com' }
+  git::config::global { 'user.name': value  => 'Layne Shepherd' }
 
   # Link to custom bash profile
   file { "${home}/.bash_profile":
     ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/sneal/.bash_profile"
+    target  => "${$boxen::config::repodir}/modules/people/files/laynes/.bash_profile"
   }
 
   # Create a symlink for starting Sublime Text from the terminal
-  file { '/usr/local/bin/subl':
-    ensure  => link,
-    target  => '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'
-  }
+#  file { '/usr/local/bin/subl':
+#    ensure  => link,
+#    target  => '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'
+#  }
 
   # OS X customizations
   include osx::dock::hot_corners
@@ -56,4 +55,7 @@ class people::sneal {
   include osx::no_network_dsstores
   include osx::finder::show_hidden_files
   include osx::finder::unhide_library
+
+  # Install a modern Ruby
+  ruby::version { '2.1.2': }
 }
