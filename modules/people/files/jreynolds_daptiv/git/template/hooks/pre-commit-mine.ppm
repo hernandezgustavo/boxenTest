@@ -1,0 +1,6 @@
+#!/bin/sh
+
+if git diff-index --cached HEAD | grep -q DbDeployer.cs; then
+	printf '\033[0;31m**Error**\033[0m Changes to DbDeployer.cs are included in the commit!'
+	exit 1
+fi
