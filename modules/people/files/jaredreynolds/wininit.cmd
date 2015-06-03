@@ -74,7 +74,7 @@ rem set -
 @REM #
 @REM # enable windows updates
 @REM #
-powershell.exe -Command "C:\src\our-boxen\modules\people\files\jreynolds_daptiv\windows-updates.ps1"
+powershell.exe -Command "%BOXEN_PERSONAL_DIRECTORY%\windows-updates.ps1"
 
 
 @REM #
