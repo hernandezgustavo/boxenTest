@@ -1,3 +1,5 @@
+set -x DB_SERVER_NAME 10.0.5.10
+
 alias p=pico
 alias "gitbranchclean"="git branch -D (git branch | trim)"
 alias hdo="egrep -irn --color 'describe.only' ."

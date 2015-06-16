@@ -1,17 +1,33 @@
 # Replace name of all the "fgalagorri" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::fgalagorri {
+
+# Requires vagrant to install plugins:
+  #include vagrant
+
+  include chrome
+  #include apps::appcleaner
+  #include onepassword
+  #include fluid
+  include caffeine
+  #include skype
+  include apps::sublime
+  include apps::sublime::bracket_highlighter
+  include apps::sublime::wombat_theme
+  include sublime_text_3::package_control
+  include vmware_fusion
+
+  #OSX Config
+  #include osx::finder::show_hidden_files
+  
   $home = "/Users/${::boxen_user}"
 
-  # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
-  # Upload your vagrant vmware plugin license to /modules/people/files/<your github username>
-  # Update the path below to point to that file and uncomment this section.
-  #vagrant::plugin { 'vagrant-vmware-fusion':
-  #  license => "${$boxen::config::repodir}/modules/people/files/fgalagorri/LICENSE_FILENAME.lic"
-  #}
+  vagrant::plugin { 'vagrant-vmware-fusion':
+    license => "${$boxen::config::repodir}/modules/people/files/fgalagorri/LICENSE-2-vagrant-vmware-provider-license_20_seats.lic"
+  }
 
   git::config::global { 'user.email':
-    value  => 'GITHUB_EMAIL'
+    value  => 'federico.galagorri@changepoint.com'
   }
   git::config::global { 'user.name':
     value  => 'fgalagorri'
@@ -25,8 +41,4 @@ class people::fgalagorri {
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/fgalagorri/.bash_profile"
   }
-   include apps::sublime
-   include apps::sublime::bracket_highlighter
-   include apps::sublime::wombat_theme
-   include sublime_text_3::package_control
 }

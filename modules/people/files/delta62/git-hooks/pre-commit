@@ -7,6 +7,6 @@ BRANCH_MASTER="master"
 BRANCH_CURRENT=$(git rev-parse --abbrev-ref HEAD)
 
 if [[ $BRANCH_CURRENT = "$BRANCH_MASTER" ]]; then
-    echo "Currently on master; refusing to commit."
+    echo "Currently on master; refusing to commit." >&2
     exit 1
 fi

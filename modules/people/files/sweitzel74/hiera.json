@@ -1,0 +1,5 @@
+{
+  "git::version": "2.3.2",	
+  "vmware_fusion::url_base": "http://vagrantboxes.hq.daptiv.com/installs/VMWare%20Fusion/Fusion7",
+  "vmware_fusion::version": "7.1.1-2498930"
+}

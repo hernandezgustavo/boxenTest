@@ -1,4 +1,5 @@
 {
   "apps::git::default_push_strategy": "current",
-  "projects::ppmspa::vm_ip_address": "33.33.33.185"
+  "projects::ppmspa::vm_ip_address": "33.33.33.185",
+  "vmware_fusion::version": "7.0.0-2103067"
 }

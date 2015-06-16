@@ -1,0 +1,22 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "daptiv/dev_ppm"
+
+  config.vm.provider "vmware_fusion" do |v|
+    # Headless mode
+    v.gui = false
+
+    # Host-only static IP NIC
+    v.vmx["ethernet1.present"]        = "TRUE"
+    v.vmx["ethernet1.connectionType"] = "hostonly"
+    v.vmx["ethernet1.virtualDev"]     = "e1000"
+    v.vmx["ethernet1.wakeOnPcktRcv"]  = "FALSE"
+    v.vmx["ethernet1.addressType"]    = "static"
+    v.vmx["ethernet1.address"]        = "00:50:56:2C:7B:7B"
+  end
+end
