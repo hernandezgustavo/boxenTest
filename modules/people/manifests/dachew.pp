@@ -49,7 +49,7 @@ class people::dachew {
   }
 
   vagrant::plugin { 'vmware-fusion':
-    license => "${boxen::config::repodir}/modules/people/files/dachew/VagrantVMWareFusionLicense-mpotter.lic"
+    license => "${boxen::config::repodir}/modules/people/files/dachew/VagrantVMWareFusionLicense-rmccallum.lic"
   }
 
   vagrant::plugin { 'vagrant-chefconfig': }
