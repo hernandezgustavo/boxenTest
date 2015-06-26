@@ -22,7 +22,7 @@ class people::dachew {
   repository { 'configuration':
       source   => 'git@github.com:dachew/configuration', #short hand for github repos
       provider => 'git',
-      path     => '/Users/mpotter/src/configuration/',
+      path     => '/Users/rmccallum/src/configuration/',
       force    => true
   }
 
