@@ -1,6 +1,6 @@
 class people::dachew {
 
-  $home = "/Users/${::boxen_user}"
+  $home = "/Users/rmccallum"
   $cfg = "${home}/src/configuration/changepoint"
   $vmare_key = "M069M-6HL82-M8L63-0898H-803KN"
 
