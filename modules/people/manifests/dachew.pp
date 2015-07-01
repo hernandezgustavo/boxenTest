@@ -1,10 +1,9 @@
 class people::dachew {
 
-  $home = "/Users/${::boxen_user}"
+  $home = "/Users/rmccallum"
   $cfg = "${home}/src/configuration/changepoint"
   $vmare_key = "M069M-6HL82-M8L63-0898H-803KN"
 
-  include apps::googledrive
   include apps::sublime
   include apps::sublime::bracket_highlighter
   include projects::ppm
@@ -17,29 +16,13 @@ class people::dachew {
   include vmware_fusion
   include flowdock
 
-  # License VMWare Fusion  
-  exec { "license_vmware_fusion":
-    command=> "vmware-licenseTool enter ${vmware_key} '' '' '6.0' 'VMware Fusion for Mac OS' ''",
-    path => '/Applications/VMware Fusion.app/Contents/Library',
-    user => root,
-    refreshonly => true,
-    subscribe => Package['VMware Fusion']
-  }
-
-  vagrant::plugin { 'vmware-fusion':
-    license => "${boxen::config::repodir}/modules/people/files/dachew/VagrantVMWareFusionLicense-mpotter.lic"
-  }
-
-  vagrant::plugin { 'vagrant-chefconfig': }
-  vagrant::plugin { 'vagrant-berkshelf': }
-
   #------------------------
   # Special User Configurations
   #------------------------
   repository { 'configuration':
       source   => 'git@github.com:dachew/configuration', #short hand for github repos
       provider => 'git',
-      path     => '/Users/mpotter/src/configuration/',
+      path     => '/Users/rmccallum/src/configuration/',
       force    => true
   }
 
@@ -51,6 +34,26 @@ class people::dachew {
     ensure => link,
     target => "${cfg}/macos/.vimrc"
   }
+  file { "${home}/.gitconfig":
+    ensure => link,
+    target => "${cfg}/macos/.gitconfig"
+  }
+
+  # License VMWare Fusion  
+  exec { "license_vmware_fusion":
+    command=> "vmware-licenseTool enter ${vmware_key} '' '' '7.0' 'VMware Fusion for Mac OS' ''",
+    path => '/Applications/VMware Fusion.app/Contents/Library',
+    user => root,
+    refreshonly => true,
+    subscribe => Package['VMware Fusion']
+  }
+
+  vagrant::plugin { 'vmware-fusion':
+    license => "${boxen::config::repodir}/modules/people/files/dachew/VagrantVMWareFusionLicense-rmccallum.lic"
+  }
+
+  vagrant::plugin { 'vagrant-chefconfig': }
+  vagrant::plugin { 'vagrant-berkshelf': }
 
   # Sublime Text - package control
   file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings":
@@ -68,20 +71,6 @@ class people::dachew {
   file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/Markdown.sublime-settings":
     ensure => link,
 	  target => "${cfg}/sublime-text/Markdown.sublime-settings"
-  }
-
-  #add personal git configurations
-  git::config::global { 'user.email':
-    value  => 'ramun.mccallum@changepoint.com'
-  }
-  git::config::global { 'user.name':
-    value  => 'Ramun McCallum'
-  }
-  git::config::global { 'core.editor':
-    value  => 'vim'
-  }
-  git::config::global { 'core.autocrlf':
-    value  => 'true'
   }
 
   # Create a symlink for starting Sublime Text from the terminal
