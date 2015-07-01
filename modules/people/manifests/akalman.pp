@@ -34,7 +34,7 @@ class people::akalman {
   #vmware
   include vmware_fusion
   vagrant::plugin { 'vagrant-vmware-fusion':
-    license => "${boxen::config::repodir}/modules/people/files/akalman/VagrantVMWareFusionLicense_dvanbuskirk_akalman.lic"
+    license => "${boxen::config::repodir}/modules/people/files/akalman/LICENSE-2-vagrant-vmware-provider-license_20_seats.lic"
   }
 
   #terminal
