@@ -101,6 +101,11 @@ GITHUBTARBALL
     fish (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-fluid
+  specs:
+    fluid (1.0.2)
+
+GITHUBTARBALL
   remote: boxen/puppet-flux
   specs:
     flux (1.0.0)
@@ -201,6 +206,11 @@ GITHUBTARBALL
     nodejs (4.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-onepassword
+  specs:
+    onepassword (1.1.5)
+
+GITHUBTARBALL
   remote: boxen/puppet-openssl
   specs:
     openssl (1.0.0)
@@ -269,6 +279,11 @@ GITHUBTARBALL
   remote: boxen/puppet-skitch
   specs:
     skitch (1.0.3)
+
+GITHUBTARBALL
+  remote: boxen/puppet-skype
+  specs:
+    skype (1.0.9)
 
 GITHUBTARBALL
   remote: boxen/puppet-sourcetree
@@ -422,6 +437,7 @@ DEPENDENCIES
   firefox (= 1.1.5)
   fish (= 1.0.0)
   flowdock (= 1.0.1)
+  fluid (= 1.0.2)
   flux (= 1.0.0)
   foreman (= 1.2.0)
   gcc (= 2.1.1)
@@ -450,6 +466,7 @@ DEPENDENCIES
   mplayerx (= 1.0.1)
   mumble (= 1.0.5)
   nodejs (= 4.0.0)
+  onepassword (= 1.1.5)
   openssl (= 1.0.0)
   osx (= 2.8.0)
   pcre (= 1.0.0)
@@ -466,6 +483,7 @@ DEPENDENCIES
   rubymine (= 1.1.0)
   screen (= 1.0.0)
   skitch (= 1.0.3)
+  skype (= 1.0.9)
   sourcetree (= 1.0.0)
   spectacle (= 1.0.0)
   spotify (= 1.0.2)
