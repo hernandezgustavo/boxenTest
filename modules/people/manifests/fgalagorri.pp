@@ -3,14 +3,17 @@
 class people::fgalagorri {
 
 # Requires vagrant to install plugins:
-  #include vagrant
+  #include vagrant # throws already declared error
 
-  include chrome
-  #include apps::appcleaner
-  #include onepassword
-  #include fluid
+  #include appcleaner
+  include bettertouchtool
   include caffeine
-  #include skype
+  include chrome
+  include flowdock
+  include fluid
+  include onepassword
+  include skype
+  include spotify
   include apps::sublime
   include apps::sublime::bracket_highlighter
   include apps::sublime::wombat_theme
