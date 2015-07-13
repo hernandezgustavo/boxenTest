@@ -3,6 +3,7 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 tabname () { printf "\e]1;$1\a"; }
 export PATH=~/bin:$PATH
 export EDITOR='atom'
+export HOMEBREW_GITHUB_API_TOKEN=8a27632ff6a17ce06071db34c12290a1b1f0a444
 
 source ~/.git-completion.sh
 source ~/.git-prompt.sh
