@@ -47,30 +47,19 @@ class people::dachew {
     refreshonly => true,
     subscribe => Package['VMware Fusion']
   }
-
   vagrant::plugin { 'vmware-fusion':
     license => "${boxen::config::repodir}/modules/people/files/dachew/VagrantVMWareFusionLicense-rmccallum.lic"
   }
 
-  vagrant::plugin { 'vagrant-chefconfig': }
-  vagrant::plugin { 'vagrant-berkshelf': }
-
-  # Sublime Text - package control
-  file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings":
-    ensure => link,
-    target => "${cfg}/sublime-text/Package Control.sublime-settings"
+  # Sublime Text
+  file { "${home}/Library/Application Support/Sublime Text 3/Packages/User":
+    ensure => symlink,
+    target => "${cfg}/sublime-text"
   }
-
-  # Sublime Text - preferences
-  file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings":
-    ensure => link,
-    target => "${cfg}/sublime-text/Preferences.sublime-settings"
-  }
-
-  # Sublime Text - Markdown preferences
-  file { "${home}/Library/Application Support/Sublime Text 3/Packages/User/Markdown.sublime-settings":
-    ensure => link,
-	  target => "${cfg}/sublime-text/Markdown.sublime-settings"
+  # Sublime Text - license
+  file { "${home}/Library/Application Support/Sublime Text 3/Local/License.sublime_license":
+    ensure => file,
+    target => "${cfg}/licenses/License.sublime_license"
   }
 
   # Create a symlink for starting Sublime Text from the terminal
