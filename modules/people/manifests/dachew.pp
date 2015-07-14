@@ -56,10 +56,17 @@ class people::dachew {
     ensure => symlink,
     target => "${cfg}/sublime-text"
   }
+  # Decrypt license file using OpenSSL
+  # http://osxdaily.com/2012/01/30/encrypt-and-decrypt-files-with-openssl/
+  exec { "decrypt_subl_license":
+    command => "openssl des3 -d -in license-info.enc -out license-info -pass pass:6VS+AMYmg6",
+    path => "${cfg}/licenses/"
+  }
+
   # Sublime Text - license
   file { "${home}/Library/Application Support/Sublime Text 3/Local/License.sublime_license":
     ensure => file,
-    target => "${cfg}/licenses/License.sublime_license"
+    target => "${cfg}/licenses/license-info"
   }
 
   # Create a symlink for starting Sublime Text from the terminal
