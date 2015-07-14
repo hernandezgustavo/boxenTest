@@ -1,5 +1,5 @@
 class people::sneal {
-  $vmware_key = "05233-0H2E6-M8A6C-0J0UK-C1UQJ"  
+  $vmware_key = "4J08Q-0R055-M8Q76-0J0U4-85P64"  
   $home = "/Users/${::boxen_user}"
 
   include projects::chefdk
@@ -9,7 +9,6 @@ class people::sneal {
   include apps::git::completion
   include apps::git::prompt
   include chrome::canary
-  include firefox
   include virtualbox
   include vmware_fusion
   include lastpass
@@ -18,7 +17,7 @@ class people::sneal {
 
   # License VMWare Fusion  
   exec { "license_vmware_fusion":
-    command=> "vmware-licenseTool enter ${vmware_key} '' '' '6.0' 'VMware Fusion for Mac OS' ''",
+    command=> "vmware-licenseTool enter ${vmware_key} '' '' '7.0' 'VMware Fusion for Mac OS' ''",
     path => '/Applications/VMware Fusion.app/Contents/Library',
     user => root,
     refreshonly => true,
