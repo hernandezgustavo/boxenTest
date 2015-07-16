@@ -114,6 +114,11 @@ class people::dachew {
   #-------------------------------------------------------------
   # Osx Customizations
   #-------------------------------------------------------------
+  file { '${home}/Library/KeyBindings/DefaultKeyBinding.dict':
+	ensure	=> link,
+	target	=> '${cfg}/changepoint/macos/DefaultKeyBinding.dict'
+  }
+
   include osx::disable_app_quarantine
   include osx::no_network_dsstores
 
