@@ -16,30 +16,33 @@ class people::dachew {
   include vmware_fusion
   include flowdock
 
-  #------------------------
-  # Special User Configurations
-  #------------------------
-  repository { 'configuration':
-      source   => 'git@github.com:dachew/configuration', #short hand for github repos
-      provider => 'git',
-      path     => '/Users/rmccallum/src/configuration/',
-      force    => true
-  }
 
+  #-------------------------------------------------------------
+  # Special User Configurations
+  #-------------------------------------------------------------
+  repository { 'configuration':
+	source   => 'git@github.com:dachew/configuration', #short hand for github repos
+	provider => 'git',
+	path     => '${home}/src/configuration/',
+	force    => true
+  }
   file { "${home}/.bash_profile":
-    ensure => link,
-    target => "${cfg}/macos/.bash_profile"
+    ensure	=> link,
+    target	=> "${cfg}/macos/.bash_profile"
   }
   file { "${home}/.vimrc":
-    ensure => link,
-    target => "${cfg}/macos/.vimrc"
+    ensure	=> link,
+    target	=> "${cfg}/macos/.vimrc"
   }
   file { "${home}/.gitconfig":
-    ensure => link,
-    target => "${cfg}/macos/.gitconfig"
+    ensure	=> link,
+    target	=> "${cfg}/macos/.gitconfig"
   }
 
+
+  #-------------------------------------------------------------
   # License VMWare Fusion  
+  #-------------------------------------------------------------
   exec { "license_vmware_fusion":
     command=> "vmware-licenseTool enter ${vmware_key} '' '' '7.0' 'VMware Fusion for Mac OS' ''",
     path => '/Applications/VMware Fusion.app/Contents/Library',
@@ -51,7 +54,10 @@ class people::dachew {
     license => "${boxen::config::repodir}/modules/people/files/dachew/VagrantVMWareFusionLicense-rmccallum.lic"
   }
 
+
+  #-------------------------------------------------------------
   # Sublime Text
+  #-------------------------------------------------------------
   file { "${home}/Library/Application Support/Sublime Text 3/Packages/User":
     ensure => symlink,
     target => "${cfg}/sublime-text"
@@ -76,9 +82,38 @@ class people::dachew {
   }
 
 
-  #------------------------
+  #-------------------------------------------------------------
+  # VIM syntax for Puppet
+  # VIM syntax location for mac OS: /usr/share/vim/vim73/
+  #-------------------------------------------------------------
+  repository { 'configuration':
+	source   => 'git@github.com:puppetlabs/puppet-syntax-vim.git',
+	provider => 'git',
+	path     => '${home}/src/puppet-syntax-vim/',
+	force    => true
+  }
+  file { '/usr/share/vim/vim73/ftdetect':
+  	source	=> '${home}/src/puppet-syntax-vim/ftdetect',
+	recurse	=> true
+  }
+  file { '/usr/share/vim/vim73/ftplugin':
+  	source	=> '${home}/src/puppet-syntax-vim/ftplugin',
+	recurse	=> true
+  }
+  file { '/usr/share/vim/vim73/indent':
+  	source	=> '${home}/src/puppet-syntax-vim/indent',
+	recurse	=> true
+  }
+  file { '/usr/share/vim/vim73/syntax':
+  	source	=> '${home}/src/puppet-syntax-vim/syntax',
+	recurse	=> true
+  }
+
+
+
+  #-------------------------------------------------------------
   # Osx Customizations
-  #------------------------
+  #-------------------------------------------------------------
   include osx::disable_app_quarantine
   include osx::no_network_dsstores
 
