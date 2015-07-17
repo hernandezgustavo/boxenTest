@@ -17,8 +17,8 @@ class people::sneal {
 
   # License VMWare Fusion  
   exec { "license_vmware_fusion":
-    command=> "vmware-licenseTool enter ${vmware_key} '' '' '7.0' 'VMware Fusion for Mac OS' ''",
-    path => '/Applications/VMware Fusion.app/Contents/Library',
+    command=> "vmware-licenseTool enter ${vmware_key} '' '' '7.1' 'VMware Fusion for Mac OS' ''",
+    path => '/Applications/VMware Fusion.app/Contents/Library/licenses',
     user => root,
     refreshonly => true,
     subscribe => Package['VMware Fusion']
