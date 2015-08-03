@@ -3,8 +3,10 @@
 class people::greglboxer {
   $home = "/Users/${::boxen_user}"
 
+  #vmware
+  include vmware_fusion
   vagrant::plugin { 'vagrant-vmware-fusion':
-    license => "${$boxen::config::repodir}/modules/people/files/greglboxer/VagrantVMWareFusionLicense_gboxer_bdahl.lic"
+    license => "${boxen::config::repodir}/modules/people/files/greglboxer/LICENSE-2-vagrant-vmware-provider-license_20_seats.lic"
   }
 
   include iterm2::dev
