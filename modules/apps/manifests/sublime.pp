@@ -30,9 +30,14 @@ class apps::sublime ($licensePath = undef) {
   # this File.exist check only works because boxen runs locally (server-less puppet)
   $licenseExists = inline_template("<% if File.exist?('${sublimeLicensePath}') %>true<% end %>")
   if $licenseExists {
-      file { "/Users/${::boxen_user}/Library/Application Support/Sublime Text 3/Local/License.sublime_license":
+      $licenseFolder = "/Users/${::boxen_user}/Library/Application Support/Sublime Text 3/Local"
+      file { $licenseFolder:
+        ensure => directory
+      }
+      file { "${licenseFolder}/License.sublime_license":
         ensure => file,
-        source => $sublimeLicensePath
+        source => $sublimeLicensePath,
+        require => File[$licenseFolder]
       }
   }
 }
