@@ -1,6 +1,7 @@
 class apps::nodejs {
   # node versions
-  nodejs::version { 'v0.10.21': }
+  nodejs::version { '0.10.40': }
+  nodejs::version { '4.0.0': }
 
   #some tools expect node to be in a particular directory on mac, symlink this instead
   file { '/usr/local/bin/node':
@@ -11,11 +12,12 @@ class apps::nodejs {
   }
 
   class { 'nodejs::global':
-    version => 'v0.10.26'
+    version => '0.10.40'
   }
 
-  nodejs::module { 'grunt-cli':
-    node_version => 'v0.10.26',
-    ensure => '0.1.13'
+  npm_module { 'grunt-cli':
+    module => 'grunt-cli',
+    node_version => '*',
+    version => '0.1.13'
   }
 }

@@ -23,11 +23,11 @@ class people::park9140 {
   }
 
   $home = "/Users/${::boxen_user}"
-
-  exec {  "set_vmware_fusion_key_park9140":
-    command=> "'/Applications/VMware Fusion.app/Contents/Library/vmware-licenseTool' enter EJ695-2QH8J-H8K7C-0Z1R0-88LJ4 '' '' '7.0' 'VMware Fusion for Mac OS' ''",
-    user => root
-  }
+  #
+  # exec {  "set_vmware_fusion_key_park9140":
+  #   command=> "'/Applications/VMware Fusion.app/Contents/Library/vmware-licenseTool' enter EJ695-2QH8J-H8K7C-0Z1R0-88LJ4 '' '' '7.0' 'VMware Fusion for Mac OS' ''",
+  #   user => root
+  # }
 
   file { "${home}/.config/fish/personal.fish":
     ensure  => link,
@@ -42,7 +42,7 @@ class people::park9140 {
     value  => 'Jonathan Park'
   }
   git::config::global { 'core.editor':
-    value  => 'atom --wait'
+    value  => 'vi'
   }
 
   file { "${home}/.bash_profile":

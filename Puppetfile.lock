@@ -40,7 +40,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
-    boxen (3.10.2)
+    boxen (3.11.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-brewcask
@@ -125,12 +125,12 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-gcc
   specs:
-    gcc (2.1.1)
+    gcc (3.0.2)
 
 GITHUBTARBALL
   remote: boxen/puppet-git
   specs:
-    git (2.7.5)
+    git (2.7.92)
 
 GITHUBTARBALL
   remote: boxen/puppet-go
@@ -155,12 +155,12 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-homebrew
   specs:
-    homebrew (1.11.2)
+    homebrew (2.0.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-hub
   specs:
-    hub (1.4.0)
+    hub (1.4.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-imagemagick
@@ -210,7 +210,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-nodejs
   specs:
-    nodejs (4.0.0)
+    nodejs (5.0.4)
 
 GITHUBTARBALL
   remote: boxen/puppet-onepassword
@@ -235,7 +235,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-phantomjs
   specs:
-    phantomjs (2.3.0)
+    phantomjs (3.0.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-pkgconfig
@@ -265,12 +265,12 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-repository
   specs:
-    repository (2.3.0)
+    repository (2.4.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-ruby
   specs:
-    ruby (8.1.7)
+    ruby (8.5.2)
 
 GITHUBTARBALL
   remote: boxen/puppet-rubymine
@@ -400,17 +400,17 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-inifile
   specs:
-    inifile (1.1.1)
+    inifile (1.4.1)
 
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-stdlib
   specs:
-    stdlib (4.2.1)
+    stdlib (4.7.0)
 
 GITHUBTARBALL
   remote: ripienaar/puppet-module-data
   specs:
-    module-data (0.0.3)
+    module-data (0.0.4)
 
 GITHUBTARBALL
   remote: sneal/puppet-chefdk
@@ -427,7 +427,7 @@ DEPENDENCIES
   adobe_reader (= 1.2.0)
   atom (= 1.1.0)
   bettertouchtool (= 1.0.0)
-  boxen (= 3.10.2)
+  boxen (= 3.11.0)
   brewcask (= 0.0.6)
   caffeine (= 1.0.0)
   chefdk (= 1.0.4)
@@ -447,20 +447,20 @@ DEPENDENCIES
   fluid (= 1.0.2)
   flux (= 1.0.0)
   foreman (= 1.2.0)
-  gcc (= 2.1.1)
-  git (= 2.7.5)
+  gcc (= 3.0.2)
+  git (= 2.7.92)
   gitflow (= 1.0.0)
   go (= 2.1.0)
   google_notifier (= 1.0.1)
   graphviz (= 1.0.0)
   heroku (= 2.0.0)
-  homebrew (= 1.11.2)
+  homebrew (= 2.0.0)
   homebrewcask (= 1.0.1)
   htop (= 1.0.1)
-  hub (= 1.4.0)
+  hub (= 1.4.1)
   imagemagick (= 1.2.1)
   induction (= 1.0.0)
-  inifile (= 1.1.1)
+  inifile (= 1.4.1)
   iterm2 (= 1.2.0)
   java (= 1.1.0)
   kindle (= 1.0.1)
@@ -468,16 +468,16 @@ DEPENDENCIES
   macvim (= 1.0.0)
   menumeters (= 1.0.1)
   mercurial (= 0.0.1)
-  module-data (= 0.0.3)
+  module-data (= 0.0.4)
   mongodb (= 1.0.4)
   mplayerx (= 1.0.1)
   mumble (= 1.0.5)
-  nodejs (= 4.0.0)
+  nodejs (= 5.0.4)
   onepassword (= 1.1.5)
   openssl (= 1.0.0)
   osx (= 2.8.0)
   pcre (= 1.0.0)
-  phantomjs (= 2.3.0)
+  phantomjs (= 3.0.0)
   pkgconfig (= 1.0.0)
   postgresapp (= 1.0.0)
   protobuf (= 1.0.0)
@@ -485,9 +485,9 @@ DEPENDENCIES
   puppet-webstorm (>= 0)
   python (= 1.2.1)
   redis (= 0.3.0)
-  repository (= 2.3.0)
+  repository (= 2.4.1)
   royaltsx (= 1.0.1)
-  ruby (= 8.1.7)
+  ruby (= 8.5.2)
   rubymine (= 1.1.0)
   screen (= 1.0.0)
   skitch (= 1.0.3)
@@ -495,7 +495,7 @@ DEPENDENCIES
   sourcetree (= 1.0.0)
   spectacle (= 1.0.0)
   spotify (= 1.0.2)
-  stdlib (= 4.2.1)
+  stdlib (= 4.7.0)
   sublime_text_3 (= 1.0.1)
   sudo (= 1.0.0)
   swig (= 1.0.0)
