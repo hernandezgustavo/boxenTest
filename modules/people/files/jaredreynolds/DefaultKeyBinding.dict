@@ -1,0 +1,19 @@
+{
+    /* https://www.starryhope.com/mac-os-x-home-and-end-keys/ */
+
+     /* home */
+    "\UF729"  = "moveToBeginningOfLine:";
+    "$\UF729" = "moveToBeginningOfLineAndModifySelection:";
+    "^\UF729" = "moveToBeginningOfDocument:";
+    "$^\UF729" = "moveToBeginningOfDocumentAndModifySelection:";
+
+    /* end */
+    "\UF72B"  = "moveToEndOfLine:";
+    "$\UF72B" = "moveToEndOfLineAndModifySelection:";
+    "^\UF72B" = "moveToEndOfDocument:";
+    "$^\UF72B" = "moveToEndOfDocumentAndModifySelection:";
+
+    /* page up/down */
+    "\UF72C"  = "pageUp:";
+    "\UF72D"  = "pageDown:";
+}

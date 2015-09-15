@@ -5,6 +5,9 @@ class apps::sublime::linter {
   sublime_text_3::package { 'SublimeLinter-jshint':
     source => 'git@github.com:SublimeLinter/SublimeLinter-jshint.git'
   }
+  sublime_text_3::package { 'SublimeLinter-puppet':
+    source => 'git@github.com:stopdropandrew/SublimeLinter-puppet.git'
+  }
   sublime_text_3::package { 'SublimeLinter-pylint':
     source => 'git@github.com:SublimeLinter/SublimeLinter-pylint.git'
   }

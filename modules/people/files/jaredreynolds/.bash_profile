@@ -3,6 +3,7 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 tabname () { printf "\e]1;$1\a"; }
 export PATH=~/bin:$PATH
 
+source /opt/boxen/env.sh
 source ~/.git-completion.sh
 source ~/.git-prompt.sh
 
