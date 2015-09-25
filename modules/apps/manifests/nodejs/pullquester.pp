@@ -1,5 +1,6 @@
 class apps::nodejs::pullquester {
-  nodejs::module { 'pullquester':
-    node_version => 'v0.10'
+  npm_module { 'pullquester':
+    module => 'pullquester',
+    node_version => '*'
   }
 }

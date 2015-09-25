@@ -1,6 +1,7 @@
 class apps::nodejs::typescript_tools {
-  nodejs::module { 'typescript-tools':
-     node_version => 'v0.10',
-     ensure => '0.2.2-1'
+  npm_module { 'typescript-tools':
+     module => 'typescript-tools',
+     node_version => '*',
+     version => '0.3.1'
   }
 }
