@@ -13,6 +13,11 @@ GIT
     puppet-webstorm (0.0.1)
 
 GITHUBTARBALL
+  remote: akalman/puppet-trailer
+  specs:
+    trailer (1.0.1)
+
+GITHUBTARBALL
   remote: arron-green/puppet-diffmerge
   specs:
     diffmerge (0.0.5)
@@ -500,6 +505,7 @@ DEPENDENCIES
   sudo (= 1.0.0)
   swig (= 1.0.0)
   tmux (= 1.0.2)
+  trailer (= 1.0.1)
   transmission (= 1.0.0)
   vagrant (= 3.3.3)
   vim (= 1.0.5)
