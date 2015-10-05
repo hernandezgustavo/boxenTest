@@ -2,9 +2,8 @@
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::boskya {
 
-  include apps::webstorm
   include iterm2::dev
-  include apps::fishShell
+  include apps::zsh
   include chrome::canary
   include firefox
   include atom
@@ -47,6 +46,4 @@ class people::boskya {
   atom::package {'language-typescript' : }
   atom::package { 'linter-tslint' : }
   atom::package { 'linter' : }
-  atom::package { 'autocomplete-plus-async': }
-  atom::package { 'atom-typescript-tools' : }
 }
