@@ -420,7 +420,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: sneal/puppet-chefdk
   specs:
-    chefdk (1.0.4)
+    chefdk (1.0.5)
 
 GITHUBTARBALL
   remote: vodeclic/puppet-menumeters
@@ -435,7 +435,7 @@ DEPENDENCIES
   boxen (= 3.11.0)
   brewcask (= 0.0.6)
   caffeine (= 1.0.0)
-  chefdk (= 1.0.4)
+  chefdk (= 1.0.5)
   chrome (= 1.1.1)
   clojure (= 1.2.0)
   colloquy (= 1.0.0)
