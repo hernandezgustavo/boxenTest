@@ -15,7 +15,7 @@ class apps::vagrant ($vagrantVMwareLicensePath = undef) {
   include ::vmware_fusion
 
   class { '::vagrant':
-    version => '1.7.3'
+    version => '1.7.4'
   }
 
   if $vagrantVMwareLicensePath {
