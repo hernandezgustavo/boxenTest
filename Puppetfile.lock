@@ -12,15 +12,17 @@ GIT
   specs:
     puppet-webstorm (0.0.1)
 
+GIT
+  remote: git@github.com:sneal/puppet-diffmerge.git
+  ref: 3f2ee108ad0046c0fd78a92f13eeb31a6c65fb80
+  sha: 3f2ee108ad0046c0fd78a92f13eeb31a6c65fb80
+  specs:
+    puppet-diffmerge (0.0.1)
+
 GITHUBTARBALL
   remote: akalman/puppet-trailer
   specs:
     trailer (1.0.1)
-
-GITHUBTARBALL
-  remote: arron-green/puppet-diffmerge
-  specs:
-    diffmerge (0.0.5)
 
 GITHUBTARBALL
   remote: bluesalt/puppet-mercurial
@@ -442,7 +444,6 @@ DEPENDENCIES
   cord (= 1.0.0)
   cyberduck (= 1.0.1)
   daisy_disk (= 1.0.1)
-  diffmerge (= 0.0.5)
   dnsmasq (= 2.0.1)
   dropbox (= 1.2.0)
   evernote (= 2.0.4)
@@ -486,6 +487,7 @@ DEPENDENCIES
   pkgconfig (= 1.0.0)
   postgresapp (= 1.0.0)
   protobuf (= 1.0.0)
+  puppet-diffmerge (>= 0)
   puppet-nginx (>= 0)
   puppet-webstorm (>= 0)
   python (= 1.2.1)
