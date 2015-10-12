@@ -3,6 +3,27 @@
 class people::hyperd {
   $home = "/Users/${::boxen_user}"
 
+  #OSX Config
+  include osx::finder::show_hidden_files
+  include osx::finder::show_all_on_desktop
+  include osx::finder::show_hidden_files
+  include osx::finder::unhide_library
+  include osx::finder::enable_quicklook_text_selection
+
+  #include vagrant
+  include chrome
+  include apps::sublime
+  include apps::sublime::bracket_highlighter
+  include apps::sublime::wombat_theme
+  include sublime_text_3::package_control
+  include vmware_fusion
+  include flowdock
+  include nodejs
+  include google_notifier
+  include fluid
+  include trailer
+  
+
   # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
   # Upload your vagrant vmware plugin license to /modules/people/files/<your github username>
   # Update the path below to point to that file and uncomment this section.
