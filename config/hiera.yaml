@@ -5,3 +5,7 @@
   :datadir: "%{::boxen_repodir}/modules/people/files"
 :hierarchy:
   - "%{::github_login}/hiera"
+"ruby::version::alias":
+  "1.9.3": "1.9.3-p194"
+  "2.1.2": "2.1.2"
+:merge_behavior: deeper

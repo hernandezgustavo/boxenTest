@@ -18,4 +18,4 @@ if [ -z "$VAGRANT_DEFAULT_PROVIDER" ]
 fi
 
 export VAGRANT_SERVER_URL=http://vagrantboxes.hq.daptiv.com
-
+export BOXEN_GITHUB_LOGIN=chrisbobo@gmail.com
