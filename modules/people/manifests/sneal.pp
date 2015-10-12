@@ -8,16 +8,21 @@ class people::sneal {
   include apps::git::aliases
   include apps::git::completion
   include apps::git::prompt
-  include chrome::canary
   include virtualbox
   include vmware_fusion
   include lastpass
   include flowdock
-  include ruby
+
+  # chgo is not well maintained, just install go directly
+  package { "golang":
+    ensure   => installed,
+    provider => 'pkgdmg',
+    source   => "https://storage.googleapis.com/golang/go1.5.1.darwin-amd64.pkg",
+  }
 
   # License VMWare Fusion  
   exec { "license_vmware_fusion":
-    command=> "vmware-licenseTool enter ${vmware_key} '' '' '7.1' 'VMware Fusion for Mac OS' ''",
+    command=> "vmware-licenseTool enter ${vmware_key} '' '' '7.1.2' 'VMware Fusion for Mac OS' ''",
     path => '/Applications/VMware Fusion.app/Contents/Library/licenses',
     user => root,
     refreshonly => true,

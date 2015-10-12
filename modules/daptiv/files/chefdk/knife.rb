@@ -2,14 +2,15 @@ user_email     = `git config --get user.email`
 home_dir       = ENV['HOME'] || ENV['HOMEDRIVE']
 org            = ENV['CHEF_ORG'] || 'daptiv'
 knife_override = "#{home_dir}/.chef/knife_override.rb"
+user_name      = ( ENV['USER'] || ENV['USERNAME'] ).downcase
 
 chef_server_url          "https://api.opscode.com/organizations/#{org}"
 log_level                :info
 log_location             STDOUT
 
 # USERNAME is UPPERCASE in Windows, but lowercase in the Chef server, so `downcase` it.
-node_name                ( ENV['USER'] || ENV['USERNAME'] ).downcase
-client_key               "#{home_dir}/.chef/#{node_name}.pem"
+node_name                user_name
+client_key               "#{home_dir}/.chef/#{user_name}.pem"
 cache_type               'BasicFile'
 cache_options( :path => "#{home_dir}/.chef/checksums" )
 validation_client_name   "#{org}-validator"

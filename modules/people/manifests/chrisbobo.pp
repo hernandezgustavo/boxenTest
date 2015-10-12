@@ -16,7 +16,7 @@ class people::chrisbobo {
 
 
   vagrant::plugin { 'vmware-fusion':
-    license => "${$boxen::config::repodir}/modules/people/files/chrisbobo/VagrantVMWareFusionLicense_cbobo_mdevine.lic"
+    license => "${$boxen::config::repodir}/modules/people/files/chrisbobo/LICENSE-2-vagrant-vmware-provider-license_20_seats.lic"
   }
 
 #  include apps::git::difftools::p4merge
