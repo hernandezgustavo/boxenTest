@@ -3,8 +3,6 @@
 class people::hyperd {
   $home = "/Users/${::boxen_user}"
 
-<<<<<<< Updated upstream
-=======
   #OSX Config
   include osx::finder::show_hidden_files
   include osx::finder::show_all_on_desktop
@@ -26,8 +24,6 @@ class people::hyperd {
   include trailer
   
 
-
->>>>>>> Stashed changes
   # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
   # Upload your vagrant vmware plugin license to /modules/people/files/<your github username>
   # Update the path below to point to that file and uncomment this section.
