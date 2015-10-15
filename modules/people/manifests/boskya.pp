@@ -2,9 +2,8 @@
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::boskya {
 
-  include apps::webstorm
   include iterm2::dev
-  include apps::fishShell
+  include zsh
   include chrome::canary
   include firefox
   include atom
@@ -32,21 +31,22 @@ class people::boskya {
   # you should copy them to a folder matching your personal user if you intend to personalize them
   # if you do not copy these your dotfiles will change when this boskya profile is updated as they
   # are symlinked into your home directory.
-  file { "${home}/.config/fish/personal.fish":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/boskya/personal.fish",
-    subscribe => File["${home}/.config/fish/"]
-  }
 
   file { "${home}/.bash_profile":
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/boskya/.bash_profile"
   }
 
+  repository{
+    'oh my zsh':
+      source   => 'git@github.com:robbyrussell/oh-my-zsh', #short hand for github repos
+      provider => 'git',
+      path => "${home}/.oh-my-zsh",
+      force => true
+  }
+  
   # atom
   atom::package {'language-typescript' : }
   atom::package { 'linter-tslint' : }
   atom::package { 'linter' : }
-  atom::package { 'autocomplete-plus-async': }
-  atom::package { 'atom-typescript-tools' : }
 }
