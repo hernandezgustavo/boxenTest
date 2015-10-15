@@ -6,20 +6,12 @@ class people::chrisbobo {
   include chrome::canary
   include apps::webstorm
   include iterm2::dev
-
-  include apps::fishShell
-  file { "${home}/.config/fish/personal.fish":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/chrisbobo/personal.fish",
-    subscribe => File["${home}/.config/fish/"]
-  }
-
+  include zsh
 
   vagrant::plugin { 'vmware-fusion':
     license => "${$boxen::config::repodir}/modules/people/files/chrisbobo/LICENSE-2-vagrant-vmware-provider-license_20_seats.lic"
   }
 
-#  include apps::git::difftools::p4merge
   git::config::global { 'user.email':
     value  => 'chrisbobo@gmail.com'
   }
@@ -27,6 +19,10 @@ class people::chrisbobo {
     value  => 'Chris Bobo'
   }
 
+  file { "${home}/.bash_profile":
+    ensure  => link,
+    target  => "${$boxen::config::repodir}/modules/people/files/chrisbobo/.bash_profile"
+  }
 
   repository{
     'my sublime config':
@@ -39,12 +35,34 @@ class people::chrisbobo {
   include apps::sublime::bracket_highlighter
   include apps::sublime::wombat_theme
 
-
-  file { "${home}/.bash_profile":
-    ensure  => link,
-    target  => "${$boxen::config::repodir}/modules/people/files/chrisbobo/.bash_profile"
+  repository{
+    'my dotfiles':
+      source   => 'git@github.com:chrisbobo/dotfiles', #short hand for github repos
+      provider => 'git',
+      path => "${home}/src/dotfiles",
+      force => true
   }
 
+  repository{
+    'my git prompt':
+      source   => 'git@github.com:olivierverdier/zsh-git-prompt', #better zsh git prompt
+      provider => 'git',
+      path => "${home}/.zsh/git-prompt",
+      force => true
+  }
+
+  repository{
+    'oh my zsh':
+      source   => 'git@github.com:robbyrussell/oh-my-zsh', #short hand for github repos
+      provider => 'git',
+      path => "${home}/.oh-my-zsh",
+      force => true
+  }
+
+  file { "${home}/.zshrc":
+    ensure  => link,
+    target  => "${home}/src/dotfiles/.zshrc"
+  }
 
   #------------------------
   # Osx Customizations
