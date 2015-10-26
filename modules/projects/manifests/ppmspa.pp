@@ -10,7 +10,7 @@ class projects::ppmspa ($vm_ip_address = '192.168.56.101') {
     host_aliases => ['devsso.daptiv.com', 'devapi.daptiv.com', 'devadminapi.daptiv.com', 'dev.daptiv.com'],
     ip           => $vm_ip_address
   }
-
+  
   host { 'ppm_local_rewrite':
     name         => 'devppm.daptiv.com',
     comment      => 'allows devppm.daptiv.com/spa/ to route to ppmspa.dev served content',
