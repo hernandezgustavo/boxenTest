@@ -6,6 +6,12 @@ class people::dstepanchuk {
   # My apps
   include iterm2::stable
 
+  host { 'ppm_hosts_login':
+    name         => 'dev.daptiv.com',
+    comment      => 'vm host entries for ppm vm created by boxen',
+    host_aliases => ['dev.daptiv.com'],
+    ip           => '127.0.0.1'
+}
   # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
   # Upload your vagrant vmware plugin license to /modules/people/files/<your github username>
   # Update the path below to point to that file and uncomment this section.

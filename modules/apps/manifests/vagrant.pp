@@ -31,7 +31,7 @@ class apps::vagrant ($vagrantVMwareLicensePath = undef) {
     vagrant::plugin { 'vagrant-vmware-fusion':
       license => $vmwareLicensePath,
       require => Class['::vagrant'],
-      version => '4.0.1'
+      version => '4.0.2'
     }
   }
 }
