@@ -21,8 +21,8 @@ function fish_prompt --description 'Write out the prompt'
     set git_info "$git_branch"
 
     if [ (_is_git_dirty) ]
-      set -l dirty " ✗"
-      set git_info "$red$git_info$dirty"
+      #set -l dirty " ✗"
+      set git_info "$red$git_info"
     else
       set git_info "$green$git_info"
     end
