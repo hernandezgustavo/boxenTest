@@ -25,4 +25,10 @@ class apps::nodejs {
     node_version => '*',
     version => '0.3.0'
   }
+
+  npm_module { 'npm':
+    module => 'npm',
+    node_version => '*',
+    version => '3.3.12'
+  }
 }
