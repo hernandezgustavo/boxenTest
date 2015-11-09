@@ -19,9 +19,9 @@ class apps::nodejs {
     node_version => '*',
     version => '0.1.13'
   }
-  
+
   npm_module { 'gulp-cli':
-    module => 'grunt-cli',
+    module => 'gulp-cli',
     node_version => '*',
     version => '0.3.0'
   }
