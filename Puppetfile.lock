@@ -295,11 +295,6 @@ GITHUBTARBALL
     skitch (1.0.3)
 
 GITHUBTARBALL
-  remote: boxen/puppet-skype
-  specs:
-    skype (1.0.9)
-
-GITHUBTARBALL
   remote: boxen/puppet-sourcetree
   specs:
     sourcetree (1.0.0)
@@ -498,7 +493,6 @@ DEPENDENCIES
   rubymine (= 1.1.0)
   screen (= 1.0.0)
   skitch (= 1.0.3)
-  skype (= 1.0.9)
   sourcetree (= 1.0.0)
   spectacle (= 1.0.0)
   spotify (= 1.0.2)
