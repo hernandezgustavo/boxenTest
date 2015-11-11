@@ -220,11 +220,6 @@ GITHUBTARBALL
     nodejs (5.0.5)
 
 GITHUBTARBALL
-  remote: boxen/puppet-onepassword
-  specs:
-    onepassword (1.1.5)
-
-GITHUBTARBALL
   remote: boxen/puppet-openssl
   specs:
     openssl (1.0.0)

@@ -11,7 +11,6 @@ class people::fgalagorri {
   include chrome
   include flowdock
   include fluid
-  include onepassword
   include spotify
   include apps::sublime
   include apps::sublime::bracket_highlighter
