@@ -28,7 +28,14 @@ NOTE - Do not pull this repo before running Boxen!
 ## Configuration  (VERY IMPORTANT EVERYONE SHOULD DO THIS)
 As of the first boxen run you will have a `~/src/our-boxen` repository already set up, however you will not have any included projects. You will at this point want to set up your personal boxen people file which will hold your personal settings for what you wish to be installed on your box.
 
-The `modules/people/manifests` folder contains your personal manifest files which are automatically added based on your github username.  An example default.pp file exists with a sampling of common configurations that you will want to match.  The most important things here are to include any projects you are working on and personalize your bash_profile.
+The `modules/people/manifests` folder contains your personal manifest files which are automatically added based on your github username.  An example default.pp file exists with a sampling of common configurations that you will want to match.  
+You should consider making the following changes to your manifest file:
+- Include any projects you are working on
+- Personalize your bash_profile
+- Ensure your git config [user.email](https://github.com/settings/emails) and user.name have been correctly set
+- If you plan on standing up a vagrant box - uncomment and update the link to your vagrant-vmware-fusion license.  Please only use the license you are assigned to on [the wiki](https://sites.google.com/a/daptiv.com/portal/Daptiv-Engineering-Wiki/tools-utlities#TOC-Vagrant-VMWare-7-Provider-)
+
+You may also want to take a look at other user's manifest files to see some of the other things you can customize.
 
 To get started first set the enviroment variable if not set already: 
 `export BOXEN_GITHUB_LOGIN=replacewithyourgithubloginusername`
@@ -50,6 +57,7 @@ and then run the following
 
 #### Remember: if you add or remove any optional tools from your people files, commit the changes!
 
+Be sure to create a pull request in github to get your changes into the master branch, so that you don't have to worry about keeping your branch updated with any changes made to our boxen.
 
 ## Customizing
 
