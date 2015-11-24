@@ -26,4 +26,5 @@ class daptiv::environment {
   include projects::devdashboard
   include projects::ppm
   include projects::ppmspa
+  include projects::teammember
 }
