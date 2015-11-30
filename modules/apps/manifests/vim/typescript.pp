@@ -14,7 +14,7 @@ class apps::vim::typescript {
     path => "${::vim::vimrc}",
     require => [
       File["${::vim::vimrc}"],
-      Nodejs::Module['typescript-tools']
+      npm_module['typescript-tools']
     ]
   }
 
@@ -32,8 +32,9 @@ class apps::vim::typescript {
 
   include apps::nodejs::typescript_tools
 
-  nodejs::module { 'typescript':
-    node_version => "${node_version}",
-    ensure => '0.9.7'
+  npm_module { 'typescript':
+    module => 'typescript',
+    node_version => $node_version,
+    version => '0.9.7'
   }
 }

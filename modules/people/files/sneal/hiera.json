@@ -1,7 +1,8 @@
 {
   "apps::git::default_push_strategy": "current",
-  "vmware_fusion::url_base": "http://vagrantboxes.hq.daptiv.com/installs/VMWare%20Fusion/Fusion6",
-  "vmware_fusion::version": "6.0.5-2209127",
-  "osx::dock::hot_corners::bottom_left": "Start Screen Saver",
-  "ruby::global::version": "2.1.4"
+  "virtualbox::version": "5.0.6",
+  "virtualbox::patch_level": "103037",
+  "vmware_fusion::url_base": "http://vagrantboxes.hq.daptiv.com/installs/VMWare%20Fusion/Fusion7",
+  "vmware_fusion::version": "7.1.2-2779224",
+  "osx::dock::hot_corners::bottom_left": "Start Screen Saver"
 }

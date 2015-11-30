@@ -1,5 +1,5 @@
 class people::sneal {
-  $vmware_key = "05233-0H2E6-M8A6C-0J0UK-C1UQJ"  
+  $vmware_key = "4J08Q-0R055-M8Q76-0J0U4-85P64"  
   $home = "/Users/${::boxen_user}"
 
   include projects::chefdk
@@ -8,18 +8,22 @@ class people::sneal {
   include apps::git::aliases
   include apps::git::completion
   include apps::git::prompt
-  include chrome::canary
-  include firefox
   include virtualbox
   include vmware_fusion
   include lastpass
   include flowdock
-  include ruby
+
+  # chgo is not well maintained, just install go directly
+  package { "golang":
+    ensure   => installed,
+    provider => 'pkgdmg',
+    source   => "https://storage.googleapis.com/golang/go1.5.1.darwin-amd64.pkg",
+  }
 
   # License VMWare Fusion  
   exec { "license_vmware_fusion":
-    command=> "vmware-licenseTool enter ${vmware_key} '' '' '6.0' 'VMware Fusion for Mac OS' ''",
-    path => '/Applications/VMware Fusion.app/Contents/Library',
+    command=> "vmware-licenseTool enter ${vmware_key} '' '' '7.1.2' 'VMware Fusion for Mac OS' ''",
+    path => '/Applications/VMware Fusion.app/Contents/Library/licenses',
     user => root,
     refreshonly => true,
     subscribe => Package['VMware Fusion']

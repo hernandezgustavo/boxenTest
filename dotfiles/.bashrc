@@ -18,4 +18,3 @@ if [ -z "$VAGRANT_DEFAULT_PROVIDER" ]
 fi
 
 export VAGRANT_SERVER_URL=http://vagrantboxes.hq.daptiv.com
-

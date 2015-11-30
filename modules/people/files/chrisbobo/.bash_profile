@@ -1,14 +1,7 @@
-source ~/.git-completion.sh
+source ~/.git-completion.zsh
 source ~/.git-prompt.sh
 
-source ~/.env-credentials
-
-
-tabname () { printf "\e]1;$1\a"; }
-
-
-PS1='[\w$(__git_ps1 " (%s)")]\$ '
-
+#PS1='[\w$(__git_ps1 " (%s)")]\$ '
 
 #----------------------------------
 # Exported Env Vars
@@ -23,10 +16,4 @@ export PATH=~/bin:$PATH
 alias subl='subl3'
 export EDITOR='subl3 -w'
 
-alias ls='ls -al'
-
-#live write history
-export PROMPT_COMMAND="history -a;"
-
-# PpmEndpointTests Configuration
-export DB_SERVER_NAME=WIN-2008R2SP1
+export BOXEN_GITHUB_LOGIN=chrisbobo@gmail.com

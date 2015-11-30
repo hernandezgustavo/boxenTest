@@ -1,0 +1,13 @@
+
+server {
+  access_log <%= scope.lookupvar "nginx::config::logdir" %>/teammember-api.access.log main;
+  listen 80;
+  server_name tm-api.daptiv.com;
+  ignore_invalid_headers off;
+
+  client_max_body_size 50M;
+
+  location / {
+    proxy_pass http://unix:/tmp/tm-api.sock;
+  }
+}
