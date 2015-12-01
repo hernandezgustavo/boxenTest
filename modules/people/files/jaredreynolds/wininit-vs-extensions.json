@@ -1,0 +1,30 @@
+{
+    "FixFileEncoding": {
+        "FileName": "FixFileEncoding_11.vsix",
+        "DownloadUrl": "https://vlasovstudio.com/fix-file-encoding/FixFileEncoding_11.vsix"
+    },
+    "GitSccProvider": {
+        "FileName": "GitSccProvider.vsix",
+        "DownloadUrl": "http://visualstudiogallery.msdn.microsoft.com/63a7e40d-4d71-4fbb-a23b-d262124b8f4c/file/29105/46/GitSccProvider.vsix"
+    },
+    "Perspectives": {
+        "FileName": "Perspectives2012V3.vsix",
+        "DownloadUrl": "http://download-codeplex.sec.s-msft.com/Download/Release?ProjectName=perspectives&DownloadId=486076&FileTime=129922069432830000&Build=20959"
+    },
+    "VSColorThemeEditor": {
+        "FileName": "VSColorThemeEditor.vsix",
+        "DownloadUrl": "http://visualstudiogallery.msdn.microsoft.com/366ad100-0003-4c9a-81a8-337d4e7ace05/file/82992/4/ColorThemeEditor.vsix"
+    },
+    "VSCommands": {
+        "FileName": "SquaredInfinity.VSCommands.VS11.vsix",
+        "DownloadUrl": "https://visualstudiogallery.msdn.microsoft.com/a83505c6-77b3-44a6-b53b-73d77cba84c8/file/74740/39/SquaredInfinity.VSCommands.VS11.vsix"
+    },
+    "WebEssentials": {
+        "FileName": "WebEssentials2012.vsix",
+        "DownloadUrl": "http://visualstudiogallery.msdn.microsoft.com/07d54d12-7133-4e15-becb-6f451ea3bea6/file/79465/42/WebEssentials2012.vsix"
+    },
+    "YamlDotNetEditor": {
+        "FileName": "YamlDotNetEditor.vsix",
+        "DownloadUrl": "https://visualstudiogallery.msdn.microsoft.com/34423c06-f756-4721-8394-bc3d23b91ca7/file/101669/5/YamlDotNetEditor.vsix"
+    }
+}

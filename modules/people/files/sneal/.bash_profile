@@ -1,9 +1,20 @@
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 tabname () { printf "\e]1;$1\a"; }
-export PATH=~/bin:$PATH
+export PATH=/opt/chefdk/bin:~/src/gows/bin:~/bin:$PATH
 export EDITOR='subl -w'
 export DB_SERVER_NAME=WIN-2008R2SP1
+export GOPATH=$HOME/src/gows
+
+code () {
+    if [[ $# = 0 ]]
+    then
+        open -a "Visual Studio Code"
+    else
+        [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
+        open -a "Visual Studio Code" --args "$F"
+    fi
+}
 
 source ~/.git-completion.sh
 source ~/.git-prompt.sh

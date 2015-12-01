@@ -19,5 +19,4 @@ fi
 
 export VAGRANT_SERVER_URL=http://vagrantboxes.hq.daptiv.com
 
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

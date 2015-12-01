@@ -1,0 +1,4 @@
+{
+    "apps::git::default_push_strategy": "current",
+    "projects::ppmspa::vm_ip_address": "172.16.36.210"
+}

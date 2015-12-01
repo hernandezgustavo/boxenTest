@@ -8,24 +8,15 @@ class people::akalman {
 
   #ides
   include apps::webstorm
-  include apps::sublime
   include atom
 
-  #sublime config
-  include apps::sublime::ensure_settings_links_exist
-  include apps::sublime::wombat_theme
-  include apps::sublime::bracket_highlighter
-  include apps::sublime::jsdocs
-  include apps::sublime::grunt
 
   #communication
   include flowdock
-  #include lync
-  include adium
 
   #utilities
   include spectacle
-  include apps::git::difftools::p4merge
+  include trailer
 
   #git
   git::config::global { 'user.email': value => 'akalman@daptiv.com' }
@@ -34,7 +25,7 @@ class people::akalman {
   #vmware
   include vmware_fusion
   vagrant::plugin { 'vagrant-vmware-fusion':
-    license => "${boxen::config::repodir}/modules/people/files/akalman/VagrantVMWareFusionLicense_dvanbuskirk_akalman.lic"
+    license => "${boxen::config::repodir}/modules/people/files/akalman/LICENSE-2-vagrant-vmware-provider-license_20_seats.lic"
   }
 
   #terminal
