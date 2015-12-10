@@ -14,6 +14,8 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 tabname () { printf "\e]1;$1\a"; }
 export EDITOR='subl -w'
 
+source /opt/boxen/env.sh
+
 add_to_path "~/.cabal/bin"
 add_to_path "~/bin"
 add_to_path "~/.chefdk/gem/ruby/2.1.0/bin"
