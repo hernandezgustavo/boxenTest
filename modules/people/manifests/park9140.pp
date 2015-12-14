@@ -1,6 +1,6 @@
 
 class people::park9140 {
-
+  $vmware_key = "EJ695-2QH8J-H8K7C-0Z1R0-88LJ4"
   include apps::fishShell
 
   include chrome::canary
@@ -15,7 +15,7 @@ class people::park9140 {
   include bettertouchtool
   include heroku
 
-  $vmware_license = "${$boxen::config::repodir}/modules/people/files/${$::github_login}/VagrantVMWareFusionLicense.lic"
+  $vmware_license = "${$boxen::config::repodir}/modules/people/files/${$::github_login}/vagrant_vmware_license.lic"
 
   #if you have a license file in your user dir install vmware-fusion vagrant plugin
   vagrant::plugin { 'vagrant-vmware-fusion':
@@ -23,11 +23,15 @@ class people::park9140 {
   }
 
   $home = "/Users/${::boxen_user}"
-  #
-  # exec {  "set_vmware_fusion_key_park9140":
-  #   command=> "'/Applications/VMware Fusion.app/Contents/Library/vmware-licenseTool' enter EJ695-2QH8J-H8K7C-0Z1R0-88LJ4 '' '' '7.0' 'VMware Fusion for Mac OS' ''",
-  #   user => root
-  # }
+
+  # License VMWare Fusion
+  exec { "license_vmware_fusion":
+    command=> "vmware-licenseTool enter ${vmware_key} '' '' '7.1.2' 'VMware Fusion for Mac OS' ''",
+    path => '/Applications/VMware Fusion.app/Contents/Library/licenses',
+    user => root,
+    refreshonly => true,
+    subscribe => Package['VMware Fusion']
+  }
 
   file { "${home}/.config/fish/personal.fish":
     ensure  => link,
