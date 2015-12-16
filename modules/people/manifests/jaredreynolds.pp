@@ -12,7 +12,9 @@ class people::jaredreynolds {
   include firefox
   include flowdock
   include iterm2::dev
+  include spectacle
   include sublime_text_3::package_control
+  include trailer
   include webstorm
 
   $home = "/Users/${::boxen_user}"
