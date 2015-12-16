@@ -2,10 +2,9 @@
 :backends:
   - json
 :json:
-  :datadir: "%{::boxen_repodir}/modules/people/files"
+  :datadir: "%{::boxen_repodir}/"
 :hierarchy:
-  - "%{::github_login}/hiera"
-"ruby::version::alias":
-  "1.9.3": "1.9.3-p194"
-  "2.1.2": "2.1.2"
+  - "modules/people/files/%{::github_login}/hiera"
+  - "hiera/common"
+
 :merge_behavior: deeper

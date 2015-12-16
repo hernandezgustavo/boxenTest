@@ -19,6 +19,8 @@ class people::hernandezgustavo {
   include google_notifier
   include spotify
   include fluid
+  include trailer
+  include skitch
   
 
   # To automatically have the vagrant vmware windows plugin license entered for you, do the following:

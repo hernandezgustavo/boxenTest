@@ -1,10 +1,5 @@
 {
   "apps::git::default_push_strategy": "current",
   "projects::ppmspa::vm_ip_address": "33.33.33.185",
-  "vmware_fusion::version": "7.0.0-2103067",
-  "merge_behavior": "deeper",
-  "ruby::version::alias": {
-    "1.9.3": "1.9.3-p194",
-    "2.1.2": "2.1.2"
-  }
+  "vmware_fusion::version": "7.1.2-2779224"
 }
