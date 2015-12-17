@@ -3,6 +3,8 @@
 # Change this to your username.
 GITHUB_USERNAME="delta62"
 
+export HISTCONTROL=ignorespace
+
 # Colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
@@ -33,7 +35,7 @@ PS1="${YELLOW}\w${NO_COLOR}${BLUE}\$(__git_ps1)${NO_COLOR}\n${GREEN}\W${NO_COLOR
 
 # General aliases
 alias l="ls"
-alias ls="ls -lAh"
+alias ls="ls -lh"
 alias grep="grep -i --colour"
 
 export DB_SERVER_NAME="WIN-2008R2SP1"
@@ -46,6 +48,7 @@ export PATH="$PATH:$BOXEN_USER_FILES/bin"
 # Make VIM ex commands aliases to their shell counterparts
 alias :fin="find"
 alias :q="exit"
+alias :e="vim"
 
 # Git bindings
 delta62_git_alias() {
