@@ -7,7 +7,7 @@ if [ -h $bash_profile ]
     source $bash_profile
 fi
 
-PATH=$PATH:$HOME/.rvm/bin:$HOME/src/scripts # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 source /opt/boxen/env.sh
 

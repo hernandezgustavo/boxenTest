@@ -6,15 +6,64 @@
 
 MESSAGE_FILE="$1"
 BRANCH_CURRENT="$(git rev-parse --abbrev-ref HEAD)"
-BRANCH_REGEX='^[[:digit:]]+'
-STORY_ID="$(echo $BRANCH_CURRENT | egrep -o $BRANCH_REGEX)"
+BRANCH_REGEX='\([0-9]*\)'
 
+# Get the branch number of the current story, or nothing if the branch name does not
+# start with the story number. Getting the story number from a branch is much harder
+# than it should be, because:
+#
+# - grep on MSYSGIT is really really old
+# - sed on Mac is really really old
+# - expr in MSYSGIT is really really old
+#
+function __d62_parse_story_number() {
+    STORY_NUM=$(expr "$BRANCH_CURRENT" : "$BRANCH_REGEX" 2>/dev/null)
+
+    if [[ ! $? ]]; then
+        # Windows expr doesn't know what : means. Use fallback if expr failed.
+        STORY_NUM=$(expr match "$BRANCH_CURRENT" "$BRANCH_REGEX")
+    fi
+
+    echo $STORY_NUM
+}
+
+function __d62_prepend_story_id() {
+    STORY_NUM=$1
+    MESSAGE_FILE=$2
+
+    # Prepend the story ID to the message file. OSX ships with a crazy (old)
+    # version of sed, so newline characters must be converted rather than
+    # interpolated.
+    sed -i '' '1i\'$'\n'"$STORY_ID " $MESSAGE_FILE 2>/dev/null
+    if [[ ! $? ]]; then
+        # For some reason, MSYSGIT's sed is actually semi-recent
+        sed -i "1 s/^/$STORY_ID /" $MESSAGE_FILE
+    fi
+}
+
+# Ensure that all lines of a file are less than a certain length
+#
+function __d62_ensure_line_length() {
+    LINE_LENGTH=$1
+    MESSAGE_FILE=$2
+
+    grep ".\{$LINE_LENGTH,\}" $MESSAGE_FILE | while read -r LINE; do
+        echo "Error: Line was longer than $LINE_LENGTH characters:" >&2
+        echo "-> $LINE" >&2
+        LINE_TOO_LONG=1
+    done
+
+    [[ $LINE_TOO_LONG ]] && exit 1
+}
+
+STORY_ID=$(__d62_parse_story_number)
 if [[ -z $STORY_ID ]]; then
     # Couldn't figure out what story this is. Warn the user, but continue
     echo "Warning: unable to determine story number from branch name" >&2
 else
-    # Prepend the story ID to the message file. OSX ships with a crazy (old)
-    # version of sed, so newline characters must be converted rather than
-    # interpolated.
-    sed -i '' '1i\'$'\n'"$STORY_ID " $MESSAGE_FILE
+    __d62_prepend_story_id "$STORY_ID" "$MESSAGE_FILE"
 fi
+
+# Validation of commit message line lengths happens *after* the story ID has been prepended.
+# Buckle up for safety, you see.
+__d62_ensure_line_length 70 "$MESSAGE_FILE"
