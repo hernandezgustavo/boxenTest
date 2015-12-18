@@ -5,8 +5,6 @@ server {
   server_name tm-api.daptiv.com;
   ignore_invalid_headers off;
 
-  client_max_body_size 50M;
-
   location / {
     proxy_pass http://unix:/tmp/tm-api.sock;
   }
