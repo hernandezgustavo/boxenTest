@@ -15,12 +15,12 @@ class projects::teammember () {
     ip           => '127.0.0.1'
   }
 
-  boxen::project { 'TeamMemberClient':
+  boxen::project { 'teammember-client':
     nginx         => "${boxen::config::repodir}/modules/projects/templates/teammember.client.nginx.conf.erb",
     source        => 'git@github.com:daptiv/teammember-client.git'
   }
 
-  boxen::project { 'TeamMemberApi':
+  boxen::project { 'teammember-api':
     nginx         => "${boxen::config::repodir}/modules/projects/templates/teammember.api.nginx.conf.erb",
     source        => 'git@github.com:daptiv/teammember-api.git'
   }
