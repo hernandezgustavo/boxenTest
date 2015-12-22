@@ -7,7 +7,7 @@ class people::jtrinklein {
   include chrome::canary
   include zsh
 
-  $vmware_license = "${$boxen::config::repodir}/modules/people/files/${$::github_login}/VagrantVMWareFusionLicense.lic"
+  $vmware_license = "${$boxen::config::repodir}/modules/people/files/${$::github_login}/LICENSE-1-vagrant-vmware-provider-license_21_seats.lic"
 
   git::config::global { 'user.email':
     value  => 'james.trinklein@changepoint.com'
@@ -55,8 +55,6 @@ class people::jtrinklein {
     ensure  => link,
     target  => "${home}/src/dotfiles/.vimrc"
   }
-
-  #used to share editing at floobits.com
 
   include apps::nodejs::typescript_tools
 }
