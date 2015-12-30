@@ -56,43 +56,4 @@ class people::park9140 {
 
   include atom
 
-  repository{
-    'my atom config':
-    source   => 'git@github.com:park9140/atom-config', #short hand for github repos
-    provider => 'git',
-    path => "${home}/.atom",
-    force => true
-  }
-
-
-  repository{
-    'my sublime config':
-    source   => 'git@github.com:park9140/sublimeconfig', #short hand for github repos
-    provider => 'git',
-    path => "${home}/sublimeconfig",
-    force => true
-  }
-
-
-  include apps::sublime::ensure_settings_links_exist
-
-
-  #used to share editing at floobits.com
-  include apps::sublime::wombat_theme
-  include apps::sublime::bracket_highlighter
-  include apps::sublime::jsdocs
-  include apps::sublime::grunt
-  include apps::sublime::git
-  include apps::sublime::history
-  include apps::sublime::markdown
-  include apps::sublime::fileautocomplete
-  include apps::sublime::sidebar
-  include sublime_text_3::package_control
-
-  sublime_text_3::package { 'OmniSharpSublimePlugin':
-    source => 'git@github.com:PaulCampbell/OmniSharpSublimePlugin.git'
-  }
-
-
-  include apps::nodejs::typescript_tools
 }
