@@ -37,6 +37,9 @@ class people::dachew {
   #-------------------------------------------------------------
   # License VMWare Fusion  
   #-------------------------------------------------------------
+  vagrant::plugin { 'vagrant-vmware-fusion':
+    license => "${boxen::config::repodir}/modules/people/files/dachew/VagrantVMWareFusionLicense-rmccallum.lic"
+  }
   exec { "license_vmware_fusion":
     command=> "vmware-licenseTool enter ${vmware_key} '' '' '7.0' 'VMware Fusion for Mac OS' ''",
     path => '/Applications/VMware Fusion.app/Contents/Library',
@@ -44,31 +47,30 @@ class people::dachew {
     refreshonly => true,
     subscribe => Package['VMware Fusion']
   }
-  vagrant::plugin { 'vagrant-vmware-fusion':
-    license => "${boxen::config::repodir}/modules/people/files/dachew/VagrantVMWareFusionLicense-rmccallum.lic"
-  }
 
 
   #-------------------------------------------------------------
   # Sublime Text
   #-------------------------------------------------------------
   $st = "${home}/Library/Application Support/Sublime Text 3"
-  # remove the user folder
-  exec { "remove-default-user-folder":
-    command => "rm -rf \"${st}/Packages/User\"",
-	onlyif => "test -d \"${st}/Packages/User\""
+  
+  include sublime_text_3
+  include sublime_text_3::package_control
+  sublime_text_3::package { 'Theme - Soda':
+    source => 'https://github.com/buymeasoda/soda-theme/'
   }
-    
+
   # symlink the correct user folder
   exec { "fix-subl-user-folder":
-    command => "ln -s \"${cfg}/changepoint/macos/sublime-text/\" \"${stp}/User\"",
-	onlyif => "test -L \"${st}/Packages/User\""
+    command => "ln -Fs \"${cfg}/changepoint/macos/sublime-text/\" \"${st}/Packages/User\"",
+	onlyif => "test ! -L \"${st}/Packages/User\""
   }
 
   # Decrypt license file using OpenSSL
   # http://osxdaily.com/2012/01/30/encrypt-and-decrypt-files-with-openssl/
   exec { "decrypt_subl_license":
-    command => "openssl des3 -d -in \"${cfg}/licenses/license-info.enc\" -out \"${st}/Local/License.sublime_license\" -pass pass:6VS+AMYmg6"
+    command => "openssl des3 -d -in \"${cfg}/licenses/license-info.enc\" -out \"${st}/Local/License.sublime_license\" -pass pass:6VS+AMYmg6",
+	onlyif => "test ! -f \"${st}/Local/License.sublime_license\""
   }
 
   # Create a symlink for starting Sublime Text from the terminal
@@ -88,22 +90,22 @@ class people::dachew {
 	path     => "${home}/src/puppet-syntax-vim/",
 	force    => true
   }
-  #file { '/usr/share/vim/vim73/ftdetect':
-  #	source	=> "${home}/src/puppet-syntax-vim/ftdetect",
-#	recurse	=> true
- # }
-  #file { '/usr/share/vim/vim73/ftplugin':
-  #	source	=> "${home}/src/puppet-syntax-vim/ftplugin",
-#	recurse	=> true
- # }
-  #file { '/usr/share/vim/vim73/indent':
-  #	source	=> "${home}/src/puppet-syntax-vim/indent",
-#	recurse	=> true
- # }
-  #file { '/usr/share/vim/vim73/syntax':
-  #	source	=> "${home}/src/puppet-syntax-vim/syntax",
-#	recurse	=> true
- # }
+  file { '/usr/share/vim/vim73/ftdetect':
+    source	=> "${home}/src/puppet-syntax-vim/ftdetect",
+    recurse	=> true
+  }
+  file { '/usr/share/vim/vim73/ftplugin':
+    source	=> "${home}/src/puppet-syntax-vim/ftplugin",
+    recurse	=> true
+  }
+  file { '/usr/share/vim/vim73/indent':
+    source	=> "${home}/src/puppet-syntax-vim/indent",
+    recurse	=> true
+  }
+  file { '/usr/share/vim/vim73/syntax':
+    source	=> "${home}/src/puppet-syntax-vim/syntax",
+    recurse	=> true
+  }
 
 
 
