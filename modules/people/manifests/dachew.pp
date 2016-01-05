@@ -23,8 +23,7 @@ class people::dachew {
   repository { 'configuration':
 	source   => 'git@github.com:dachew/configuration', #short hand for github repos
 	provider => 'git',
-	path     => '${home}/src/configuration/',
-	force    => true
+	path     => "${home}/src/configuration/"
   }
   file { "${home}/.bash_profile":
     ensure	=> link,
@@ -34,11 +33,18 @@ class people::dachew {
     ensure	=> link,
     target	=> "${cfg}/macos/.vimrc"
   }
+  file { "${home}/.vim":
+    ensure	=> link,
+    target	=> "${cfg}/macos/.vim/"
+  }
   file { "${home}/.gitconfig":
     ensure	=> link,
     target	=> "${cfg}/macos/.gitconfig"
   }
-
+  file { "${home}/.gitattributes":
+    ensure	=> link,
+    target	=> "${cfg}/macos/.gitattributes"
+  }
 
   #-------------------------------------------------------------
   # License VMWare Fusion  
@@ -58,10 +64,11 @@ class people::dachew {
   #-------------------------------------------------------------
   # Sublime Text
   #-------------------------------------------------------------
-  file { "${home}/Library/Application Support/Sublime Text 3/Packages/User":
-    ensure => symlink,
-    target => "${cfg}/sublime-text"
-  }
+  #file { "${home}/Library/Application Support/Sublime Text 3/Packages/User":
+  #  ensure => symlink,
+  #  target => "${cfg}/sublime-text"
+  #}
+
   # Decrypt license file using OpenSSL
   # http://osxdaily.com/2012/01/30/encrypt-and-decrypt-files-with-openssl/
   exec { "decrypt_subl_license":
@@ -86,26 +93,26 @@ class people::dachew {
   # VIM syntax for Puppet
   # VIM syntax location for mac OS: /usr/share/vim/vim73/
   #-------------------------------------------------------------
-  repository { 'configuration':
+  repository { 'puppet-syntax-vim':
 	source   => 'git@github.com:puppetlabs/puppet-syntax-vim.git',
 	provider => 'git',
-	path     => '${home}/src/puppet-syntax-vim/',
+	path     => "${home}/src/puppet-syntax-vim/",
 	force    => true
   }
   file { '/usr/share/vim/vim73/ftdetect':
-  	source	=> '${home}/src/puppet-syntax-vim/ftdetect',
+  	source	=> "${home}/src/puppet-syntax-vim/ftdetect",
 	recurse	=> true
   }
   file { '/usr/share/vim/vim73/ftplugin':
-  	source	=> '${home}/src/puppet-syntax-vim/ftplugin',
+  	source	=> "${home}/src/puppet-syntax-vim/ftplugin",
 	recurse	=> true
   }
   file { '/usr/share/vim/vim73/indent':
-  	source	=> '${home}/src/puppet-syntax-vim/indent',
+  	source	=> "${home}/src/puppet-syntax-vim/indent",
 	recurse	=> true
   }
   file { '/usr/share/vim/vim73/syntax':
-  	source	=> '${home}/src/puppet-syntax-vim/syntax',
+  	source	=> "${home}/src/puppet-syntax-vim/syntax",
 	recurse	=> true
   }
 
@@ -114,9 +121,9 @@ class people::dachew {
   #-------------------------------------------------------------
   # Osx Customizations
   #-------------------------------------------------------------
-  file { '${home}/Library/KeyBindings/DefaultKeyBinding.dict':
+  file { "${home}/Library/KeyBindings/DefaultKeyBinding.dict":
 	ensure	=> link,
-	target	=> '${cfg}/changepoint/macos/DefaultKeyBinding.dict'
+	target	=> "${cfg}/changepoint/macos/DefaultKeyBinding.dict"
   }
 
   include osx::disable_app_quarantine
