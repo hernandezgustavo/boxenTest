@@ -4,6 +4,10 @@ class people::dachew {
   $cfg = "${home}/src/configuration"
   $vmare_key = "M069M-6HL82-M8L63-0898H-803KN"
 
+  include apps::vagrant
+  include apps::vmware_fusion
+  include apps::nodejs
+
 
   #-------------------------------------------------------------
   # Special User Configurations
