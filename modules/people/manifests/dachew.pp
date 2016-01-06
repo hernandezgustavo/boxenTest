@@ -65,8 +65,12 @@ class people::dachew {
   }
 
   # symlink the correct user folder
+  exec { "remove-default-user-folder":
+    command => "rm -rf \"${st}/Packages/User\"",
+	onlyif => "test -d \"${st}/Packages/User\""
+  }
   exec { "fix-subl-user-folder":
-    command => "ln -Fs \"${cfg}/changepoint/macos/sublime-text/\" \"${st}/Packages/User\"",
+    command => "ln -Fs \"${cfg}/changepoint/macos/sublime-text\" \"${st}/Packages/User\"",
 	onlyif => "test ! -L \"${st}/Packages/User\""
   }
 
