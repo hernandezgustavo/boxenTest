@@ -93,25 +93,25 @@ class people::dachew {
   # VIM syntax location for mac OS: /usr/share/vim/vim73/
   #-------------------------------------------------------------
   repository { 'puppet-syntax-vim':
-	source   => 'git@github.com:puppetlabs/puppet-syntax-vim.git',
+	source   => 'git@github.com:rodjek/vim-puppet.git',
 	provider => 'git',
-	path     => "${home}/src/puppet-syntax-vim/",
+	path     => "${home}/src/vim-puppet/",
 	force    => true
   }
   file { '/usr/share/vim/vim73/ftdetect':
-    source	=> "${home}/src/puppet-syntax-vim/ftdetect",
+    source	=> "${home}/src/vim-puppet/ftdetect",
     recurse	=> true
   }
   file { '/usr/share/vim/vim73/ftplugin':
-    source	=> "${home}/src/puppet-syntax-vim/ftplugin",
+    source	=> "${home}/src/vim-puppet/ftplugin",
     recurse	=> true
   }
   file { '/usr/share/vim/vim73/indent':
-    source	=> "${home}/src/puppet-syntax-vim/indent",
+    source	=> "${home}/src/vim-puppet/indent",
     recurse	=> true
   }
   file { '/usr/share/vim/vim73/syntax':
-    source	=> "${home}/src/puppet-syntax-vim/syntax",
+    source	=> "${home}/src/vim-puppet/syntax",
     recurse	=> true
   }
 
