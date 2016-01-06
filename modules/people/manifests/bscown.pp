@@ -1,6 +1,7 @@
 # Replace name of all the "bscown" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::bscown {
+  $vmware_key = "EJ695-2QH8J-H8K7C-0Z1R0-88LJ4"
   include gitflow
   include flowdock
   
@@ -11,10 +12,15 @@ class people::bscown {
     license => $vmware_license
   }
  
-  exec {  "set_vmware_fusion_key_bscown":
-    command=> "'/Applications/VMware Fusion.app/Contents/Library/vmware-licenseTool' enter 4N2AK-2H1EN-J8L62-08CU2-9N3NM '' '' '6.0' 'VMware Fusion for Mac OS' ''",
-    user => root
+  # License VMWare Fusion
+  exec { "license_vmware_fusion":
+    command=> "vmware-licenseTool enter ${vmware_key} '' '' '7.1.2' 'VMware Fusion for Mac OS' ''",
+    path => '/Applications/VMware Fusion.app/Contents/Library/licenses',
+    user => root,
+    refreshonly => true,
+    subscribe => Package['VMware Fusion']
   }
+
 
   #add personal git configurations
   git::config::global { 'user.email':
