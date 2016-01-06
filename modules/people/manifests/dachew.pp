@@ -7,6 +7,7 @@ class people::dachew {
   include apps::vagrant
   include apps::vmware_fusion
   include apps::nodejs
+  include apps::iterm2
 
 
   #-------------------------------------------------------------
