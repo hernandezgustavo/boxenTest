@@ -13,27 +13,7 @@ MKLINK /D "%USERPROFILE%\Documents\WindowsPowerShell\Modules\CurrentProcessPsMod
 
 
 @REM #
-@REM # let powershell execute scripts
-@REM #
-powershell.exe -Command "Set-ExecutionPolicy Unrestricted -Force"
-
-
-@REM #
 @REM # install chocolatey
 @REM #
-powershell.exe -NoProfile -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))"
 @SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
-
-
-@REM #
-@REM # install boxstarter
-@REM #
-%ProgramData%\chocolatey\bin\choco.exe install boxstarter
-
-
-@REM #
-@REM # continue setup via boxstarter and powershell
-@REM #
-IF EXIST "%BOXEN_PERSONAL_DIRECTORY%\wininit.ps1" (
-    powershell.exe -Command "Update-CurrentProcessPsModulePath; Install-BoxstarterPackage -PackageName %BOXEN_PERSONAL_DIRECTORY%\wininit.ps1"
-)
