@@ -3,7 +3,6 @@
       "1.9.3": "1.9.3-p194",
       "2.1.2": "2.1.2"
     },
-    "nodejs::build::ensure": "8cbf7421f00cb4a189cf6e84fdfebaa4ebea3c27",
     "nodejs::nodenv::ensure": "v1.0.0",
     "nodejs::build::ensure": "v2.1.1"
 }
