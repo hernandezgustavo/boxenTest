@@ -45,3 +45,6 @@ function gbp
    grunt build-ci --production=true
 end
 
+function eg
+    egrep -irn --color "$argv" .
+end
