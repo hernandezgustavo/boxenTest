@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <settings>
-	<console change_refresh="10" refresh="100" rows="50" columns="118" buffer_rows="500" buffer_columns="0" shell="" init_dir="" save_size="1" start_hidden="0">
+	<console change_refresh="10" refresh="100" rows="61" columns="102" buffer_rows="500" buffer_columns="0" shell="" init_dir="" save_size="1" start_hidden="0">
 		<colors>
 			<color id="0" r="0" g="0" b="0"/>
 			<color id="1" r="0" g="0" b="128"/>
@@ -24,8 +24,8 @@
 		<font name="Bitstream Vera Sans Mono" size="11" bold="0" italic="0" smoothing="0">
 			<color use="0" r="0" g="0" b="0"/>
 		</font>
-		<window title="Console" icon="" use_tab_icon="0" use_console_title="0" show_cmd="1" show_cmd_tabs="1" use_tab_title="0" trim_tab_titles="20" trim_tab_titles_right="0"/>
-		<controls show_menu="1" show_toolbar="0" show_statusbar="0" show_tabs="1" hide_single_tab="1" show_scrollbars="1" tabs_on_bottom="0" flat_scrollbars="0"/>
+		<window title="Console" icon="" use_tab_icon="0" use_console_title="1" show_cmd="1" show_cmd_tabs="1" use_tab_title="0" trim_tab_titles="20" trim_tab_titles_right="0"/>
+		<controls show_menu="0" show_toolbar="0" show_statusbar="0" show_tabs="1" hide_single_tab="1" show_scrollbars="1" tabs_on_bottom="0" flat_scrollbars="0"/>
 		<styles caption="1" resizable="1" taskbar_button="1" border="1" inside_border="2" tray_icon="1">
 			<selection_color r="255" g="255" b="255"/>
 		</styles>
@@ -90,8 +90,8 @@
 		</actions>
 	</mouse>
 	<tabs>
-		<tab title="Powershell" use_default_icon="0">
-			<console shell="%SystemRoot%\sysWOW64\WindowsPowerShell\v1.0\powershell.exe" init_dir="" run_as_user="0" user=""/>
+		<tab title="Git" icon="C:\Program Files (x86)\Git\etc\git.ico" use_default_icon="0">
+			<console shell="C:\windows\SysWOW64\cmd.exe /c &quot;&quot;C:\Program Files (x86)\Git\bin\sh.exe&quot; --login -i&quot;" init_dir="d:\Code" run_as_user="0" user=""/>
 			<cursor style="0" r="255" g="255" b="255"/>
 			<background type="0" r="0" g="0" b="0">
 				<image file="" relative="0" extend="0" position="0">
@@ -99,8 +99,17 @@
 				</image>
 			</background>
 		</tab>
-		<tab title="Git" icon="C:\Program Files (x86)\Git\etc\git.ico" use_default_icon="0">
-			<console shell="C:\windows\SysWOW64\cmd.exe /c &quot;&quot;C:\Program Files (x86)\Git\bin\sh.exe&quot; --login -i&quot;" init_dir="d:\Code" run_as_user="0" user=""/>
+		<tab title="Cmd" use_default_icon="0">
+			<console shell="" init_dir="" run_as_user="0" user=""/>
+			<cursor style="0" r="255" g="255" b="255"/>
+			<background type="0" r="0" g="0" b="0">
+				<image file="" relative="0" extend="0" position="0">
+					<tint opacity="0" r="0" g="0" b="0"/>
+				</image>
+			</background>
+		</tab>
+		<tab title="Powershell" use_default_icon="0">
+			<console shell="%SystemRoot%\sysWOW64\WindowsPowerShell\v1.0\powershell.exe" init_dir="" run_as_user="0" user=""/>
 			<cursor style="0" r="255" g="255" b="255"/>
 			<background type="0" r="0" g="0" b="0">
 				<image file="" relative="0" extend="0" position="0">
@@ -146,15 +155,6 @@
 		</tab>
 		<tab title="Powershell64" use_default_icon="0">
 			<console shell="%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe" init_dir="d:\Code" run_as_user="0" user=""/>
-			<cursor style="0" r="255" g="255" b="255"/>
-			<background type="0" r="0" g="0" b="0">
-				<image file="" relative="0" extend="0" position="0">
-					<tint opacity="0" r="0" g="0" b="0"/>
-				</image>
-			</background>
-		</tab>
-		<tab title="Console2" use_default_icon="0">
-			<console shell="" init_dir="" run_as_user="0" user=""/>
 			<cursor style="0" r="255" g="255" b="255"/>
 			<background type="0" r="0" g="0" b="0">
 				<image file="" relative="0" extend="0" position="0">
