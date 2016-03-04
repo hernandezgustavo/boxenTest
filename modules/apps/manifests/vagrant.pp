@@ -13,9 +13,9 @@
 #
 class apps::vagrant ($vagrantVMwareLicensePath = undef) {
   include ::vmware_fusion
-
+  # https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1.dmg
   class { '::vagrant':
-    version => '1.7.4'
+    version => '1.8.1'
   }
 
   if $vagrantVMwareLicensePath {
@@ -31,7 +31,7 @@ class apps::vagrant ($vagrantVMwareLicensePath = undef) {
     vagrant::plugin { 'vagrant-vmware-fusion':
       license => $vmwareLicensePath,
       require => Class['::vagrant'],
-      version => '4.0.2'
+      version => '4.0.8'
     }
   }
 }

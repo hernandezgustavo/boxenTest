@@ -7,6 +7,7 @@ class people::chrisbobo {
   include apps::webstorm
   include iterm2::dev
   include zsh
+  include apps::atom_symlink
 
   vagrant::plugin { 'vmware-fusion':
     license => "${$boxen::config::repodir}/modules/people/files/chrisbobo/LICENSE-2-vagrant-vmware-provider-license_20_seats.lic"
@@ -64,19 +65,16 @@ class people::chrisbobo {
     target  => "${home}/src/dotfiles/.zshrc"
   }
 
+
   #------------------------
   # Osx Customizations
   #------------------------
   include osx::dock::clear_dock
   include osx::disable_app_quarantine
-  include osx::no_network_dsstores
-
-  include osx::global::enable_keyboard_control_access
-  include osx::global::expand_print_dialog
-  include osx::global::expand_save_dialog
 
   include osx::finder::show_all_on_desktop
   include osx::finder::show_hidden_files
   include osx::finder::unhide_library
-}
 
+
+}
