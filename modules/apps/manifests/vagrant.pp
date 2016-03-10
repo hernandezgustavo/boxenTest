@@ -13,7 +13,7 @@
 #
 class apps::vagrant ($vagrantVMwareLicensePath = undef) {
   include ::vmware_fusion
-  # https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1.dmg
+
   class { '::vagrant':
     version => '1.8.1'
   }
