@@ -3,10 +3,11 @@
 class people::default {
   $home = "/Users/${::boxen_user}"
       
-  include dropbox
+  include apps::googledrive
   include chrome::canary
   include iterm2::dev
   include atom
+  include apps::atom_symlink
 
   # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
   # Upload your vagrant vmware plugin license to /modules/people/files/<your github username>
