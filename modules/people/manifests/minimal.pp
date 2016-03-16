@@ -2,11 +2,8 @@
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::default {
   $home = "/Users/${::boxen_user}"
-      
-  include dropbox
-  include chrome::canary
-  include iterm2::dev
-  include atom
+  
+  
 
   # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
   # Upload your vagrant vmware plugin license to /modules/people/files/<your github username>

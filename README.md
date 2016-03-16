@@ -1,3 +1,4 @@
+
 # Our Boxen
 
 Welcome to Daptiv OS X setup, please follow the getting started instructions below.
@@ -28,7 +29,7 @@ NOTE - Do not pull this repo before running Boxen!
 ## Configuration  (VERY IMPORTANT EVERYONE SHOULD DO THIS)
 As of the first boxen run you will have a `~/src/our-boxen` repository already set up, however you will not have any included projects. You will at this point want to set up your personal boxen people file which will hold your personal settings for what you wish to be installed on your box.
 
-The `modules/people/manifests` folder contains your personal manifest files which are automatically added based on your github username.  An example default.pp file exists with a sampling of common configurations that you will want to match.  
+The `modules/people/manifests` folder contains your personal manifest files which are automatically added based on your github username.  An example default.pp file exists with a sampling of common configurations that you will want to match. To get started on your own manifest file copy this file into one that has {your github username}.pp (eg fredbob.pp).  
 You should consider making the following changes to your manifest file:
 - Include any projects you are working on
 - Personalize your bash_profile
@@ -197,6 +198,8 @@ Use Issues or #boxen on irc.freenode.net.
 
 +## OMG JSON Gem won't install!!!
  +See this site for more information: https://langui.sh/2014/03/10/wunused-command-line-argument-hard-error-in-future-is-a-harsh-mistress/
+
+I got an error! Something about #!/bin/bash... then git on your Mac is improperly configured: You have set core.autocrlf to something other than the OS default, so when you clone repositories, git is changing the line endings to \r\n (they should only be \n for shell scripts, etc).  Update the setting and trash your boxen data - start it over.
 
 ## PPM Dev Box Setup
 
