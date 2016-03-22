@@ -221,3 +221,18 @@ Ensure your personal profile has your vagrant-vmware-fusion plugin configured wi
 Run `boxen` again, this will install your vagrant-vmware-fusion plugin.
 
 After you have completed upgrading your boxen, Ensure that you have created a pull request for your personal manifest changes, and get it pulled into master our-boxen. This will ensure that when you rebuild your machine you can get your same settings when you initially boxen.
+
+## Upgrade https://daptiv-boxen.herokuapp.com/  website
+
+Get access to the heroku account with boxen from @chrisbobo or @jtrinklein or @schristopher
+
+Configuration values are already set.
+
+Clone the boxen web site code to your local machine
+`git clone git@github.com:boxen/boxen-web.git`
+
+Add a remote for heroku
+`git remote add https://git.heroku.com/daptiv-boxen.git`
+
+push to heroku
+`git push heroku master`
