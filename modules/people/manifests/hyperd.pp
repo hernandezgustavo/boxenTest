@@ -12,16 +12,19 @@ class people::hyperd {
 
   #include vagrant
   include chrome
-  include apps::sublime
-  include apps::sublime::bracket_highlighter
-  include apps::sublime::wombat_theme
-  include sublime_text_3::package_control
   include vmware_fusion
   include flowdock
   include nodejs
   include google_notifier
   include fluid
   include trailer
+  include atom
+  
+  #atom
+  atom::package {'language-typescript' : }
+  atom::package { 'linter-tslint' : }
+  atom::package { 'linter' : }
+  
   
 
   # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
