@@ -1,4 +1,3 @@
-source ~/.git-completion.zsh
 source ~/.git-prompt.sh
 
 #PS1='[\w$(__git_ps1 " (%s)")]\$ '
