@@ -3,17 +3,11 @@
 class people::default {
   $home = "/Users/${::boxen_user}"
 
-  include apps::googledrive
-  include chrome::canary
-  include iterm2::dev
-  include atom
-  include apps::atom_symlink
-
   # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
-  # Update the path below to point to the license that has your name associated with it at and uncomment this section.
-  # Licenses are found at https://sites.google.com/a/daptiv.com/portal/Daptiv-Engineering-Wiki/tools-utlities#TOC-Vagrant-VMWare-7-Provider-
+  # Upload your vagrant vmware plugin license to /modules/people/files/<your github username>
+  # Update the path below to point to that file and uncomment this section.
   #vagrant::plugin { 'vagrant-vmware-fusion':
-  #  license => "${$boxen::config::repodir}/modules/daptiv/files/vagrant/LICENSE-1.lic"
+  #  license => "${$boxen::config::repodir}/modules/people/files/default/LICENSE_FILENAME.lic"
   #}
 
   git::config::global { 'user.email':

@@ -19,9 +19,10 @@ fi
 
 export VAGRANT_SERVER_URL=http://vagrantboxes.hq.daptiv.com
 
-# Aliases
+
+# Aliases 
+
 alias dir='ls -ba'
 alias ll='ls -la'
 
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash

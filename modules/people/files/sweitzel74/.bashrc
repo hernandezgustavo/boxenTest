@@ -14,14 +14,11 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 tabname () { printf "\e]1;$1\a"; }
 export EDITOR='subl -w'
 
-export GOPATH=~/src/gocode
-
 source /opt/boxen/env.sh
 
 add_to_path "~/.cabal/bin"
 add_to_path "~/bin"
 add_to_path "~/.chefdk/gem/ruby/2.1.0/bin"
-add_to_path "$GOPATH/bin"
 
 # allow override of default provider to virtualbox in .bash_profile
 if [ -z "$VAGRANT_DEFAULT_PROVIDER" ]
@@ -29,8 +26,6 @@ if [ -z "$VAGRANT_DEFAULT_PROVIDER" ]
 fi
 
 export VAGRANT_SERVER_URL=http://vagrantboxes.hq.daptiv.com
-export CHEF_DATA_BAGS=~/src/chef-repo/data_bags
-export CHEF_SECRET_FILE=~/.chef/ops_encrypted_data_bag_secret
 
 source ~/.git-completion.sh
 source ~/.git-prompt.sh
