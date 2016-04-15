@@ -2,13 +2,8 @@ require boxen::environment
 require homebrew
 require gcc
 
-File {
-  group => $boxen_group,
-  owner => $boxen_user
-}
-
 Exec {
-  group       => $boxen_group,
+  group       => 'staff',
   logoutput   => on_failure,
   user        => $boxen_user,
 
@@ -16,7 +11,7 @@ Exec {
     "${boxen::config::home}/rbenv/shims",
     "${boxen::config::home}/rbenv/bin",
     "${boxen::config::home}/rbenv/plugins/ruby-build/bin",
-    "${boxen::config::home}/homebrew/bin",
+    "${boxen::config::homebrewdir}/bin",
     '/usr/bin',
     '/bin',
     '/usr/sbin',
@@ -27,6 +22,11 @@ Exec {
     "HOMEBREW_CACHE=${homebrew::config::cachedir}",
     "HOME=/Users/${::boxen_user}"
   ]
+}
+
+File {
+  group => 'staff',
+  owner => $boxen_user
 }
 
 Package {
@@ -63,6 +63,17 @@ node default {
   if $::root_encrypted == 'no' {
     fail('Please enable full disk encryption and try again')
   }
+
+  # node versions
+  nodejs::version { '0.8': }
+  nodejs::version { '0.10': }
+  nodejs::version { '0.12': }
+
+  # default ruby versions
+  ruby::version { '1.9.3': }
+  ruby::version { '2.0.0': }
+  ruby::version { '2.1.8': }
+  ruby::version { '2.2.4': }
 
   # common, useful packages
   package {
