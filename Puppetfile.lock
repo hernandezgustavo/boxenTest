@@ -19,6 +19,16 @@ GITHUBTARBALL
     dnsmasq (2.0.1)
 
 GITHUBTARBALL
+  remote: boxen/puppet-dropbox
+  specs:
+    dropbox (1.4.1)
+
+GITHUBTARBALL
+  remote: boxen/puppet-flux
+  specs:
+    flux (1.0.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-foreman
   specs:
     foreman (1.2.0)
@@ -119,6 +129,11 @@ GITHUBTARBALL
     xquartz (1.2.1)
 
 GITHUBTARBALL
+  remote: heathsnow/puppet-flowdock
+  specs:
+    flowdock (1.0.1)
+
+GITHUBTARBALL
   remote: puppetlabs/puppetlabs-inifile
   specs:
     inifile (1.4.1)
@@ -138,6 +153,9 @@ DEPENDENCIES
   brewcask (= 0.0.6)
   chrome (= 1.1.1)
   dnsmasq (= 2.0.1)
+  dropbox (= 1.4.1)
+  flowdock (= 1.0.1)
+  flux (= 1.0.1)
   foreman (= 1.2.0)
   gcc (= 3.0.2)
   git (= 2.7.92)
