@@ -49,6 +49,11 @@ GITHUBTARBALL
     hub (1.4.1)
 
 GITHUBTARBALL
+  remote: boxen/puppet-mongodb
+  specs:
+    mongodb (1.5.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-nginx
   specs:
     nginx (1.6.0)
@@ -141,6 +146,7 @@ DEPENDENCIES
   hub (= 1.4.1)
   inifile (= 1.4.1)
   module_data (= 0.0.4)
+  mongodb (= 1.5.0)
   nginx (= 1.6.0)
   nodejs (= 5.0.0)
   openssl (= 1.0.0)
