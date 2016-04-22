@@ -15,6 +15,12 @@ class projects::teammember () {
     ip           => '127.0.0.1'
   }
 
+  host { 'workwisedev':
+    name         => 'workwisedev.daptiv.com',
+    comment      => 'routing for workwise app to default docker host ip',
+    ip           => '192.168.99.100'
+  }
+
   boxen::project { 'teammember-client':
     nginx         => "${boxen::config::repodir}/modules/projects/templates/teammember.client.nginx.conf.erb",
     source        => 'git@github.com:daptiv/teammember-client.git'
