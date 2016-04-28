@@ -1,4 +1,3 @@
-
 # Our Boxen
 
 Welcome to Daptiv OS X setup, please follow the getting started instructions below.
@@ -29,7 +28,7 @@ NOTE - Do not pull this repo before running Boxen!
 ## Configuration  (VERY IMPORTANT EVERYONE SHOULD DO THIS)
 As of the first boxen run you will have a `~/src/our-boxen` repository already set up, however you will not have any included projects. You will at this point want to set up your personal boxen people file which will hold your personal settings for what you wish to be installed on your box.
 
-The `modules/people/manifests` folder contains your personal manifest files which are automatically added based on your github username.  An example default.pp file exists with a sampling of common configurations that you will want to match. To get started on your own manifest file copy this file into one that has {your github username}.pp (eg fredbob.pp).  
+The `modules/people/manifests` folder contains your personal manifest files which are automatically added based on your github username.  An example default.pp file exists with a sampling of common configurations that you will want to match.  
 You should consider making the following changes to your manifest file:
 - Include any projects you are working on
 - Personalize your bash_profile
@@ -38,7 +37,7 @@ You should consider making the following changes to your manifest file:
 
 You may also want to take a look at other user's manifest files to see some of the other things you can customize.
 
-To get started first set the enviroment variable if not set already:
+To get started first set the enviroment variable if not set already: 
 `export BOXEN_GITHUB_LOGIN=replacewithyourgithubloginusername`
 
 and then run the following
@@ -190,7 +189,7 @@ You'll still be the maintainer, you'll still own the issues and PRs.
 It'll just be listed under the boxen org so folks can find it more easily.
 
 
-## Help!
+## Halp!
 
 See [FAQ](https://github.com/boxen/our-boxen/blob/master/docs/faq.md).
 
@@ -199,17 +198,15 @@ Use Issues or #boxen on irc.freenode.net.
 +## OMG JSON Gem won't install!!!
  +See this site for more information: https://langui.sh/2014/03/10/wunused-command-line-argument-hard-error-in-future-is-a-harsh-mistress/
 
-I got an error! Something about #!/bin/bash... then git on your Mac is improperly configured: You have set core.autocrlf to something other than the OS default, so when you clone repositories, git is changing the line endings to \r\n (they should only be \n for shell scripts, etc).  Update the setting and trash your boxen data - start it over.
+## Vagrant Setup
 
-## PPM Dev Box Setup
-
-See Wiki: https://sites.google.com/a/daptiv.com/portal/Daptiv-Engineering-Wiki/dev-machine-setup/vagrant-windows-dev-box
+See Wiki: https://sites.google.com/a/daptiv.com/portal/Daptiv-Engineering-Wiki/dev-machine-setup/new-vagrant-windows-dev-box
 
 ## Upgrading Boxen when you have vagrant 1.4.2
 
 Run boxen, this will upgrade all the things including vagrant to vagrant 1.6.2 assuming you are on the master branch (If you are on your personal branch you will need to merge master changes).    
 
-Vagrant will land in a slightly broken state.  In order to fix this run
+Vagrant will land in a slightly broken state.  In order to fix this run 
 ```bash
    vagrant plugin list
 ```
@@ -221,3 +218,5 @@ Ensure your personal profile has your vagrant-vmware-fusion plugin configured wi
 Run `boxen` again, this will install your vagrant-vmware-fusion plugin.
 
 After you have completed upgrading your boxen, Ensure that you have created a pull request for your personal manifest changes, and get it pulled into master our-boxen. This will ensure that when you rebuild your machine you can get your same settings when you initially boxen.
+
+
