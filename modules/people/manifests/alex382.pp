@@ -40,5 +40,5 @@ class people::alex382 {
   include apps::sublime::markdown
   include apps::sublime::fileautocomplete
   include apps::sublime::sidebar
-  include sublime_text_3::package_control
+  include sublime_text::package_control
 }
