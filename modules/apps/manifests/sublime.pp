@@ -17,7 +17,6 @@ class apps::sublime ($licensePath = undef) {
   include apps::sublime::emmet
   include apps::sublime::linter
   include apps::sublime::repl
-#  include apps::sublime::typescript
   include apps::sublime::less
 
   if $licensePath {
