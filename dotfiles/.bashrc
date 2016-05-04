@@ -8,6 +8,7 @@ if [ -h $bash_profile ]
 fi
 
 PATH=$PATH:$HOME/.rvm/bin:$HOME/src/scripts # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/bin
 
 source /opt/boxen/env.sh
 
@@ -20,7 +21,7 @@ fi
 export VAGRANT_SERVER_URL=http://vagrantboxes.hq.daptiv.com
 
 
-# Aliases 
+# Aliases
 
 alias dir='ls -ba'
 alias ll='ls -la'
