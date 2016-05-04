@@ -46,6 +46,8 @@ set -e
 # native extensions won't fail, e.g. json
 # See https://developer.apple.com/library/ios/releasenotes/developertools/rn-xcode/Introduction/Introduction.html
 set +e
+# If you have a full Xcode install, swap com.apple.pkg.CLTools_Executables out with com.apple.pkg.Xcode
+#CLTOOLS_VERSION_CHECK=`pkgutil --pkg-info=com.apple.pkg.Xcode | awk '/^version:/ {print $2}' | egrep -q '^5\.1' 2>/dev/null`
 CLTOOLS_VERSION_CHECK=`pkgutil --pkg-info=com.apple.pkg.CLTools_Executables | awk '/^version:/ {print $2}' | egrep -q '^5\.1' 2>/dev/null`
 if [ $? -eq 0 ]; then
     export ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future
@@ -66,16 +68,20 @@ PATH="/Library/Ruby/bin:$PATH"
 checksum_bundle() {
     (((find Gemfile Gemfile.lock bin -type f) | xargs cat) && /usr/bin/ruby -v && bundle -v) | md5
 }
+
 write_checksum() {
     mkdir -p tmp
     checksum_bundle > tmp/bundle_checksum.txt
 }
+
 mkdir -p bin
+
 if [ "$1" = "--pristine" ]; then
     log "====> Cleaning installed gems"
     git clean -xdf bin/ vendor/gems/* tmp/bundle_checksum.txt
     shift
 fi
+
 if [ -z "$WITHOUT" ] && [ "$(checksum_bundle)" = "$(cat tmp/bundle_checksum.txt 2>/dev/null)" ]; then
     log "====> Bundle already up-to-date!"
 else
@@ -88,5 +94,6 @@ else
     bundle install --binstubs bin --path .bundle --quiet "$@" && write_checksum
     log "====> Done Installing gem dependencies"
 fi
+
 # Fix the binstubs to use system ruby
 find bin -not -path 'bin/\.*' -type f -print0 | xargs -0 /usr/bin/sed -i '' 's|/usr/bin/env ruby|/usr/bin/ruby|g'

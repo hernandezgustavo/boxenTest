@@ -1,5 +1,5 @@
 class apps::sublime::sidebar {
-  sublime_text_3::package { 'SideBarEnhancements':
+  sublime_text::package { 'SideBarEnhancements':
     source => 'git@github.com:titoBouzout/SideBarEnhancements',
     branch => 'st3'
   }

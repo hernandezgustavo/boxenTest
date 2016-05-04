@@ -123,9 +123,9 @@ class people::drewburlingame {
   include apps::sublime::markdown
   include apps::sublime::fileautocomplete
   include apps::sublime::sidebar
-  include sublime_text_3::package_control
+  include sublime_text::package_control
 
-  sublime_text_3::package { 'OmniSharpSublimePlugin':
+  sublime_text::package { 'OmniSharpSublimePlugin':
     source => 'git@github.com:PaulCampbell/OmniSharpSublimePlugin.git'
   }
 

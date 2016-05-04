@@ -4,5 +4,8 @@
       "2.1.2": "2.1.2"
     },
     "nodejs::build::ensure": "8cbf7421f00cb4a189cf6e84fdfebaa4ebea3c27",
-    "nodejs::nodenv::ensure": "v0.4.0"
+    "nodejs::nodenv::ensure": "v0.4.0",
+
+    "virtualbox::version": "5.0.14",
+    "virtualbox::patch_level": "105127"
 }

@@ -8,6 +8,7 @@ if [ -h $bash_profile ]
 fi
 
 PATH=$PATH:$HOME/.rvm/bin:$HOME/src/scripts # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/bin
 
 source /opt/boxen/env.sh
 
@@ -20,9 +21,16 @@ fi
 export VAGRANT_SERVER_URL=http://vagrantboxes.hq.daptiv.com
 
 
-# Aliases 
+# Aliases
 
 alias dir='ls -ba'
 alias ll='ls -la'
 
 
+docker-machine-set()
+    {
+      local machine_name=$1
+      docker-machine start $machine_name
+      eval "$(docker-machine env $machine_name)"
+      echo Docker machine ip is "$(docker-machine ip $machine_name)"
+    }

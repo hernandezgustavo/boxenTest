@@ -30,5 +30,5 @@ class people::agustinvillar {
   include apps::sublime
   include apps::sublime::bracket_highlighter
   include apps::sublime::wombat_theme
-  include sublime_text_3::package_control
+  include sublime_text::package_control
 }

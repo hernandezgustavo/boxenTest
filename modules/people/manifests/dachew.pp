@@ -48,9 +48,9 @@ class people::dachew {
   #-------------------------------------------------------------
   $st = "${home}/Library/Application Support/Sublime Text 3"
   
-  include sublime_text_3
-  include sublime_text_3::package_control
-  sublime_text_3::package { 'Theme - Soda':
+  include sublime_text
+  include sublime_text::package_control
+  sublime_text::package { 'Theme - Soda':
     source => 'https://github.com/buymeasoda/soda-theme/'
   }
 
