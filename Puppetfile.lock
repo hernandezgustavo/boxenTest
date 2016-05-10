@@ -229,6 +229,11 @@ GITHUBTARBALL
     sudo (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-transmission
+  specs:
+    transmission (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-vagrant
   specs:
     vagrant (3.3.4)
@@ -348,3 +353,4 @@ DEPENDENCIES
   vmware_fusion (= 1.2.0)
   xquartz (= 1.2.1)
   zsh (= 1.0.0)
+
