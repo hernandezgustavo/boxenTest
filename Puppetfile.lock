@@ -341,6 +341,7 @@ DEPENDENCIES
   sublime_text (= 1.1.1)
   sudo (= 1.0.0)
   trailer (= 1.0.1)
+  transmission (= 1.0.0)
   vagrant (= 3.3.4)
   vim (= 1.0.5)
   virtualbox (= 1.0.13)

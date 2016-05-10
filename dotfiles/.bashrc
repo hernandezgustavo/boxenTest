@@ -22,7 +22,6 @@ export VAGRANT_SERVER_URL=http://vagrantboxes.hq.daptiv.com
 
 
 # Aliases
-
 alias dir='ls -ba'
 alias ll='ls -la'
 
@@ -34,3 +33,6 @@ docker-machine-set()
       eval "$(docker-machine env $machine_name)"
       echo Docker machine ip is "$(docker-machine ip $machine_name)"
     }
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+

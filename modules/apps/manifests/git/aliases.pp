@@ -16,4 +16,16 @@ class apps::git::aliases {
       value  => 'log --pretty=oneline --abbrev-commit --graph --decorate --all'
     }
 
+    git::config::global { 'alias.st':
+      value  => 'status'
+    }
+
+    git::config::global { 'alias.co':
+      value  => 'checkout'
+    }
+
+    git::config::global { 'alias.cob':
+      value  => 'checkout -b'
+    }
+
 }
