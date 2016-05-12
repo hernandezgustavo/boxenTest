@@ -7,11 +7,11 @@ class people::dizard2001 {
   # Upload your vagrant vmware plugin license to /modules/people/files/<your github username>
   # Update the path below to point to that file and uncomment this section.
   #vagrant::plugin { 'vagrant-vmware-fusion':
-  #  license => "${$boxen::config::repodir}/modules/people/files/dizard2001/LICENSE_FILENAME.lic"
+  #  license => "${$boxen::config::repodir}/modules/people/files/dizard2001/LICENSE-2-vagrant-vmware-provider-license_20_seats.lic"
   #}
 
   git::config::global { 'user.email':
-    value  => 'GITHUB_EMAIL'
+    value  => 'darrel.anderson@changepoint.com'
   }
   git::config::global { 'user.name':
     value  => 'dizard2001'
