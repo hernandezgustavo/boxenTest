@@ -18,7 +18,7 @@ bundle exec rake
 chef-client -j oic.json
 
 #reset default chef run list
-#see [TO BE FILLED IN]
+#see https://github.com/daptiv/Daptiv.Services.Auth/issues/89
 cd C:/src/Ppm
 chef-client -r "daptiv_dev_ppm_role::deploy_ppm,minitest-handler"
 
