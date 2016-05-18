@@ -8,7 +8,7 @@ git submodule update
 bundle install
 bundle exec rake
 npm install -g grunt-cli mountebank
-chef-client -r "daptiv_dev_ppm_role::deploy_ppm,minitest-handler"
+chef-client
 
 #setup auth
 git clone git@github.com:daptiv/Daptiv.Services.Auth C:/src/Daptiv.Services.Auth
