@@ -14,16 +14,6 @@ GITHUBTARBALL
     mercurial (0.0.1)
 
 GITHUBTARBALL
-  remote: boxen/puppet-adium
-  specs:
-    adium (1.4.0)
-
-GITHUBTARBALL
-  remote: boxen/puppet-adobe_reader
-  specs:
-    adobe_reader (1.2.0)
-
-GITHUBTARBALL
   remote: boxen/puppet-atom
   specs:
     atom (1.3.0)
@@ -39,19 +29,9 @@ GITHUBTARBALL
     brewcask (0.0.6)
 
 GITHUBTARBALL
-  remote: boxen/puppet-caffeine
-  specs:
-    caffeine (1.0.0)
-
-GITHUBTARBALL
   remote: boxen/puppet-chrome
   specs:
     chrome (1.1.1)
-
-GITHUBTARBALL
-  remote: boxen/puppet-clojure
-  specs:
-    clojure (1.3.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-dnsmasq
@@ -74,19 +54,9 @@ GITHUBTARBALL
     firefox (1.2.3)
 
 GITHUBTARBALL
-  remote: boxen/puppet-fish
-  specs:
-    fish (1.0.0)
-
-GITHUBTARBALL
   remote: boxen/puppet-fluid
   specs:
     fluid (1.0.2)
-
-GITHUBTARBALL
-  remote: boxen/puppet-flux
-  specs:
-    flux (1.0.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-foreman
@@ -119,11 +89,6 @@ GITHUBTARBALL
     graphviz (1.0.0)
 
 GITHUBTARBALL
-  remote: boxen/puppet-heroku
-  specs:
-    heroku (2.1.1)
-
-GITHUBTARBALL
   remote: boxen/puppet-homebrew
   specs:
     homebrew (2.0.2)
@@ -147,11 +112,6 @@ GITHUBTARBALL
   remote: boxen/puppet-kindle
   specs:
     kindle (1.0.1)
-
-GITHUBTARBALL
-  remote: boxen/puppet-mongodb
-  specs:
-    mongodb (1.5.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-nginx
@@ -229,19 +189,9 @@ GITHUBTARBALL
     sudo (1.0.0)
 
 GITHUBTARBALL
-  remote: boxen/puppet-transmission
-  specs:
-    transmission (1.0.0)
-
-GITHUBTARBALL
   remote: boxen/puppet-vagrant
   specs:
     vagrant (3.3.4)
-
-GITHUBTARBALL
-  remote: boxen/puppet-vim
-  specs:
-    vim (1.0.5)
 
 GITHUBTARBALL
   remote: boxen/puppet-virtualbox
@@ -294,23 +244,17 @@ GITHUBTARBALL
     chefdk (1.0.7)
 
 DEPENDENCIES
-  adium (= 1.4.0)
-  adobe_reader (= 1.2.0)
   atom (= 1.3.0)
   boxen (= 3.11.1)
   brewcask (= 0.0.6)
-  caffeine (= 1.0.0)
   chefdk (= 1.0.7)
   chrome (= 1.1.1)
-  clojure (= 1.3.0)
   dnsmasq (= 2.0.1)
   dropbox (= 1.4.1)
   evernote (= 2.0.7)
   firefox (= 1.2.3)
-  fish (= 1.0.0)
   flowdock (= 1.0.1)
   fluid (= 1.0.2)
-  flux (= 1.0.1)
   foreman (= 1.2.0)
   gcc (= 3.0.2)
   git (= 2.8.1)
@@ -318,7 +262,6 @@ DEPENDENCIES
   go (= 2.1.0)
   google_notifier (= 1.0.1)
   graphviz (= 1.0.0)
-  heroku (= 2.1.1)
   homebrew (= 2.0.2)
   hub (= 1.4.1)
   inifile (= 1.4.1)
@@ -327,7 +270,6 @@ DEPENDENCIES
   kindle (= 1.0.1)
   mercurial (= 0.0.1)
   module_data (= 0.0.4)
-  mongodb (= 1.5.0)
   nginx (= 1.7.0)
   nodejs (= 5.0.0)
   openssl (= 1.0.0)
@@ -346,9 +288,7 @@ DEPENDENCIES
   sublime_text (= 1.1.1)
   sudo (= 1.0.0)
   trailer (= 1.0.1)
-  transmission (= 1.0.0)
   vagrant (= 3.3.4)
-  vim (= 1.0.5)
   virtualbox (= 1.0.13)
   vmware_fusion (= 1.2.0)
   xquartz (= 1.2.1)
