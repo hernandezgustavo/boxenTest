@@ -13,7 +13,7 @@ class daptiv::environment {
   include chrome
   include virtualbox
 
-  include daptiv::dotFiles
+  include daptiv::dotfiles
   include daptiv::npm::registry
 
   include apps::git

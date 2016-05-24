@@ -15,7 +15,7 @@ class people::sqlbob {
 
   include dropbox
   include apps::googledrive
-  include apps::fishShell
+  include apps::fishshell
 
   include apps::sublime
   include apps::sublime::bracket_highlighter

@@ -6,7 +6,7 @@ class people::cliffburger {
 
   include adobe_reader
 
-  include apps::fishShell
+  include apps::fishshell
   include apps::googledrive
   include apps::webstorm
   include apps::git::difftools::p4merge

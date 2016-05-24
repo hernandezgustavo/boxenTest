@@ -1,5 +1,5 @@
 class people::foresterh {
-  include apps::fishShell
+  include apps::fishshell
   include iterm2::dev
   include zsh
   include firefox

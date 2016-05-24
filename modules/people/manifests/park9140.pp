@@ -1,7 +1,7 @@
 
 class people::park9140 {
   $vmware_key = "EJ695-2QH8J-H8K7C-0Z1R0-88LJ4"
-  include apps::fishShell
+  include apps::fishshell
 
   include chrome::canary
 
