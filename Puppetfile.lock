@@ -31,7 +31,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-chrome
   specs:
-    chrome (1.1.1)
+    chrome (1.2.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-dnsmasq
@@ -194,6 +194,11 @@ GITHUBTARBALL
     vagrant (3.3.4)
 
 GITHUBTARBALL
+  remote: boxen/puppet-vim
+  specs:
+    vim (1.0.5)
+
+GITHUBTARBALL
   remote: boxen/puppet-virtualbox
   specs:
     virtualbox (1.0.13)
@@ -248,7 +253,7 @@ DEPENDENCIES
   boxen (= 3.11.1)
   brewcask (= 0.0.6)
   chefdk (= 1.0.7)
-  chrome (= 1.1.1)
+  chrome (= 1.2.0)
   dnsmasq (= 2.0.1)
   dropbox (= 1.4.1)
   evernote (= 2.0.7)
@@ -289,6 +294,7 @@ DEPENDENCIES
   sudo (= 1.0.0)
   trailer (= 1.0.1)
   vagrant (= 3.3.4)
+  vim (= 1.0.5)
   virtualbox (= 1.0.13)
   vmware_fusion (= 1.2.0)
   xquartz (= 1.2.1)
