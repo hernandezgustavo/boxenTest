@@ -30,7 +30,7 @@ class people::akalman {
 
   #terminal
   include iterm2::dev
-  include apps::fishShell
+  #include apps::fishShell
   file { "${home}/.config/fish/personal.fish":
     ensure  => link,
     target  => "${boxen::config::repodir}/modules/people/files/akalman/personal.fish",
