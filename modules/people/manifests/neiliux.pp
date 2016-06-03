@@ -56,5 +56,5 @@ class people::neiliux {
   include chrome::canary
   include apps::webstorm
   include atom
-  include apps::fishShell
+  include apps::fishshell
 }

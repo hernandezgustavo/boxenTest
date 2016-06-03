@@ -1,4 +1,4 @@
-class apps::dotFiles {
+class apps::dotfiles {
   $home = "/Users/${::boxen_user}"
   $dotfiles_dir = "${$boxen::config::repodir}/dotfiles"
 

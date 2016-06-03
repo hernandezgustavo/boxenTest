@@ -1,6 +1,5 @@
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-tabname () { printf "\e]1;$1\a"; }
 export PATH=~/bin:/opt/local/bin:$PATH
 export EDITOR='vim';
 export DB_SERVER_NAME='WIN-2012R2'
