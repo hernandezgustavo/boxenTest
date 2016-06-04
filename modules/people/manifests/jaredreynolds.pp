@@ -4,7 +4,6 @@ class people::jaredreynolds {
 
   include firefox
   include flowdock
-  include homebrewcask
   include iterm2::dev
 
   #add personal git configurations
