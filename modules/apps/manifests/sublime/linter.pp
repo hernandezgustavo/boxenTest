@@ -1,26 +1,26 @@
 class apps::sublime::linter {
-  sublime_text_3::package { 'SublimeLinter':
+  sublime_text::package { 'SublimeLinter':
     source => 'git@github.com:SublimeLinter/SublimeLinter3.git'
   }
-  sublime_text_3::package { 'SublimeLinter-jshint':
+  sublime_text::package { 'SublimeLinter-jshint':
     source => 'git@github.com:SublimeLinter/SublimeLinter-jshint.git'
   }
-  sublime_text_3::package { 'SublimeLinter-puppet':
+  sublime_text::package { 'SublimeLinter-puppet':
     source => 'git@github.com:stopdropandrew/SublimeLinter-puppet.git'
   }
-  sublime_text_3::package { 'SublimeLinter-pylint':
+  sublime_text::package { 'SublimeLinter-pylint':
     source => 'git@github.com:SublimeLinter/SublimeLinter-pylint.git'
   }
-  sublime_text_3::package { 'SublimeLinter-ruby':
+  sublime_text::package { 'SublimeLinter-ruby':
     source => 'git@github.com:SublimeLinter/SublimeLinter-ruby.git'
   }
-  sublime_text_3::package { 'SublimeLinter-json':
+  sublime_text::package { 'SublimeLinter-json':
     source => 'git@github.com:SublimeLinter/SublimeLinter-json.git'
   }
-  sublime_text_3::package { 'SublimeLinter-html-tidy':
+  sublime_text::package { 'SublimeLinter-html-tidy':
     source => 'git@github.com:SublimeLinter/SublimeLinter-html-tidy.git'
   }
-  sublime_text_3::package { 'SublimeLinter-contrib-tslint':
+  sublime_text::package { 'SublimeLinter-contrib-tslint':
     source => 'git@github.com:daptiv/SublimeLinter-contrib-tslint.git'
   }
 }

@@ -1,5 +1,5 @@
 class apps::sublime::bracket_highlighter {
-  sublime_text_3::package { 'BracketHighlighter':
+  sublime_text::package { 'BracketHighlighter':
     source => 'git@github.com:facelessuser/BracketHighlighter'
   }
 }

@@ -12,12 +12,11 @@
 #     class { 'apps::sublime': licensePath => '/path/to/license' }
 #
 class apps::sublime ($licensePath = undef) {
-  require sublime_text_3
+  require sublime_text
 
   include apps::sublime::emmet
   include apps::sublime::linter
   include apps::sublime::repl
-  include apps::sublime::typescript
   include apps::sublime::less
 
   if $licensePath {

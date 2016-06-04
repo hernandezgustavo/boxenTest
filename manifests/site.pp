@@ -2,13 +2,8 @@ require boxen::environment
 require homebrew
 require gcc
 
-File {
-  group => $boxen_group,
-  owner => $boxen_user
-}
-
 Exec {
-  group       => $boxen_group,
+  group       => 'staff',
   logoutput   => on_failure,
   user        => $boxen_user,
 
@@ -16,7 +11,7 @@ Exec {
     "${boxen::config::home}/rbenv/shims",
     "${boxen::config::home}/rbenv/bin",
     "${boxen::config::home}/rbenv/plugins/ruby-build/bin",
-    "${boxen::config::home}/homebrew/bin",
+    "${boxen::config::homebrewdir}/bin",
     '/usr/bin',
     '/bin',
     '/usr/sbin',
@@ -27,6 +22,11 @@ Exec {
     "HOMEBREW_CACHE=${homebrew::config::cachedir}",
     "HOME=/Users/${::boxen_user}"
   ]
+}
+
+File {
+  group => 'staff',
+  owner => $boxen_user
 }
 
 Package {

@@ -1,3 +1,4 @@
+
 # Our Boxen
 
 Welcome to Daptiv OS X setup, please follow the getting started instructions below.
@@ -28,7 +29,7 @@ NOTE - Do not pull this repo before running Boxen!
 ## Configuration  (VERY IMPORTANT EVERYONE SHOULD DO THIS)
 As of the first boxen run you will have a `~/src/our-boxen` repository already set up, however you will not have any included projects. You will at this point want to set up your personal boxen people file which will hold your personal settings for what you wish to be installed on your box.
 
-The `modules/people/manifests` folder contains your personal manifest files which are automatically added based on your github username.  An example default.pp file exists with a sampling of common configurations that you will want to match.  
+The `modules/people/manifests` folder contains your personal manifest files which are automatically added based on your github username.  An example default.pp file exists with a sampling of common configurations that you will want to match. To get started on your own manifest file copy this file into one that has {your github username}.pp (eg fredbob.pp).  
 You should consider making the following changes to your manifest file:
 - Include any projects you are working on
 - Personalize your bash_profile
@@ -37,7 +38,7 @@ You should consider making the following changes to your manifest file:
 
 You may also want to take a look at other user's manifest files to see some of the other things you can customize.
 
-To get started first set the enviroment variable if not set already: 
+To get started first set the enviroment variable if not set already:
 `export BOXEN_GITHUB_LOGIN=replacewithyourgithubloginusername`
 
 and then run the following
@@ -87,11 +88,11 @@ boxen repo (ex. /path/to/your-boxen/Puppetfile):
     # Optional/custom modules. There are tons available at
     # https://github.com/boxen.
 
-    github "java",     "1.1.0"
+    github "java",     "1.6.0"
 
 In the above snippet of a customized Puppetfile, the bottom line
-includes the Java module from Github using the tag "1.1.0" from the github repository
-"boxen/puppet-java".  The function "github" is defined at the top of the Puppetfile
+includes the Java module from Github using the tag "1.6.0" from the github repository
+"[boxen/puppet-java/releases](https://github.com/boxen/puppet-java/releases)".  The function "github" is defined at the top of the Puppetfile
 and takes the name of the module, the version, and optional repo location:
 
     def github(name, version, options = nil)
@@ -103,8 +104,34 @@ and takes the name of the module, the version, and optional repo location:
 Now Puppet knows where to download the module from when you include it in your site.pp or mypersonal.pp file:
 
     # include the java module referenced in my Puppetfile with the line
-    # github "java",     "1.1.0"
+    # github "java",     "1.6.0"
     include java
+
+### Hiera
+
+Hiera is preferred mechanism to make changes to module defaults (e.g. default
+global ruby version, service ports, etc). This repository supplies a
+starting point for your Hiera configuration at `config/hiera.yml`, and an
+example data file at `hiera/common.yaml`. See those files for more details.
+
+The default `config/hiera.yml` is configured with a hierarchy that allows
+individuals to have their own hiera data file in
+`hiera/users/{github_login}.yaml` which augments and overrides
+site-wide values in `hiera/common.yaml`. This default is, as with most of the
+configuration in the example repo, a great starting point for many
+organisations, but is totally up to you. You might want to, for
+example, have a set of values that can't be overridden by adding a file to
+the top of the hierarchy, or to have values set on specific OS
+versions:
+
+```yaml
+# ...
+:hierarchy:
+  - "global-overrides.yaml"
+  - "users/%{::github_login}"
+  - "osx-%{::macosx_productversion_major}"
+  - common
+```
 
 ### Node definitions
 
@@ -147,7 +174,7 @@ everyone by default. An example of this might look like so:
 
    include projects::super-top-secret-project
  }
- ```
+```
 
  If you'd like to read more about how Puppet works, we recommend
  checking out [the official documentation](http://docs.puppetlabs.com/)
@@ -188,8 +215,17 @@ fork.
 You'll still be the maintainer, you'll still own the issues and PRs.
 It'll just be listed under the boxen org so folks can find it more easily.
 
+##upgrading boxen
+See [FAQ-Upgrading](https://github.com/boxen/our-boxen/blob/master/docs/faq.md#q-how-do-you-upgrade-your-boxen-from-the-public-our-boxen).
 
-## Halp!
+## Integrating with Github Enterprise
+
+If you're using a Github Enterprise instance rather than github.com,
+you will need to set the `BOXEN_GITHUB_ENTERPRISE_URL` and
+`BOXEN_REPO_URL_TEMPLATE` variables in your
+[Boxen config](config/boxen.rb).
+
+## Help!
 
 See [FAQ](https://github.com/boxen/our-boxen/blob/master/docs/faq.md).
 
@@ -198,15 +234,17 @@ Use Issues or #boxen on irc.freenode.net.
 +## OMG JSON Gem won't install!!!
  +See this site for more information: https://langui.sh/2014/03/10/wunused-command-line-argument-hard-error-in-future-is-a-harsh-mistress/
 
-## Vagrant Setup
+I got an error! Something about #!/bin/bash... then git on your Mac is improperly configured: You have set core.autocrlf to something other than the OS default, so when you clone repositories, git is changing the line endings to \r\n (they should only be \n for shell scripts, etc).  Update the setting and trash your boxen data - start it over.
 
-See Wiki: https://sites.google.com/a/daptiv.com/portal/Daptiv-Engineering-Wiki/dev-machine-setup/new-vagrant-windows-dev-box
+## PPM Dev Box Setup
+
+See Wiki: https://sites.google.com/a/daptiv.com/portal/Daptiv-Engineering-Wiki/dev-machine-setup/vagrant-windows-dev-box
 
 ## Upgrading Boxen when you have vagrant 1.4.2
 
 Run boxen, this will upgrade all the things including vagrant to vagrant 1.6.2 assuming you are on the master branch (If you are on your personal branch you will need to merge master changes).    
 
-Vagrant will land in a slightly broken state.  In order to fix this run 
+Vagrant will land in a slightly broken state.  In order to fix this run
 ```bash
    vagrant plugin list
 ```
@@ -219,4 +257,17 @@ Run `boxen` again, this will install your vagrant-vmware-fusion plugin.
 
 After you have completed upgrading your boxen, Ensure that you have created a pull request for your personal manifest changes, and get it pulled into master our-boxen. This will ensure that when you rebuild your machine you can get your same settings when you initially boxen.
 
+## Upgrade https://daptiv-boxen.herokuapp.com/  website
 
+Get access to the heroku account with boxen from @chrisbobo or @jtrinklein or @schristopher
+
+Configuration values are already set.
+
+Clone the boxen web site code to your local machine
+`git clone git@github.com:boxen/boxen-web.git`
+
+Add a remote for heroku
+`git remote add https://git.heroku.com/daptiv-boxen.git`
+
+push to heroku
+`git push heroku master`

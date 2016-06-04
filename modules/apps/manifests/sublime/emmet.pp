@@ -1,5 +1,5 @@
 class apps::sublime::emmet {
-  sublime_text_3::package { 'emmet-sublime':
+  sublime_text::package { 'emmet-sublime':
     source => 'git@github.com:sergeche/emmet-sublime'
   }
 }

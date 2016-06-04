@@ -1,0 +1,3 @@
+{
+  "apps::git::default_push_strategy": "current"
+}

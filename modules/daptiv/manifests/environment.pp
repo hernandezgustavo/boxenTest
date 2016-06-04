@@ -5,13 +5,15 @@ class daptiv::environment {
   include daptiv::environment::etc_profile
   include daptiv::environment::set_ulimit_to_max
   include daptiv::environment::localhost_daptiv_com
+  include daptiv::environment::docker_machine_set
 
   #--------------------------------
   # Apps that everyone gets
   #--------------------------------
   include chrome
+  include virtualbox
 
-  include daptiv::dotFiles
+  include daptiv::dotfiles
   include daptiv::npm::registry
 
   include apps::git

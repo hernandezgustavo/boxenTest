@@ -1,7 +1,7 @@
 class people::iluzions77 {
 
   include apps::googledrive
-  include apps::fishShell
+  include apps::fishshell
   include apps::webstorm
   include caffeine
   include chrome::canary
@@ -47,9 +47,9 @@ class people::iluzions77 {
   include apps::sublime::markdown
   include apps::sublime::fileautocomplete
   include apps::sublime::sidebar
-  include sublime_text_3::package_control
+  include sublime_text::package_control
 
-  sublime_text_3::package { 'OmniSharpSublimePlugin':
+  sublime_text::package { 'OmniSharpSublimePlugin':
     source => 'git@github.com:PaulCampbell/OmniSharpSublimePlugin.git'
   }
 #--------------end-sublime------------------------------
