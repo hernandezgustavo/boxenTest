@@ -114,6 +114,11 @@ GITHUBTARBALL
     kindle (1.0.1)
 
 GITHUBTARBALL
+  remote: boxen/puppet-mongodb
+  specs:
+    mongodb (1.5.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-nginx
   specs:
     nginx (1.7.0)
@@ -275,6 +280,7 @@ DEPENDENCIES
   kindle (= 1.0.1)
   mercurial (= 0.0.1)
   module_data (= 0.0.4)
+  mongodb (= 1.5.0)
   nginx (= 1.7.0)
   nodejs (= 5.0.0)
   openssl (= 1.0.0)
