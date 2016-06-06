@@ -8,14 +8,13 @@ class people::jaredreynolds {
   include apps::sublime::t-sql
   include apps::vagrant
   include apps::vmware_fusion
+  include apps::webstorm
   include brewcask
   include firefox
   include flowdock
   include iterm2::dev
   include spectacle
-  include sublime_text_3::package_control
   include trailer
-  include webstorm
 
   $home = "/Users/${::boxen_user}"
   $boxenFiles = "${boxen::config::repodir}/modules/people/files/${boxen::config::login}"
