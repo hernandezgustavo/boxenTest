@@ -19,6 +19,8 @@ class people::jaredreynolds {
   $home = "/Users/${::boxen_user}"
   $boxenFiles = "${boxen::config::repodir}/modules/people/files/${boxen::config::login}"
 
+  package { 'evernote': provider => 'brewcask' }
+
   #TODO: figure out how to install packages with root access
   #package { 'paragon-ntfs': provider => 'brewcask' }
 
