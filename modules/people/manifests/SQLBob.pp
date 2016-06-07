@@ -43,13 +43,6 @@ class people::sqlbob {
   }
   #---------------------------------------------------
 
-  #daptiv
-  #---------------------------------------------------
-  include projects::ppm
-  include projects::ppmspa
-  include projects::devdashboard
-  #---------------------------------------------------
-
   #osx
   #---------------------------------------------------
   include osx::disable_app_quarantine
