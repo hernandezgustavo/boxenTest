@@ -19,7 +19,13 @@ class people::jaredreynolds {
   $home = "/Users/${::boxen_user}"
   $boxenFiles = "${boxen::config::repodir}/modules/people/files/${boxen::config::login}"
 
-  package { 'evernote': provider => 'brewcask' }
+  package {
+    [
+      'evernote',
+      'vlc'
+    ]:
+    provider => 'brewcask'
+  }
 
   #TODO: figure out how to install packages with root access
   #package { 'paragon-ntfs': provider => 'brewcask' }
@@ -55,5 +61,11 @@ class people::jaredreynolds {
     ensure => link,
     target => "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl",
     require => Class['apps::sublime']
+  }
+
+  file { "${boxen::config::bindir}/ws":
+    ensure => link,
+    target => "/usr/local/bin/wstorm",
+    require => Class['apps::webstorm']
   }
 }
