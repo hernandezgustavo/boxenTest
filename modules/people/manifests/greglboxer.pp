@@ -50,11 +50,6 @@ class people::greglboxer {
 
   include apps::nodejs::typescript_tools
 
-  #daptiv
-  #---------------------------------------------------
-  include projects::devdashboard
-  #---------------------------------------------------
-
   #osx
   #---------------------------------------------------
   include osx::disable_app_quarantine
