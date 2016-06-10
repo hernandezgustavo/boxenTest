@@ -6,12 +6,12 @@ class apps::java {
   # HACK: The following two resources can be removed once the augeas sudoers lens is fixed
   file { '/usr/local/share/augeas/lenses/dist/sudoers.aug':
     ensure => present,
-  }->
+  } ->
   file_line { 'Hack sudoers lens':
     path    => '/usr/local/share/augeas/lenses/dist/sudoers.aug',  
     line    => '   in let non_alias = /(!?[\/a-z]([^,:#()\n]|\\\\[=:,\\])*[^,=:#() \t\n\\])|[^,=:#() \t\n\\]/',
     match   => '^\s.*in let non_alias ='
-  }->
+  } ->
   augeas { 'allow sudo install of java without pwd':
     context => '/files/etc/sudoers',
     changes => [
@@ -27,7 +27,8 @@ class apps::java {
   package { 'java':
     ensure   => installed,
     provider => 'brewcask'
-  } ->
+  }
+
   augeas { 'remove allow sudo install of java without pwd':
     context => '/files/etc/sudoers',
     changes => [
