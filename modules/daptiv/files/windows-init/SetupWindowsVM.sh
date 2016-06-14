@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
+
 echo "Setting up windows VM"
 
 PathToVagrantBox="/Users/$SUDO_USER/src/dev_ppm"
