@@ -81,7 +81,6 @@ GEM
     rspec-puppet (1.0.1)
       rspec
     rspec-support (3.3.0)
-    ruby-augeas (0.5.0)
     sawyer (0.5.5)
       addressable (~> 2.3.5)
       faraday (~> 0.8, < 0.10)
@@ -105,7 +104,3 @@ DEPENDENCIES
   rake (= 10.3.2)
   rbvmomi
   rspec-puppet (= 1.0.1)
-  ruby-augeas (= 0.5.0)
-
-BUNDLED WITH
-   1.10.6

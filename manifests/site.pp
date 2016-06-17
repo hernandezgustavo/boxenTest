@@ -82,5 +82,4 @@ node default {
   # Daptiv Additions Below
   #----------------------------------
   include daptiv::environment
-  include apps::java
 }
