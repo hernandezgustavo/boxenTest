@@ -19,9 +19,13 @@ class people::jaredreynolds {
   $home = "/Users/${::boxen_user}"
   $boxenFiles = "${boxen::config::repodir}/modules/people/files/${boxen::config::login}"
 
+  package { 'fswatch': }
+
   package {
     [
+      'box-sync',
       'evernote',
+      'flash',
       'vlc'
     ]:
     provider => 'brewcask'
@@ -46,6 +50,24 @@ class people::jaredreynolds {
   file { "${home}/.bash_profile":
     ensure  => link,
     target  => "${boxenFiles}/.bash_profile"
+  }
+
+  file { '/Library/Preferences/com.box.sync.plist':
+    source => "${boxenFiles}/box-sync/com.box.sync.plist",
+    ensure => file,
+    owner  => 'root',
+    group  => 'wheel'
+  }
+  file { "${home}/veracrypt.mount.external.sh":
+    source => '/Volumes/External/Box/Work/MachineScripts/veracrypt.mount.external.sh',
+    ensure => file
+  } ->
+  file { "${home}/Library/LaunchAgents/veracrypt.mount.external.plist":
+    source => "${boxenFiles}/box-sync/veracrypt.mount.external.plist",
+    ensure => file
+  } ->
+  osx_login_item { 'Box Sync':
+    ensure => absent
   }
 
   file { "${home}/Library/KeyBindings/":

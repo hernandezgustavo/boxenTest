@@ -1,9 +1,8 @@
 NET USE Z: "\\vmware-host\Shared Folders" 2> NUL
 
-
-SET BOXEN_PERSONAL_DIRECTORY=C:\src\our-boxen\modules\people\files\%1
+SET BOXEN_PERSONAL_DIRECTORY=C:\src\our-boxen\modules\people\files\jaredreynolds
 IF EXIST "%BOXEN_PERSONAL_DIRECTORY%" (
-    SETX.EXE BOXEN_PERSONAL_DIRECTORY "C:\src\our-boxen\modules\people\files\%1"
+    SETX.EXE BOXEN_PERSONAL_DIRECTORY "C:\src\our-boxen\modules\people\files\jaredreynolds"
 )
 
 
@@ -86,5 +85,5 @@ powershell.exe -Command "%BOXEN_PERSONAL_DIRECTORY%\windows-updates.ps1"
 @REM # continue setup via boxstarter and powershell
 @REM #
 IF EXIST "%BOXEN_PERSONAL_DIRECTORY%\wininit.ps1" (
-    powershell.exe -Command "Update-CurrentProcessPsModulePath; Install-BoxstarterPackage -PackageName %BOXEN_PERSONAL_DIRECTORY%\wininit.ps1"
+    powershell.exe -Command "Update-CurrentProcessPsModulePath; Import-Module Boxstarter.Chocolatey; Install-BoxstarterPackage -PackageName %BOXEN_PERSONAL_DIRECTORY%\wininit.ps1"
 )
