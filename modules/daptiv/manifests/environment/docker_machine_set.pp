@@ -1,5 +1,6 @@
 class daptiv::environment::docker_machine_set {
   $home = "/Users/${::boxen_user}"
+  $dotfiles_dir = "${$boxen::config::repodir}/dotfiles"
 
   # Link docker-machine-set.bash into user home
   file { "${home}/docker-machine-set.bash":
