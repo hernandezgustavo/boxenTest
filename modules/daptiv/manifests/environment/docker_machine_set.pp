@@ -10,6 +10,7 @@ class daptiv::environment::docker_machine_set {
   # Ensure that docker-machine-set.bash is loaded when you execute any bash shell
   file_line { 'docker_machine_set_file':
     path => "${home}/.bashrc",
-    line => 'source ~./docker-machine-set.bash'
+    line => 'source ~/docker-machine-set.bash',
+    require => File["${home}/docker-machine-set.bash"]
   }
 }
