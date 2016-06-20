@@ -54,6 +54,11 @@ GITHUBTARBALL
     firefox (1.2.3)
 
 GITHUBTARBALL
+  remote: boxen/puppet-fish
+  specs:
+    fish (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-fluid
   specs:
     fluid (1.0.2)
@@ -263,6 +268,7 @@ DEPENDENCIES
   dropbox (= 1.4.1)
   evernote (= 2.0.7)
   firefox (= 1.2.3)
+  fish (= 1.0.0)
   flowdock (= 1.0.1)
   fluid (= 1.0.2)
   foreman (= 1.2.0)

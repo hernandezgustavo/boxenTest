@@ -1,5 +1,6 @@
 {
   "apps::git::default_push_strategy": "current",
   "daptiv::npm::registry::source": "%{boxen::config::repodir}/modules/people/files/akalman/.npmrc",
-  "spectacle::action": "installed"
+  "spectacle::action": "installed",
+  "trailer::version": "1.4.1"
 }
