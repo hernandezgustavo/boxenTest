@@ -16,6 +16,8 @@ class people::jaredreynolds {
   include spectacle
   include trailer
 
+  include projects::resourcemanagement
+
   $home = "/Users/${::boxen_user}"
   $boxenFiles = "${boxen::config::repodir}/modules/people/files/${boxen::config::login}"
 
