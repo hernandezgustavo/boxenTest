@@ -7,7 +7,7 @@ class projects::ppmspa ($vm_ip_address = '192.168.56.101') {
   host { 'ppm_hosts':
     name         => 'localvm.daptiv.com',
     comment      => 'vm host entries for ppm vm created by boxen',
-    host_aliases => ['devsso.daptiv.com', 'devapi.daptiv.com', 'devadminapi.daptiv.com', 'dev.daptiv.com', 'devauth.daptiv.com'],
+    host_aliases => ['devsso.daptiv.com', 'devapi.daptiv.com', 'devadminapi.daptiv.com', 'dev.daptiv.com', 'devauth.daptiv.com', 'devrm.daptiv.com'],
     ip           => $vm_ip_address
   }
 
