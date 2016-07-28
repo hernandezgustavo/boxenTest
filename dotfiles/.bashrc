@@ -19,7 +19,8 @@ if [ -z "$VAGRANT_DEFAULT_PROVIDER" ]
 fi
 
 export VAGRANT_SERVER_URL=http://vagrantboxes.hq.daptiv.com
-
+export CONSUL_URL=http://localhost:8500
+export ENT_ID=eece29e0-2b95-4b28-8965-0bd74afecd27
 
 # Aliases
 alias dir='ls -ba'
