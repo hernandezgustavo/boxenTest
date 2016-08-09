@@ -24,6 +24,7 @@ class daptiv::environment {
   include apps::rdp
   include apps::ruby
   include apps::sublime
+  include apps::java
 
   include projects::devdashboard
   include projects::ppm

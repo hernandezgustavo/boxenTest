@@ -1,6 +1,7 @@
 class apps::java {
   include brewcask
 
+<<<<<<< HEAD
   $pkgInstaller = '/usr/sbin/installer'
 
   # HACK: The following two resources can be removed once the augeas sudoers lens is fixed
@@ -34,5 +35,11 @@ class apps::java {
     changes => [
       "rm spec[user = '$::boxen_user'][host_group/command = '$pkgInstaller']"
     ]
+=======
+  exec { 'install java if not there':
+    command   => 'sudo brew cask install java',
+    user => 'root',
+    unless => 'java'
+>>>>>>> master
   }
 }
