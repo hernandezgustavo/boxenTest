@@ -104,3 +104,6 @@ DEPENDENCIES
   rake (= 10.3.2)
   rbvmomi
   rspec-puppet (= 1.0.1)
+
+BUNDLED WITH
+   1.10.6
