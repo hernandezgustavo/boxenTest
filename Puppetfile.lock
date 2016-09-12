@@ -1,9 +1,4 @@
 GITHUBTARBALL
-  remote: akalman/puppet-spectacle
-  specs:
-    spectacle (1.0.0)
-
-GITHUBTARBALL
   remote: akalman/puppet-trailer
   specs:
     trailer (1.0.1)
@@ -182,6 +177,11 @@ GITHUBTARBALL
   remote: boxen/puppet-sourcetree
   specs:
     sourcetree (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-spectacle
+  specs:
+    spectacle (1.0.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-spotify
