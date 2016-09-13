@@ -1,4 +1,4 @@
-class daptiv::environment {
+class daptiv::environment ($include_teammember = true) {
 
   osx::recovery_message { 'If this Mac is found, please call 206-239-7424': }
 
@@ -28,5 +28,8 @@ class daptiv::environment {
   include projects::devdashboard
   include projects::ppm
   include projects::ppmspa
-  include projects::teammember
+
+  if ($include_teammember) {
+    include projects::teammember
+  }
 }
