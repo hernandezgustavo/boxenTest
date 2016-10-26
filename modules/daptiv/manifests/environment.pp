@@ -28,6 +28,7 @@ class daptiv::environment ($include_teammember = true) {
   include projects::devdashboard
   include projects::ppm
   include projects::ppmspa
+  include projects::resourcemanagement
 
   if ($include_teammember) {
     include projects::teammember

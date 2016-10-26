@@ -1,14 +1,10 @@
-class projects::resourcemanagement {
+class projects::resourcemanagement ($vm_ip_address = '192.168.56.101') {
   include boxen::config
 
   host { 'devrm.daptiv.com':
     name    => 'devrm.daptiv.com',
     comment => 'routing for resourcemanagement',
-    ip      => '127.0.0.1'
+    ip      => $vm_ip_address
   }
 
-  boxen::project { 'resourcemanagement':
-    nginx  => "${boxen::config::repodir}/modules/projects/templates/resourcemanagement.api.nginx.conf.erb",
-    source => 'git@github.com:daptiv/Daptiv.Services.ResourceManagement.git'
-  }
 }
