@@ -25,9 +25,4 @@ class people::srobaudo {
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/srobaudo/.bash_profile"
   }
-  
-  include apps::sublime
-  include apps::sublime::bracket_highlighter
-  include apps::sublime::wombat_theme
-  include sublime_text::package_control
 }
