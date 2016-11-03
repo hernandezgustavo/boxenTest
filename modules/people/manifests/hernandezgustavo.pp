@@ -7,13 +7,9 @@ class people::hernandezgustavo {
 
   #OSX Config
   include osx::finder::show_hidden_files
-  #include vagrant
-  include chrome
-  include apps::sublime
-  include apps::sublime::bracket_highlighter
-  include apps::sublime::wombat_theme
-  include sublime_text::package_control
+  include vagrant
   include vmware_fusion
+  include chrome
   include flowdock
   include nodejs
   include google_notifier
@@ -21,7 +17,11 @@ class people::hernandezgustavo {
   include fluid
   include trailer
   include skitch
-  
+  # atom
+  include atom
+  atom::package {'language-typescript' : }
+  atom::package { 'linter-tslint' : }
+  atom::package { 'linter' : }
 
   # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
   # Upload your vagrant vmware plugin license to /modules/people/files/<your github username>
