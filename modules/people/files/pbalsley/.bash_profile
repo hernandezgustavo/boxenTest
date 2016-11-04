@@ -2,7 +2,7 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 tabname () { printf "\e]1;$1\a"; }
 export PATH=~/bin:$PATH:~/scripts
-
+export PPM_VM_IP=192.168.56.101
 source ~/.git-completion.sh
 source ~/.git-prompt.sh
 

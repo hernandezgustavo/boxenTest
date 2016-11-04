@@ -22,13 +22,13 @@ class people::hyperd {
   include google_notifier
   include fluid
   include trailer
+  include atom
   
-
   # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
   # Upload your vagrant vmware plugin license to /modules/people/files/<your github username>
   # Update the path below to point to that file and uncomment this section.
   vagrant::plugin { 'vagrant-vmware-fusion':
-    license => "${$boxen::config::repodir}/modules/people/files/hyperd/LICENSE-2-vagrant-vmware-provider-license_20_seats.lic"
+    license => "${$boxen::config::repodir}/modules/daptiv/files/vagrant/LICENSE-2.lic"
   }
 
   git::config::global { 'user.email':

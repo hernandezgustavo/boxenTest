@@ -1,7 +1,7 @@
 class people::iluzions77 {
 
   include apps::googledrive
-  include apps::fishShell
+  include apps::fishshell
   include apps::webstorm
   include caffeine
   include chrome::canary

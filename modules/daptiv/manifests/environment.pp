@@ -1,11 +1,10 @@
-class daptiv::environment {
+class daptiv::environment ($include_teammember = true) {
 
   osx::recovery_message { 'If this Mac is found, please call 206-239-7424': }
 
   include daptiv::environment::etc_profile
   include daptiv::environment::set_ulimit_to_max
   include daptiv::environment::localhost_daptiv_com
-  include daptiv::environment::docker_machine_set
 
   #--------------------------------
   # Apps that everyone gets
@@ -13,7 +12,7 @@ class daptiv::environment {
   include chrome
   include virtualbox
 
-  include daptiv::dotFiles
+  include daptiv::dotfiles
   include daptiv::npm::registry
 
   include apps::git
@@ -24,9 +23,14 @@ class daptiv::environment {
   include apps::rdp
   include apps::ruby
   include apps::sublime
+  include apps::java
 
   include projects::devdashboard
   include projects::ppm
   include projects::ppmspa
-  include projects::teammember
+  include projects::resourcemanagement
+
+  if ($include_teammember) {
+    include projects::teammember
+  }
 }

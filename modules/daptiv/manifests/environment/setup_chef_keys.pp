@@ -4,7 +4,7 @@
 
 class daptiv::environment::setup_chef_keys{
 
-  $installs_url = 'http://vagrantboxes.hq.daptiv.com/installs'
+  $installs_url = 'http://artrepo.daptiv.com:8081/artifactory/installs/installs'
   $install_path = '/etc/chef'
 
   # Create the /etc/chef directory

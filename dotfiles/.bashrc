@@ -18,22 +18,15 @@ if [ -z "$VAGRANT_DEFAULT_PROVIDER" ]
   then export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 fi
 
-export VAGRANT_SERVER_URL=http://vagrantboxes.hq.daptiv.com
-
+export VAGRANT_SERVER_URL=http://artrepo.daptiv.com:8081/artifactory/installs/
+export CONSUL_URL=http://localhost:8500
+export ENT_ID=eece29e0-2b95-4b28-8965-0bd74afecd27
 
 # Aliases
-
 alias dir='ls -ba'
 alias ll='ls -la'
 
-
-docker-machine-set()
-    {
-      local machine_name=$1
-      docker-machine start $machine_name
-      eval "$(docker-machine env $machine_name)"
-      echo Docker machine ip is "$(docker-machine ip $machine_name)"
-    }
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 docker-machine-set()
     {
       local machine_name=$1

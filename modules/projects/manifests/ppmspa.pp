@@ -21,12 +21,4 @@ class projects::ppmspa ($vm_ip_address = '192.168.56.101') {
     nginx         => "${boxen::config::repodir}/modules/projects/templates/ppmspa.nginx.conf.erb",
     source        => 'git@github.com:daptiv/PpmSpa'
   }
-
-  boxen::project { 'DefinitelyTyped':
-    source        => 'git@github.com:daptiv/DefinitelyTyped.git'
-  }
-
-  boxen::project { 'daptiv-mock-api':
-    source        => 'git@github.com:daptiv/daptiv-mock-api'
-  }
 }
