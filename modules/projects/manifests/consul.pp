@@ -1,4 +1,4 @@
-class projects::teammember () {
+class projects::consul () {
   include boxen::config
 
   host { 'consul':

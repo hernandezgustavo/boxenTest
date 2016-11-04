@@ -1,4 +1,4 @@
-class projects::teammember () {
+class projects::feature_flag () {
   include boxen::config
 
   host { 'feature-flag-api':
