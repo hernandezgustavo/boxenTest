@@ -2,10 +2,10 @@
 server {
   access_log <%= scope.lookupvar "nginx::config::logdir" %>/teammember-api.access.log main;
   listen 80;
-  server_name tm-api.daptiv.com;
+  server_name devttmapi.daptiv.com;
   ignore_invalid_headers off;
 
   location / {
-    proxy_pass http://unix:/tmp/tm-api.sock;
+    proxy_pass http://localhost:8081;
   }
 }
