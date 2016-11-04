@@ -27,8 +27,8 @@ class people::creg {
   # you should copy them to a folder matching your personal user if you intend to personalize them
   # if you do not copy these your dotfiles will change when this creg profile is updated as they
   # are symlinked into your home directory.
-  #file { "${home}/.bash_profile":
-  #  ensure  => link,
-  #  target  => "${$boxen::config::repodir}/modules/people/files/creg/.bash_profile"
-  #}
+  file { "${home}/.bash_profile":
+    ensure  => link,
+    target  => "${$boxen::config::repodir}/modules/people/files/creg/.bash_profile"
+  }
 }
