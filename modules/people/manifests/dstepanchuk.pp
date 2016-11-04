@@ -6,6 +6,8 @@ class people::dstepanchuk {
   # My apps
   include iterm2::stable
 
+  include projects::projecttaskboard
+
   host { 'ppm_hosts_login':
     name         => 'dev.daptiv.com',
     comment      => 'vm host entries for ppm vm created by boxen',

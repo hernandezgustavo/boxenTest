@@ -13,6 +13,8 @@ class people::greglboxer {
   include chrome::canary
   include zsh
 
+  include projects::projecttaskboard
+
   git::config::global { 'user.email':
     value  => 'greg.boxer@changepoint.com'
   }

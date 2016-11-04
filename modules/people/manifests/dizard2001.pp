@@ -1,6 +1,8 @@
 # Replace name of all the "dizard2001" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::dizard2001 {
+  include projects::projecttaskboard
+  
   $home = "/Users/${::boxen_user}"
 
   vagrant::plugin { 'vmware-fusion':
