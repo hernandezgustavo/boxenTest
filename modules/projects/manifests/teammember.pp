@@ -3,7 +3,7 @@ class projects::teammember () {
   include apps::nodejs
   include apps::phantomjs
   include projects::consul
-  include projects::feature_flag
+  include projects::featureflag
 
   host { 'teammember-client':
     name         => 'devttm.daptiv.com',
