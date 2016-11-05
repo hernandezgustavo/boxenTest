@@ -1,5 +1,7 @@
 class projects::consul () {
   include boxen::config
+  include nginx::config
+  include nginx
 
   host { 'consul':
     name         => 'devconsul.daptiv.com',
@@ -7,7 +9,9 @@ class projects::consul () {
     ip           => '127.0.0.1'
   }
 
-  boxen::project { 'consul':
-    nginx => "${boxen::config::repodir}/modules/projects/templates/consul.nginx.conf.erb"
+  file { "${nginx::config::sitesdir}/${name}.conf":
+    content => template("${boxen::config::repodir}/modules/projects/templates/consul.nginx.conf.erb"),
+    require => File[$nginx::config::sitesdir],
+    notify  => Service['dev.nginx'],
   }
 }
