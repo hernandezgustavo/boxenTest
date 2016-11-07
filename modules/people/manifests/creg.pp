@@ -8,6 +8,10 @@ class people::creg {
   include iterm2::dev
   include atom
   include apps::atom_symlink
+  include flux
+  include dropbox
+  include spectacle
+  include projects::projecttaskboard
 
   # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
   # Update the path below to point to the license that has your name associated with it at and uncomment this section.
