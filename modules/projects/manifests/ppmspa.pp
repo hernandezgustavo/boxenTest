@@ -4,6 +4,8 @@ class projects::ppmspa ($vm_ip_address = '192.168.56.101') {
   include apps::nodejs
   include apps::phantomjs
 
+  package { 'yarn': }
+
   host { 'ppm_hosts':
     name         => 'localvm.daptiv.com',
     comment      => 'vm host entries for ppm vm created by boxen',
