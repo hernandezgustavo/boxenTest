@@ -14,6 +14,7 @@ class people::johnsontroye1 {
 
   #utilities
   include spectacle
+  include trailer
 
   #git
   git::config::global { 'user.email': value => 'troy.johnson@changepoint.com' }
