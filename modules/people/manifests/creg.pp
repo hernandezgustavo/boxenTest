@@ -24,7 +24,7 @@ class people::creg {
     value  => 'creg.bradley@changepoint.com'
   }
   git::config::global { 'user.name':
-    value  => 'creg'
+    value  => 'Creg Bradley'
   }
 
   # link in your personal dot files the provided files live in the people/files dir and
