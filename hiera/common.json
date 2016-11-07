@@ -8,6 +8,5 @@
     "virtualbox::patch_level": "105127",
 
     "nodejs::nodenv::ensure": "v1.0.0",
-    "nodejs::build::ensure": "v2.1.1"
-
+    "nodejs::build::ensure": "v2.3.11"
 }
