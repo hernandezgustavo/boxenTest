@@ -16,9 +16,9 @@ class people::creg {
   # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
   # Update the path below to point to the license that has your name associated with it at and uncomment this section.
   # Licenses are found at https://sites.google.com/a/daptiv.com/portal/Daptiv-Engineering-Wiki/tools-utlities#TOC-Vagrant-VMWare-7-Provider-
-  #vagrant::plugin { 'vagrant-vmware-fusion':
-  license => "${$boxen::config::repodir}/modules/people/files/creg/LICENSE-1-vagrant-vmware-provider-license_21_seats.lic"
-  #}
+  vagrant::plugin { 'vagrant-vmware-fusion':
+    license => "${$boxen::config::repodir}/modules/people/files/creg/LICENSE-1-vagrant-vmware-provider-license_21_seats.lic"
+  }
 
   git::config::global { 'user.email':
     value  => 'creg.bradley@changepoint.com'
