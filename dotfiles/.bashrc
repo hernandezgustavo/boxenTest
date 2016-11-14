@@ -19,7 +19,7 @@ if [ -z "$VAGRANT_DEFAULT_PROVIDER" ]
 fi
 
 export VAGRANT_SERVER_URL=http://artrepo.daptiv.com:8081/artifactory/installs/
-export CONSUL_URL=http://localhost:8500
+export CONSUL_URL=http://devconsul.daptiv.com
 export ENT_ID=eece29e0-2b95-4b28-8965-0bd74afecd27
 
 # Aliases

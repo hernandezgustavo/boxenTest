@@ -2,10 +2,10 @@ class people::jtrinklein {
   $home = "/Users/${::boxen_user}"
 
   include iterm2::dev
-  #include virtualbox
   include homebrewcask
   include chrome::canary
   include zsh
+  include projects::teammember
 
   $vmware_license = "${$boxen::config::repodir}/modules/people/files/${$::github_login}/LICENSE-1-vagrant-vmware-provider-license_21_seats.lic"
 
