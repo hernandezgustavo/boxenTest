@@ -35,6 +35,6 @@ class apps::nodejs {
   npm_module { 'yarn':
     module => 'yarn',
     node_version => '*',
-    version => '0.16.1'
+    version => '0.17.4'
   }
 }
