@@ -3,10 +3,10 @@ class people::delta62 {
 
   # Programs
   include firefox
-  include chrome::canary
+  # include chrome::canary
   include iterm2::dev
-  include screen
-  include apps::webstorm
+  # include screen
+  # include apps::webstorm
 
   # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
   # Upload your vagrant vmware plugin license to /modules/people/files/<your github username>
@@ -29,10 +29,10 @@ class people::delta62 {
     target  => "${$boxen::config::repodir}/modules/people/files/delta62/.bash_profile"
   }
 
-  file { "${home}/.screenrc":
-    ensure => link,
-    target => "${boxen::config::repodir}/modules/people/files/delta62/.screenrc"
-  }
+  # file { "${home}/.screenrc":
+  #   ensure => link,
+  #   target => "${boxen::config::repodir}/modules/people/files/delta62/.screenrc"
+  # }
 
   include osx::no_network_dsstores
   include osx::finder::unhide_library
