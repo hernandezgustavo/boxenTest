@@ -3,13 +3,11 @@ class people::akalman {
 
   #browsers
   include chrome
-  include chrome::canary
   include firefox
 
   #ides
   include apps::webstorm
   include atom
-
 
   #communication
   include flowdock
@@ -30,7 +28,7 @@ class people::akalman {
 
   #terminal
   include iterm2::dev
-  include apps::fishShell
+  include apps::fishshell
   file { "${home}/.config/fish/personal.fish":
     ensure  => link,
     target  => "${boxen::config::repodir}/modules/people/files/akalman/personal.fish",

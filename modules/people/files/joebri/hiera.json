@@ -1,0 +1,5 @@
+{
+  "projects::ppmspa::vm_ip_address": "33.33.33.185",
+  "vmware_fusion::url_base": "http://artrepo.daptiv.com:8081/artifactory/installs/installs/VMWare%20Fusion/Fusion7",
+  "vmware_fusion::version": "7.1.2-2779224"
+}

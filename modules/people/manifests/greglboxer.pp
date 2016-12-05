@@ -13,6 +13,8 @@ class people::greglboxer {
   include chrome::canary
   include zsh
 
+  include projects::projecttaskboard
+
   git::config::global { 'user.email':
     value  => 'greg.boxer@changepoint.com'
   }
@@ -48,24 +50,7 @@ class people::greglboxer {
 
   include apps::googledrive
 
-  include apps::sublime
-  include apps::sublime::bracket_highlighter
-  include apps::sublime::wombat_theme
-  include apps::sublime::jsdocs
-  include apps::sublime::grunt
-  include apps::sublime::git
-  include apps::sublime::history
-  include apps::sublime::markdown
-  include apps::sublime::fileautocomplete
-  include apps::sublime::sidebar
-  include sublime_text_3::package_control
-
   include apps::nodejs::typescript_tools
-
-  #daptiv
-  #---------------------------------------------------
-  include projects::devdashboard
-  #---------------------------------------------------
 
   #osx
   #---------------------------------------------------

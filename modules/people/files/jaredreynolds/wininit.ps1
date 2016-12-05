@@ -26,13 +26,13 @@ if ((Get-ItemProperty -Path $winlogonKeyPath).AutoAdminLogon -ne 1) {
 #
 # Re-arm Windows license
 #
-Write-BoxstarterMessage 'Re-arm Windows license'
-$activationStatus = Get-CimInstance SoftwareLicensingProduct -Filter "ApplicationID = '55c92734-d682-4d71-983e-d6ec3f16059f' AND PartialProductKey is not null" -Property GracePeriodRemaining, LicenseStatus
-if ($activationStatus.LicenseStatus -ge 2 -and $activationStatus.GracePeriodRemaining -le 5) {
-    $slmgrPath = Join-Path (Join-Path $env:SystemRoot 'System32') 'slmgr.vbs'
-    cscript.exe $slmgrPath //Nologo /rearm
-    Invoke-Reboot
-}
+# Write-BoxstarterMessage 'Re-arm Windows license'
+# $activationStatus = Get-CimInstance SoftwareLicensingProduct -Filter "ApplicationID = '55c92734-d682-4d71-983e-d6ec3f16059f' AND PartialProductKey is not null" -Property GracePeriodRemaining, LicenseStatus
+# if ($activationStatus.LicenseStatus -ge 2 -and $activationStatus.GracePeriodRemaining -le 5) {
+#     $slmgrPath = Join-Path (Join-Path $env:SystemRoot 'System32') 'slmgr.vbs'
+#     cscript.exe $slmgrPath //Nologo /rearm
+#     Invoke-Reboot
+# }
 
 
 #
@@ -136,19 +136,37 @@ $user.SetInfo()
 # Apps
 #
 Write-BoxstarterMessage 'Apps'
-# choco.exe install Devbox-Common.extension
-# choco.exe install conemu
-# choco.exe install fiddler4
-# choco.exe install Firefox
-# choco.exe install gallio
-# choco.exe install ilspy
-# choco.exe install linqpad4
-# choco.exe install NuGet.CommandLine
-# choco.exe install tortoisesvn
-# choco.exe install treesizefree
-# choco.exe install pscx
-choco.exe install "$(JOIN-PATH $wininitPath 'Packages.config')"
-Update-CurrentProcessPsModulePath
+$packagesConfigPath = "$(JOIN-PATH $wininitPath 'Packages.config')"
+if (Test-Path $packagesConfigPath) {
+    # read packages and fill in license templates
+    [xml]$packagesConfig = Get-Content $packagesConfigPath
+    $packagesConfig.packages.SelectNodes("package[contains(@installArguments, '{{license}}')]") | % {
+        $licensePath = JOIN-PATH "$($env:USERPROFILE)\Box\Personal\Licenses" ($_.id + ".txt")
+        if (Test-Path $licensePath) {
+            $_.installArguments = $_.installArguments.Replace("{{license}}", $(Get-Content $licensePath))
+        }
+    }
+    $tempFile = [System.IO.Path]::GetTempFileName()
+    $tempConfigPath = [System.IO.Path]::ChangeExtension($tempFile, "config")
+    try {
+        Rename-Item $tempFile $tempConfigPath
+        $packagesConfig.Save($tempConfigPath)
+        choco.exe install "$tempConfigPath" -y
+    } finally {
+        Remove-Item $tempFile -ErrorAction Ignore
+        Remove-Item $tempConfigPath -ErrorAction Ignore
+        Update-CurrentProcessPsModulePath
+    }
+}
+
+
+#
+# Set up shared ConEmu config
+#
+Write-BoxstarterMessage 'Set up shared ConEmu config'
+$conEmuConfigPath = Join-Path $env:APPDATA 'ConEmu.xml'
+Remove-Item $conEmuConfigPath -ErrorAction SilentlyContinue
+New-Symlink -LiteralPath $conEmuConfigPath -TargetPath "$($env:USERPROFILE)\Box\Work\ConEmu.xml"
 
 
 #
@@ -169,8 +187,10 @@ $gitTemplatePath = Join-Path $env:USERPROFILE ".git_template"
 if (!(Test-Path $gitTemplatePath)) {
     New-Symlink -LiteralPath $gitTemplatePath -TargetPath $gitTemplateTarget
 }
-Remove-Item C:\src\ppm\.git\hooks\*
-
+$ppmGitHooksToDelete = 'C:\src\ppm\.git\hooks\*'
+if (Test-Path $ppmGitHooksToDelete) {
+    Remove-Item $ppmGitHooksToDelete
+}
 
 
 #
@@ -189,7 +209,7 @@ Write-BoxstarterMessage 'Install Visual Studio extensions'
 $vsextensions =
     Get-Content (Join-Path "$wininitPath" 'wininit-vs-extensions.json') -Raw |
     ConvertFrom-Json
-$vsixInstaller = Join-Path $env:VS110COMNTOOLS '..\IDE\VSIXInstaller.exe'
+$vsixInstaller = Join-Path $env:VS140COMNTOOLS '..\IDE\VSIXInstaller.exe'
 $downloads = Join-Path $HOME 'Downloads'
 $webclient = New-Object System.Net.WebClient
 $vsextensions.PSObject.Properties | ForEach-Object {
@@ -230,49 +250,55 @@ $vsextensions.PSObject.Properties | ForEach-Object {
 # Update security settings for PPM
 #
 Write-BoxstarterMessage 'Update security settings for PPM'
-Add-PSSnapin SqlServerCmdletSnapin100
-Add-PSSnapin SqlServerProviderSnapin100
-$ppmDevDb = 'PPM6_Development.dbo.Enterprise'
-$passwordPolicy = [xml] `
-    (Invoke-Sqlcmd `
-        -Query "SELECT PasswordPolicy FROM $ppmDevDb" `
-        -ServerInstance $env:COMPUTERNAME `
-    ).PasswordPolicy
-$passwordPolicyNode = (Select-Xml $passwordPolicy -XPath '/passwordPolicy').Node
-$passwordPolicyNode.SetAttribute('maxage', 0)
-$passwordPolicyNode.SetAttribute('minage', 0)
-$passwordPolicyNode.SetAttribute('history', 1)
-$lockoutPolicyNode = (Select-Xml $passwordPolicy -XPath '/passwordPolicy/lockoutPolicy').Node
-$lockoutPolicyNode.SetAttribute('isEnabled', 'false')
-Invoke-Sqlcmd `
-   -Query "UPDATE $ppmDevDb SET PasswordPolicy = '$($passwordPolicy.OuterXml)'" `
-   -ServerInstance $env:COMPUTERNAME
-
+$ppmDevDb = 'PPM6_Development'
+if ((Invoke-Sqlcmd -ServerInstance $env:COMPUTERNAME -Database master -Query @"
+    SELECT COUNT(*) PpmDevExists FROM sys.databases WHERE Name='$ppmDevDb'
+"@).PpmDevExists) {
+    $ppmDevEnterpriseTable = "$ppmDevDb.dbo.Enterprise"
+    $passwordPolicy = [xml] `
+        (Invoke-Sqlcmd `
+            -Query "SELECT PasswordPolicy FROM $ppmDevEnterpriseTable" `
+            -ServerInstance $env:COMPUTERNAME `
+        ).PasswordPolicy
+    $passwordPolicyNode = (Select-Xml $passwordPolicy -XPath '/passwordPolicy').Node
+    $passwordPolicyNode.SetAttribute('maxage', 0)
+    $passwordPolicyNode.SetAttribute('minage', 0)
+    $passwordPolicyNode.SetAttribute('history', 1)
+    $lockoutPolicyNode = (Select-Xml $passwordPolicy -XPath '/passwordPolicy/lockoutPolicy').Node
+    $lockoutPolicyNode.SetAttribute('isEnabled', 'false')
+    Invoke-Sqlcmd `
+       -Query "UPDATE $ppmDevEnterpriseTable SET PasswordPolicy = '$($passwordPolicy.OuterXml)'" `
+       -ServerInstance $env:COMPUTERNAME
+}
 
 #
 # Add GetElsLog sproc
 #
 Write-BoxstarterMessage 'Add GetElsLog sproc'
-Invoke-Sqlcmd -ServerInstance $env:COMPUTERNAME -Database master -Query @"
-    IF  EXISTS (SELECT 1 FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetElsLog]') AND type in (N'P', N'PC'))
-    DROP PROCEDURE [dbo].[GetElsLog]
+if ((Invoke-Sqlcmd -ServerInstance $env:COMPUTERNAME -Database master -Query @"
+    SELECT COUNT(*) ElsExists FROM sys.databases WHERE Name='ELS'
+"@).ElsExists) {
+    Invoke-Sqlcmd -ServerInstance $env:COMPUTERNAME -Database master -Query @"
+        IF  EXISTS (SELECT 1 FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetElsLog]') AND type in (N'P', N'PC'))
+        DROP PROCEDURE [dbo].[GetElsLog]
 "@
-Invoke-Sqlcmd -ServerInstance $env:COMPUTERNAME -Database master -Query @"
-    CREATE PROCEDURE [dbo].[GetElsLog]
-    AS
-    BEGIN
-        SET NOCOUNT ON;
+    Invoke-Sqlcmd -ServerInstance $env:COMPUTERNAME -Database master -Query @"
+        CREATE PROCEDURE [dbo].[GetElsLog]
+        AS
+        BEGIN
+            SET NOCOUNT ON;
 
-        SELECT TOP 50
-             ErrorLogID
-            ,EntryDate
-            ,Message
-            ,Exception
-            ,RelativeUri
-        FROM ELS.dbo.ErrorLog
-        ORDER BY ErrorLogID DESC
-    END
+            SELECT TOP 50
+                 ErrorLogID
+                ,EntryDate
+                ,Message
+                ,Exception
+                ,RelativeUri
+            FROM ELS.dbo.ErrorLog
+            ORDER BY ErrorLogID DESC
+        END
 "@
+}
 
 
 #

@@ -7,7 +7,7 @@ class projects::ppmspa ($vm_ip_address = '192.168.56.101') {
   host { 'ppm_hosts':
     name         => 'localvm.daptiv.com',
     comment      => 'vm host entries for ppm vm created by boxen',
-    host_aliases => ['devsso.daptiv.com', 'devapi.daptiv.com', 'devadminapi.daptiv.com', 'dev.daptiv.com'],
+    host_aliases => ['devsso.daptiv.com', 'devapi.daptiv.com', 'devadminapi.daptiv.com', 'dev.daptiv.com', 'devauth.daptiv.com'],
     ip           => $vm_ip_address
   }
 
@@ -20,13 +20,5 @@ class projects::ppmspa ($vm_ip_address = '192.168.56.101') {
   boxen::project { 'PpmSpa':
     nginx         => "${boxen::config::repodir}/modules/projects/templates/ppmspa.nginx.conf.erb",
     source        => 'git@github.com:daptiv/PpmSpa'
-  }
-
-  boxen::project { 'DefinitelyTyped':
-    source        => 'git@github.com:daptiv/DefinitelyTyped.git'
-  }
-
-  boxen::project { 'daptiv-mock-api':
-    source        => 'git@github.com:daptiv/daptiv-mock-api'
   }
 }

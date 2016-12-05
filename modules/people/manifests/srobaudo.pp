@@ -3,12 +3,9 @@
 class people::srobaudo {
   $home = "/Users/${::boxen_user}"
 
-  # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
-  # Upload your vagrant vmware plugin license to /modules/people/files/<your github username>
-  # Update the path below to point to that file and uncomment this section.
-  #vagrant::plugin { 'vagrant-vmware-fusion':
-  #  license => "${$boxen::config::repodir}/modules/people/files/srobaudo/LICENSE_FILENAME.lic"
-  #}
+  vagrant::plugin { 'vagrant-vmware-fusion':
+    license => "${$boxen::config::repodir}/modules/people/files/srobaudo/LICENSE-1-vagrant-vmware-provider-license_21_seats.lic"
+  }
 
   git::config::global { 'user.email':
     value  => 'sergio.robaudo@changepoint.com'
@@ -25,9 +22,4 @@ class people::srobaudo {
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/srobaudo/.bash_profile"
   }
-  
-  include apps::sublime
-  include apps::sublime::bracket_highlighter
-  include apps::sublime::wombat_theme
-  include sublime_text_3::package_control
 }

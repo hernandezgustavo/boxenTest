@@ -45,6 +45,11 @@ class people::sweitzel74 {
     target => "${$boxen::config::repodir}/modules/people/files/sweitzel74/.bash_profile"
   }
 
+  file { "${home}/.bashrc":
+    ensure => link,
+    target => "${$boxen::config::repodir}/modules/people/files/sweitzel74/.bashrc"
+  }
+
   #Create a symlink for starting Sublime Text from the terminal
   file { '/usr/local/bin/subl':
     ensure => link,

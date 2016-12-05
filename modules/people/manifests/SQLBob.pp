@@ -15,7 +15,7 @@ class people::sqlbob {
 
   include dropbox
   include apps::googledrive
-  include apps::fishShell
+  include apps::fishshell
 
   include apps::sublime
   include apps::sublime::bracket_highlighter
@@ -41,13 +41,6 @@ class people::sqlbob {
   git::config::global { 'user.name':
     value  => 'Bob Glass'
   }
-  #---------------------------------------------------
-
-  #daptiv
-  #---------------------------------------------------
-  include projects::ppm
-  include projects::ppmspa
-  include projects::devdashboard
   #---------------------------------------------------
 
   #osx

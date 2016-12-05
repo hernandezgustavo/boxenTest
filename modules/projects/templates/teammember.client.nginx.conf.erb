@@ -1,0 +1,11 @@
+server {
+  access_log <%= scope.lookupvar "nginx::config::logdir" %>/teammember-client.access.log main;
+  listen 80;
+  server_name devttm.daptiv.com;
+  ignore_invalid_headers off;
+
+  location / {
+    proxy_pass http://localhost:8080;
+  }
+
+}
