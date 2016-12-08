@@ -1,0 +1,8 @@
+tap homebrew/dupes
+
+cmake
+coreutils
+fzf
+grep
+reattach-to-user-namespace
+tmux

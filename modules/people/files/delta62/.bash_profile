@@ -34,7 +34,7 @@ NO_COLOR='\[\033[0;37m\]'
 PS1="${YELLOW}\w${NO_COLOR}${BLUE}\$(__git_ps1)${NO_COLOR}\n${GREEN}\W${NO_COLOR} ${YELLOW}#${NO_COLOR} "
 
 # General aliases
-alias ls="gls -lh --group-directories-first"
+# alias ls="gls -lh --group-directories-first"
 alias grep="ggrep -i --colour"
 
 # Add custom scripts from boxen to $PATH

@@ -1,8 +1,8 @@
 " Vundle configuration
-set nocompatible
+" set nocompatible
 filetype off
-set rtp +=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set rtp +=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
 
 " Vundle plugins
 Plugin 'gmarik/Vundle.vim'
@@ -10,7 +10,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'junegunn/fzf'
+" Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'JulesWang/css.vim'
 Plugin 'Shougo/vimproc.vim'
@@ -18,7 +18,7 @@ Plugin 'Quramy/tsuquyomi'
 Plugin 'elzr/vim-json'
 Plugin 'jiangmiao/auto-pairs'
 
-call vundle#end()
+" call vundle#end()
 filetype plugin indent on
 " end Vundle configuration
 
@@ -26,11 +26,11 @@ filetype plugin indent on
 set rtp+=~/.vim/manual/vimproc.vim
 
 " powerline
-set encoding=utf-8
-set laststatus=2
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+" set encoding=utf-8
+" set laststatus=2
+" python from powerline.vim import setup as powerline_setup
+" python powerline_setup()
+" python del powerline_setup
 
 " Fuzzy finder
 nnoremap <C-f> :GitFiles<CR>
@@ -67,7 +67,7 @@ set hlsearch
 set incsearch
 
 " Display hidden characters
-set list
+" set list
 set listchars=nbsp:¬,tab:»·
 
 " Misc
@@ -76,6 +76,7 @@ set ruler
 set number
 set autoread
 set clipboard=unnamed
+set colorcolumn=80
 set matchpairs+=<:>
 set scrolloff=5
 

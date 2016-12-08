@@ -22,10 +22,10 @@ class people::delta62 {
     target  => "${$boxen::config::repodir}/modules/people/files/delta62/.bash_profile"
   }
 
-  file { "${home}/.vimrc":
-    ensure => link,
-    target => "${boxen::config::repodir}/modules/people/files/delta62/.vimrc"
-  }
+  # file { "${home}/.vimrc":
+  #   ensure => link,
+  #   target => "${boxen::config::repodir}/modules/people/files/delta62/.vimrc"
+  # }
 
   include osx::no_network_dsstores
   include osx::finder::unhide_library
