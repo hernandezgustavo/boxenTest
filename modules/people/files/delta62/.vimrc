@@ -1,29 +1,23 @@
-" Vundle configuration
-" set nocompatible
-filetype off
-" set rtp +=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
+set nocompatible
 
 " Vundle plugins
-Plugin 'gmarik/Vundle.vim'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'mattn/emmet-vim'
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdcommenter'
+" Plugin 'gmarik/Vundle.vim'
+" Plugin 'sheerun/vim-polyglot'
+" Plugin 'mattn/emmet-vim'
+" Plugin 'tpope/vim-surround'
+" Plugin 'scrooloose/nerdcommenter'
 " Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'JulesWang/css.vim'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Quramy/tsuquyomi'
-Plugin 'elzr/vim-json'
-Plugin 'jiangmiao/auto-pairs'
+" Plugin 'junegunn/fzf.vim'
+" Plugin 'JulesWang/css.vim'
+" Plugin 'Shougo/vimproc.vim'
+" Plugin 'Quramy/tsuquyomi'
+" Plugin 'elzr/vim-json'
+" Plugin 'jiangmiao/auto-pairs'
 
-" call vundle#end()
 filetype plugin indent on
-" end Vundle configuration
 
 " vimproc
-set rtp+=~/.vim/manual/vimproc.vim
+" set rtp+=~/.vim/manual/vimproc.vim
 
 " powerline
 " set encoding=utf-8
@@ -48,7 +42,7 @@ endfunction
 nnoremap <silent> <C-b> :Buffers<CR>
 
 " Tsuquyomi
-nnoremap <F2> :TsuquyomiRenameSymbol<CR>
+" nnoremap <F2> :TsuquyomiRenameSymbol<CR>
 
 " Indentation
 " set expandtab
@@ -62,7 +56,6 @@ set formatoptions-=cro
 au BufWrite * :%s/\s\+$//e
 
 " Searching
-set path=,,src/**,lib/**,test/**,spec/**
 set hlsearch
 set incsearch
 
@@ -79,9 +72,6 @@ set clipboard=unnamed
 set colorcolumn=80
 set matchpairs+=<:>
 set scrolloff=5
-
-" set cursorline
-" hi CursorLine cterm=NONE ctermbg=darkgrey
 
 " l2vim
 nnoremap <up> <nop>
