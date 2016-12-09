@@ -6,7 +6,6 @@ class people::boskya {
   include zsh
   include chrome::canary
   include firefox
-  include atom
 
   $home = "/Users/${::boxen_user}"
 
@@ -44,9 +43,4 @@ class people::boskya {
       path => "${home}/.oh-my-zsh",
       force => true
   }
-  
-  # atom
-  atom::package {'language-typescript' : }
-  atom::package { 'linter-tslint' : }
-  atom::package { 'linter' : }
 }
