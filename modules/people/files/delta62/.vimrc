@@ -1,30 +1,16 @@
 set nocompatible
 
-" Vundle plugins
-" Plugin 'gmarik/Vundle.vim'
-" Plugin 'sheerun/vim-polyglot'
-" Plugin 'mattn/emmet-vim'
-" Plugin 'tpope/vim-surround'
-" Plugin 'scrooloose/nerdcommenter'
-" Plugin 'junegunn/fzf'
-" Plugin 'junegunn/fzf.vim'
-" Plugin 'JulesWang/css.vim'
-" Plugin 'Shougo/vimproc.vim'
-" Plugin 'Quramy/tsuquyomi'
-" Plugin 'elzr/vim-json'
-" Plugin 'jiangmiao/auto-pairs'
-
 filetype plugin indent on
 
 " vimproc
 " set rtp+=~/.vim/manual/vimproc.vim
 
 " powerline
-" set encoding=utf-8
-" set laststatus=2
-" python from powerline.vim import setup as powerline_setup
-" python powerline_setup()
-" python del powerline_setup
+set encoding=utf-8
+set laststatus=2
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
 " Fuzzy finder
 nnoremap <C-f> :GitFiles<CR>
@@ -45,10 +31,6 @@ nnoremap <silent> <C-b> :Buffers<CR>
 " nnoremap <F2> :TsuquyomiRenameSymbol<CR>
 
 " Indentation
-" set expandtab
-" set tabstop=4
-" set shiftwidth=4
-" set softtabstop=4
 set smartindent
 set formatoptions-=cro
 

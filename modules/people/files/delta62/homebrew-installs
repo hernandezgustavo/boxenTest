@@ -1,8 +1,0 @@
-brew tap homebrew/dupes
-
-brew install cmake
-brew install coreutils
-brew install fzf
-brew install grep
-brew install reattach-to-user-namespace
-brew install tmux
