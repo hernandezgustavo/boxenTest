@@ -17,15 +17,35 @@ class people::delta62 {
   }
 
   # Dotfiles
+  file { "${home/.git-completion.sh":
+    ensure => link,
+    target => "${boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
+  }
+
+  file { "${home/.git-prompt.sh":
+    ensure => link,
+    target => "${boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
+  }
+
   file { "${home}/.bash_profile":
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/delta62/.bash_profile"
   }
 
-  # file { "${home}/.vimrc":
-  #   ensure => link,
-  #   target => "${boxen::config::repodir}/modules/people/files/delta62/.vimrc"
-  # }
+  file { "${home}/.fzf.bash":
+    ensure => link,
+    target => "${boxen::config::repodir}/modules/people/files/delta62/.fzf.bash"
+  }
+
+  file { "${home}/.vimrc":
+    ensure => link,
+    target => "${boxen::config::repodir}/modules/people/files/delta62/.vimrc"
+  }
+
+  file { "${home}/.tmux.conf": {
+    ensure => link,
+    target => "${boxen::config::repodir}/modules/people/files/delta62/.tmux.conf"
+  }
 
   include osx::no_network_dsstores
   include osx::finder::unhide_library
