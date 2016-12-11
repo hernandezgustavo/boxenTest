@@ -47,6 +47,11 @@ class people::delta62 {
     target => "${boxen::config::repodir}/modules/people/files/delta62/.tmux.conf"
   }
 
+  file { "${home}/.config/powerline/bindings/tmux/powerline.conf":
+    ensure => link,
+    target => "${boxen::config::repodir}/modules/people/files/delta62/.config/powerline/bindings/tmux/powerline.conf"
+  }
+
   include osx::no_network_dsstores
   include osx::finder::unhide_library
 }
