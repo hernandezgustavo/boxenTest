@@ -3,14 +3,7 @@ class people::delta62 {
 
   # Programs
   include firefox
-  include chrome::canary
   include iterm2::dev
-  include screen
-  include apps::webstorm
-
-  # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
-  # Upload your vagrant vmware plugin license to /modules/people/files/<your github username>
-  # Update the path below to point to that file and uncomment this section.
 
   vagrant::plugin { 'vagrant-vmware-fusion':
     license => "${$boxen::config::repodir}/modules/people/files/delta62/VagrantVMWareFusionLicense_snoedel_jschnur.lic"
@@ -24,14 +17,39 @@ class people::delta62 {
   }
 
   # Dotfiles
+  file { "${home/.git-completion.sh":
+    ensure => link,
+    target => "${boxen::config::repodir}/modules/people/files/shared/git-completion.sh"
+  }
+
+  file { "${home/.git-prompt.sh":
+    ensure => link,
+    target => "${boxen::config::repodir}/modules/people/files/shared/git-prompt.sh"
+  }
+
   file { "${home}/.bash_profile":
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/delta62/.bash_profile"
   }
 
-  file { "${home}/.screenrc":
+  file { "${home}/.fzf.bash":
     ensure => link,
-    target => "${boxen::config::repodir}/modules/people/files/delta62/.screenrc"
+    target => "${boxen::config::repodir}/modules/people/files/delta62/.fzf.bash"
+  }
+
+  file { "${home}/.vimrc":
+    ensure => link,
+    target => "${boxen::config::repodir}/modules/people/files/delta62/.vimrc"
+  }
+
+  file { "${home}/.tmux.conf": {
+    ensure => link,
+    target => "${boxen::config::repodir}/modules/people/files/delta62/.tmux.conf"
+  }
+
+  file { "${home}/.config/powerline/bindings/tmux/powerline.conf":
+    ensure => link,
+    target => "${boxen::config::repodir}/modules/people/files/delta62/.config/powerline/bindings/tmux/powerline.conf"
   }
 
   include osx::no_network_dsstores

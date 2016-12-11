@@ -3,9 +3,9 @@
 # Change this to your username.
 GITHUB_USERNAME="delta62"
 
+export HISTCONTROL=ignorespace
+
 # Colors
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
 man() {
     env \
         LESS_TERMCAP_mb=$(printf "\e[1;31m") \
@@ -29,23 +29,18 @@ BLUE='\[\033[0;94m\]'
 GREEN='\[\033[0;32m\]'
 YELLOW='\[\033[0;33m\]'
 NO_COLOR='\[\033[0;37m\]'
-PS1="${YELLOW}\w${NO_COLOR}${BLUE}\$(__git_ps1)${NO_COLOR}\n${GREEN}\W${NO_COLOR} ${YELLOW}#${NO_COLOR} "
+PS1="$YELLOW\w$NO_COLOR$BLUE\$(__git_ps1)$NO_COLOR\n$GREEN\W$NO_COLOR $YELLOW#$NO_COLOR "
 
 # General aliases
-alias l="ls"
-alias ls="ls -lAh"
-alias grep="grep -i --colour"
-
-export DB_SERVER_NAME="WIN-2008R2SP1"
+alias ls="gls -lh --color --group-directories-first"
+alias grep="ggrep -i --colour"
 
 # Add custom scripts from boxen to $PATH
-export BOXEN_USER_FILES="$BOXEN_HOME/repo/modules/people/files/$GITHUB_USERNAME"
-export PATH="$PATH:$BOXEN_USER_FILES/bin"
-
+export PATH="$PATH:$BOXEN_HOME/repo/modules/people/files/$GITHUB_USERNAME/bin"
 
 # Make VIM ex commands aliases to their shell counterparts
-alias :fin="find"
 alias :q="exit"
+alias :e="vim"
 
 # Git bindings
 delta62_git_alias() {
