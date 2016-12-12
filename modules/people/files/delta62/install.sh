@@ -9,6 +9,7 @@ brew tap homebrew/dupes
 
 # Install stuff from Homebrew
 brew install bash
+brew install ccat
 brew install cmake
 brew install coreutils
 brew install fzf
