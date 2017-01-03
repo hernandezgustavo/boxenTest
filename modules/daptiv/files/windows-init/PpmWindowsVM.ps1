@@ -22,4 +22,13 @@ chef-client -j oic.json
 cd C:/src/Ppm
 chef-client -r "daptiv_dev_ppm_role::deploy_ppm,minitest-handler"
 
+#setup rm server
+git clone git@github.com:daptiv/Daptiv.Services.ResourceManagement C:/src/Daptiv.Services.ResourceManagement
+cd C:/src/Daptiv.Services.ResourceManagement
+bundle install
+bundle exec rake
+chef-client -j rm.json -o "daptiv_services_resourcemanagement::default,minitest-handler"
+
+cd C:/src
+
 chef-client -o beyondcompare

@@ -2,8 +2,7 @@ class apps::java {
   include brewcask
 
   exec { 'install java if not there':
-    command   => 'sudo brew cask install java',
-    user => 'root',
+    command   => 'brew cask install java',
     unless => 'java'
   }
 }

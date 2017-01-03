@@ -28,7 +28,7 @@ if [ -z "$VAGRANT_DEFAULT_PROVIDER" ]
   then export VAGRANT_DEFAULT_PROVIDER=virtualbox
 fi
 
-export VAGRANT_SERVER_URL=http://vagrantboxes.hq.daptiv.com
+export VAGRANT_SERVER_URL=http://artrepo.daptiv.com:8081/artifactory/installs/
 export CHEF_DATA_BAGS=~/src/chef-repo/data_bags
 export CHEF_SECRET_FILE=~/.chef/ops_encrypted_data_bag_secret
 

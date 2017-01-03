@@ -1,11 +1,16 @@
 # Replace name of all the "dizard2001" with your github username
 # if you have a dash (-) in your username use an underscore (_) instead
 class people::dizard2001 {
+  include projects::projecttaskboard
+  
   $home = "/Users/${::boxen_user}"
 
-  vagrant::plugin { 'vmware-fusion':
-    license => "${$boxen::config::repodir}/modules/people/files/dizard2001/VagrantVMWareFusionLicense_danderson.lic"
-  }
+  # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
+  # Upload your vagrant vmware plugin license to /modules/people/files/<your github username>
+  # Update the path below to point to that file and uncomment this section.
+  #vagrant::plugin { 'vagrant-vmware-fusion':
+  #  license => "${$boxen::config::repodir}/modules/people/files/dizard2001/LICENSE-2-vagrant-vmware-provider-license_20_seats.lic"
+  #}
 
   git::config::global { 'user.email':
     value  => 'darrel.anderson@changepoint.com'

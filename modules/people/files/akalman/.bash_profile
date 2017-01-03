@@ -1,6 +1,6 @@
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-export PATH=~/bin:/opt/local/bin:$PATH
+export PATH=/opt/nodes/6.9.1/bin:~/bin:/opt/local/bin:$PATH
 export EDITOR='vim';
 export DB_SERVER_NAME='WIN-2012R2'
 export VAGRANT_DEFAULT_PROVIDER=vmware_fusion

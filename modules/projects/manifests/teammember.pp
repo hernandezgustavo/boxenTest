@@ -2,23 +2,19 @@ class projects::teammember () {
   include boxen::config
   include apps::nodejs
   include apps::phantomjs
+  include projects::consul
+  include projects::featureflag
 
   host { 'teammember-client':
-    name         => 'tm.daptiv.com',
+    name         => 'devttm.daptiv.com',
     comment      => 'routing for teammember client',
     ip           => '127.0.0.1'
   }
 
   host { 'teammember-api':
-    name         => 'tm-api.daptiv.com',
+    name         => 'devttmapi.daptiv.com',
     comment      => 'routing for teammember api',
     ip           => '127.0.0.1'
-  }
-
-  host { 'workwisedev':
-    name         => 'workwisedev.daptiv.com',
-    comment      => 'routing for workwise app to default docker host ip',
-    ip           => '192.168.99.100'
   }
 
   boxen::project { 'teammember-client':
