@@ -1,0 +1,4 @@
+{
+  "vmware_fusion::url_base": "http://artrepo.daptiv.com:8081/artifactory/installs/installs/VMWare%20Fusion/Fusion7",
+  "vmware_fusion::version": "7.1.1-2498930"
+}

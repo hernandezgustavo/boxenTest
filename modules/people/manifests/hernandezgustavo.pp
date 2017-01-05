@@ -4,24 +4,9 @@ class people::hernandezgustavo {
 
   $home = "/Users/${::boxen_user}"
 
-
-  #OSX Config
-  include osx::finder::show_hidden_files
+  #Apps
   include vagrant
   include vmware_fusion
-  include chrome
-  include flowdock
-  include nodejs
-  include google_notifier
-  include spotify
-  include fluid
-  include trailer
-  include skitch
-  # atom
-  include atom
-  atom::package {'language-typescript' : }
-  atom::package { 'linter-tslint' : }
-  atom::package { 'linter' : }
 
   # To automatically have the vagrant vmware windows plugin license entered for you, do the following:
   # Upload your vagrant vmware plugin license to /modules/people/files/<your github username>
@@ -44,6 +29,11 @@ class people::hernandezgustavo {
   file { "${home}/.bash_profile":
     ensure  => link,
     target  => "${$boxen::config::repodir}/modules/people/files/hernandezgustavo/.bash_profile"
+  }
+
+  file { "${home}/.bashrc":
+    ensure => link,
+    target => "${$boxen::config::repodir}/modules/people/files/hernandezgustavo/.bashrc"
   }
 
 }
