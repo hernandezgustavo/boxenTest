@@ -1,4 +1,4 @@
-This is for test only 2
+NEW FILE AND FOLDER
 # Our Boxen
 
 Welcome to Daptiv OS X setup, please follow the getting started instructions below.
